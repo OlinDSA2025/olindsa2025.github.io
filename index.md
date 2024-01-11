@@ -10,33 +10,34 @@ header:
 
 | Day #      | Activity |
 | ----------- | ----------- |
-| 1     | Course intro and welcome to DSA! |
-| 2     | Basic Kotlin Programming |
-| 3     | More Kotlin Programming and arrays as data structures |
-| 4     | Singly linked lists and `O()` notation |
-| 5     | Abstract Datatypes (ADTs), Stacks, and Queues |
+| 1     | [Course intro and welcome to DSA!](in_class/day01) |
+
+<!--
+| 2     | Kotlin Programming |
+| 3     | Arrays, Singly linked lists and `O()` notation |
+| 4     | Abstract Datatypes (ADTs), Stacks, and Queues |
 | 6     | Graph data structures, depth-first and breadth-first search |
-| 7     | Greedy algorithms |
-| 8     | Greedy algorithms (continued) |
-| 9     | Dijkstra's algorithm |
-| 10     | A-Star |
-| 11    | Graph analysis via Pagerank |
-| 12    | Dynamic programming and proofs by induction (day 1) |
-| 13    | Dynamic programming and proofs by induction (day 2) |
-| 14    | Sorting |
-| 15    | Matrix multiplication |
-| 16    | Hash maps |
-| 17    | String matching algorithms |
+| 7     | Shortest path algorithms for graphs (Dijkstra)
+| 8     | A-Star and other shortest path algorithms |
+| 9     | Greedy algorithms |
+| 10    | Hash maps |
+| 11    | String matching algorithms |
+| 12    | String matching algorithms (continued)
+| 13    | Graph analysis via Pagerank |
+| 14    | Dynamic programming and proofs by induction  |
+| 15    | Dynamic programming and proofs by induction (continued) |
+| 16    | Sorting |
+| 17    | Matrix multiplication |
 | 18    | Trees |
 | 19    | Linear and binary search |
 | 20    | Heaps |
 | 21    | KD-Trees |
 | 22    | Heaps |
 | 23    | Backtracking |
-| 24    | Deep dive studio day |
+| 24    | Optimization algorithms overview |
 | 25    | Deep dive studio day |
 | 26    | Deep dive studio day |
-
+-->
 ## Motivating Examples
 
 * Genomic analysis
@@ -53,10 +54,10 @@ header:
 * Beyond worst case complexity
 * Approximation algorithms
 
-##  Homeworks
+##  Assignments
 
 | Due at beginning of class #     | Assignment |
 | ----------- | ----------- |
-|  2 | Hello Kotlin and course entrance survey |
-|  4 | Some sort of Kotlin assignment (with an algorithmic flair) |
-|  6 | Linked lists, stacks, and queues |
+|  3 | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
+|  5 | [Stacks, Queues, and Lists](assignments/assignment_02) |
+|  7 | Graphs and graph searching
