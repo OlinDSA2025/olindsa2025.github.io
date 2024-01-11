@@ -5,11 +5,8 @@ toc_sticky: true
 
 ## Course Entry Survey
 
-TODO
 
-## Algorithms in the World
-
-TODO
+Please [fill this out](https://docs.google.com/forms/d/e/1FAIpQLScJegi7KGH3-TvK7R0ImdSJHRrENx9AuBfAB6pKXzm60bPncw/viewform).  I want to get a better sense for what you are hoping to get out of this course, what your background is, and how I can make this course work well for you.
 
 
 ## Hello Kotlin!
