@@ -5,9 +5,33 @@ toc_sticky: true
 
 ## Course Structure and Major Topics
 
+The goal of this course is for you to learn how to frame problems formally and ultimately select appropriate data structures and algorithms to solve them.  We'll get more into what we mean by framing problems later (there is an example later today), but for now I want to focus on the sorts of problems we will be tackling and the algorithmic strategies we will be using to solve them.
 
+### Data Structures
+
+* Data structures as supports for algorithms.  Ultimately, data structures are useful to solve certain problems.  There are a number of properties we might care about when we select a data structure.  Can we brainstorm some as a class?
+* We'll be learning about basic linked data structures (linked lists, stacks, queues), data structures to represent graphs, and tree-based data structures (e.g., binary search trees or heaps).
+
+### Algorithmic Design Patterns
+
+
+### Analyzing Algorithms
+
+
+### Specific Algorithms
+
+
+### Algorithmic Deep Dive
+
+
+### Implementing and Testing
+
+TODO
 
 ## Algorithms in the World
+
+
+
 
 
 ## Peak Finding
@@ -21,9 +45,5 @@ With some folks around you answer the following questions:
 
 1. Test
 2. Test 2
-
-
-
-
 
 

@@ -6,6 +6,10 @@ header:
   overlay_filter: "0.4"
 ---
 
+## How-tos
+
+* [Get set with Kotlin](how_to/setting_up_kotlin)
+
 ## In-class Activities
 
 | Day #      | Activity |
@@ -38,6 +42,9 @@ header:
 | 25    | Deep dive studio day |
 | 26    | Deep dive studio day |
 -->
+
+
+<!--
 ## Motivating Examples
 
 * Genomic analysis
@@ -46,18 +53,21 @@ header:
 * Computer networks
 * Navigation (routing)
 * Encryption
+-->
 
+<!--
 ## Some problems / extensions
 
 * Peak finder (MIT OCW motivating problem)
 * 15 puzzle or 2x2 Rubik's cube
 * Beyond worst case complexity
 * Approximation algorithms
+-->
 
 ##  Assignments
 
 | Due at beginning of class #     | Assignment |
 | ----------- | ----------- |
 |  3 | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
-|  5 | [Stacks, Queues, and Lists](assignments/assignment_02) |
+|  5 | Stacks, Queues, and Lists |
 |  7 | Graphs and graph searching

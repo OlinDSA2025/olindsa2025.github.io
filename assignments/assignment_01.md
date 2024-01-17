@@ -20,7 +20,7 @@ Go through [the Kotlin tour](https://kotlinlang.org/docs/kotlin-tour-welcome.htm
 
 > Turning in your work: You don't have to turn in the code you write for the tour.  Please let me know that you did indeed finish the tour and turn in your answers to the questions above.
 
-## Porting Your Old Code to Kotlin
+## Translating Your Old Code to Kotlin
 
 Choose a piece of code that you've written in a programming language other than Kotlin.  Translate the code to run in Kotlin.  For simplicity, you may want to choose some code that will not require interacting with a lot of external libraries.  Let me know if you want advice on this code.
 
