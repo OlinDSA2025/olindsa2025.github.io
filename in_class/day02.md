@@ -54,10 +54,10 @@ With your group, explain how the formal definitions (given earlier) relate to th
 
 ### Practice Problems
 
-1. Show that $$n = O(n^2)$$
+1. Show that $$10000 n = O(n^2)$$
 2. Show that $$n^2 \neq O(n)$$.
-3. Show that any polynomial is $$O(2^n)$$
-4. Show that $$3^n = \Omega(2^n)$$
+3. Show that $$\frac{3^n}{10000} = \Omega(2^n)$$
+4. Show that any polynomial is $$O(2^n)$$
 
 This problem is from former Olin Professor Allen Downey's Think Python second edition.   In this context, order of growth can be understood to mean $$\Theta$$.  I made one modification to part 3 of the exercise.
 
