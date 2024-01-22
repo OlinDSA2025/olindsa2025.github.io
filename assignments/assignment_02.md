@@ -30,3 +30,7 @@ https://leetcode.com/tag/stack/
 https://leetcode.com/problems/simplify-path/
 
 https://leetcode.com/problems/valid-parentheses/
+
+## Proof by Induction (we'll need this later)
+
+Todo

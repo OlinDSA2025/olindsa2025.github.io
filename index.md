@@ -12,12 +12,12 @@ header:
 
 ## In-class Activities
 
-| Day #      | Activity |
-| ----------- | ----------- |
-| 1     | [Course intro and welcome to DSA!](in_class/day01) |
+| Day #      | Activity                                                                     |
+| ----------- |------------------------------------------------------------------------------|
+| 1     | [Course intro and welcome to DSA!](in_class/day01)                           |
+| 2     | [Greedy Algorithms Teaser, Order of Growth, and Some Kotlin](in_class/day02) |
 
 <!--
-| 2     | Kotlin Programming |
 | 3     | Arrays, Singly linked lists and `O()` notation |
 | 4     | Abstract Datatypes (ADTs), Stacks, and Queues |
 | 6     | Graph data structures, depth-first and breadth-first search |
