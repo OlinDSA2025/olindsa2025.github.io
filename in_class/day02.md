@@ -3,6 +3,10 @@ title: "Day 2: Programming in Kotlin"
 toc_sticky: true
 ---
 
+## Announcements and Reminders
+
+* If you want a supplemental book to the course material, I recommend you get [this book](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/).  I'll be sampling an exercise from it here or there, and it has comprehensive explanations of many of the course topics.  That said, I won't be assigning reading from it (any readings will be ones that are freely available on the web).
+
 ## Algorithm Design Patterns Whirlwind Tour
 
 We're going to take a few classes to get a feel for the various algorithmic design patterns we will meet this semester.  During class 1, we met the design pattern *divide and conquer*.  Today, we'll be learning about greedy algorithms.
