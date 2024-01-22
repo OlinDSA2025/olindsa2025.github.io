@@ -11,7 +11,17 @@ toc_sticky: true
 
 We're going to take a few classes to get a feel for the various algorithmic design patterns we will meet this semester.  During class 1, we met the design pattern *divide and conquer*.  Today, we'll be learning about greedy algorithms.
 
+Wikipedia has a concise definition of a greedy algorithm.
+
+> A greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage.
+
+The question becomes, does the greedy strategy lead to a solution to the problem?  In some cases it may lead to a solution, and in other cases it may lead to a less optimal solution.
+
+Here are some problems to get you thinking.
+
 > Suppose you have a budget of $$N$$ dollars to purchase flour and that flour can be purchased on day $$i$$ for $$x_i$$ dollars per pound.  Determine the maximum pounds of flour you can purchase with your budget.  Is your algorithm a greedy algorithm?
+
+> Suppose you are planning a road trip of $$N$$ miles.  Your car can go $$M$$ miles on a full tank of gas.  There are gas stations located at mile $$x_1, x_2, \ldots, x_k$$ along the route.  Come up with a strategy for choosing which gas stations to fill your tank at such that you minimize the number of gas station stops.  Is your strategy guaranteed to find the minimum number?  Make an argument as to why or why not.
 
 > Determine a greedy algorithm for making change for $$N$$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?
  
