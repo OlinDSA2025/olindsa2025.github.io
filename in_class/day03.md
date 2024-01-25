@@ -52,7 +52,8 @@ We call the specification of a set of operations (or semantics) for a data type 
 * Insert at a new element at position $$i$$
 * Delete element at position $$i$$
 * Access element at position $$i$$
-* Append a new element
+* Append an element to the end of the list
+* etc.
 
 The actual implementation of this abstract data type (called a concrete data type) could use a linked list or an array (or something more exotic) as the underlying data structure.  Determining what concrete data type to use to implement a specific ADT will depend on the operations are most important for your application (you'll want to make those fast).  Perhaps, you could even create different implementations of the same ADT for different use cases (e.g., if you care about accessing elements quickly or adding new elements).
 
