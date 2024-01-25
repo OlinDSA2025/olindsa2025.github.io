@@ -12,7 +12,7 @@ In this assignment you will be implementing a doubly linked list in Kotlin.  You
 Implement a doubly linked list in Kotlin.  Your class should work with any data type (use [Kotlin's generics](https://kotlinlang.org/docs/generics.html)) and support the following operations (we use ``T`` to refer to the data type stored in the underlying linked list..
 
 ```kotlin
-fun pushFront(data; T)
+fun pushFront(data: T)
 fun pushBack(data: T)
 fun popFront(): T?
 fun popBack(): T?
