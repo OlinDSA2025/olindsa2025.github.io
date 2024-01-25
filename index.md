@@ -70,5 +70,5 @@ header:
 | Due at beginning of class #     | Assignment |
 | ----------- | ----------- |
 |  3 | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
-|  5 | Stacks, Queues, and Lists |
+|  5 | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
 |  7 | Graphs and graph searching
