@@ -80,7 +80,7 @@ The Queue abstract data type is:
 ```kotlin
 interface Queue<T> {
     /**
-     * Add [data] to the front of the queue.
+     * Add [data] to the end of the queue.
      */
     fun enqueue(data: T)
     /**
