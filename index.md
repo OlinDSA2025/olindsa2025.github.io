@@ -17,6 +17,7 @@ header:
 | 1     | [Course intro and welcome to DSA!](in_class/day01) |
 | 2     | [Greedy Algorithms Teaser, Order of Growth, and Some Kotlin](in_class/day02) |
 | 3     | [Arrays, Linked Lists, and Intro to Abstract Datatypes](in_class/day03) |
+| 4     | [Implementing a Stack in Kotlin](in_class/day04)
 
 <!--
 | 3     | Arrays, Singly linked lists and `O()` notation |
