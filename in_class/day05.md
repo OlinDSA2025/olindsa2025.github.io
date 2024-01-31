@@ -42,3 +42,5 @@ operator fun get(index: Int):T
  */
 operator fun set(index: Int, value: T)
 ```
+
+Use this link to access [my solutions for this exercise](https://github.com/OlinDSA2024/Day05Finished).
