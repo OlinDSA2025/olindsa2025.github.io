@@ -33,7 +33,7 @@ fun size(): Int
  * @param index the index to return
  * @return the element at [index]
  */
-operator fun get(index: Int)
+operator fun get(index: Int):T
 
 /**
  * Store [value] at position [index]
