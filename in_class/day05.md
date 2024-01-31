@@ -30,15 +30,15 @@ fun clear()
 fun size(): Int
 
 /**
- * @parameter index the index to return
- * @returns the element at [index]
+ * @param index the index to return
+ * @return the element at [index]
  */
 operator fun get(index: Int)
 
 /**
  * Store [value] at position [index]
- * @parameter index the index to set
- * @parameter the value to store at [index]
+ * @param index the index to set
+ * @param the value to store at [index]
  */
 operator fun set(index: Int, value: T)
 ```
