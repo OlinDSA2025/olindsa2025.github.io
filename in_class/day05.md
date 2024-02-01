@@ -45,7 +45,23 @@ operator fun set(index: Int, value: int)
 
 ### Timing your code
 
-You can add the following code to your ``main()`` function to see how efficient your class is for different list sizes.  If you 
+You can add the following code to your ``main()`` function to see how efficient your class is for different list sizes.
+
+```kotlin
+fun main() {
+    val arraySizes = listOf(100, 1000, 10000, 100000, 1000000, 10000000, 100000000)
+    println("numberOfElements totalTime timePerElement")
+    for (arraySize in arraySizes) {
+        val myList = MyMutableIntList()
+        val timeTaken = measureTime {
+            for (i in 0..<arraySize) {
+                myList.add(i)
+            }
+        }
+        println("$arraySize $timeTaken ${timeTaken/arraySize}")
+    }
+}
+```
 
 If you find it useful, you can use this link to access [my solutions for this exercise](https://github.com/OlinDSA2024/Day05Finished).
 
