@@ -12,19 +12,16 @@ header:
 
 ## In-class Activities
 
-| Day # | Activity                                                    |
-|-------|-------------------------------------------------------------|
-| 1     | [Course intro and welcome to DSA!](in_class/day01) |
-| 2     | [Greedy Algorithms Teaser, Order of Growth, and Some Kotlin](in_class/day02) |
-| 3     | [Arrays, Linked Lists, and Intro to Abstract Datatypes](in_class/day03) |
-| 4     | [Implementing a Stack in Kotlin](in_class/day04)
-| 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)
-
+| Day # | Activity                                                                      |
+|-------|-------------------------------------------------------------------------------|
+| 1     | [Course intro and welcome to DSA!](in_class/day01)                            |
+| 2     | [Greedy Algorithms Teaser, Order of Growth, and Some Kotlin](in_class/day02)  |
+| 3     | [Arrays, Linked Lists, and Intro to Abstract Datatypes](in_class/day03)       |
+| 4     | [Implementing a Stack in Kotlin](in_class/day04)                              
+| 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)                       
+| 6     | [Graph data structures, depth-first and breadth-first search](in_class/day06) |
 
 <!--
-| 3     | Arrays, Singly linked lists and `O()` notation |
-| 4     | Abstract Datatypes (ADTs), Stacks, and Queues |
-| 6     | Graph data structures, depth-first and breadth-first search |
 | 7     | Shortest path algorithms for graphs (Dijkstra)
 | 8     | A-Star and other shortest path algorithms |
 | 9     | Greedy algorithms |
