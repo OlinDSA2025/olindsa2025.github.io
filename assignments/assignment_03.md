@@ -12,7 +12,6 @@ You should fork this base [Assignment03 repo](https://github.com/OlinDSA2024/Ass
 Create a Kotlin class to represent graphs a directed, weighted graph.  Your graph should implement the ``Graph<VertexType>`` interface (in the base repo).
 
 ```kotlin
-
 /**
  * This is a simple ``Graph`` that represents a directed graph
  * @param VertexType the representation of a vertex in the graph
