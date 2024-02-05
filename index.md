@@ -67,8 +67,8 @@ header:
 
 ##  Assignments
 
-| Due at beginning of class #     | Assignment |
-| ----------- | ----------- |
-|  3 | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
-|  5 | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
-|  7 | [Graphs and graph traversal](assignments/assignment_03)
+| Due at beginning of class # | Assignment |
+|-----------------------------| ----------- |
+| 3                           | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
+| 6                           | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
+| 8                           | [Graphs and graph traversal](assignments/assignment_03)
