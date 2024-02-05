@@ -71,4 +71,4 @@ header:
 | ----------- | ----------- |
 |  3 | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
 |  5 | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
-|  7 | Graphs and graph searching
+|  7 | [Graphs and graph traversal](assignments/assignment_03)

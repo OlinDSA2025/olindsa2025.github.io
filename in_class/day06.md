@@ -110,11 +110,15 @@ return false // no path
 
 ### Problem 1
 
+Looking at the pseudocode above, what is the role of the ``toVisit`` list?  What might happen if we removed it?
+
+### Problem 2
+
 Given the pseudocode above and the ``Graph`` class, implement breadth-first search (BFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.
 
 > Hint: think long and hard about what data structures you've learned about would achieve the desired prioritization of nodes.
 
-### Problem 2
+### Problem 3
 
 Given the pseudocode above and the ``Graph`` class, implement depth-first search (DFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.
 
