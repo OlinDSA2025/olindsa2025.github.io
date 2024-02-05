@@ -7,7 +7,9 @@ toc_sticky: true
 
 Last time, I asked you to think about the [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list), which is a particular way to represent graphs in a computer program.
 
-To get us on the same page let's use the following definition of a Graph.
+Let's take a few minutes as a class to make sure we understand what we mean by adjacency list.
+
+To get us on the same page let's use the following definition of a Graph.  We've made a small adjustment here to use sets instead of lists to represent our connections.
 
 ```kotlin
 class Graph<VertexType> {
@@ -75,7 +77,7 @@ In this class we will be mainly concerned with the shortest path problem.
 
 There are tons of problems that can be cast as graph traversal problems.  Let's think of a few as a class.  To get us started what are some problems that can be converted into graphs?
 
-We're going to learn about four different methods for graph traversal in this class.  Today, we'll talk about the first two.
+We're going to learn about four different methods for graph traversal in this class: breadth-first search, depth-first search, Dijkstra's algorithm, and A-Star search. Today, we'll talk about the first two.
 
 ### Breadth-First Search (BFS)
 
