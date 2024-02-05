@@ -99,7 +99,7 @@ priorityList.add(root)
 toVisit.add(root)
 
 while priorityList is not empty:
-    n ← priorityList.getHighestPriorityElement()
+    n ← priorityList.popHighestPriorityElement()
     if n == target:
         return true // path exists
     for m in nodesConnectedTo(n):
