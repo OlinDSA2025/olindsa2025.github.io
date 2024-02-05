@@ -112,17 +112,17 @@ return false // no path
 
 ### Problem 1
 
-Looking at the pseudocode above, what is the role of the ``toVisit`` list?  What might happen if we removed it?
+Looking at the pseudocode above, what is the role of the variable ``toVisit``?  What might happen if we removed it?
 
 ### Problem 2
 
-Given the pseudocode above and the ``Graph`` class, implement breadth-first search (BFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.
+Given the pseudocode above and the ``Graph`` class, implement breadth-first search (BFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.  I recommend you start with some pseudocode before firing up IntelliJ.
 
 > Hint: think long and hard about what data structures you've learned about would achieve the desired prioritization of nodes.
 
 ### Problem 3
 
-Given the pseudocode above and the ``Graph`` class, implement depth-first search (DFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.
+Given the pseudocode above and the ``Graph`` class, implement depth-first search (DFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.  I recommend you start with some pseudocode before firing up IntelliJ.
 
 > Hint: think long and hard about what data structures you've learned about would achieve the desired prioritization of nodes.
 
@@ -135,7 +135,7 @@ Here are some resources for visualizing graph searching algorithms.
 
 ## Graph Properties
 
-We probably won't have a ton of time to work with these during class today, but here are some useful properties of graphs.  You will have to implement some of these in the assignment.
+We probably won't have a ton of time to work with these during class today, but here are some useful properties of graphs.  If you have time, go ahead and implement (either in pseudocode or Kotlin) one or more of them.
 
 ### Number of Connected Components
 
