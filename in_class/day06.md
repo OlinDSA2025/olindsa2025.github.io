@@ -3,6 +3,7 @@ title: "Day 6: Graph data structures, depth-first and breadth-first search"
 toc_sticky: true
 ---
 
+
 ## Adjacency Lists 
 
 Last time, I asked you to think about the [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list), which is a particular way to represent graphs in a computer program.
@@ -172,3 +173,7 @@ else
 An undirected graph is a tree if there is exactly one path between any pair of nodes.  This is guaranteed if the graph is connected and the total number of edges if equal to the number of vertices minus 1.
 
 A directed graph is a tree if it is acyclic and the graph the results from making the edges undirected is a tree.
+
+## Sample Solutions
+
+Sample solutions for today are in [the Github repo](https://github.com/OlinDSA2024/DSA2024InClass) as a module.

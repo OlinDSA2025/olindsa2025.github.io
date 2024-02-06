@@ -12,6 +12,8 @@ header:
 
 ## In-class Activities
 
+[Sample solutions for in-class assignments](https://github.com/OlinDSA2024/DSA2024InClass) will be made available on Github.
+
 | Day # | Activity                                                                      |
 |-------|-------------------------------------------------------------------------------|
 | 1     | [Course intro and welcome to DSA!](in_class/day01)                            |

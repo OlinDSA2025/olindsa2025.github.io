@@ -3,6 +3,8 @@ title: "Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs"
 toc_sticky: true
 ---
 
+
+
 ## Kotlin Arrays and Creating Our Own Mutable List
 
 Kotlin has a built-in ``Array`` class ([documentation](https://kotlinlang.org/docs/arrays.html)) that can be used in much the same way as ``List`` (and mutable list).  The restrictions on ``Array`` mean that we can't add elements to it.
@@ -84,3 +86,8 @@ Specifications:
 * At a minimum, your class should support the ability to add new vertices, add new edges, and get the list of vertices that are connected to a given vertex.
 
 > Note: I expect there will be lots of questions on this, so please don't hestitate to call me over.
+
+
+## Sample Solutions
+
+Sample solutions for today are in [the Github repo](https://github.com/OlinDSA2024/DSA2024InClass) as a module.
