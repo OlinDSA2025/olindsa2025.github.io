@@ -19,32 +19,22 @@ The question becomes, does the greedy strategy lead to a solution to the problem
 
 Here are some problems to get you thinking.
 
-> Suppose you have a budget of $$N$$ dollars to purchase flour and that flour can be purchased on day $$i$$ for $$x_i$$ dollars per pound.  Determine the maximum pounds of flour you can purchase with your budget.  Is your algorithm a greedy algorithm?
+> Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum pounds of flour you can purchase with your budget.  Is your algorithm a greedy algorithm?
 
-> Suppose you are planning a road trip of $$N$$ miles.  Your car can go $$M$$ miles on a full tank of gas.  There are gas stations located at mile $$x_1, x_2, \ldots, x_k$$ along the route.  Come up with a strategy for choosing which gas stations to fill your tank at such that you minimize the number of gas station stops.  Is your strategy guaranteed to find the minimum number?  Make an argument as to why or why not.
+> Suppose you are planning a road trip of $N$ miles.  Your car can go $M$ miles on a full tank of gas.  There are gas stations located at mile $x_1, x_2, \ldots, x_k$ along the route.  Come up with a strategy for choosing which gas stations to fill your tank at such that you minimize the number of gas station stops.  Is your strategy guaranteed to find the minimum number?  Make an argument as to why or why not.
 
-> Determine a greedy algorithm for making change for $$N$$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?
+> Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?
  
 > If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?
 
 ## O() and Friends
 
-$$f(x) = O(g(x))$$ if there exists a positive real number $$M$$ and a real number $$x_0$$ such that,
-$$
-\begin{align}
-|f(x)| \leq M g(x)~~\mbox{for all}~~x \geq x_0
-\end{align}
-$$
+We say that $f(x) = O(g(x))$ if there exists a positive real number $M$ and a real number $x_0$ such that, $\|f(x)\| \leq M g(x)~\mbox{for all}~x\geq x_0$.
 
-$$f(x) = \Omega(g(x))$$ if there exists a positive real number $$M$$ and a real number $$x_0$$ such that,
 
-$$
-\begin{align}
-|f(x)| \geq M g(x)~~\mbox{for all}~~x \geq x_0
-\end{align}
-$$
+$f(x) = \Omega(g(x))$ if there exists a positive real number $M$ and a real number $x_0$ such that, $\|f(x)\|\geq M g(x)~\mbox{for all}~x \geq x_0$
 
-We say that $$f(x) = \Theta(g(x))$$ if $$f(x) = O(g(x))$$ and $$f(x) = \Omega(g(x))$$.
+We say that $f(x) = \Theta(g(x))$ if $f(x) = O(g(x))$ and $f(x) = \Omega(g(x))$.
 
 Here is a handy figure from "Introduction to Algorithms" by Cormen, Leiserson, Rivest, and Stein.
 
@@ -54,19 +44,19 @@ With your group, explain how the formal definitions (given earlier) relate to th
 
 ### Practice Problems
 
-1. Show that $$10000 n = O(n^2)$$
-2. Show that $$n^2 \neq O(n)$$.
-3. Show that $$\frac{3^n}{10000} = \Omega(2^n)$$
-4. Show that any polynomial is $$O(2^n)$$
+1. Show that $10000 n = O(n^2)$
+2. Show that $n^2 \neq O(n)$.
+3. Show that $\frac{3^n}{10000} = \Omega(2^n)$
+4. Show that any polynomial is $O(2^n)$
 
-This problem is from former Olin Professor Allen Downey's Think Python second edition.   In this context, order of growth can be understood to mean $$\Theta$$.  I made one modification to part 3 of the exercise.
+This problem is from former Olin Professor Allen Downey's Think Python second edition.   In this context, order of growth can be understood to mean $\Theta$.  I made one modification to part 3 of the exercise.
 
-* What is the order of growth of $$n^3 + n^2$$? What about $$1000000 n^3 + n^2$$? What about $$n^3 + 1000000 n^2$$?
-* What is the order of growth of $$(n^2 + n)(n + 1)$$?
-* If $$f$$ is in $$O(g)$$ and $$g$$ is a continuously increasing functions that grows infinitely large as $$n \rightarrow \infty$$, what can we say about $$af+b$$, where $$a$$ and $$b$$ are constants?
-* If $$f_1$$ and $$f_2$$ are in $$O(g)$$, what can we say about $$f_1 + f_2$$?
-* If $$f_1$$ is in $$O(g)$$ and $$f_2$$ is in $$O(h)$$, what can we say about $$f_1 + f_2$$?
-* If $$f_1$$ is in $$O(g)$$ and $$f_2$$ is $$O(h)$$, what can we say about $$f_1 \times f_2$$?
+* What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?
+* What is the order of growth of $(n^2 + n)(n + 1)$?
+* If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?
+* If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?
+* If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?
+* If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?
 
 ## Kotlin versus Python
 
