@@ -22,6 +22,8 @@ header:
 | 4     | [Implementing a Stack in Kotlin](in_class/day04)                              
 | 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)                       
 | 6     | [Graph data structures, depth-first and breadth-first search](in_class/day06) |
+| 7     | [DAGs, Dijkstra's Algorithm, and Heaps](in_class/day07) |
+
 
 <!--
 | 7     | Shortest path algorithms for graphs (Dijkstra)

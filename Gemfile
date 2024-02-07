@@ -17,6 +17,7 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
   gem "jekyll-algolia"
   gem "rouge"
+  gem 'jekyll-spaceship'
 end
 
 gem "webrick", "~> 1.8"
