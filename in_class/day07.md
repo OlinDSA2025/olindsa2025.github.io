@@ -5,7 +5,7 @@ toc_sticky: true
 
 ## Directed-Acyclic Graphs
 
-Starting off, let's revisit a problem that most of you didn't get to from last class.  This is the problem of determining of a given directed graph is acyclic. To motivate this, let's consider the following graph.
+Starting off, let's revisit a problem that most of you didn't get to from last class.  This is the problem of determining if a given directed graph is acyclic. To motivate this, let's consider the following graph.
 
 ```mermaid!
 graph LR
@@ -18,11 +18,11 @@ graph LR
   D --> E
 ```
 
-Perhaps unsurprisingly, a directed graph is a directed acyclic graph ([DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)) if it contains no cycles.  Cycles are paths through the graph that repeat vertices.
+Perhaps unsurprisingly, a graph is a directed acyclic graph ([DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)) if it is both directed and contains no cycles.  Cycles are paths through the graph that repeat vertices.
 
-One of the supplementary problems in the last class is an algorithm known as Kahn's algorithm for determining if a graph is a DAG.  More specifically, it computes a topological sorting of the vertices of the graph, and if a sorting exists, the graph has no cycles.  A topological sorting of a graph is an ordering of the graph's vertices $v_1, v_2, \ldots, v_n$ such that the edge $v_i \rightarrow v_j$ can only exist if $i < j$.
+In one of the supplementary problems from the last class, we presented Kahn's algorithm for determining if a graph is a DAG.  More specifically, it computes a topological sorting of the vertices of the graph, and if a sorting exists, the graph has no cycles.  A topological sorting of a graph is an ordering of the graph's vertices $v_1, v_2, \ldots, v_n$ such that the edge $v_i \rightarrow v_j$ can only exist if $i < j$.
 
-Here is pseudocode for the algorithm Kahn's algorithm.
+Here is pseudocode for Kahn's algorithm.
 
 ```
 L ← Empty list that will contain the sorted elements
@@ -55,9 +55,11 @@ graph LR
   A --> D
 ```
 
+Question for us to work through together: How would we prove that Kahn's algorithm is correct?
+
 ## Dijkstra's Algorithm
 
-I have some companion slides to go along with the presentation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).  I'll have these up on the projector, but you can [access the slides](graphsearch_slides.pdf) using this link.
+I have some companion slides to go along with the presentation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).  I'll have these up on the projector, but you can [access the slides](graphsearch_slides.pdf) using this link.  Don't pull them up just yet.
 
 Before we introduce Dijkstra's algorithm, we need to briefly introduce the idea of weighted graphs.  Imagine that in addition to storing the neighbors of each vertex in our graph, we also store an edge weight.  Here is what a graph might look like with edge weights added.
 
@@ -72,13 +74,13 @@ graph LR
   D --7--> E
 ```
 
-As an aside, edge weights could encode a bunch of different things in our graph.  In computer vision, edge weights can encode the similarity between neighboring parts of an image and this graph can then be processed to segment parts of an image.  Another classical example is graph traversal where we might want to find the shortest path through a graph connecting $v_{start}$ to $v_{goal}$. In this setting, the cost of a path is defined by the sum of edge weights along the path.
+As an aside, edge weights could encode a bunch of different things in our graph.  In computer vision, edge weights can encode the dissimilarity between neighboring parts of an image and this graph can then be processed to segment parts of an image.  Another classical example is graph traversal where we might want to find the shortest path through a graph connecting $v_{start}$ to $v_{goal}$. In this setting, the cost of a path is defined by the sum of edge weights along the path.  This is what we will learn about next.
 
-Dijkstra's algorithm gives us a way to compute shortest (defined in terms of the lowest sum of edges) to move between a given source node and a destination node.  In order for Dijkstra's algorithm to work, none of the edges in the network can have negative cost.
+Dijkstra's algorithm gives us a way to compute the shortest path (defined in terms of the lowest sum of edges) to move between a given source node and any destination node.  In order for Dijkstra's algorithm to work, none of the edges in the network can have negative weight.
 
 Looking at our sample graph, let's calculate a few shortest paths.
 
-Dijkstra's algorithm gives us a way to compute the shortest path in a systematic fashion.  The pseudocode for the algorithm is defined below.  Before we go through the algorithm, let's make sure we understand the role of two maps (or, if you prefer, dictionaries) that we will be creating.  The first is called ``prev`` and it is used to reconstruct the shortest path once we find it.  The second is called ``dist`` and you can think of this as a tentative cost to travel from the start node to any particular node.
+Dijkstra's algorithm gives us a way to compute the shortest path in a systematic fashion.  The pseudocode for the algorithm is defined below.  Before we go through the algorithm, let's make sure we understand the role of two maps (or, if you prefer, dictionaries) that we will be creating.  The first is called ``prev`` and it is used to reconstruct the shortest path once we find it.  The second is called ``dist`` and you can think of this as a tentative cost to travel from the start node to any particular node.  We'll also maintain a queue of nodes that we plan to visit.  This queue will be pretty similar to the one you implemented on the last assignment, but it will have an additional feature of adding elements with a particular priority.
 
 ```
 for each vertex, v that is not the source:
@@ -110,7 +112,7 @@ A [binary heap](https://en.wikipedia.org/wiki/Binary_heap) is a data structure t
 
 A heap is a special type of graph called a binary tree.
 
-**Definition** A tree is a graph where there is a root node (one that has no incoming edges) and each vertex apart from the root has exactly one incoming edge.  For a given node, $v$, if there exists an edge $p \rightarrow v$ we call $p$ the parent of $v$.  Nodes with no outgoing edges are called **leaves**.  The maximum length path (defined in terms of number of edges) from the root to any leaf is called the height of the tree.
+**Definition** A tree is a graph where there is a root node (one that has no incoming edges) and each vertex apart from the root has exactly one incoming edge.  For a given node, $v$, if there exists an edge $p \rightarrow v$ we call $p$ the parent of $v$.  Nodes with no outgoing edges are called **leaves**.  The maximum length path (defined in terms of number of edges) from the root to any leaf is called the **height** of the tree.
 
 **Definition** A binary tree is a tree where each node has at most two outgoing edges.  For a vertex, $v$, if $v \rightarrow u$ and $v \rightarrow q$ then we say that $u$ and $q$ are children of $v$. Sometimes we think of these children as ordered, and we'll refer to them as the left or right child of $v$.
 
