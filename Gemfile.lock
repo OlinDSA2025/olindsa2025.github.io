@@ -218,6 +218,9 @@ GEM
       gemoji (~> 3.0)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
+    jgd (1.14.0)
+      jekyll (>= 1)
+      trollop (>= 2)
     json (2.6.3)
     kramdown (2.3.2)
       rexml
@@ -264,6 +267,7 @@ GEM
       unf (~> 0.1.4)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    trollop (2.9.10)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
@@ -290,6 +294,7 @@ DEPENDENCIES
   jekyll-sitemap
   jekyll-spaceship
   jemoji
+  jgd
   rouge
   tzinfo-data
   webrick (~> 1.8)

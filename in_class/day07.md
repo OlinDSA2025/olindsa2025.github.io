@@ -179,4 +179,4 @@ Now that we know what a heap is, let's talk about the running time of various op
 
 ### Implementation considerations
 
-Since this is part of the extra credit, I'll leave it to you to look into this.  Binary heaps are often implemented by storing the vertices of the heap in a list.  This might seem counterintuitive, but it presents a really elegant solution to some challenging aspects of implementing the heap: finding parents and children of a node, quickly swapping nodes in the tree, and inserting new values into the next free spot.
+Since this is part of the extra credit, I'll leave it to you to look into the details of this (there's a lot of explanations on the web / videos to watch).  Binary heaps are often implemented by storing the vertices of the heap in a list.  This might seem counterintuitive, but it presents a really elegant solution to some challenging aspects of implementing the heap: finding parents and children of a node, quickly swapping nodes in the tree, and inserting new values into the next free spot.
