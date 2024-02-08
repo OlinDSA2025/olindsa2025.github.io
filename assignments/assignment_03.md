@@ -40,7 +40,7 @@ interface Graph<VertexType> {
 ```
 
 * You should be able to retrieve a collection of vertices in the graph (e.g., you might maintain a ``MutableList`` or a ``Mutable`` set that contains all of your vertices.)
-* Given a vertex, $$v$$, you should be able to retrieve a collection of vertices that are neighbors of $$v$$ (that is any vertex $$m$$ such that there exists an edge $$v \rightarrow m$$).
+* Given a vertex, $v$, you should be able to retrieve a collection of vertices that are neighbors of $v$ (that is any vertex $m$ such that there exists an edge $v \rightarrow m$).
 
 ## Creating a Priority Queue
 

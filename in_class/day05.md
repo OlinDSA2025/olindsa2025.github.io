@@ -13,7 +13,7 @@ Kotlin has a built-in ``Array`` class ([documentation](https://kotlinlang.org/do
 
 > Note 1: the operator functions let you implement the same behavior that ``MutableList`` has in getting and setting elements (e.g., ``a[2] = 3``).
 
-> Note 2: when you create your class, you will need to think about how to grow your array when you run out of space.  In class we did some analysis that seemed to show that multiplying the array size by $$2$$ when it is full is faster than growing it by 1 each time.
+> Note 2: when you create your class, you will need to think about how to grow your array when you run out of space.  In class we did some analysis that seemed to show that multiplying the array size by $2$ when it is full is faster than growing it by 1 each time.
 
 ```kotlin
 /**

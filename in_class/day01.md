@@ -58,17 +58,17 @@ The list of general algorithm classes is below.
 
 > Credit to MIT Open Courseware 6.006 for this problem
 
-Suppose we have a list of numbers represented as a sequence $$a_1, \ldots, a_n$$ with $$n \geq 2$$.  For any element that isn't either the first or the last element of this sequence, we say that element $$i$$ is a peak if and only if $$a_i \geq  a_{i-1}~\mbox{and}~a_i \geq a_{i+1}$$.  For the elements at the ends of the sequence, we say that $$a_1$$ is a peak if and only $$a_1 \geq a_2$$ and $$a_n$$ is a peak if and only if $$a_n \geq a_{n-1}$$.
+Suppose we have a list of numbers represented as a sequence $a_1, \ldots, a_n$ with $n \geq 2$.  For any element that isn't either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i \geq  a_{i-1}~\mbox{and}~a_i \geq a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 \geq a_2$ and $a_n$ is a peak if and only if $a_n \geq a_{n-1}$.
 
 
 With some folks around, you answer the following questions:
 
 1. Get a feel for the condition written above.  Draw a few test cases.  When does a peak exist?  When does it not?
-2. Come up with a very simple algorithm to return the position, $$i$$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?
+2. Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?
 3. See if you can create an algorithm to find a peak faster than your first algorithm.  What techniques might be able to speed things up.  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.
 4. If we changed the condition of a peak to the definition below, would your algorithm in question 3 still work?
 
-> Definition 2: For any element that isn't either the first or the last element of this sequence, we say that element $$i$$ is a peak if and only if $$a_i > a_{i-1}~\mbox{and}~a_i > a_{i+1}$$.  For the elements at the ends of the sequence, we say that $$a_1$$ is a peak if and only $$a_1 > a_2$$ and $$a_n$$ is a peak if and only if $$a_n < a_{n-1}$$.
+> Definition 2: For any element that isn't either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i > a_{i-1}~\mbox{and}~a_i > a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 > a_2$ and $a_n$ is a peak if and only if $a_n < a_{n-1}$.
 
 ## Turning in your work
 
