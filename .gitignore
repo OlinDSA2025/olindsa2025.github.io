@@ -3,6 +3,8 @@ Gemfile.lock
 *.swp
 .DS_Store
 
+_site
+
 *.mat
 *.zip
 *.csv
