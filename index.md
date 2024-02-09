@@ -23,7 +23,7 @@ header:
 | 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)                       
 | 6     | [Graph data structures, depth-first and breadth-first search](in_class/day06) |
 | 7     | [DAGs, Dijkstra's Algorithm, and Heaps](in_class/day07) |
-| 8     | [A-Star and Intro to Sorting](in_class/day08ss)
+| 8     | [A-Star and Intro to Sorting](in_class/day08)
 
 <!--
 | 8     | A-Star and other shortest path algorithms |
