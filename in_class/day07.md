@@ -102,7 +102,7 @@ while queue is not empty:
             prev[v] ← u
 // reconstruct shortest path from prev
 ```
-Now that we've seen this pseudocode, let's go through [our slides]((graphsearch_slides.pdf)) to see an example of it in action.
+Now that we've seen this pseudocode, let's go through [our slides](graphsearch_slides.pdf) to see an example of it in action.
 
 **Problem 1** Suppose the pseudocode above has finished running, how would you reconstruct the shortest path from the vertex ``source`` to a vertex ``target`` using ``prev``?
 

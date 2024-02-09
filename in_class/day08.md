@@ -28,7 +28,7 @@ Let's start by analyzing the worst case running time of selection sort.  Compute
 
 ### Master Theorem
 
-A generalizable recipe for analyzing recursive algorithms like this is the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms).  Reanalyze merge sort using the master theorem.  You may find the following special cases of the master theorem useful.
+A generalizable recipe for analyzing recursive algorithms like this is the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  Reanalyze merge sort using the master theorem.  You may find the following special cases of the master theorem useful.
 
 $T(n) = a T(n/b) + n$
 
