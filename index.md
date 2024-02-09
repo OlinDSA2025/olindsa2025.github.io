@@ -23,10 +23,9 @@ header:
 | 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)                       
 | 6     | [Graph data structures, depth-first and breadth-first search](in_class/day06) |
 | 7     | [DAGs, Dijkstra's Algorithm, and Heaps](in_class/day07) |
-
+| 8     | [A-Star and Intro to Sorting](in_class/day08ss)
 
 <!--
-| 7     | Shortest path algorithms for graphs (Dijkstra)
 | 8     | A-Star and other shortest path algorithms |
 | 9     | Greedy algorithms |
 | 10    | Hash maps |
@@ -76,3 +75,4 @@ header:
 | 3                           | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
 | 6                           | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
 | 8                           | [Graphs and graph traversal](assignments/assignment_03)
+| 10                          | [All about sorting (tentative)](assignments/assignment_04)
