@@ -75,4 +75,4 @@ header:
 | 3                           | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
 | 6                           | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
 | 8                           | [Graphs and graph traversal](assignments/assignment_03)
-| 10                          | [All about sorting (tentative)](assignments/assignment_04)
+| 10                          | [Sorting algorithms](assignments/assignment_04)
