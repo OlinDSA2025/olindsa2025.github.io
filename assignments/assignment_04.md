@@ -28,6 +28,10 @@ Test the performance of your sorting algorithms on sorting different sized lists
 
 Do some research to determine what new problems exist in terms of sorting.  In your writeup, discuss at least one variant of sorting that has active research.  Make sure you explain what solving this problem entails.  Read one research paper that is related to this sorting problem and summarize its contributions (you may not be able to understand the paper at full detail, but hopefully you can get the gist).
 
+## Practice with the master theorem
+
+Do [this worksheet](https://courses.csail.mit.edu/6.046/spring02/handouts/master.pdf) from MIT 6.046 by applying the master theorem.  There [are solutions available](https://courses.csail.mit.edu/6.046/spring02/handouts/mastersol.pdf) here.
+
 ## Turning in your work
 
 Submit a link to a repository that has your code and writeup.  Make sure to add me ``paulruvolo`` as a collaborator if the repo is private.
