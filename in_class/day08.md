@@ -15,29 +15,65 @@ The key insight of A-star is to make use of a heuristic function that serves as 
 
 We use the notation $h(v)$ denotes the lower bound on traversing from $v$ to the goal node.  Given this construction, we can modify our pseudocode for Dijkstra's algorithm from last time to get the A-star algorithm.
 
+Before stating our pseudocode, let's define what each variable in the program will represent.
+
+* ``source`` is our starting vertex in the graph for searching
+* ``goal`` is the vertex we are trying to reach
+* ``prev`` will be used to reconstruct the optimal path and will map from a vertex to the vertex immediately preceding it on the optimal path from ``source`` to ``goal``.
+* ``dist`` maps from a vertex to the currently known minimum cost path from the start to that vertex
+* ``queue`` is our priority queue that we will use to keep track of which vertex to expand next
+
 ```
 for each vertex, v that is not the source:
     prev[v] ← UNDEFINED
     dist[v] ← INFINITY
-    queue.addWithPriority(v, INFINITY)
 
-dist[source] ← 0
-f[source]  ← h(source)
-queue.addWithPriority(source, f[source])
+dist[source] ← 0    // note: this is called g in some writeups
+queue.addWithPriority(source, h(source))
 
 while queue is not empty:
-    u ← vertex in queue with min priority
-    remove u from queue
+    u ← queue.popMin()  // gets min and removes it
     if u == goal:
         // reconstruct shortest path from prev
         return
-    for each neighbor v of u still in queue:
+    for each neighbor v of u:
         alt ← dist[u] + edgecost(u, v)
         if alt < dist[v]:
             dist[v] ← alt
-            queue.changePriority(v, alt + h(v))
+            if v in queue:
+                queue.changePriority(v, alt + h(v))
+            else:
+                queue.addWithPriority(v, alt + h(v))
             prev[v] ← u
 ```
+
+Key differences with Dijkstra's algorithm.
+* In A-star, nodes can be expanded multiple times (in Dijkstra's they can only be expanded once)
+* We make use of a heuristic function to prioritize our search (this can save us time)
+
+Example to do on the board (this is from [Pieter Abbeel's course at Berkeley](https://www.youtube.com/watch?v=DhtSZhakyOo)):
+
+```mermaid!
+graph LR
+  S --1--> A
+  S --4--> B
+  A --5--> C
+  A --2--> B
+  B --2--> C
+  C --3--> G
+  A --12--> G
+```
+
+This graph has the following heuristic.
+
+| Vertex | h |
+$S$ | 7
+$A$ | 6
+$B$ | 2
+$C$ | 1
+$G$ | 0
+
+Let's try to understand why this could make your problem more efficient.
 
 ## Sorting
 
