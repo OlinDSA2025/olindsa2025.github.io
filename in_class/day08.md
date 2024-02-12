@@ -47,13 +47,13 @@ We're going to learn about three of the many sorting algorithms today.
 
 ### Selection sort
 
-[Selection sort](https://en.wikipedia.org/wiki/Selection_sort) is a very simple algorithm.  We continuously look for the minimum value in the part of the list that is unsorted and then place that element at the front.  Let's develop the pseudocode for this and prove that the algorithm yields a sorted list.
+[Selection sort](https://en.wikipedia.org/wiki/Selection_sort) is a very simple algorithm.  We continuously look for the minimum value in the part of the list that is unsorted and then place that element at the front.  Let's develop the pseudocode for this and prove that the algorithm yields a sorted list.  You can see a visualization of this algorithm by going to [visualgo.net/en/sorting](https://visualgo.net/en/sorting) and choosing selection sort.
 
 ### Merge sort
 
 [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) is a divide and conquer approach to sorting a list.  We'll develop some pseudocode for this one together.
 
-The basic idea is to chop our list in two, sort both halves, and then reassemble the two sorted halves into a sorted whole.
+The basic idea is to chop our list in two, sort both halves, and then reassemble the two sorted halves into a sorted whole.  You can see a visualization of this algorithm by going to [visualgo.net/en/sorting](https://visualgo.net/en/sorting) and choosing merge sort.
 
 ### Heap sort
 
@@ -77,7 +77,9 @@ Let's start as a group by analyzing the worst case running time of selection sor
 
 A generalizable recipe for analyzing recursive algorithms like this is the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  
 
-**Problem 3:** Reanalyze merge sort using the master theorem.  You may find the following special cases of the master theorem useful.
+**Problem 3:** Reanalyze merge sort using the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  
+
+You may find the following special cases of the master theorem useful (we'll discuss the more general form next class).
 
 $T(n) = a T(n/b) + n$
 
