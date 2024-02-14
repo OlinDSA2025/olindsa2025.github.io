@@ -17,12 +17,20 @@ Let's look at the [algorithm visualization](https://visualgo.net/en/sorting) (yo
 
 Analyzing the runtime of this algorithm is a bit tricky.  Let's consider a specific case of always choosing the first element as the pivot.  Let's see what happens with quick sort with this pivot selection rule.
 
+## The Speed Limit for Comparison-Based Sorting
+
+TODO
+
 ## Radix Sort
 
 [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) (also called bucket sort) is an interesting algorithm where we don't perform an explicit comparisons between elements in our list.  We instead sort, e.g. if we are sorting integers, based on comparing the ones digits, then the tens digit, etc.  Let's check out [the visualization of Radix sort](https://visualgo.net/en/sorting) at our favorite website!
 
 ## More Practice With the Master Theorem
 
+Before getting started, let's dig into the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)) to make sure we really understand it.
+
 **Problem 1** Binary search can be applied to finding an element in a sorted list, by progressively eliminating half of the elements to be searched on each iteration.  Make sure you understand binary search, write a recurrence relation, and solve it using the master theorem.
 
-**Problem 2** TBD
+**Problem 2** Maximum Contiguous Subsequence (need to write this up)
+
+For more practice we can go to the problems assigned on the homework.
