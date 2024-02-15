@@ -39,6 +39,8 @@ graph TD
   c --> h[n!/4]
 ```
 
+We'll go over the details as a class, but we will have to use one equation that we won't prove: $\log n! = \Omega(n \log n)$.
+
 ## Radix Sort
 
 [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) (also called bucket sort) is an interesting algorithm where we don't perform an explicit comparisons between elements in our list.  We instead sort, e.g. if we are sorting integers, based on comparing the ones digits, then the tens digit, etc.  Let's check out [the visualization of Radix sort](https://visualgo.net/en/sorting) at our favorite website!
