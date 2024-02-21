@@ -25,10 +25,9 @@ header:
 | 7     | [DAGs, Dijkstra's Algorithm, and Heaps](in_class/day07) |
 | 8     | [A-Star and Intro to Sorting](in_class/day08)
 | 9     | [More sorting and more divide and conquer](in_class/day09)
-
+| 10    | [Divide and Conquer](in_class/day10)
 
 <!--
-| 8     | A-Star and other shortest path algorithms |
 | 9     | Greedy algorithms |
 | 10    | Hash maps |
 | 11    | String matching algorithms |
@@ -36,7 +35,6 @@ header:
 | 13    | Graph analysis via Pagerank |
 | 14    | Dynamic programming and proofs by induction  |
 | 15    | Dynamic programming and proofs by induction (continued) |
-| 16    | Sorting |
 | 17    | Matrix multiplication |
 | 18    | Trees |
 | 19    | Linear and binary search |
