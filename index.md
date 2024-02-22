@@ -76,3 +76,5 @@ header:
 | 6                           | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
 | 8                           | [Graphs and graph traversal](assignments/assignment_03)
 | 10                          | [Sorting algorithms](assignments/assignment_04)
+| 12                          | [Divide and Conquer and Dynamic Programmin](assignments/assignment_05)
+
