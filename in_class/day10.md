@@ -26,6 +26,19 @@ The book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the
 3. Compute the value of an optimal solution, typically in a bottom-up fashion.
 4. Construct an optimal solution from computed information.
 
-We'll see if we can understand how this applies to the Leetcode problem of [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/).
+We'll see if we can understand how this applies to the Leetcode problem of [Minimum Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/description/).
+
+> You are given an integer array cost where ``cost[i]`` is the cost of $i$th step on a staircase. Once you pay the cost, you can either climb one or two steps.
+> You can either start from the step with index 0, or the step with index 1.
+> Return the minimum cost to reach the top of the floor.
+> 
+> Example 1:
+>  - Input: cost = [10,15,20]
+>  - Output: 15
+>
+> Example 2:
+>   - Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+>   - Output: 6
+
 
 **Problem 3:** Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination coins as you'd like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem.
