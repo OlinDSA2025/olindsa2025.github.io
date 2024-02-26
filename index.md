@@ -26,6 +26,8 @@ header:
 | 8     | [A-Star and Intro to Sorting](in_class/day08)
 | 9     | [More sorting and more divide and conquer](in_class/day09)
 | 10    | [Divide and Conquer](in_class/day10)
+| 11    | [Dynamic Programming](in_class/day11)
+
 
 <!--
 | 9     | Greedy algorithms |
