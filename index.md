@@ -19,15 +19,15 @@ header:
 | 1     | [Course intro and welcome to DSA!](in_class/day01)                            |
 | 2     | [Greedy Algorithms Teaser, Order of Growth, and Some Kotlin](in_class/day02)  |
 | 3     | [Arrays, Linked Lists, and Intro to Abstract Datatypes](in_class/day03)       |
-| 4     | [Implementing a Stack in Kotlin](in_class/day04)                              
-| 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)                       
+| 4     | [Implementing a Stack in Kotlin](in_class/day04)                              |
+| 5     | [Revisiting Arrays and Intro to Graphs](in_class/day05)                       |
 | 6     | [Graph data structures, depth-first and breadth-first search](in_class/day06) |
-| 7     | [DAGs, Dijkstra's Algorithm, and Heaps](in_class/day07) |
-| 8     | [A-Star and Intro to Sorting](in_class/day08)
-| 9     | [More sorting and more divide and conquer](in_class/day09)
-| 10    | [Divide and Conquer](in_class/day10)
-| 11    | [Dynamic Programming](in_class/day11)
-
+| 7     | [DAGs, Dijkstra's Algorithm, and Heaps](in_class/day07)                       |
+| 8     | [A-Star and Intro to Sorting](in_class/day08)                                 |
+| 9     | [More sorting and more divide and conquer](in_class/day09)                    |
+| 10    | [Divide and Conquer](in_class/day10)                                          |
+| 11    | [Dynamic Programming](in_class/day11)                                         |
+| 12    | [Work / Practice on Dynamic Programming](in_class/day12)                      |
 
 <!--
 | 9     | Greedy algorithms |
