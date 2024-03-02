@@ -56,6 +56,11 @@ Your code should find both the best alignment and use backtracing to display the
 
 > Note: I'm going to be looking for some sample data (real protein sequences) to use with this.  Stay tuned (or if you find some, please let me know).
 
+
+Here is an alignment between part of a Salmonella genome and another part of the same genome (see course announcement for details)
+
+![A sequence alignment](../images/alignmentsample.jpg)
+
 ## Turning in your work
 
 Submit a link to a repository that has your code and writeup.  Make sure to add ``berwinlan``, ``aditivinod``, and ``paulruvolo`` as collaborators if the repo is private.
