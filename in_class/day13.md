@@ -5,7 +5,7 @@ toc_sticky: true
 
 ## Reviewing Assignment 5
 
-Get in a group with two people who did Needleman-Wunsch and two people who did Smith-Waterman.  Together go through the following questions:
+Get in a group with two people who did [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) and two people who did [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm).  Together go through the following questions:
 
 * With respect to the matrix multiplication questions, how did those go for you?  Share some development or testing strategies that worked particularly well (we'll do a quick shareout of these among the class).
 * Take turns explaining the algorithm you implemented to the folks who implemented the other algorithm.  Make note of any similarities or differences between the two algorithms.
@@ -18,7 +18,7 @@ The period from now until Spring Break will consist of a fairly short, self-dire
 
 Last time Daeyoung asked about what it would take to package a Kotlin program for distribution.  I'm still looking into this, but here are a few things to keep in mind.
 
-1. Kotlin is the preferred language for Android Mobile development.  If your target is developing for Android you are in great shape!
+1. Kotlin is the preferred language for Android Mobile development.  If your target is developing for Android, you are in great shape!
 2. Jetbrains has a product called [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) that can deploy Kotlin to many different platforms.  The current platforms that are production ready are Android and Desktop (Mac, Windows, Linux).
 3.  There are a bunch of other solutions (e.g., spring.io) that were designed around packaging Java applications, which can also work for Kotlin (since Kotlin also executes on the JVM).
 
