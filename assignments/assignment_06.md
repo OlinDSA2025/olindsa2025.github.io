@@ -22,7 +22,7 @@ For your project, you should choose one or more of the following areas of invest
 
 Turn in a project proposal that lays out your plan for the project.  Clearly specify what your project will entail, what deliverables you will create, and how much time you think each part will take.  With your proposal, include a rubric for grading your project (what does "A"-level performance look like, "B"-level, etc.).
 
-### Other Deliverables
+### Other Deliverables (13 points)
 
 You are required to include a brief summary of what you did for the project and a summary of all other deliverables.   Some other deliverables you might have (***this is a list of options... you will not have all of these***):
 * Kotlin code (so you will want to send a link to a repository).
