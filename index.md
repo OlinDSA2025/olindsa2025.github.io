@@ -28,6 +28,7 @@ header:
 | 10    | [Divide and Conquer](in_class/day10)                                          |
 | 11    | [Dynamic Programming](in_class/day11)                                         |
 | 12    | [Work / Practice on Dynamic Programming](in_class/day12)                      |
+| 13    | [Review HW5, Looking to HW6](in_class/day13)                                  |
 
 <!--
 | 9     | Greedy algorithms |
@@ -72,11 +73,13 @@ header:
 
 ##  Assignments
 
-| Due at beginning of class # | Assignment |
-|-----------------------------| ----------- |
-| 3                           | [Hello Kotlin and course entrance survey](assignments/assignment_01) |
-| 6                           | [Stacks, Queues, and Linked Lists](assignments/assignment_02) |
-| 8                           | [Graphs and graph traversal](assignments/assignment_03)
-| 10                          | [Sorting algorithms](assignments/assignment_04)
-| 12                          | [Divide and Conquer and Dynamic Programming](assignments/assignment_05)
+| Due at beginning of class # | Assignment                                                              |
+|-----------------------------|-------------------------------------------------------------------------|
+| 3                           | [Hello Kotlin and course entrance survey](assignments/assignment_01)    |
+| 6                           | [Stacks, Queues, and Linked Lists](assignments/assignment_02)           |
+| 8                           | [Graphs and graph traversal](assignments/assignment_03)                 |
+| 10                          | [Sorting algorithms](assignments/assignment_04)                         |
+| 13                          | [Divide and Conquer and Dynamic Programming](assignments/assignment_05) |
+| 16                          | [Individual Deep Dive](assignments/assignment_06)                       |
+
 
