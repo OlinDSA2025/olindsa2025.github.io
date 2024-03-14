@@ -30,6 +30,8 @@ header:
 | 12    | [Work / Practice on Dynamic Programming](in_class/day12)                      |
 | 13    | [Review HW5, Looking to HW6](in_class/day13)                                  |
 | 15    | [Some Kotlin Fun and Project Work time](in_class/day15)                       |
+| 16    | [Deep Dive Shareout and Fun With Algorithms](in_class/day16)                  |
+
 
 <!--
 | 9     | Greedy algorithms |
