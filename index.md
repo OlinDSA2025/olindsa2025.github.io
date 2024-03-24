@@ -31,27 +31,16 @@ header:
 | 13    | [Review HW5, Looking to HW6](in_class/day13)                                  |
 | 15    | [Some Kotlin Fun and Project Work time](in_class/day15)                       |
 | 16    | [Deep Dive Shareout and Fun With Algorithms](in_class/day16)                  |
-
-
-<!--
-| 9     | Greedy algorithms |
-| 10    | Hash maps |
-| 11    | String matching algorithms |
-| 12    | String matching algorithms (continued)
-| 13    | Graph analysis via Pagerank |
-| 14    | Dynamic programming and proofs by induction  |
-| 15    | Dynamic programming and proofs by induction (continued) |
-| 17    | Matrix multiplication |
-| 18    | Trees |
-| 19    | Linear and binary search |
-| 20    | Heaps |
-| 21    | KD-Trees |
-| 22    | Heaps |
-| 23    | Backtracking |
-| 24    | Optimization algorithms overview |
-| 25    | Deep dive studio day |
-| 26    | Deep dive studio day |
--->
+| 17    | [Associative Arrays and Hashing](in_class/day17)                              |
+| 18    | Hashing continued / Solving Problems with Associative Arrays (tentative)      |
+| 19    | Binary Search Trees                                                           |
+| 20    | Nearest Neighbor Classification and KD-Trees (tentative)                      |
+| 21    | Workshop on Potential Project Topic Areas (tentative)                         |
+| 22    | Project Ideation / Learning Goal Setting (tentative)                          |
+| 23    | Project Proposals / Workday (tentative)                                       |
+| 24    | Mid-Project Activity (tentative)                                              |
+| 25    | Project Workday (tentative)                                                   |
+| 26    | Project Workday (tentative)                                                   |
 
 
 <!--
@@ -84,5 +73,7 @@ header:
 | 10                          | [Sorting algorithms](assignments/assignment_04)                         |
 | 13                          | [Divide and Conquer and Dynamic Programming](assignments/assignment_05) |
 | 16                          | [Individual Deep Dive](assignments/assignment_06)                       |
+| 16                          | [Associative Arrays and Hashing](assignments/assignment_07)             |
+
 
 
