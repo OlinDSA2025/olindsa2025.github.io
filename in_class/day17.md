@@ -87,7 +87,7 @@ An alternative to separate chaining is direct addressing.  When using direct add
 
 In linear probing, when you insert an item and a collision occurs, you simply search ahead in your array into you find an unused bucket and place the value there.  This scheme requires updating your algorithm for lookup and deletion of elements accordingly.  Here is what our running example would look like when using linear probing.
 
-![A phone book stored with linear probing](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/600px-HASHTB12.svg.png)  credit: Wikimedia ([license](https://commons.wikimedia.org/wiki/File:HASHTB12.svg))
+![A phonebook stored with linear probing](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/600px-HASHTB12.svg.png)  credit: Wikimedia ([license](https://commons.wikimedia.org/wiki/File:HASHTB12.svg))
 
 Notice how the colliding elements are now stored in two separate buckets located sequentially in the array.
 
@@ -99,6 +99,47 @@ Under the assumption that we have a good hash function (meaning that the probabi
 
 Linear probing (as an example of open addressing) has the advantage of using less memory given $m$ buckets and has better locality of reference (meaning you don't have to follow a pointer to another chunk of memory to find the value for a specified key).  On the downside, the performance of linear probing tanks when the load factor of the table approaches 1 (separate chaining can support load factors above 1).  Linear probing is also very sensitive to the choice of hash function.  For example, if a series of keys inserted into the hash map keys cluster in the same range of buckets, the performance of the hash map will degrade even if the load factors is low.
 
-
 ## Hash functions
 
+As alluded to above, we would like our hash function, $h$, to satisfy two key properties.
+
+ > 1. Injection: for two keys $k_1 \neq k_2$, the hash function should give different results $h(k_1) \neq h(k_2)$, with probability $m-1/m$.
+> 2. Diffusion (stronger than injection): if $k_1 \neq k_2$, knowing $h(k_1)$ gives no information about $h(k_2)$. For example, if $k_2$ is exactly the same as $k_1$, except for one bit, then every bit in $h(k_2)$ should change with $1/2$ probability compared to $h(k_1)$. Knowing the bits of $h(k_1)$ does not give any information about the bits of $h(k_2)$.
+ - [CS 312 Lecture 21](https://www.cs.cornell.edu/courses/cs312/2008sp/lectures/lec21.html)
+
+**Problem 3** It should be obvious why the first property is important for our hash maps to perform optimally, but why do we care about the second property?
+
+There are many specific choices of hash functions.  To understand some of the specific choices of hash function, it helps to think a little bit about how the keys we are storing are represented in a computer's memory.
+
+Fundamentally, all data in a computer is stored in a binary format.  For example, positive integers are represented, as you would expect, by converting them into a base 2 representation (negative numbers can be represented in various ways, for example, using [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement)).  Some data is fixed length (e.g., Kotlin's ``Int``, ``Long``, and ``Short``) and some is variable length (e.g., a string).  When designing a hash function, we'll have to think about to apply it to fixed length and variable length data.
+
+A full discussion of hash functions is outside the scope of this course, but here are a few concrete choices to make the ideas concrete.
+
+For each of these hash functions, we say that the number of buckets for our hash function is $m$ and $m_b$ is the number of bits required to represent the numbers from $0$ to $m-1$.  If we assume $m$ is a power of two, then $m_b = \log_2 m$.
+
+### Folding
+
+Folding algorithms divide the input into chunks of $m_b$ bits and then perform operations on these $m_b$-long bit strings to create the final hash index.  These operations could be additions or bit-wise exclusive or (XOR).
+
+For example, suppose we were hashing the integer key $4,234,234,421$ into $m = 256$ buckets.  We would take the integer's binary representation (in this case $11111100011000010100101000110101_b$) and divide it into four 8-bit chunks (since $\log_2 m = 8$).  These chunks would be: $00110101_b$, $01001010_b$, $01100001_b$, and $11111100_b$.  We could then use X-OR to combine these values chunk by chunk.
+
+> Note: xor is [exclusive or](https://en.wikipedia.org/wiki/Exclusive_or), which we denote using the $\oplus$ operator.
+
+$\begin{align} 00110101_b \oplus 01001010_b &= 01111111_b & \mbox{xor chunk 1 and 2}\\ 01111111_b \oplus 01100001_b &= 00011110_b & \mbox{take result and xor with chunk 3} \\  00011110_b \oplus 11111100_b &= 11100010_b  & \mbox{take result and xor with chunk 4}\end{align}$
+
+Given this result we would then store the value associated with the key $4,234,234,421$ in bin 226 (this is the decimal equivalent of the bit string computed above).
+
+### Division Hashing
+
+In division hashing, we typically choose $m$ to be a prime number (we also require that $m$ not be too close to a power of $2$, see [this reference](https://www.geeksforgeeks.org/what-are-hash-functions-and-how-to-choose-a-good-hash-function/) for an explanation).  Our hash function now becomes $h(k) = mod(k, s)$, where $mod$ is [the modulo operation](https://en.wikipedia.org/wiki/Modulo).
+
+**Problem 4**
+Let's examine why we might want to choose our table size to be a prime number.  Suppose we are hashing the first 50 non-negative even numbers (0 through 98).  Let $h_1(k) = mod(k, 13)$ and $h_2(k) = mod(k, 16)$.  Show that despite the $h_1$ using fewer bins, it will result in better utilization of its bins than $h_2$.
+
+### Murmur Hash (this is supplementary,  we won't get to it)
+
+Admittedly, I haven't looked into [Murmur Hash](https://en.wikipedia.org/wiki/MurmurHash) in any detail, but  I did find some [useful resources](https://www.keiruaprod.fr/blog/2023/04/02/the-murmur-hashing-algorithm.html) to understand this algorithm.  I thought folks might be interested in reading about a hashing algorithm used in practice.  If you want to look into it and want to report back next class, please let me know.
+
+### Cuckoo Hashing (this is supplementary,  we won't get to it)
+
+[Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing) is another interesting seeming technique (again, I haven't looked into it too much, but the basic idea is intriguing).  If you want to look into it and want to report back next class, please let me know.

@@ -73,7 +73,7 @@ header:
 | 10                          | [Sorting algorithms](assignments/assignment_04)                         |
 | 13                          | [Divide and Conquer and Dynamic Programming](assignments/assignment_05) |
 | 16                          | [Individual Deep Dive](assignments/assignment_06)                       |
-| 16                          | [Associative Arrays and Hashing](assignments/assignment_07)             |
+| 19                          | [Associative Arrays and Hashing](assignments/assignment_07)             |
 
 
 
