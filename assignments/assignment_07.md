@@ -74,9 +74,11 @@ Choose a problem to solve with hashing.  Here are some suggestions.
 
 ### Lempel-Ziv
 
-Implement the Lempel-Ziv algorithm for lossless data compression.  There are a lot of resources for learning this.  [Peter Schor's notes](https://math.mit.edu/~djk/18.310/Lecture-Notes/LZ-worst-case.pdf) seem to be good.
+Implement the Lempel-Ziv algorithm for lossless data compression.  There are a lot of resources for learning this. Here are some that I've found useful so far (please share more).
+* [Peter Schor's notes](https://math.mit.edu/~djk/18.310/Lecture-Notes/LZ-worst-case.pdf)
+* [Lempel Ziv Algorithm Video](https://www.youtube.com/watch?v=hHQgu4qILGs)
 
-You should at least write the encoding part.
+You should at least write the encoding part.  If you write the decoder, you can get 2 points of extra credit.
 
 ### Markov Text Analysis
 
