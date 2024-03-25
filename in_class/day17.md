@@ -31,7 +31,7 @@ Let's look at two methods of implementing associative arrays.  For simplicity, l
 
 ### Association Lists
 
-An [association list](https://en.wikipedia.org/wiki/Association_list) uses stores key, value pairs in a linked list.
+An [association list](https://en.wikipedia.org/wiki/Association_list) stores key, value pairs in a linked list.
 
 **Problem 1**
 * (a) For an association list, what is the $\Theta$ of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?

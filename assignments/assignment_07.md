@@ -14,6 +14,8 @@ Create an associative array class that has the following structure.
 ```kotlin
 /**
  * Represents a mapping of keys to values.
+ * @param K the type of the keys
+ * @param V the type of the values
  */
 class AssociativeArray<K, V> {
     /**
