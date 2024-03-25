@@ -66,11 +66,13 @@ class AssociativeArray<K, V> {
 
 Your associative array should use separate chaining and the division-based method for hashing (consider using this resource [to determine primes to use in your hashing function](https://planetmath.org/goodhashtableprimes)).  Your code should handle rehashing as the number of elements stored in your associative array grows.
 
+You will almost certainly need to create additional classes and/or functions to implement the associative array (don't assume that the list of functions above is sufficient).
+
 Make sure your code is documented and has sufficient unit tests (the specific number and nature of the unit tests is up to you).
 
 ## Solving Problems with Hashing
 
-Choose a problem to solve with hashing.  Here are some suggestions.
+Choose a problem to solve with hashing.  Here are some suggestions.  (Note: you will also do a very brief writeup on your results from this, so make sure to look in the deliverables section for this).
 
 ### Lempel-Ziv
 
@@ -94,3 +96,16 @@ These were the two that sprang to my mind, but I'm open to others.  Please clear
 
 1. Choose a different hashing function to explore.
 2. Do some benchmarking to see how sensitive the performance of your associative array is to different choices for number of bins (e.g., using a power of 2 instead of a prime number).
+3. As mentioned earlier, the Lempel-Ziv algorithm is extra credit.  If you do something else that is above and beyond what is written here, let me know, and we can discuss extra credit.
+
+## Deliverables
+
+Turn in a link to a Github repo with your deliverables.
+
+### Code
+
+Your code contain the associative array data structure as well as the application to text processing.  Make sure your code is documented and has unit tests.
+
+### Writeup
+
+Include a very brief writeup of the results you got applying associative arrays to solving a problem.  For example, if you did Lempel-Ziv, you might run it on several different input texts and discuss how much the algorithm compresses the data.  You can include the writeup as a markdown file in your repository.
