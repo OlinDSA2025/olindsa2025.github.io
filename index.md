@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: "Data Structures and Algorthms Spring 2024"
+title: "Data Structures and Algorithms Spring 2024"
 header:
   overlay_color: "#000"
   overlay_filter: "0.4"
