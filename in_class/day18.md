@@ -1,5 +1,5 @@
 ---
-title: "Day 18: Solving Problems with Associative Arrays"
+title: "Day 18: Lempel-Ziv"
 toc_sticky: true
 ---
 
@@ -14,20 +14,39 @@ function HideShowElement(divID) {
 }
 </script>
 
-**Problem 1** 
-Some problem that can be solved with an associative array.
+## Lempel-Ziv Compression
 
-<button onclick="HideShowElement(&quot;HideShow&quot;)">Show / Hide Hint</button>
+One of the options for the current assignment is to implement Lempel-Ziv Compression.  Lempel-Ziv is a lossless compression algorithm, which means that the original data can be recovered exactly (without any loss of information) from the compressed data.
 
-<div id="HideShow" style="display:none">
-Here is a hint
-</div>
+There are a number of different variants of Lempel-Ziv, but the one we're going to talk about in class today is the simplest to implement.
 
-**Problem 2**
-Some harder problem that can be solved with an associative array.
+## Encoding
 
-<button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint</button>
+We start with a stream of symbols and a codebook.  I'm going to use this string [from Peter Schor's notes](https://math.mit.edu/~djk/18.310/Lecture-Notes/LZ-worst-case.pdf) on the topic.
 
-<div id="HideShow2" style="display:none">
-Here is a hint 2
-</div>
+> AABABBBABAABABBBABBABB
+
+In Lempel-Ziv (LZ) compression, we will also maintain a codebook. The codebook is going to be a mapping from strings to integers.  The strings (the keys) will represent the symbols from our data source and the integers (the values) will be unique identifiers that will help us compress the key. In some variants we start by creating a codebook entry for every possible symbol (letter) in our string.  In this version, we're going to start with a single mapping $\epsilon \rightarrow 0$.  As we scan through the string we'll adaptively add new mappings to our codebook as we encounter particular patterns.
+
+Next, we're going to start scanning through the symbols of our string one-by-one and occasionally building the compressed representation of the data.  Our strategy will be to look for the longest substring that has yet to be compressed and is represented in our codebook.  As we scan our symbols, as long as these strings are in our codebook, we just keep moving through the data.  Once we find that the string is not in the codebook, we do two things
+
+1. We add a new codeword
+2. We output the compressed representation of the data.
+
+Let's work through our example on the board.  If you're not in-class today, I'll point you to [this video of a worked example of the same string](https://www.youtube.com/watch?v=Dn-91_Vu_aM).  It's a little different from what I'll do in class, but you'll get the same main idea.
+
+**Now we'll go through the example on the board.**
+
+What questions arose for you from this demonstration?
+
+**Problem 1** Choose your own string to encode and go through the steps of Lempel-Ziv.  Before you start, take a second to think about what characteristics of the string might make it a more interesting example.
+
+## Decoding
+
+Let's go through the process of decompressing the string that we compressed in our original example.  To do so, we'll scan through the compressed data and build the codebook and output the uncompressed data.
+
+## Practical Considerations for Implementing this in Kotlin
+
+When I wrote my own implementation, I found that it took me a while to figure out how to actually encode the data to binary (even though getting the codebook was fairly straightforward).  I found a nice helper class from Princeton that made the process a lot easier.  For your convenience, I (more accurately IntelliJ with some help from me) translated it into Java.  I modified the original design a bit to arrive at [this version](https://github.com/OlinDSA2024/HashingSample/blob/main/src/main/kotlin/BinaryUtils.kt).
+
+TODO: show some main ideas.

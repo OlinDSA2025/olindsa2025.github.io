@@ -32,7 +32,7 @@ header:
 | 15    | [Some Kotlin Fun and Project Work time](in_class/day15)                       |
 | 16    | [Deep Dive Shareout and Fun With Algorithms](in_class/day16)                  |
 | 17    | [Associative Arrays and Hashing](in_class/day17)                              |
-| 18    | Hashing continued / Solving Problems with Associative Arrays (tentative)      |
+| 18    | [Lempel-Ziv Compression](in_class/day18)                                      |
 | 19    | Binary Search Trees                                                           |
 | 20    | Nearest Neighbor Classification and KD-Trees (tentative)                      |
 | 21    | Workshop on Potential Project Topic Areas (tentative)                         |
