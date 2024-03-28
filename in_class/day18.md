@@ -22,7 +22,7 @@ There are a number of different variants of Lempel-Ziv, but the one we're going 
 
 ## Encoding
 
-We start with a stream of symbols and a codebook.  I'm going to use this string [from Peter Schor's notes](https://math.mit.edu/~djk/18.310/Lecture-Notes/LZ-worst-case.pdf) on the topic.
+We start with a stream of symbols and a codebook.  I'm going to use this string [from Peter Shor's notes](https://math.mit.edu/~djk/18.310/Lecture-Notes/LZ-worst-case.pdf) on the topic.
 
 > AABABBBABAABABBBABBABB
 
@@ -49,4 +49,34 @@ Let's go through the process of decompressing the string that we compressed in o
 
 When I wrote my own implementation, I found that it took me a while to figure out how to actually encode the data to binary (even though getting the codebook was fairly straightforward).  I found a nice helper class from Princeton that made the process a lot easier.  For your convenience, I (more accurately IntelliJ with some help from me) translated it into Java.  I modified the original design a bit to arrive at [this version](https://github.com/OlinDSA2024/HashingSample/blob/main/src/main/kotlin/BinaryUtils.kt).
 
-TODO: show some main ideas.
+The important functions in here are the following:
+```kotlin
+/**
+ * Writes the specified bit to the output binary data.
+ * @param x the `boolean` to write.
+ */
+fun write(x: Boolean) {}
+
+/**
+ * Writes the *r*-bit int to the output binary data.
+ * @param x the `int` to write.
+ * @param r the number of relevant bits in the char.
+ * @throws IllegalArgumentException if `r` is not between 1 and 32.
+ * @throws IllegalArgumentException if `x` is not between 0 and 2<sup>r</sup> - 1.
+ */
+fun write(x: Int, r: Int) {}
+
+
+/**
+ * @return the output as a byte array
+ */
+fun toByteArray(): ByteArray {
+    return out.toByteArray()
+}
+
+/**
+ * @return the output as a sequence of bytes that represent a string of
+ * 0's and 1's
+ */
+fun toBinaryString():ByteArray? {}
+```
