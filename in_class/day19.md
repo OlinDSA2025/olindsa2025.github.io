@@ -99,6 +99,13 @@ There are several commonly used schemes to maintain balance in BSTs.  The two mo
 
 ## Red-Black Trees
 
+Red-Black trees have the following properties.
+
+1. Each node in the tree is colored either red or black.
+2. The root is black and each of the (null) leaves are black.
+3. If a node is red, then both its children are black.
+4. The number of black nodes encountered on any path from the root to a leaf (null) is equal.
+
 In this unit we'll be working with Red-Black trees.  I really like Michael Sambol's video series explaining the Red-Black tree.  We'll watch some of the videos together, but I'll leave it to you to watch the whole set.
 
 [Playlist of Michael Sambol's Red-Black tree videos](https://www.youtube.com/playlist?list=PL9xmBV_5YoZNqDI8qfOZgzbqahCUmUEin)
@@ -111,3 +118,5 @@ Together, we'll watch the first four videos.
 * [Insertions (example)](https://www.youtube.com/watch?v=A3JZinzkMpk)
 
 If you decide to implement the Red-Black tree for your assignment, these videos should be a great source of information for you.
+
+Note: red-black trees have heights less than $2 \lg(n+1)$.

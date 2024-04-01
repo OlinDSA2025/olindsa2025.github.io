@@ -74,6 +74,7 @@ header:
 | 13                          | [Divide and Conquer and Dynamic Programming](assignments/assignment_05) |
 | 16                          | [Individual Deep Dive](assignments/assignment_06)                       |
 | 19                          | [Associative Arrays and Hashing](assignments/assignment_07)             |
+| 21                          | [Binary Search Trees](assignments/assignment_08)                        |
 
 
 
