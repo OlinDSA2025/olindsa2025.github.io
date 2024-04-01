@@ -21,6 +21,7 @@ If you want to go all out with this, you could implement remove also.
 Advice / references:
 * I was able to port [Michael Sambol's implementation from Python to Kotlin](https://github.com/msambol/dsa/blob/master/trees/red_black_tree.py)
 * There is a really, [really awesome implementation from Jerry Chalupski](https://gist.github.com/chalup/bf39da54a14005c569ef514c3ce5ceb5), that uses some really cool functional programming concepts.  I'm not sure how to build n this code without just copying it, but I'll put it here anyway.
+* I have [excerpted the chapter from CLRS on red-black trees](rb-trees-clrs.pdf).
 
 ### Option 2: Solve Problems with Binary Search Trees
 
