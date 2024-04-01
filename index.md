@@ -33,7 +33,7 @@ header:
 | 16    | [Deep Dive Shareout and Fun With Algorithms](in_class/day16)                  |
 | 17    | [Associative Arrays and Hashing](in_class/day17)                              |
 | 18    | [Lempel-Ziv Compression](in_class/day18)                                      |
-| 19    | Binary Search Trees                                                           |
+| 19    | [Binary Search Trees](in_class/day19)                                         |
 | 20    | Nearest Neighbor Classification and KD-Trees (tentative)                      |
 | 21    | Workshop on Potential Project Topic Areas (tentative)                         |
 | 22    | Project Ideation / Learning Goal Setting (tentative)                          |
