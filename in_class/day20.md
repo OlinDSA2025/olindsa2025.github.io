@@ -53,8 +53,17 @@ I'll go through the ideas on the board.  A nice visualization of the algorithm i
 
 ### KD-Trees in Practice
 
-While KD-Trees might seem like a golden-ticket, they do not perform well when the number of data points is too close to the number of dimensions.  In fact for KD-trees to work well, you need $n \gg 2^d$.
+While KD-Trees might seem like a golden-ticket, they do not perform well when the number of data points is too close to the number of dimensions.  In fact for KD-trees to work well, you want $n \gg 2^d$.
+
+I have put together [a Colab notebook that allows you to play around with various dataset sizes](https://colab.research.google.com/drive/1eS9goNN2ZkUibS1fGF7EUyJtDeAJ3XNj?usp=sharing) ($n$) and different data dimensionalities ($d$) to see how the performance of KD-trees compares to traditional nearest neighbor matching.
 
 
 ## Approximate Nearest Neighbor (ANN) Search
 
+You might ask whether there is a way to get a speedup to your nearest neighbor search even when the data dimensionality is large.  It turns out that there is a very active field of research into *approximate nearest neighbor search* (ANN).  If you are willing to live give up the guarantee that the value returned will always be the closest point, you can get [a substantial speedup](https://ann-benchmarks.com/glove-100-angular_10_angular.html).
+
+The graph linked on this page shows the recall rate and the number of queries per second for a given algorithm.  In this experiment, recall means the probability that one of the actually 100 nearest neighbors to a point was included in the list of the 100 nearest neighbors returned by a particular ANN algorithm (1.0 is perfect).  Higher queries per second (y-axis indicates better efficiency).
+
+How do these techniques work?  It is an area that I don't have a lot of familiarity with, so I can only tell you a bit (maybe this could be a topic for an individual deep dive?).  One technique that I did want to highlight since it touches on the course material, is [locality-sensitive hashing](https://en.wikipedia.org/wiki/Locality-sensitive_hashing).  There is a really nice writeup of doing [locality-sensitive hashing on text data at Pinecone.io](https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing/).  Disclaimer: I didn't get through the entire thing yet.
+
+The one thing I wanted to highlight is the difference between locality-sensitive hashing (LSH) and the sort of hashing we do in the creation of a hash map.  In direct opposition to what you want in creating a hash map, In the case of LSH you want to maximize the chance of collision (when you have similar data).  By maximizing collisions between similar inputs, you have a chance can quickly narrow down your nearest neighbor search by applying your hash function and looking in the returned bin.
