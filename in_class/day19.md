@@ -26,12 +26,12 @@ We'll fill them out together, and I'll update the website after with the finishe
 
 **Problem 1** Fill out the $\Theta$ runtime for each data structure at performing each operation.  Some data structures do not naturally support some operations, so you can either mark those as N/A or use $\Theta(n)$.  The operation Lookup (closest) means to find the closest element to a query within the collection.
 
-| *Data Structure* | *Insert* | *Delete* | *Lookup (exact)* | *Lookup (closest)* |
-|------------------|----------|----------|------------------|--------------------|
-| **Array**        |          |          |                  |                    |
-| **Linked List**  |          |          |                  |                    |
-| **Heap**         |          |          |                  |                    |
-| **Hash Table**   |          |          |                  |                    |
+| *Data Structure* | *Insert*         | *Delete*         | *Lookup (exact)*              | *Lookup (closest)*            |
+|------------------|------------------|------------------|-------------------------------|-------------------------------|
+| **Array**        | $\Theta(1)$      | $\Theta(n)$      | $\Theta(n)$                   | $\Theta(n)$                   |
+| **Linked List**  | $\Theta(1)$      | $\Theta(n)$      | $\Theta(n)$                   | $\Theta(n)$                   |
+| **Heap**         | $\Theta(\log n)$ | $\Theta(\log n)$ | N/A (typically not supported) | N/A (typically not supported) |
+| **Hash Table**   | $\Theta(1)$      | $\Theta(1)$      | $\Theta(1)$                   | $\Theta(n)$                   |
 
 ## Linear and Binary Search
 

@@ -34,7 +34,7 @@ header:
 | 17    | [Associative Arrays and Hashing](in_class/day17)                              |
 | 18    | [Lempel-Ziv Compression](in_class/day18)                                      |
 | 19    | [Binary Search Trees](in_class/day19)                                         |
-| 20    | Nearest Neighbor Classification and KD-Trees (tentative)                      |
+| 20    | [KD-Trees and Nearest Neighbors](in_class/day20)                              |
 | 21    | Workshop on Potential Project Topic Areas (tentative)                         |
 | 22    | Project Ideation / Learning Goal Setting (tentative)                          |
 | 23    | Project Proposals / Workday (tentative)                                       |
