@@ -36,11 +36,12 @@ header:
 | 19    | [Binary Search Trees](in_class/day19)                                         |
 | 20    | [KD-Trees and Nearest Neighbors](in_class/day20)                              |
 | 21    | [Making Sense of DSA and Looking to the Final Project](in_class/day21)        |
-| 22    | Project Ideation / Learning Goal Setting (tentative)                          |
-| 23    | Project Proposals / Workday (tentative)                                       |
-| 24    | Mid-Project Activity (tentative)                                              |
-| 25    | Project Workday (tentative)                                                   |
-| 26    | Project Workday (tentative)                                                   |
+| 22    | Project Ideation / Team Formation                                             |
+| 23    | Workday (tentative)                                                           |
+| 24    | Project Workday                                                               |
+| 25    | Mid-Project Activity                                                          |
+| 26    | Project Workday                                                               |
+| Final | Project Share out / Course Reflection                                         |
 
 
 <!--
