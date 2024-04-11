@@ -28,6 +28,12 @@ Turn in a project plan that lays out your plan for the project.  Clearly specify
 * **Educational Value of Deliverables** The deliverables should help others in the course extend their knowledge.  How will you ensure that your deliverables have some component that will help others in the course learn?
 * **Project schedule** Provide a rough timeline for how you will finish this work before the final event on May 2nd.
 
+### Final Project Presentation (2 points)
+
+Prepare a presentation of about 5 minutes (not including time for questions) on what you did for the project.  Submit your slides on Canvas.  If you are a larger team, you might take a little more time.  If you are a solo project, you might take a little less time.
+
+The assessment is either full or no credit (depending on whether you did the presentation or not).
+
 ### Other Deliverables (25 points)
 
 You are required to include a brief summary of what you did for the project and an orientation to any other deliverables (e.g., a listing of where your code lives, links to a website / video, etc.).  Your summary should also provide clear instructions so someone from the class can learn something from your project.
