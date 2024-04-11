@@ -36,33 +36,13 @@ header:
 | 19    | [Binary Search Trees](in_class/day19)                                         |
 | 20    | [KD-Trees and Nearest Neighbors](in_class/day20)                              |
 | 21    | [Making Sense of DSA and Looking to the Final Project](in_class/day21)        |
-| 22    | Project Ideation / Team Formation                                             |
+| 22    | [Project Ideation / Team Formation](in_class/day22)                           |
 | 23    | Workday (tentative)                                                           |
 | 24    | Project Workday                                                               |
 | 25    | Mid-Project Activity                                                          |
 | 26    | Project Workday                                                               |
 | Final | Project Share out / Course Reflection                                         |
 
-
-<!--
-## Motivating Examples
-
-* Genomic analysis
-* Machine learning
-* Bigdata
-* Computer networks
-* Navigation (routing)
-* Encryption
--->
-
-<!--
-## Some problems / extensions
-
-* Peak finder (MIT OCW motivating problem)
-* 15 puzzle or 2x2 Rubik's cube
-* Beyond worst case complexity
-* Approximation algorithms
--->
 
 ##  Assignments
 
@@ -76,6 +56,6 @@ header:
 | 16                          | [Individual Deep Dive](assignments/assignment_06)                       |
 | 19                          | [Associative Arrays and Hashing](assignments/assignment_07)             |
 | 21                          | [Binary Search Trees](assignments/assignment_08)                        |
-
+| Final Event                 | [Final Project](assignments/assignment_09)                              |
 
 
