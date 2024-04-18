@@ -37,7 +37,7 @@ header:
 | 20    | [KD-Trees and Nearest Neighbors](in_class/day20)                              |
 | 21    | [Making Sense of DSA and Looking to the Final Project](in_class/day21)        |
 | 22    | [Project Ideation / Team Formation](in_class/day22)                           |
-| 23    | Workday (tentative)                                                           |
+| 23    | [Workday](in_class/day23)                                                     |
 | 24    | Project Workday                                                               |
 | 25    | Mid-Project Activity                                                          |
 | 26    | Project Workday                                                               |
