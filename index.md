@@ -38,7 +38,7 @@ header:
 | 21    | [Making Sense of DSA and Looking to the Final Project](in_class/day21)        |
 | 22    | [Project Ideation / Team Formation](in_class/day22)                           |
 | 23    | [Workday](in_class/day23)                                                     |
-| 24    | Project Workday                                                               |
+| 24    | [Workday](in_class/day24)                                                     |
 | 25    | Mid-Project Activity                                                          |
 | 26    | Project Workday                                                               |
 | Final | Project Share out / Course Reflection                                         |
