@@ -39,7 +39,7 @@ header:
 | 22    | [Project Ideation / Team Formation](in_class/day22)                           |
 | 23    | [Workday](in_class/day23)                                                     |
 | 24    | [Workday](in_class/day24)                                                     |
-| 25    | Mid-Project Activity                                                          |
+| 25    | [Workday and Project Standup](in_class/day25)                                 |
 | 26    | Project Workday                                                               |
 | Final | Project Share out / Course Reflection                                         |
 
