@@ -40,7 +40,7 @@ header:
 | 23    | [Workday](in_class/day23)                                                     |
 | 24    | [Workday](in_class/day24)                                                     |
 | 25    | [Workday and Project Standup](in_class/day25)                                 |
-| 26    | Project Workday                                                               |
+| 26    | [Project Workday and P versus NP](in_class/day26)                             |
 | Final | Project Share out / Course Reflection                                         |
 
 
