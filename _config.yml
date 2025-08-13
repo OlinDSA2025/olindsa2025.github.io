@@ -1,7 +1,7 @@
-remote_theme: olindsa2024/minimal-mistakes@copybutton
+remote_theme: olindsa2025/minimal-mistakes@copybutton
 logo: "https://qeacourse.github.io/RoboNinjaWarrior/website_graphics/olinlogo.png"
-title: "Data Structures Spring 2024 @ Olin College"
-repository: olindsa2024/olindsa2024.github.io
+title: "Data Structures Fall 2025 @ Olin College"
+repository: olindsa2025/olindsa2025.github.io
 highlighter: rouge
 
 plugins:
@@ -13,6 +13,20 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
+jekyll-spaceship:
+  mathjax-processor:
+    src:
+      - https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js
+  mermaid-processor:
+    mode: default  # mode value 'pre-fetch' for fetching image at building stage
+    css:
+      class: mermaid
+    syntax:
+      code: 'mermaid!'
+      custom: ['@startmermaid', '@endmermaid']
+    config:
+      theme: default
+    src: https://mermaid.ink/svg/
 
 defaults:
   # _pages
