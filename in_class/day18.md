@@ -3,17 +3,6 @@ title: "Day 18: Lempel-Ziv"
 toc_sticky: true
 ---
 
-<script type="text/javascript">
-function HideShowElement(divID) {
-    const x = document.getElementById(divID);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
-
 ## Lempel-Ziv Compression
 
 One of the options for the current assignment is to implement Lempel-Ziv Compression.  Lempel-Ziv is a lossless compression algorithm, which means that the original data can be recovered exactly (without any loss of information) from the compressed data.

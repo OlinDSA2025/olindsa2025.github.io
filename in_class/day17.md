@@ -2,16 +2,6 @@
 title: "Day 17: Associative Arrays and Hashing"
 toc_sticky: true
 ---
-<script type="text/javascript">
-function HideShowElement(divID) {
-    const x = document.getElementById(divID);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
 
 ## Associative Arrays
 

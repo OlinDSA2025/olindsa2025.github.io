@@ -3,6 +3,7 @@ Gemfile.lock
 *.swp
 .DS_Store
 
+.idea
 _site
 
 *.mat

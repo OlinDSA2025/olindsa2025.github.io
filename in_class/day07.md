@@ -7,7 +7,7 @@ toc_sticky: true
 
 Starting off, let's revisit a problem that most of you didn't get to from last class.  This is the problem of determining if a given directed graph is acyclic. To motivate this, let's consider the following graph.
 
-```mermaid!
+<div class="mermaid">
 graph LR
   A --> B
   B --> C
@@ -16,7 +16,7 @@ graph LR
   B --> D
   A --> E
   D --> E
-```
+</div>
 
 Perhaps unsurprisingly, a graph is a directed acyclic graph ([DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)) if it is both directed and contains no cycles.  Cycles are paths through the graph that repeat vertices.
 
@@ -46,14 +46,14 @@ Let's go through this example together to see how Kahn's algorithm works.
 
 Let's try Kahn's algorithm on a graph that does contain a cycle to see what happens.
 
-```mermaid!
+<div class="mermaid">
 graph LR
   A --> B
   B --> C
   C --> D
   C --> B
   A --> D
-```
+</div>
 
 Question for us to work through together: How would we prove that Kahn's algorithm is correct?
 
@@ -63,7 +63,7 @@ I have some companion slides to go along with the presentation of [Dijkstra's al
 
 Before we introduce Dijkstra's algorithm, we need to briefly introduce the idea of weighted graphs.  Imagine that in addition to storing the neighbors of each vertex in our graph, we also store an edge weight.  Here is what a graph might look like with edge weights added.
 
-```mermaid!
+<div class="mermaid">
 graph LR
   A --2--> B
   B --3--> C
@@ -72,7 +72,7 @@ graph LR
   B --1--> D
   A --10--> E
   D --7--> E
-```
+</div>
 
 As an aside, edge weights could encode a bunch of different things in our graph.  In computer vision, edge weights can encode the dissimilarity between neighboring parts of an image and this graph can then be processed to segment parts of an image.  Another classical example is graph traversal where we might want to find the shortest path through a graph connecting $v_{start}$ to $v_{goal}$. In this setting, the cost of a path is defined by the sum of edge weights along the path.  This is what we will learn about next.
 
@@ -118,7 +118,7 @@ A heap is a special type of graph called a binary tree.
 
 An example of a binary tree is given below.
 
-```mermaid!
+<div class="mermaid">
 graph TB
   A --> B
   A --> C
@@ -126,18 +126,18 @@ graph TB
   B --> E
   C --> F
   C --> G
-```
+</div>
 
 A heap extends the concept of a binary tree by adding a number that accompanies each node.  Let's suppose in our example that each the letters A through F in our sample graph above were assigned the following values (A: 5, B: 3, C: 4, D: 9, E: 1, F: 6).  The following would be a valid heap.
 
-```mermaid!
+<div class="mermaid">
 graph TB
 E[E, 1] --> B[B, 3]
 E --> C[C, 4]
 B --> A[A, 5]
 B --> F[F, 6]
 C --> D[D, 9]
-```
+</div>
 
 The binary tree above is a heap because it meets two conditions.
 

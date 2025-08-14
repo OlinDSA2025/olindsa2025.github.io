@@ -3,17 +3,6 @@ title: "Day 19: Binary Search Trees"
 toc_sticky: true
 ---
 
-<script type="text/javascript">
-function HideShowElement(divID) {
-    const x = document.getElementById(divID);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
-
 ## Overview
 
 Today, we will learn about the binary search tree (BST).  We will find that BSTs are incredibly useful for searching for items within a collection.  Further, if we want to do things like find the closest element in our collection to a specific query, BSTs will give us great performance.
@@ -39,7 +28,7 @@ We've seen these concepts in some form already this semester, but we'll state th
 
 Suppose we have a collection integers stored in an array $x[1], x[2], \ldots, x[n]$.  Further, let's suppose the array is sorted in ascending order (i.e., $x[i] < x[j]$ if and only if $i < j$).  Now suppose given a query point $x_q$ we'd like to find the element in our array that satisfies the following equation.
 
-$\begin{align} x^\star &= \underset{i}{\mbox{argmin}} \| x[i] - x_q \| \end{align}$
+$\begin{aligned} x^\star &= \underset{i}{\text{argmin}} \| x[i] - x_q \| \end{aligned}$
 
 This equation is just a fancy way of saying that we look for the closet (in this case as defined by the absolute value) between the query and the elements in the collection.
 
@@ -75,7 +64,7 @@ Original sorted data: $1, 2, 5, 8, 20, 100, 202$.
 
 As a BST:
 
-```mermaid!
+<div class="mermaid">
 graph TB
   8 --> 2
   8 --> 100
@@ -83,7 +72,7 @@ graph TB
   2 --> 5
   100 --> 20
   100 --> 202
-```
+</div>
 
 This tree maintains the invariant that for a given node, each of the nodes in the left subtree is less than that node.  Similarly, the nodes in the right subtree are each greater than this node.  Note that if the array has duplicate values, you can arbitrarily place the duplicate in either the left or right subtree.
 

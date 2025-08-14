@@ -53,7 +53,7 @@ Key differences with Dijkstra's algorithm.
 
 Example to do on the board (this is from [Pieter Abbeel's course at Berkeley](https://www.youtube.com/watch?v=DhtSZhakyOo)):
 
-```mermaid!
+<div class="mermaid">
 graph LR
   S --1--> A
   S --4--> B
@@ -62,7 +62,7 @@ graph LR
   B --2--> C
   C --3--> G
   A --12--> G
-```
+</div>>
 
 This graph has the following heuristic.
 

@@ -22,7 +22,7 @@ In the 0–1 Knapsack problem, we are given a set of items, each with a weight a
 >
 > Output: Knapsack value is 60 value = 20 + 40 = 60 (weight = 1 + 8 = 9 < W)
 
-** After you solve this: how does this solution compare to the change-making problem **
+**After you solve this: how does this solution compare to the change-making problem**
 
 To find additional problems, you can search for terms like "dynamic programming sample problems".  You will get some like:
 * [Longest Increasing Subsequence](https://www.techiedelight.com/longest-increasing-subsequence-using-dynamic-programming/)

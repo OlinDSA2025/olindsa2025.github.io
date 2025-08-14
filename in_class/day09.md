@@ -29,7 +29,7 @@ We can then think of creating a tree where at each level of the tree we perform 
 
 Let's say each of our comparison perfectly divides the number of possible permutations that go each direction in our tree in half.  This is what the picture would look like.
 
-```mermaid!
+<div class="mermaid">
 graph TD
   r[n!] --> b[n!/2]
   r --> c[n!/2]
@@ -37,7 +37,7 @@ graph TD
   b --> f[n!/4]
   c --> g[n!/4]
   c --> h[n!/4]
-```
+</div>
 
 We'll go over the details as a class, but we will have to use one equation that we won't prove: $\log n! = \Omega(n \log n)$.
 
