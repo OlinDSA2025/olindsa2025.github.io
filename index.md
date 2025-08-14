@@ -6,6 +6,8 @@ header:
   overlay_filter: "0.4"
 ---
 
+{% include search-box.html %}
+
 ## How-tos
 
 * [Get set with Kotlin](how_to/setting_up_kotlin)
