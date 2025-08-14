@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
---><html lang="en" class="no-js">
+-->
+<html lang="en" class="no-js">
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
 <script>
@@ -157,13 +157,50 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
     <!-- start custom head snippets -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+<script>
+    // https://github.com/KaTeX/KaTeX/blob/main/docs/autorender.md
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+                delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: "\begin{equation}", right: "\end{equation}", display: true},
+                {left: "\begin{align}", right: "\end{align}", display: true},
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+function HideShowElement(divID) {
+    const x = document.getElementById(divID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
 
-  <script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
-</head>
+  </head>
 
   <body class="layout--single">
     <nav class="skip-links">
@@ -232,8 +269,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title">
-<i class="fas fa-file-alt"></i> On this page</h4></header>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
   <li><a href="#associative-arrays">Associative Arrays</a></li>
@@ -245,18 +281,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
             </nav>
           </aside>
         
-        <script type="text/javascript">
-function HideShowElement(divID) {
-    const x = document.getElementById(divID);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
-
-<h2 id="associative-arrays">Associative Arrays</h2>
+        <h2 id="associative-arrays">Associative Arrays</h2>
 
 <p>An <a href="https://en.wikipedia.org/wiki/Associative_array">associative array</a> is a data structure that stores key / value pairs.  In the basic (vanilla) associative array, we assume that each key can be associated with at most one value.  The types of the keys and values need not be the same, and they need not be integers or even primitive data types (e.g., doubles, floats, ints, shorts).</p>
 
@@ -286,7 +311,7 @@ function HideShowElement(divID) {
   <li>(b) What is the space complexity for storing $n$ elements in an association list?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.</li>
 </ul>
 
-<p><button onclick='HideShowElement("HideShow1")'>Show / Hide Hint for (a) </button></p>
+<p><button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint for (a) </button></p>
 <div id="HideShow1" style="display:none">
 Can you map each of these operations to an operation on a linked list?  If so, try to borrow the time complexities from there.
 </div>
@@ -301,7 +326,7 @@ Can you map each of these operations to an operation on a linked list?  If so, t
   <li>(b) What is the space complexity for storing $n$ elements in an array map?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.</li>
 </ul>
 
-<p><button onclick='HideShowElement("HideShow2")'>Show / Hide Hint for (b) </button></p>
+<p><button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint for (b) </button></p>
 <div id="HideShow2" style="display:none">
 Does the amount of space needed depend on $n$?
 </div>
@@ -309,7 +334,7 @@ Does the amount of space needed depend on $n$?
 <p><strong>Problem 3</strong>
 Are either of these two approaches practical?  If so, in what situations would each of them be a good choice for a data structure?</p>
 
-<p><button onclick='HideShowElement("HideShow3")'>Show / Hide Hint</button></p>
+<p><button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint</button></p>
 <div id="HideShow3" style="display:none">
 Consider variables like the size of the key space $k$ and the number of elements stored $n$.
 </div>
@@ -320,7 +345,7 @@ Consider variables like the size of the key space $k$ and the number of elements
 
 <p>Here is an example of how a hash function might be used to implement an associative array.  In this case, we will assume that our hash function maps elements from our key space (names) to integers $0, \ldots, 15$ (i.e., $m = 16$).  In essence the hash function computes a “bucket” at which to store the value associated with a particular key.</p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg" alt="A hash map showing several names mapping to different phone numbers.">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg" alt="A hash map showing several names mapping to different phone numbers." />
 credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:Hash_table_3_1_1_0_1_0_0_SP.svg">license</a>)</p>
 
 <p>This design should bring to mind two questions:</p>
@@ -332,7 +357,7 @@ credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:Hash_table_3
 
 <p>With respect to question 1, there are two commonly used schemes.  The first is called <strong>separate chaining</strong>.  In separate chaining, instead of storing the values directly in the buckets, each bucket points to an association list that stores the key-value pairs.  In the example of the phone book, separate chaining would look like this.</p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/900px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="A hash table with separate chaining">.  credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:Hash_table_5_0_1_1_1_1_1_LL.svg">license</a>)</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/900px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="A hash table with separate chaining" />.  credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:Hash_table_5_0_1_1_1_1_1_LL.svg">license</a>)</p>
 
 <p>Notice how the John Smith and Sandra Dee both map to the same bucket (this is called a <em>collision</em>), which points to a two element association list.  Separate chaining works well when the load factor (defined as the ratio of the number of elements stored, $n$, to the number of buckets, $m$) is less than 3 (<a href="https://www.cs.cornell.edu/courses/cs312/2008sp/lectures/lec20.html">citation</a>).  When the load factor exceeds some specified threshold, the table must be rehashed (meaning each element must be reinserted with a new hashing function where with a larger number of buckets).</p>
 
@@ -340,7 +365,7 @@ credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:Hash_table_3
 
 <p>In linear probing, when you insert an item and a collision occurs, you simply search ahead in your array into you find an unused bucket and place the value there.  This scheme requires updating your algorithm for lookup and deletion of elements accordingly.  Here is what our running example would look like when using linear probing.</p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/600px-HASHTB12.svg.png" alt="A phonebook stored with linear probing">  credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:HASHTB12.svg">license</a>)</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/600px-HASHTB12.svg.png" alt="A phonebook stored with linear probing" />  credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:HASHTB12.svg">license</a>)</p>
 
 <p>Notice how the colliding elements are now stored in two separate buckets located sequentially in the array.</p>
 
@@ -387,7 +412,7 @@ credit: Wikimedia (<a href="https://commons.wikimedia.org/wiki/File:Hash_table_3
   <p>Note: xor is <a href="https://en.wikipedia.org/wiki/Exclusive_or">exclusive or</a>, which we denote using the $\oplus$ operator.</p>
 </blockquote>
 
-<p>$\begin{align} 00110101_b \oplus 01001010_b &amp;= 01111111_b &amp; \mbox{xor chunk 1 and 2}\\ 01111111_b \oplus 01100001_b &amp;= 00011110_b &amp; \mbox{take result and xor with chunk 3} \\  00011110_b \oplus 11111100_b &amp;= 11100010_b  &amp; \mbox{take result and xor with chunk 4}\end{align}$</p>
+<p>$\begin{align} 00110101_b \oplus 01001010_b &amp;= 01111111_b &amp; \mbox{xor chunk 1 and 2}\ 01111111_b \oplus 01100001_b &amp;= 00011110_b &amp; \mbox{take result and xor with chunk 3} \  00011110_b \oplus 11111100_b &amp;= 11100010_b  &amp; \mbox{take result and xor with chunk 4}\end{align}$</p>
 
 <p>Given this result we would then store the value associated with the key $4,234,234,421$ in bin 226 (this is the decimal equivalent of the bit string computed above).</p>
 
@@ -446,7 +471,7 @@ Let’s examine why we might want to choose our table size to be a prime number.
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2025 Data Structures Fall 2025 @ Olin College.</div>
+<div class="page__footer-copyright">&copy; 2025 Data Structures Fall 2025 @ Olin College.</div>
 
       </footer>
     </div>

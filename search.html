@@ -1,0 +1,778 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<script>
+class AnchorNoProxy extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this._$a = null;
+  }
+  connectedCallback() {
+    const href = this.getAttribute("href") || "#";
+    if (this.dataset.hasOwnProperty('canvas')) {
+        const canvasURL = this.dataset.canvas;
+        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na { color: #5197ad; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}" data-canvas="${canvasURL}"><slot></slot></a>`;
+    } else {
+        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na { color: #5197ad; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}"><slot></slot></a>`;
+    }
+    this._$a = this.shadowRoot.querySelector("a");
+    this._$a.addEventListener("click", e => {
+      var url = this.getAttribute('href');
+      e.preventDefault();
+      if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
+        // get rid of proxy if it was added
+        var n = this.dataset.canvas.search('https://olin.instructure.com');
+        window.open(this.dataset.canvas.substring(n), '_blank');
+      } else {
+        window.open(url, '_blank');
+      }
+    });
+  }
+  static get observedAttributes() { return ["href"]; }
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      if (this._$a === null) return;
+      this._$a.setAttribute("href", newValue);
+    }
+  }
+}
+
+customElements.define("a-no-proxy", AnchorNoProxy);
+
+class NoProxy extends HTMLAnchorElement {
+  connectedCallback() {
+    this.addEventListener("click", e => {
+      e.preventDefault();
+      if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
+        // get rid of proxy if it was added
+        var n = this.dataset.canvas.search('https://olin.instructure.com');
+      	window.open(this.dataset.canvas.substring(n), '_blank');
+      } else {
+      	window.open(this.href, '_blank');
+      }
+    });
+  }
+}
+
+customElements.define("no-proxy", NoProxy, { extends: "a" });
+
+class ConfirmLink extends HTMLAnchorElement {
+  connectedCallback() {
+    this.addEventListener("click", e => {
+      const result = confirm(`Are you sure you want to go to '${this.href}'?`);
+      if (!result) e.preventDefault();
+    });
+  }
+}
+
+customElements.define("confirm-link", ConfirmLink, { extends: "a" });
+
+</script>
+
+<!-- begin _includes/seo.html --><title>Search Results - Data Structures Fall 2025 @ Olin College</title>
+<meta name="description" content="Website">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
+<meta property="og:title" content="Search Results">
+<meta property="og:url" content="/search.html">
+
+
+  <meta property="og:description" content="Website">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="/search.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Structures Fall 2025 @ Olin College Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+<script>
+    // https://github.com/KaTeX/KaTeX/blob/main/docs/autorender.md
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+                delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: "\begin{equation}", right: "\end{equation}", display: true},
+                {left: "\begin{align}", right: "\end{align}", display: true},
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+function HideShowElement(divID) {
+    const x = document.getElementById(divID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="https://qeacourse.github.io/RoboNinjaWarrior/website_graphics/olinlogo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Data Structures Fall 2025 @ Olin College
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Search Results">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Search Results
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                
+	      	
+            </nav>
+          </aside>
+        
+        <div class="header-search">
+  <form class="header-search-form" action="/search/" method="get">
+    <input type="text" id="search-box" name="query" />
+    <input type="submit" value="search" />
+  </form>
+</div>
+
+<!-- List where search results will be rendered -->
+<ul id="search-results"></ul>
+
+<script>
+  // Template to generate the JSON to search
+  window.store = {
+    
+      "sample-code-hello-world-html": {
+        "title": "Hello World!",
+        "author": "",
+        "category": "",
+        "content": "Hello world!",
+        "url": "/sample_code/Hello_world.html"
+      }
+      ,
+    
+      "assignments-assignment-01-html": {
+        "title": "Assignment 1",
+        "author": "",
+        "category": "",
+        "content": "Course Entry SurveyPlease fill this out.  I want to get a better sense for what you are hoping to get out of this course, what your background is, and how I can make this course work well for you.Hello Kotlin!Go through the Kotlin tour.  Make sure to attempt all of the exercises in the tour.  What features do you like about Kotlin?  Are there things you were expecting to find that you haven’t?  What questions do you have?  Turning in your work: You don’t have to turn in the code you write for the tour.  Please let me know that you did indeed finish the tour and turn in your answers to the questions above.Translating Your Old Code to KotlinChoose a piece of code that you’ve written in a programming language other than Kotlin.  Translate the code to run in Kotlin.  For simplicity, you may want to choose some code that will not require interacting with a lot of external libraries.  Let me know if you want advice on this code.The code you produce should be documented and contain at least some unit tests.  Turning in your work: Include a link to a Github repo containing your port of the code.  Include a writeup that describes the purpose of the code and how you found the process of translating the code to Kotlin (the good, the bad, and the ugly).",
+        "url": "/assignments/assignment_01.html"
+      }
+      ,
+    
+      "assignments-assignment-02-html": {
+        "title": "Assignment 2",
+        "author": "",
+        "category": "",
+        "content": "OverviewIn this assignment you will be implementing a doubly linked list in Kotlin.  You’ll then define abstract data types for both a queue and a stack.  Once you’ve done that, you can use your newly minted data structures to solve some code-interview style problems.Part 1: Doubly Linked ListImplement a doubly linked list in Kotlin.  Your class should work with any data type (use Kotlin’s generics) and support the following operations (we use T to refer to the data type stored in the underlying linked list../** * Adds the element [data] to the front of the linked list. */fun pushFront(data: T)/** * Adds the element [data] to the back of the linked list. */fun pushBack(data: T)/** * Removes an element from the front of the list. If the list is empty, it is unchanged. * @return the value at the front of the list or nil if none exists */fun popFront(): T?/** * Removes an element from the back of the list. If the list is empty, it is unchanged. * @return the value at the back of the list or nil if none exists */fun popBack(): T?/** * @return the value at the front of the list or nil if none exists */fun peekFront(): T?/** * @return the value at the back of the list or nil if none exists */fun peekBack(): T?/** * @return true if the list is empty and false otherwise */fun isEmpty(): BooleanMake sure to include unit tests for each of these operations.Stack and Queue Abstract Data TypesThe Stack abstract data type is:interface Stack&lt;T&gt; {    /**     * Add [data] to the top of the stack     */    fun push(data: T)    /**     * Remove the element at the top of the stack.  If the stack is empty, it remains unchanged.     * @return the value at the top of the stack or nil if none exists     */    fun pop(): T?    /**     * @return the value on the top of the stack or nil if none exists     */    fun peek(): T?    /**     * @return true if the stack is empty and false otherwise     */    fun isEmpty(): Boolean}The Queue abstract data type is:interface Queue&lt;T&gt; {    /**     * Add [data] to the end of the queue.     */    fun enqueue(data: T)    /**     * Remove the element at the front of the queue.  If the queue is empty, it remains unchanged.     * @return the value at the front of the queue or nil if none exists     */    fun dequeue(): T?    /**     * @return the value at the front of the queue or nil if none exists     */    fun peek(): T?    /**     * @return true if the queue is empty and false otherwise     */    fun isEmpty(): Boolean}Stack and Queue Implementations  P1: Using your linked list class as a data structure, create a class that implements the stack abstract data type.  Make sure to include at least one unit test for each of the functions in the stack ADT.  P2: Using your linked list class as a data structure, create a class that implements the queue abstract data type.  Make sure to include at least one unit test for each of the functions in the queue ADT.Practice Problems with Stacks and QueuesThese next problems are similar to the types of problems you might encounter in a technical interview.  You should work out a strategy for implementing all fo them, but you only need to implement one in Kotlin.  P3: How would you reverse the elements in a stack (i.e., put the elements at the top of the stack on the bottom and vice-versa)?  You can use as many additional stacks and queues as temporary storage in your approach.  P4: Come up with a strategy to solve the valid parentheses problem.  P5: Solve the copy stack problem (source: University of Washington CSE122)  Given a stack return a copy of the original stack (i.e., a new stack with the same values as the original, stored in the same order as theoriginal). Your method should create the new stack and fill it up with the same values that are stored in the original stack.  You may use one queue as auxiliary storage.More problems you might check out (totally optional… let’s find more together)  Splice stack (https://courses.cs.washington.edu/courses/cse122/23wi/lectures/5/5.pdf)  https://leetcode.com/tag/queue/  https://leetcode.com/tag/stack/  https://leetcode.com/problems/simplify-path/",
+        "url": "/assignments/assignment_02.html"
+      }
+      ,
+    
+      "assignments-assignment-03-html": {
+        "title": "Assignment 3",
+        "author": "",
+        "category": "",
+        "content": "Getting StartedYou should fork this base Assignment03 repo.  If you want your repo to be private, please make sure to add me, paulruvolo, as a collaborator for when you turn in your work.Representing GraphsCreate a Kotlin class to represent graphs a directed, weighted graph.  Your graph should implement the Graph&lt;VertexType&gt; interface (in the base repo)./** * This is a simple ``Graph`` that represents a directed graph * @param VertexType the representation of a vertex in the graph */interface Graph&lt;VertexType&gt; {    /**     * @return the vertices in the graph     */    fun getVertices(): Set&lt;VertexType&gt;    /**     * Add an     */    fun addEdge(from: VertexType, to: VertexType, cost: Double)    /**     *     */    fun getEdges(from: VertexType): Map&lt;VertexType, Double&gt;    /**     * Remove all edges and vertices from the graph     */    fun clear()}  You should be able to retrieve a collection of vertices in the graph (e.g., you might maintain a MutableList or a Mutable set that contains all of your vertices.)  Given a vertex, $v$, you should be able to retrieve a collection of vertices that are neighbors of $v$ (that is any vertex $m$ such that there exists an edge $v \\rightarrow m$).Creating a Priority QueueCreate a data structure called PriorityQueue that supports the following operations (this interface is already in the base repo)./** * ``MinPriorityQueue`` maintains a priority queue where the lower *  the priority value, the sooner the element will be removed from *  the queue. *  @param T the representation of the items in the queue */interface MinPriorityQueue&lt;T&gt; {    /**     * @return true if the queue is empty, false otherwise     */    fun isEmpty(): Boolean    /**     * Add [elem] with at level [priority]     */    fun addWithPriority(elem: T, priority: Double)    /**     * Get the next (lowest priority) element.     * @return the next element in terms of priority.  If empty, return null.     */    fun next(): T?    /**     * Adjust the priority of the given element     * @param elem whose priority should change     * @param newPriority the priority to use for the element     *   the lower the priority the earlier the element int     *   the order.     */    fun adjustPriority(elem: T, newPriority: Double)}In order to implement your priority queue, you’ll want to create a MinHeap.  For your MinHeap you can either build it from scratch (e.g., using this Wikipedia page as a guide) or you can build off (or probably just use) the reference implementation here.  The priority queue will be a pretty thin wrapper on top op the heap.SearchingImplement Dijkstra’s algorithm to search through a graph for the shortest path.  Your algorithm should return the shortest path (not just the cost) between a given start node and a given destination node.  If no path exists between the two nodes, return null.Solving Problems with DijkstraDijkstra can be used to solve a bunch of problems.  Here are some you might want to try for practice.  Choose at least one of these options.  Project Euler Problem 81 (also look at 82 and 83 for harder variants)  Implement a Maze Solver  Create a graph that represents the cost (however you want to define it) to travel between particular various cities (you choose which ones).  Compute some shortest paths on this graph using your Dijkstra implementation.  If you want to define a map on a different level of granularity (e.g., city streets) that is cool too!Turning in your CodeSubmit the fork of the base Assignment03 repo.AssessmentSee the rubric on Canvas.",
+        "url": "/assignments/assignment_03.html"
+      }
+      ,
+    
+      "assignments-assignment-04-html": {
+        "title": "Assignment 4",
+        "author": "",
+        "category": "",
+        "content": "OverviewThis assignment is about implementing, benchmarking, and solving problems with sorting algorithms.Sorting Algorithm Implementation and Complexity AnalysisImplement at least four sorting algorithms.  For each sorting algorithm you implement, provide an analysis of its computational complexity.  At least one of your algorithms should be $\\Theta(n \\log n)$.Here are some possible algorithms to implement.  Heap sort  Radix sort  Insertion sort  Selection sort  Merge sort  Quick sortSorting Algorithm BenchmarkingTest the performance of your sorting algorithms on sorting different sized lists of numbers.  Create some representation (e.g., a  table r a graph) of the runtimes of the algorithms as a function of list size.  In a writeup (I would suggest a markdown file), discuss how you tested your algorithms (e.g., how you generated the lists to be sorted, how many times you performed each experiment).  Draw some conclusions based on your experiment (e.g., which algorithm seems faster and in which cases).New Frontiers in Sorting?Do some research to determine what new problems exist in terms of sorting.  In your writeup, discuss at least one variant of sorting that has active research.  Make sure you explain what solving this problem entails.  Read one research paper that is related to this sorting problem and summarize its contributions (you may not be able to understand the paper at full detail, but hopefully you can get the gist).Practice with the master theoremDo this worksheet from MIT 6.046 by applying the master theorem.  There are solutions available here.Turning in your workSubmit a link to a repository that has your code and writeup.  Make sure to add me paulruvolo as a collaborator if the repo is private.AssessmentSee the rubric on Canvas.",
+        "url": "/assignments/assignment_04.html"
+      }
+      ,
+    
+      "assignments-assignment-05-html": {
+        "title": "Assignment 5",
+        "author": "",
+        "category": "",
+        "content": "OverviewThis assignment is about solving problems using recursion.  The assignment will be a mixture of divide and conquer and dynamic programming.Part 1: Creating a matrix classCreate a class called Kotlin class capable of storing square matrices.  I won’t be overly prescriptive about how you write your class, but you should support basic operations like creating a matrix of size $n$, setting / getting values at specified row and column indices.  Don’t worry about matrix multiplication yet, that’s coming!Part 2: Strassen’s Algorithm for Matrix MultiplicationAdd the functions multiply and strassenMultiply to your matrix class. These functions should do the following (note: here I’m using Matrix as a stand-in for whatever you call your class from part 1 of the assignment)class Matrix {    // ... (other stuff omitted)        /**     * Multiply [this] matrix by [other].     * You can implement this either using block-based matrix multiplication or     * traditional matrix multiplication (the kind you learn about in math     * classes!)     * @return [this]*[other] if the dimensions are compatible and null otherwise     */    fun multiply(other: Matrix):Matrix? {        // your implementation here    }    /**     * Multiply [this] matrix by [other].     * Your code should use Strassen's algorithm     * @return [this]*[other] if the dimensions are compatible and null otherwise     */    fun strassenMultiply(other: Matrix):Matrix? {        // your implementation here    }}Write some unit tests to show your code is correct.  At what size matrix does Strassen’s algorithm become faster than the traditional method?Part 3: Dynamic Programming for Aligning Protein SequencesWatch the following video on the sequence alignment problem.  Hopefully, it will give some good motivation behind what the problem is and why it’s important.Implement either the Needleman-Wunsch Algorithm or the Smith-Waterman Algorithm for sequence alignment.You may find this resource useful for testing your code and understanding the algorithms.Your code should find both the best alignment and use backtracing to display the alignment itself.  Note: I’m going to be looking for some sample data (real protein sequences) to use with this.  Stay tuned (or if you find some, please let me know).Here is an alignment between part of a Salmonella genome and another part of the same genome (see course announcement for details)Turning in your workSubmit a link to a repository that has your code and writeup.  Make sure to add berwinlan, aditivinod, and paulruvolo as collaborators if the repo is private.AssessmentSee the rubric on Canvas.",
+        "url": "/assignments/assignment_05.html"
+      }
+      ,
+    
+      "assignments-assignment-06-html": {
+        "title": "Assignment 6",
+        "author": "",
+        "category": "",
+        "content": "OverviewThis assignment will consist of an individual deep dive on an application or algorithm related to the themes of this class.Areas of InvestigationFor your project, you should choose one or more of the following areas of investigation.  In terms of scoping, this should equate to about 10 hours of work (not including the time to come up with the project topic and write the proposal).  Learn about and (likely) implement a new algorithm.  You could choose an algorithm that has been known in the literature for a while: All Pairs Shortest Path, Ford-Fulkerson for maximum network flow, Page Rank, Fast-Fourier Transform, Viterbi Algorithm for Hidden Markov Models, K-Means clustering, Policy Iteration for optimal planning, Simplex Method for linear programming, etc.  You could choose an algorithm from a research paper of interest.  Apply an algorithm we already learned about to an interesting problem.  Take one of the algorithms you’ve already implemented and try it on a non-trivial problem.  Take one of the assignments further.  You might try various optimizations to your code to improve runtime (make sure to pair this with benchmarks that show the change in performance).  You might want to implement additional features or variants of your algorithm (e.g., additional sorting algorithms).  Do some research to determine how a particular algorithm is being applied currently or has been applied in the past.DeliverablesProject Proposal (2 points)Turn in a project proposal that lays out your plan for the project.  Clearly specify what your project will entail, what deliverables you will create, and how much time you think each part will take.  With your proposal, include a rubric for grading your project (what does “A”-level performance look like, “B”-level, etc.).Other Deliverables (13 points)You are required to include a brief summary of what you did for the project and a summary of all other deliverables.   Some other deliverables you might have (this is a list of options… you will not have all of these):  Kotlin code (so you will want to send a link to a repository).  A summary of how an algorithm a particular algorithm you studied works  A report on former and current applications of your algorithm.  A report on the changes in performance that resulted in optimizing your code.  A report that summarizes an application or experiment you did.",
+        "url": "/assignments/assignment_06.html"
+      }
+      ,
+    
+      "assignments-assignment-07-html": {
+        "title": "Assignment 7",
+        "author": "",
+        "category": "",
+        "content": "OverviewIn this assignment you will explore the idea of associative arrays and how they can be implemented using hash tables.Associative ArraysCreate an associative array class that has the following structure./** * Represents a mapping of keys to values. * @param K the type of the keys * @param V the type of the values */class AssociativeArray&lt;K, V&gt; {    /**     * Insert the mapping from the key, [k], to the value, [v].     * If the key already maps to a value, replace the mapping.     */    operator fun set(k: K, v: V) {        // your code here    }    /**     * @return true if [k] is a key in the associative array     */    operator fun contains(k: K): Boolean {        // your code here    }    /**     * @return the value associated with the key [k] or null if it doesn't exist     */    operator fun get(k: K): V? {        // your code here    }    /**     * Remove the key, [k], from the associative array     * @param k the key to remove     * @return true if the item was successfully removed and false if the element was not found     */    fun remove(k: K): Boolean {        // your code here    }        /**     * @return the number of elements stored in the hash table     */    fun size(): Int {        // your code here    }    /**     * @return the full list of key value pairs for the associative array     */    fun keyValuePairs(): List&lt;Pair&lt;K, V&gt;&gt; {        // your code here    }}Your associative array should use separate chaining and the division-based method for hashing (consider using this resource to determine primes to use in your hashing function).  Your code should handle rehashing as the number of elements stored in your associative array grows.You will almost certainly need to create additional classes and/or functions to implement the associative array (don’t assume that the list of functions above is sufficient).Make sure your code is documented and has sufficient unit tests (the specific number and nature of the unit tests is up to you).Solving Problems with HashingChoose a problem to solve with hashing.  Here are some suggestions.  (Note: you will also do a very brief writeup on your results from this, so make sure to look in the deliverables section for this).Lempel-ZivImplement the Lempel-Ziv algorithm for lossless data compression.  There are a lot of resources for learning this. Here are some that I’ve found useful so far (please share more).  Peter Schor’s notes  Lempel Ziv Algorithm VideoYou should at least write the encoding part.  If you write the decoder, you can get 2 points of extra credit.Markov Text AnalysisDownload a text from some source (e.g., Project Gutenberg) and create a Markov model.  That is, given any word in the text, you should be able to return the number of times each word follows the given word in the text.  If you want to have some more fun with it, you could do a Markov Text Generator (a la Allen’s Think Python, e.g.).Markov text analysis is very useful for applications like predictive text completion (e.g., in texting or emailing).Something else?These were the two that sprang to my mind, but I’m open to others.  Please clear it with me first though.Modifications  Choose a different hashing function to explore.  Do some benchmarking to see how sensitive the performance of your associative array is to different choices for number of bins (e.g., using a power of 2 instead of a prime number).  As mentioned earlier, the Lempel-Ziv algorithm is extra credit.  If you do something else that is above and beyond what is written here, let me know, and we can discuss extra credit.DeliverablesTurn in a link to a Github repo with your deliverables.CodeYour code contain the associative array data structure as well as the application to text processing.  Make sure your code is documented and has unit tests.WriteupInclude a very brief writeup of the results you got applying associative arrays to solving a problem.  For example, if you did Lempel-Ziv, you might run it on several different input texts and discuss how much the algorithm compresses the data.  You can include the writeup as a markdown file in your repository.",
+        "url": "/assignments/assignment_07.html"
+      }
+      ,
+    
+      "assignments-assignment-08-html": {
+        "title": "Assignment 8",
+        "author": "",
+        "category": "",
+        "content": "Binary Search TreesFor this assignment you have two options.Option 1: Implement Part of Red-Black TreesCreate an implementation of Red-Black trees that supports at least the following operations:  Insert  Lookup (exact)  Check invariants (makes sure that the Red-Black tree properties are maintained)Note: feel free to make your implementation work for just one type of data (I used Ints).  You could make it generic, but it’s not necessary.If you want to go all out with this, you could implement remove also.Advice / references:  I was able to port Michael Sambol’s implementation from Python to Kotlin  There is a really, really awesome implementation from Jerry Chalupski, that uses some really cool functional programming concepts.  I’m not sure how to build n this code without just copying it, but I’ll put it here anyway.  I have excerpted the chapter from CLRS on red-black trees.Option 2: Solve Problems with Binary Search TreesI’ve chosen some tech inteview-style problems from Leetcode (or my own) that you could do.  You could implement these in Kotlin or write down the process by which you would solve them (it’s up to you).  Convert Sorted Array to a Binary Search Tree  Given a binary search tree, write pseudocode to find the closest element to a query.  You can assume you have a distance function to compute the distance between the query and any element in the BST.  Delete node in a BST  Range sum of BST  Solve a problem of your choice from this list of BST problems.",
+        "url": "/assignments/assignment_08.html"
+      }
+      ,
+    
+      "assignments-assignment-09-html": {
+        "title": "Assignment 9: Final Project",
+        "author": "",
+        "category": "",
+        "content": "OverviewIn this assignment you will have a chance to customize the course to meet your learning goals.  You can work on this project individually or as a member of a team.Areas of InvestigationFor your project, you should choose one or more of the following areas of investigation.  In terms of scoping, this should equate to about 20 hours of work (not including the time to come up with the project topic and write the proposal).  Learn about and (likely) implement a new algorithm.  You could choose an algorithm that has been known in the literature for a while: All Pairs Shortest Path, Ford-Fulkerson for maximum network flow, Page Rank, Fast-Fourier Transform, Viterbi Algorithm for Hidden Markov Models, K-Means clustering, Policy Iteration for optimal planning, Simplex Method for linear programming, etc.  You could choose an algorithm from a research paper of interest.  Apply an algorithm we already learned about to an interesting problem.  Take one of the algorithms you’ve already implemented and try it on a non-trivial problem.  Take one of the assignments further.  You might try various optimizations to your code to improve runtime (make sure to pair this with benchmarks that show the change in performance).  You might want to implement additional features or variants of your algorithm (e.g., additional sorting algorithms).  Do some research to determine how a particular algorithm is being applied currently or has been applied in the past.DeliverablesProject Plan (5 points)Turn in a project plan that lays out your plan for the project.  Clearly specify the following components.  Main Idea: what is your project about.  Learning Goals: what are you hoping to get out of this project to enrich your learning in this class.  Deliverables what deliverables you will create.  Educational Value of Deliverables The deliverables should help others in the course extend their knowledge.  How will you ensure that your deliverables have some component that will help others in the course learn?  Project schedule Provide a rough timeline for how you will finish this work before the final event on May 2nd.Final Project Presentation (2 points)Prepare a presentation of about 5 minutes (not including time for questions) on what you did for the project.  Submit your slides on Canvas.  If you are a larger team, you might take a little more time.  If you are a solo project, you might take a little less time.The assessment is either full or no credit (depending on whether you did the presentation or not).Other Deliverables (25 points)You are required to include a brief summary of what you did for the project and an orientation to any other deliverables (e.g., a listing of where your code lives, links to a website / video, etc.).  Your summary should also provide clear instructions so someone from the class can learn something from your project.",
+        "url": "/assignments/assignment_09.html"
+      }
+      ,
+    
+      "in-class-day01-html": {
+        "title": "Day 1: Course Intro and Welcome to DSA",
+        "author": "",
+        "category": "",
+        "content": "Course Structure and Major TopicsThe goal of this course is for you to learn how to frame problems formally and ultimately select appropriate data structures and algorithms to solve them.  We’ll get more into what we mean by framing problems later (there is an example later today), but for now I want to focus on the sorts of problems we will be tackling and the algorithmic strategies we will be using to solve them.Data Structures  Data structures as supports for algorithms.  Ultimately, data structures are useful to solve certain problems.  There are a number of properties we might care about when we select a data structure.  Can we brainstorm some as a class?  We’ll be learning about basic linked data structures (linked lists, stacks, queues), data structures to represent graphs, and tree-based data structures (e.g., binary search trees or heaps).Algorithmic Design PatternsWhile each algorithm must be tuned to the particular problem being solved, there are general algorithm types that we will encounter (e.g., some algorithms work by breaking a larger problem into smaller, some use the greedy method, others are based on backtracking or graph search).Analyzing AlgorithmsWe want to develop ways to talk about the computational and spatial complexity of algorithms.  We can look at these factors from both theoretical and empirical frameworks.  We’ll mostly be focusing what’s known was worst case, asymptotic analysis in this course (a lot of jargon I know).Specific AlgorithmsOf course we will learn about specific algorithms.  We’ll see algorithms from graph theory, string matching, sorting, matrix multiplication, and many more.Algorithmic Deep DiveYou’ll be able to customize the course material by taking a deep dive into a new algorithm or algorithms topic that we didn’t cover in the mainline class.Implementing and TestingIn order to solidify your understanding of the material and improve your ability as a coder, we will be implementing many of our algorithms.  We’ll focus on creating unit tests as a way to create more maintainable and correct code.Algorithms in the WorldChoose a category of algorithms from the list below (or make up your own).   Try to choose ones that you are less familiar with (or maybe start with a familiar one and then choose one less so).  For each category:  Come up with a basic definition of what sorts of problems the algorithm is designed to solve.  List the sorts of metrics that an algorithm designer might care about when creating an algorithm of this type.  List at least two examples of how algorithms of this type are used in society (applications).The list of general algorithm classes is below.  Data Compression (lossless or lossy)  Collaborative Filtering (e.g., as used in recommender systems)  Encryption  Routing (e.g., of Internet traffic or for navigation instructions)  Task Assignment  Sorting  Matrix Multiplication  Fourier Analysis  (come up with your own…. there are so many!)  Bonus question: list all of the algorithms that you and your team have interacted with since you got up this morning.Peak Finding  Credit to MIT Open Courseware 6.006 for this problemSuppose we have a list of numbers represented as a sequence $a_1, \\ldots, a_n$ with $n \\geq 2$.  For any element that isn’t either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i \\geq  a_{i-1}~\\text{and}~a_i \\geq a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 \\geq a_2$ and $a_n$ is a peak if and only if $a_n \\geq a_{n-1}$.With some folks around, you answer the following questions:  Get a feel for the condition written above.  Draw a few test cases.  When does a peak exist?  When does it not?  Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?  See if you can create an algorithm to find a peak faster than your first algorithm.  What techniques might be able to speed things up.  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.  If we changed the condition of a peak to the definition below, would your algorithm in question 3 still work?  Definition 2: For any element that isn’t either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i &gt; a_{i-1}~\\text{and}~a_i &gt; a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 &gt; a_2$ and $a_n$ is a peak if and only if $a_n &lt; a_{n-1}$.Turning in your workPlease fill out the Canvas survey to complete your assignment for today.  These surveys are not intended to be heavy weight.",
+        "url": "/in_class/day01.html"
+      }
+      ,
+    
+      "in-class-day02-html": {
+        "title": "Day 2: Greedy Algorithms Teaser, Order of Growth, and Some Kotlin",
+        "author": "",
+        "category": "",
+        "content": "Announcements and Reminders  If you want a supplemental book to the course material, I recommend you get this book.  I’ll be sampling an exercise from it here or there, and it has comprehensive explanations of many of the course topics.  That said, I won’t be assigning reading from it (any readings will be ones that are freely available on the web).Algorithm Design Patterns Whirlwind TourWe’re going to take a few classes to get a feel for the various algorithmic design patterns we will meet this semester.  During class 1, we met the design pattern divide and conquer.  Today, we’ll be learning about greedy algorithms.Wikipedia has a concise definition of a greedy algorithm.  A greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage.The question becomes, does the greedy strategy lead to a solution to the problem?  In some cases it may lead to a solution, and in other cases it may lead to a less optimal solution.Here are some problems to get you thinking.  Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum pounds of flour you can purchase with your budget.  Is your algorithm a greedy algorithm?  Suppose you are planning a road trip of $N$ miles.  Your car can go $M$ miles on a full tank of gas.  There are gas stations located at mile $x_1, x_2, \\ldots, x_k$ along the route.  Come up with a strategy for choosing which gas stations to fill your tank at such that you minimize the number of gas station stops.  Is your strategy guaranteed to find the minimum number?  Make an argument as to why or why not.  Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?  If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?O() and FriendsWe say that $f(x) = O(g(x))$ if there exists a positive real number $M$ and a real number $x_0$ such that, $|f(x)| \\leq M g(x)~\\text{for all}~x\\geq x_0$.$f(x) = \\Omega(g(x))$ if there exists a positive real number $M$ and a real number $x_0$ such that, $|f(x)|\\geq M g(x)~\\text{for all}~x \\geq x_0$We say that $f(x) = \\Theta(g(x))$ if $f(x) = O(g(x))$ and $f(x) = \\Omega(g(x))$.Here is a handy figure from “Introduction to Algorithms” by Cormen, Leiserson, Rivest, and Stein.With your group, explain how the formal definitions (given earlier) relate to these pictures.Practice Problems  Show that $10000 n = O(n^2)$  Show that $n^2 \\neq O(n)$.  Show that $\\frac{3^n}{10000} = \\Omega(2^n)$  Show that any polynomial is $O(2^n)$This problem is from former Olin Professor Allen Downey’s Think Python second edition.   In this context, order of growth can be understood to mean $\\Theta$.  I made one modification to part 3 of the exercise.  What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?  What is the order of growth of $(n^2 + n)(n + 1)$?  If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \\rightarrow \\infty$, what can we say about $af+b$, where $a$ and $b$ are constants?  If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?  If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?  If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \\times f_2$?Kotlin versus PythonI wanted to take a few minutes to discuss the ways that Kotlin compares with a language that we all know: Python.Key differences:  Execution Model: Interpreted (Python) versus Compiled (Kotlin)  Type System: Dynamic typing (Python) versus Static Typing (Kotlin)  Interoperability: call C/C++ code (Python) versus calling Java (Kotlin)  External dependencies: pip / Anaconda / … (Python) versus Gradle (Kotlin)  Syntax: indentation to show code nesting (Python) versus Curly braces (Kotlin)Work on Kotlin BasicsWe’ll take some time to work on the assignment.  This will give us a chance to discuss Kotlin, figure out bugs with your environment, etc.  We can do some knowledge sharing amongst the class (interesting resources or other things you found).",
+        "url": "/in_class/day02.html"
+      }
+      ,
+    
+      "in-class-day03-html": {
+        "title": "Day 3: Arrays, Linked Lists, and Intro to Abstract Datatypes",
+        "author": "",
+        "category": "",
+        "content": "Meeting Our First Data StructuresToday we’re going to meet our first data structures of the semester: the array and the linked list.  We’ll talk about tradeoffs in terms of runtime of various operations on these data structures.  We’ll also introduce the concept of abstract data types (ADTs) as a tool for separating the implementation of a data structure from the operations it supports.ArraysAs we mentioned on day one, data structures represent different approaches to organizing data in some computerized storage system.  In this course we’re going to learn about a bunch of different data structures in this class (e.g., linked lists, arrays, binary trees, graphs, etc.).  To help us wrap our minds around the big ideas of data structures, let’s consider a very basic data structure: an array.Depending on your programming background, perhaps you haven’t encountered an array yet.  An array is an ordered collection of values (usually of a particular type).  Arrays are typically implemented in a computer using contiguous blocks of memory (e.g., stored in the computer’s RAM).When we create an array, we have to specify the capacity that we’d like our array to have (that is the size that we’d like to reserve for our array in the computer’s memory).  Upon requesting an array of a particular size, we will be allocated a contiguous region in the computer’s memory to store our values.  We can assume that requesting and being assigned a region in memory is relatively efficient (think of this as taking a constant number of operations).  Further, we can assume that we can efficiently write and read values from an array (think of these as taking a constant number of operations).Time Complexity of Various Array OperationsAs stated above, for these operations we can assume that the requesting new memory, reading a single value, and writing a single value for our array takes a constant number of operations.Problem 1: Suppose you have an array with $M$ elements and there is space for $C$ elements in the block of memory allocated to your array (with $M &lt; C$).  Assume that the $M$ elements are stored such that they occupy the first $M$ slots of memory allocated to the array.  How much time would it take to add a new element to the end of your array?Problem 2: Now, suppose you’d like to add an element to the beginning of your array.  If there are currently $M$ elements in your array, how many operations would it take to add an element to the beginning of the array?  Going back to our discussion of order-of-growth, what is the running time of this operations in terms of $\\Theta$?Problem 3: Now, suppose you want to add an element ot the end of your array but the number of elements stored in the array is equal to the current capacity $M = C$.  How many operations would it take to perform the following steps: request a size $M+1$ block of memory, copy the first $M$ elements to the new memory block, and then add the new element to the array?  Suppose you start $M = C = 1$ (an empty array with no capacity).  How many operations would it take to add $N$ elements to the end of this array if you added them one-by-one?  Determine $\\Theta$ of the time complexity of adding these $N$ elements.Problem 4: Similar to the previous problem, suppose you want to add $N$ elements to the end of an array in a one-by-one fashion.  Let’s see if we can do better than we did in problem 3.  Instead of adding 1 unit of capacity every time we run out of space in our array, we’re going to multiply our capacity by a factor of 2 (e.g., starting we start with capacity 1, then go to capacity 2, then capacity 4, and so on).  How many operations would it take to add $N$ elements to the end of this array if you added them one-by-one and follow the strategy of doubling the capacity of the array each time you run out of space (for simplicity you can assume that $N$ is a power of 2)?  Determine $\\Theta$ of the time complexity of adding these $N$ elements in this fashion.Linked ListsNext, we’re going to learn about a data structure that excels at many of the operations that arrays are slow at and lags behind in areas where arrays are fast.  This data structure is the linked list.A linked list is another way to represent an ordered collection of values.  Instead of storing our collection in a contiguous block of memory, instead we store data in nodes that each contain a value and a reference to both the next node and the previous node in our list (this sort of linked list is called a doubly linked list).  In addition to these nodes, we also maintain a reference to the first element (or the head of the linked list) and a reference to the last element (or tail of the linked list).  Let’s draw a picture of what this looks like on the board together.Now let’s do some problems to understand the time complexity of various operations on our linked list.  For the purposes of these exercises, let’s assume that we can request memory to store a new linked list node in constant time ($\\Theta(1)$).Problem 5: With folks around you, determine the time complexity ($\\Theta$) of each of these operations on a linked list:  Add an element to the beginning of the list  Delete an element from the beginning of the list  Add an element to the back of the list  Delete an element from the back of the list  Print out the middle element of the listProblem 6: A singly linked list is a linked list where each node only has a reference to the next element in the list.  In such a list, would the $\\Theta$ of any of these operations in problem 5 be different?  If so, which would be different and what are their new $\\Theta$ running times.Abstract Data TypesA common strategy for managing complexity in software is to separate the details of how a piece of software works (the implementation) from the functions that the software performs (the interface).  You may have seen this when you encountered object-oriented programming in Software Design.  When you created Python classes, you would define methods on those classes that could then be called to perform some operation.  The details of how these operations were carried out, were opaque to the caller (e.g., another class in our program).  In our study of data structures, we will make a similar distinction between the operations that a data type performs, and the specific underlying data structure that is used to implement this data type.We call the specification of a set of operations (or semantics) for a data type an Abstract Data Type (or ADT).  For instance, we might specify an ADT to represent an ordered collection with the following operations:  Insert at a new element at position $i$  Delete element at position $i$  Access element at position $i$  Append an element to the end of the list  etc.The actual implementation of this abstract data type (called a concrete data type) could use a linked list or an array (or something more exotic) as the underlying data structure.  Determining what concrete data type to use to implement a specific ADT will depend on the operations are most important for your application (you’ll want to make those fast).  Perhaps, you could even create different implementations of the same ADT for different use cases (e.g., if you care about accessing elements quickly or adding new elements).Problem 7: For example, the Python tutorial on lists states that while accessing elements in the list, appending an element ot the end of the list, or removing an element from the end fo the list is fast, adding or deleting an element at the beginning of the list is slow.  Based on what you worked out earlier in class, what underlying concrete data structure do you think Python uses for its list class?  Do some research to see if you are right.",
+        "url": "/in_class/day03.html"
+      }
+      ,
+    
+      "in-class-day04-html": {
+        "title": "Day 4: Stack Implementation Walkthrough",
+        "author": "",
+        "category": "",
+        "content": "OverviewWe’re going to take some time to dive into an implementation of a data structure: the Stack.  We’ll get started together and then I’ll let you all split off to work at your own pace.Arrays in Kotlin (follow up from last time)Kotlin has an built-in Array class (documentation) that can be used in much the same way as List (and mutable list).  The restrictions on Array mean that we can’t add elements to it.If we have time, we could see how we could implement some of the functions of MutableList using an Array.Implementing a Stack TogetherWe’re going to go through the process of implementing a stack as a class.  Once we get through this example, we should have lots of time for folks to ask questions or keep working on the homework.The steps we will go through will involve creating a new project, creating a stack class, adding some basic functions, and testing our code through unit tests.For reference (don’t spoil the activity though) Use this link to find the finished version of the code.",
+        "url": "/in_class/day04.html"
+      }
+      ,
+    
+      "in-class-day05-html": {
+        "title": "Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs",
+        "author": "",
+        "category": "",
+        "content": "Kotlin Arrays and Creating Our Own Mutable ListKotlin has a built-in Array class (documentation) that can be used in much the same way as List (and mutable list).  The restrictions on Array mean that we can’t add elements to it.Problem 1: Using an Array as the underlying data structure, create a class called MyMutableIntList that can hold values of type Int (there a few hoops to jump through to make it hold any type, so let me know if you want to learn about that process).  Your class should support the following functions.  Note 1: the operator functions let you implement the same behavior that MutableList has in getting and setting elements (e.g., a[2] = 3).  Note 2: when you create your class, you will need to think about how to grow your array when you run out of space.  In class we did some analysis that seemed to show that multiplying the array size by $2$ when it is full is faster than growing it by 1 each time./** * Add [element] to the end of the list */fun add(element: Int)/** * Remove all elements from the list */fun clear()/* * @return the size of the list */fun size(): Int/** * @param index the index to return * @return the element at [index] */operator fun get(index: Int):Int/** * Store [value] at position [index] * @param index the index to set * @param value to store at [index] */operator fun set(index: Int, value: int)Timing your codeYou can add the following code to your main() function to see how efficient your class is for different list sizes.fun main() {    val arraySizes = listOf(100, 1000, 10000, 100000, 1000000, 10000000, 100000000)    println(\"numberOfElements totalTime timePerElement\")    for (arraySize in arraySizes) {        val myList = MyMutableIntList()        val timeTaken = measureTime {            for (i in 0..&lt;arraySize) {                myList.add(i)            }        }        println(\"$arraySize $timeTaken ${timeTaken/arraySize}\")    }}If you find it useful, you can use this link to access my solutions for this exercise.Intro to GraphsIn the next assignment we’re going to dive into the world of graphs and graph searching.  Before we do so, let’s take some time to understand what a graph is.Graphs are ways to represent relationships between entities of some sort.  For example, you could have a social network graph where the entities are people and the relationships represent who is friends with whom.  You could have a graph where the entities are websites and the relationships are links between sites.To formalize this a bit more, we use the terminology of vertices or nodes to refer to the entities in our graph (e.g., the people or websites in our examples above).  We use the term edges to represent the relationships (e.g., the existence of a friendship or a link in our two examples above).  In graph theory and algorithms, there are many different types of edges (e.g., directed, undirected, weighted, multi-edges) to represent different sorts of relationships.For now, we’re going to consider the case of directed edges where an edge encodes a unidirectional relationship between two entities.  For example, a directed edge from the node olin.edu to google.com might represent that Olin’s website links to Google’s website.Before we get into the theory of graphs and the sorts of algorithms we might run on them, let’s introduce the concept of an adjacency list, which is a particular way to represent graphs in a computer program.  Note that this is not the only way to represent a graph in a computer program, but it is a very popular one.Problem 2: read about adjacency lists.  On a whiteboard (if you are so inclined) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.Specifications:  To represent your vertices, you could choose a particular type (e.g., ``String`), or you could use generics to make it work for any class.  At a minimum, your class should support the ability to add new vertices, add new edges, and get the list of vertices that are connected to a given vertex.  Note: I expect there will be lots of questions on this, so please don’t hestitate to call me over.Sample SolutionsSample solutions for today are in the Github repo as a module.",
+        "url": "/in_class/day05.html"
+      }
+      ,
+    
+      "in-class-day06-html": {
+        "title": "Day 6: Graph data structures, depth-first and breadth-first search",
+        "author": "",
+        "category": "",
+        "content": "Adjacency ListsLast time, I asked you to think about the adjacency list, which is a particular way to represent graphs in a computer program.Let’s take a few minutes as a class to make sure we understand what we mean by adjacency list.To get us on the same page let’s use the following definition of a Graph.  We’ve made a small adjustment here to use sets instead of lists to represent our connections.class Graph&lt;VertexType&gt; {    private var vertices: MutableSet&lt;VertexType&gt; = mutableSetOf()    private var edges: MutableMap&lt;VertexType, MutableSet&lt;VertexType&gt;&gt; = mutableMapOf()    /**     * Add the vertex [v] to the graph     * @param v the vertex to add     * @return true if the vertex is successfully added, false if the vertex     *   was already in the graph     */    fun addVertex(v: VertexType): Boolean {        if (vertices.contains(v)) {            return false        }        vertices.add(v)        return true    }    /**     * Add an edge between vertex [from] connecting to vertex [to]     * @param from the vertex for the edge to originate from     * @param to the vertex to connect the edge to     * @return true if the edge is successfully added and false if the edge     *     can't be added or already exists     */    fun addEdge(from: VertexType, to: VertexType): Boolean {        if (!vertices.contains(from) || !vertices.contains(to)) {            return false        }        edges[from]?.also { currentAdjacent -&gt;            if (currentAdjacent.contains(to)) {                return false            }            currentAdjacent.add(to)        } ?: run {            edges[from] = mutableSetOf(to)        }        return true    }    /**     * Clear all vertices and edges     */    fun clear() {        vertices = mutableSetOf()        edges = mutableMapOf()    }}Graph TraversalOne of the most important graph algorithms is the concept of searching for a path that connects two nodes within a graph.  This concept is known as Graph Traversal or Graph Search.Within the space of graph traversal, there are a number of useful problems we might solve.  Shortest path (finding the path between two nodes with the least cost)  Traveling salesman problem  Hamiltonian path  Eulerian path  … (many more)In this class we will be mainly concerned with the shortest path problem.There are tons of problems that can be cast as graph traversal problems.  Let’s think of a few as a class.  To get us started what are some problems that can be converted into graphs?We’re going to learn about four different methods for graph traversal in this class: breadth-first search, depth-first search, Dijkstra’s algorithm, and A-Star search. Today, we’ll talk about the first two.Breadth-First Search (BFS)Starting from some node in our graph, let’s call it root, we want to keep following edges until we find our node target.  Our search proceeds by following all edges from the current node.  Once we’ve followed all of those edges, we follow edges from current to the next node, we follow edges from that set of nodes, etc. We do this until we find target or run out of nodes to visit.Depth-First Search (DFS)Starting from some node in our graph, let’s call it root, we want to keep following edges until we find our node target.  Our search proceeds by continuously following edges until we reach a point where no edges are available to traverse.  At that point, we can back track on our path and visit the next edge.General Approach to Graph TraversalOur algorithms for graph traversal are all fairly similar.  The two we’re going to learn about today can be described using the following framework.toVisit ← {}priorityList ← []priorityList.add(root)toVisit.add(root)while priorityList is not empty:    n ← priorityList.popHighestPriorityElement()    if n == target:        return true // path exists    for m in nodesConnectedTo(n):        if m is not in toVisit:            priorityList.add(m)            toVisit.add(m)return false // no pathProblem 1Looking at the pseudocode above, what is the role of the variable toVisit?  What might happen if we removed it?Problem 2Given the pseudocode above and the Graph class, implement breadth-first search (BFS).  You can choose how you define your function, but perhaps add it as a new function of Graph.  I recommend you start with some pseudocode before firing up IntelliJ.  Hint: think long and hard about what data structures you’ve learned about would achieve the desired prioritization of nodes.Problem 3Given the pseudocode above and the Graph class, implement depth-first search (DFS).  You can choose how you define your function, but perhaps add it as a new function of Graph.  I recommend you start with some pseudocode before firing up IntelliJ.  Hint: think long and hard about what data structures you’ve learned about would achieve the desired prioritization of nodes.Visualizations of Graph TraversalHere are some resources for visualizing graph searching algorithms.  Stanford SAILORS tutorial on breadth-first search  Stanford SAILORS tutorial on depth-first search  Stanford SAILORS tutorial on comparing DFS and BFSGraph PropertiesWe probably won’t have a ton of time to work with these during class today, but here are some useful properties of graphs.  If you have time, go ahead and implement (either in pseudocode or Kotlin) one or more of them.Number of Connected ComponentsFor an undirected graph (where A connected to be B is implies B connected to A), a connected component is a set of vertices such that there is a path between any two vertices in the set.  If all vertices in a graph are connected, we would say the graph has 1 connected component.  On the other hand, if there are some vertices that are not reachable from each other, that would create additional components.Suppose you were given a Graph object where you were guaranteed that all edges were symmetric (A connected to B implies B connected to A).  Write pseudocode to determine the number of connected components in your graph.DAGs (Directed, Acyclic Graph)A directed graph is acyclic if it contains no cycles.  A cycle is a path that starts at a given node and returns to that same node.There are several algorithms to determine if a graph is a Directed Acyclic Graph (DAG).  One of the easier ones to understand is Kahn’s algorithm, which has the following description from the Wikipedia page on Topological Sorting. It turns out that a graph is a DAG if and only if there is a valid topological sorting of the nodes in the DAG.L ← Empty list that will contain the sorted elementsS ← Set of all nodes with no incoming edgewhile S is not empty do    remove a node n from S    add n to L    for each node m with an edge e from n to m do        remove edge e from the graph        if m has no other incoming edges then            insert m into Sif graph has edges then    return error   (graph has at least one cycle)else     return L   (a topologically sorted order)TreesAn undirected graph is a tree if there is exactly one path between any pair of nodes.  This is guaranteed if the graph is connected and the total number of edges if equal to the number of vertices minus 1.A directed graph is a tree if it is acyclic and the graph the results from making the edges undirected is a tree.Sample SolutionsSample solutions for today are in the Github repo as a module.",
+        "url": "/in_class/day06.html"
+      }
+      ,
+    
+      "in-class-day07-html": {
+        "title": "Day 7: DAGs, Dijkstra&apos;s Algorithm, and Heaps",
+        "author": "",
+        "category": "",
+        "content": "Directed-Acyclic GraphsStarting off, let’s revisit a problem that most of you didn’t get to from last class.  This is the problem of determining if a given directed graph is acyclic. To motivate this, let’s consider the following graph.graph LR  A --&gt; B  B --&gt; C  A --&gt; C  C --&gt; D  B --&gt; D  A --&gt; E  D --&gt; EPerhaps unsurprisingly, a graph is a directed acyclic graph (DAG) if it is both directed and contains no cycles.  Cycles are paths through the graph that repeat vertices.In one of the supplementary problems from the last class, we presented Kahn’s algorithm for determining if a graph is a DAG.  More specifically, it computes a topological sorting of the vertices of the graph, and if a sorting exists, the graph has no cycles.  A topological sorting of a graph is an ordering of the graph’s vertices $v_1, v_2, \\ldots, v_n$ such that the edge $v_i \\rightarrow v_j$ can only exist if $i &lt; j$.Here is pseudocode for Kahn’s algorithm.L ← Empty list that will contain the sorted elementsS ← Set of all nodes with no incoming edgewhile S is not empty do    remove a node n from S    add n to L    for each node m with an edge e from n to m do        remove edge e from the graph        if m has no other incoming edges then            insert m into Sif graph has edges then    return error   (graph has at least one cycle)else     return L   (a topologically sorted order)Let’s go through this example together to see how Kahn’s algorithm works.Let’s try Kahn’s algorithm on a graph that does contain a cycle to see what happens.graph LR  A --&gt; B  B --&gt; C  C --&gt; D  C --&gt; B  A --&gt; DQuestion for us to work through together: How would we prove that Kahn’s algorithm is correct?Dijkstra’s AlgorithmI have some companion slides to go along with the presentation of Dijkstra’s algorithm.  I’ll have these up on the projector, but you can access the slides using this link.  Don’t pull them up just yet.Before we introduce Dijkstra’s algorithm, we need to briefly introduce the idea of weighted graphs.  Imagine that in addition to storing the neighbors of each vertex in our graph, we also store an edge weight.  Here is what a graph might look like with edge weights added.graph LR  A --2--&gt; B  B --3--&gt; C  A --4--&gt; C  C --3--&gt; D  B --1--&gt; D  A --10--&gt; E  D --7--&gt; EAs an aside, edge weights could encode a bunch of different things in our graph.  In computer vision, edge weights can encode the dissimilarity between neighboring parts of an image and this graph can then be processed to segment parts of an image.  Another classical example is graph traversal where we might want to find the shortest path through a graph connecting $v_{start}$ to $v_{goal}$. In this setting, the cost of a path is defined by the sum of edge weights along the path.  This is what we will learn about next.Dijkstra’s algorithm gives us a way to compute the shortest path (defined in terms of the lowest sum of edges) to move between a given source node and any destination node.  In order for Dijkstra’s algorithm to work, none of the edges in the network can have negative weight.Looking at our sample graph, let’s calculate a few shortest paths.Dijkstra’s algorithm gives us a way to compute the shortest path in a systematic fashion.  The pseudocode for the algorithm is defined below.  Before we go through the algorithm, let’s make sure we understand the role of two maps (or, if you prefer, dictionaries) that we will be creating.  The first is called prev and it is used to reconstruct the shortest path once we find it.  The second is called dist and you can think of this as a tentative cost to travel from the start node to any particular node.  We’ll also maintain a queue of nodes that we plan to visit.  This queue will be pretty similar to the one you implemented on the last assignment, but it will have an additional feature of adding elements with a particular priority.for each vertex, v that is not the source:    prev[v] ← UNDEFINED    dist[v] ← INFINITY    queue.addWithPriority(v, INFINITY)dist[source] ← 0queue.addWithPriority(source, 0)while queue is not empty:    u ← vertex in queue with min priority    remove u from queue    for each neighbor v of u still in queue:        alt ← dist[u] + edgecost(u, v)        if alt &lt; dist[v]:            dist[v] ← alt            queue.changePriority(v, alt)            prev[v] ← u// reconstruct shortest path from prevNow that we’ve seen this pseudocode, let’s go through our slides to see an example of it in action.Problem 1 Suppose the pseudocode above has finished running, how would you reconstruct the shortest path from the vertex source to a vertex target using prev?Min-HeapsA binary heap is a data structure that is very useful for implementing the priority queue will need for Dijkstra’s algorithm.A heap is a special type of graph called a binary tree.Definition A tree is a graph where there is a root node (one that has no incoming edges) and each vertex apart from the root has exactly one incoming edge.  For a given node, $v$, if there exists an edge $p \\rightarrow v$ we call $p$ the parent of $v$.  Nodes with no outgoing edges are called leaves.  The maximum length path (defined in terms of number of edges) from the root to any leaf is called the height of the tree.Definition A binary tree is a tree where each node has at most two outgoing edges.  For a vertex, $v$, if $v \\rightarrow u$ and $v \\rightarrow q$ then we say that $u$ and $q$ are children of $v$. Sometimes we think of these children as ordered, and we’ll refer to them as the left or right child of $v$.An example of a binary tree is given below.graph TB  A --&gt; B  A --&gt; C  B --&gt; D  B --&gt; E  C --&gt; F  C --&gt; GA heap extends the concept of a binary tree by adding a number that accompanies each node.  Let’s suppose in our example that each the letters A through F in our sample graph above were assigned the following values (A: 5, B: 3, C: 4, D: 9, E: 1, F: 6).  The following would be a valid heap.graph TBE[E, 1] --&gt; B[B, 3]E --&gt; C[C, 4]B --&gt; A[A, 5]B --&gt; F[F, 6]C --&gt; D[D, 9]The binary tree above is a heap because it meets two conditions.Condition 1 the binary tree maintains the “heap-invariant”, which is that for any two nodes, $u, v$ in the tree such that the edge $u \\rightarrow v$ the number stored with $u$ is less than the number stored with $v$.  In plain-speak, for any node in the graph the number written next to it will be less than the numbers written next to any nodes below it.Condition 2 the binary tree is nearly complete meaning that it has the minimum height for a tree with the specific number of nodes.Implementation: Inserting an element into the heapWhen inserting an element into the heap, we put it in the tree at the lowest level in the first available spot (starting from the left).  Once we place it in the heap, we check to see if this placement has violated the heap invariant.  If so, we swap the node with its parent.  We the nodes new parent to make sure the heap invariant is satisfied (swapping if it’s not) and so on.  This procedure is called “bubbling up”.We’ll do a quick example of bubbling up on the board.Implementation: Finding the vertex with the minimum corresponding numberThis is super easy!  We just look at the root node.  It’s guaranteed to be the minimum.  Quick understanding check: why is that?Implementation: Removing the minimumTo remove the minimum value we first replace the root node with the right most element of the lowest level of our tree.  We then perform a procedure called “bubbling down” where we check to see if the new root violates the heap invariant (i.e., does it have a larger number than either of its children).  If it is larger, than we swap it with its child with the smaller number.  After the swap we continue bubbling the element down until it no longer violates the heap invariant.We’ll do a quick example of bubbling down on the board.Binary Heap Operations ComplexityNow that we know what a heap is, let’s talk about the running time of various operations on a heap.            Operation      Runtime                  Insert      $\\Theta(\\log n)$              Delete min      $\\Theta(\\log n)$              Find min      $\\Theta(1)$      Problem 2 Why are these runtimes attractive from the perspective of implementing Dijkstra’s algorithm?Problem 3 What operation needed for Dijkstra’s algorithm is not present in the list above?  How would you implement it?Problem 4 Show why delete min, insert, and change heap number are all $\\Theta(\\log n)$.Implementation considerationsSince this is part of the extra credit, I’ll leave it to you to look into the details of this (there’s a lot of explanations on the web / videos to watch).  Binary heaps are often implemented by storing the vertices of the heap in a list.  This might seem counterintuitive, but it presents a really elegant solution to some challenging aspects of implementing the heap: finding parents and children of a node, quickly swapping nodes in the tree, and inserting new values into the next free spot.",
+        "url": "/in_class/day07.html"
+      }
+      ,
+    
+      "in-class-day08-html": {
+        "title": "Day 8: A-Star Search and Intro to Sorting",
+        "author": "",
+        "category": "",
+        "content": "A-Star SearchBefore we turn the page to the next topic of the course, sorting, I want to talk about a really another graph traversal algorithm, A-star search.What’s beautiful about a-star search is that it can drastically speed up dijkstra’s algorithm in certain cases by cutting down on search certain paths.Before showing the algorithm, we should realize that A-star is solving a bit different problem than Dijkstra’s.  A-star is specifically solving finding a path from a given start vertex to the goal (rather than to any possible destination as we did in Dijkstra’s).The key insight of A-star is to make use of a heuristic function that serves as a lower in terms of the cost to move from a particular node in the graph to the goal.  Let’s do some work at the board to understand what a heuristic means and under what conditions it can work with A-star (this is known as the admissibility condition).We use the notation $h(v)$ denotes the lower bound on traversing from $v$ to the goal node.  Given this construction, we can modify our pseudocode for Dijkstra’s algorithm from last time to get the A-star algorithm.Before stating our pseudocode, let’s define what each variable in the program will represent.  source is our starting vertex in the graph for searching  goal is the vertex we are trying to reach  prev will be used to reconstruct the optimal path and will map from a vertex to the vertex immediately preceding it on the optimal path from source to goal.  dist maps from a vertex to the currently known minimum cost path from the start to that vertex  queue is our priority queue that we will use to keep track of which vertex to expand nextfor each vertex, v that is not the source:    prev[v] ← UNDEFINED    dist[v] ← INFINITYdist[source] ← 0    // note: this is called g in some writeupsqueue.addWithPriority(source, h(source))while queue is not empty:    u ← queue.popMin()  // gets min and removes it    if u == goal:        // reconstruct shortest path from prev        return    for each neighbor v of u:        alt ← dist[u] + edgecost(u, v)        if alt &lt; dist[v]:            dist[v] ← alt            if v in queue:                queue.changePriority(v, alt + h(v))            else:                queue.addWithPriority(v, alt + h(v))            prev[v] ← uKey differences with Dijkstra’s algorithm.  In A-star, nodes can be expanded multiple times (in Dijkstra’s they can only be expanded once)  We make use of a heuristic function to prioritize our search (this can save us time)Example to do on the board (this is from Pieter Abbeel’s course at Berkeley):graph LR  S --1--&gt; A  S --4--&gt; B  A --5--&gt; C  A --2--&gt; B  B --2--&gt; C  C --3--&gt; G  A --12--&gt; GThis graph has the following heuristic.            Vertex      h              $S$      7              $A$      6              $B$      2              $C$      1              $G$      0      Let’s try to understand why this could make your problem more efficient.SortingThe sorting problem typically involves taking an input list of items and rearranging them so that the resultant list contains the items in some order.  A simple example would be arranging numbers in ascending order.  There are many variants and settings to this problem, but for this part of the class, let’s imagine that we are simply taking lists of integers and sorting them in ascending order.We’re going to learn about three of the many sorting algorithms today.Selection sortSelection sort is a very simple algorithm.  We continuously look for the minimum value in the part of the list that is unsorted and then place that element at the front.  Let’s develop the pseudocode for this and prove that the algorithm yields a sorted list.  You can see a visualization of this algorithm by going to visualgo.net/en/sorting and choosing selection sort.Merge sortMerge sort is a divide and conquer approach to sorting a list.  We’ll develop some pseudocode for this one together.The basic idea is to chop our list in two, sort both halves, and then reassemble the two sorted halves into a sorted whole.  You can see a visualization of this algorithm by going to visualgo.net/en/sorting and choosing merge sort.Heap sortThis one is pretty awesome.  You just insert all of your values into a binary min heap and then take them all out using the getMin() function.Complexity of Sorting AlgorithmsAnalyzing Selection SortLet’s start as a group by analyzing the worst case running time of selection sort.  Compute the number of operations necessary to run selection sort in the worst case.  Determine $\\Theta$.Analyzing Heap SortProblem 1: Determine the $\\Theta$ of heap sort.Analyzing Merge SortProblem 2: Determine the $\\Theta$ of merge sort.Master TheoremA generalizable recipe for analyzing recursive algorithms like this is the master theorem.Problem 3: Reanalyze merge sort using the master theorem.You may find the following special cases of the master theorem useful (we’ll discuss the more general form next class).$T(n) = a T(n/b) + n$Has a run time $\\Theta(n^{\\log_{b}{a}})$ if $\\log_{b}{a} &gt; 1$.Has a run time $\\Theta(n \\log^{k+1} n)$ if $n^{\\log_{b}{a}} \\log{k} = \\Theta(n)$.",
+        "url": "/in_class/day08.html"
+      }
+      ,
+    
+      "in-class-day09-html": {
+        "title": "Day 9: More Sorting and More Divide and Conquer",
+        "author": "",
+        "category": "",
+        "content": "Last class we saw heap sort, merge sort, and selection sort, but there are quite a few more to learn about.Quick SortQuick Sort is one of the most commonly used sorting algorithms.There are quite a few ways to implement Quick Sort, but the general idea is the following:  For an unsorted list, choose an element of the list as your pivot value, $p$.  Iterate through the elements of your list, swapping as needed, until the pivot element is positioned at position $i$ and $a[j] &lt; a[i]$ if $j &lt; i$ and $a[j] \\geq a[i]$ if $j \\geq i$.  Sort range of elements that are before the pivot in the list and those after the pivot recursively.Let’s look at the algorithm visualization (you can choose quick or quick sort or random quick sort).Analyzing the runtime of this algorithm is a bit tricky.  Let’s consider a specific case of always choosing the first element as the pivot.  Let’s see what happens with quick sort with this pivot selection rule.The Speed Limit for Comparison-Based Sorting(my apologies, this might be hard to understand without having taken discrete math, but we’ll try)There’s a theorem that states that any algorithm for sorting that works by comparing elements of the list to each other has running time of $\\Omega(n \\log n)$ (that is the running time can be bounded below by $n \\log n$).To understand this we can think of the problem of sorting as determining which of the $n!$ possible permutations of a list is the right one to obtain the list in sorted order.We can then think of creating a tree where at each level of the tree we perform a comparison to try to eliminate some of the $n!$ possible permutations.Let’s say each of our comparison perfectly divides the number of possible permutations that go each direction in our tree in half.  This is what the picture would look like.graph TD  r[n!] --&gt; b[n!/2]  r --&gt; c[n!/2]  b --&gt; e[n!/4]  b --&gt; f[n!/4]  c --&gt; g[n!/4]  c --&gt; h[n!/4]We’ll go over the details as a class, but we will have to use one equation that we won’t prove: $\\log n! = \\Omega(n \\log n)$.Radix SortRadix sort (also called bucket sort) is an interesting algorithm where we don’t perform an explicit comparisons between elements in our list.  We instead sort, e.g. if we are sorting integers, based on comparing the ones digits, then the tens digit, etc.  Let’s check out the visualization of Radix sort at our favorite website!More Practice With the Master TheoremBefore getting started, let’s dig into the master theorem to make sure we really understand it.Problem 1 Binary search can be applied to finding an element in a sorted list, by progressively eliminating half of the elements to be searched on each iteration.  Make sure you understand binary search, write a recurrence relation, and solve it using the master theorem.Problem 2 (option 1) For more practice we can go to the problems assigned on the homework.Problem 2 (option 2) If you’d rather try a new problem.  See if you can solve the maximum contiguous subsequence problem by determining a divide and conquer algorithm to solve it and then using the master theorem to find its runtime.",
+        "url": "/in_class/day09.html"
+      }
+      ,
+    
+      "in-class-day10-html": {
+        "title": "Day 10: Divide and Conquer",
+        "author": "",
+        "category": "",
+        "content": "Course Feedback Activity Coming Next TimeIt’s about that time when it would be really useful for us to do a feedback activity.  I’m not quite ready to run it today, and I want to prioritize helping you get going on the homework.  We’ll do the feedback activity next class.  If you have some spare brain cycles, think a bit about the positives, negatives, and ideas for improvement with respect to the class.Divide and Conquer and Intro to Dynamic ProgrammingToday is going to primarily be about getting practice with divide and conquer algorithms.  We’ll also throw in a recursive algorithm that doesn’t quite fit the mold of divide and conquer.Problem 1 Solve the maximum contiguous subsequence problem by determining a divide and conquer algorithm to solve it.  Once you have the algorithm, use the master theorem to determine its runtime.The maximum contiguous sub-sequence problem involves taking an input list $x_1, \\ldots, x_n$ and determining two index values $i$ and $j$ such that $\\sum_{k=i}^j x_k$ is as large as possible.Problem 2 Multiplying square matrices.  Given two square matrices, $A$ and $B$, each of size $n \\times n$.  Determine a divide and conquer method for determining the product of the two matrices $C = AB$.  To solve the problem, you can make use of the technique of block matrix multiplication.  Show that the running time you get from using block matrix multiplication is the same as you get from the traditional method of matrix multiplication (the one you learned about in math class).Dynamic ProgrammingThe book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the following description of the dynamic programming approach.  Characterize the structure of an optimal solution.  Recursively define the value of an optimal solution.  Compute the value of an optimal solution, typically in a bottom-up fashion.  Construct an optimal solution from computed information.We’ll see if we can understand how this applies to the Leetcode problem of Minimum Cost Climbing Stairs.  You are given an integer array cost where cost[i] is the cost of $i$th step on a staircase. Once you pay the cost, you can either climb one or two steps.You can either start from the step with index 0, or the step with index 1.Return the minimum cost to reach the top of the floor.  Example 1:      Input: cost = [10,15,20]    Output: 15    Example 2:      Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]    Output: 6  Problem 3: Change making.  Given $n$ different coin denominations worth $x_1, x_2, \\ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination of coin as you’d like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small or easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.",
+        "url": "/in_class/day10.html"
+      }
+      ,
+    
+      "in-class-day11-html": {
+        "title": "Day 11: More Dynamic Programming",
+        "author": "",
+        "category": "",
+        "content": "Course Feedback Activity (total: 30 minutes)2 minutes (individual): think back to your learning goals for the course.  Are your learning goals now similar or have they shifted?So far the activities of DSA have fallen into the following three categories.  (Approximately) weekly assignments  Instructor-led activities (e.g., to introduce material or go over a problem)  Group-work in-class (e.g., on problems in the daily assignment)One thing we haven’t done yet is an open-ended project, which will be coming in the latter half of the class.8 minutes (individual): With respect to the three main activities we’ve done thus far, please list some pluses and deltas.5 minutes (group): We’ll write pluses and deltas on the white boards.5 minutes (group): Read what other people wrote and upvote or downvote them.10 minutes (group): We’ll pick a few themes to discuss verbally as a group.Fibonacci RevisitedAs a reminder from last time, we motivated the idea of a dynamic programming by considering the technique of memoization where we maintain a lookup table of previously performed computations so that before making a recursive call, we check whether we have computed the solution before, and if so, return the pre-computed value.The idea of dynamic programming is quite similar, except that instead of using recursion as a means to fill in our precomputed values, we do so iteratively.Dynamic Programming General StructureThe book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the following description of the dynamic programming approach.  Characterize the structure of an optimal solution.  Recursively define the value of an optimal solution.  Compute the value of an optimal solution, typically in a bottom-up fashion.  Construct an optimal solution from computed information.Practice Problems(You won’t be able to do all of these.  This is just for reference.  Turn in what you’d like.)Problem 1: Change making.  Given $n$ different coin denominations worth $x_1, x_2, \\ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination of coin as you’d like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small or easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.Problem 2:  Longest Common Subsequence ProblemThe Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences in the same order, i.e., find the longest sequence which can be obtained from the first original sequence by deleting some items and from the second original sequence by deleting other items.Problem 3:In the 0–1 Knapsack problem, we are given a set of items, each with a weight and a value, and we need to determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.Please note that the items are indivisible; we can either take an item or not (0-1 property). For example,  Input:      value = [ 20, 5, 10, 40, 15, 25 ]    weight = [ 1, 2, 3, 8, 7, 4 ]    W = 10    Output: Knapsack value is 60 value = 20 + 40 = 60 (weight = 1 + 8 = 9 &lt; W)",
+        "url": "/in_class/day11.html"
+      }
+      ,
+    
+      "in-class-day12-html": {
+        "title": "Day 12: Work / Practice on Dynamic Programming",
+        "author": "",
+        "category": "",
+        "content": "Today, you have the option of either working on the homework or doing some more practice problems with dynamic programming.  You do not have to submit anything for today (there will be no day 12 assignment).More Practice With Dynamic ProgrammingLet’s start off with the last two problems from day 11.Longest Common Subsequence ProblemThe Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences in the same order, i.e., find the longest sequence which can be obtained from the first original sequence by deleting some items and from the second original sequence by deleting other items.0–1 Knapsack problem:In the 0–1 Knapsack problem, we are given a set of items, each with a weight and a value, and we need to determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.  You can use more than one of each item, but you can’t use a fraction (the items are indivisible; we can either take an item or not (0-1 property)). For example,  Input:      value = [ 20, 5, 10, 40, 15, 25 ]    weight = [ 1, 2, 3, 8, 7, 4 ]    W = 10    Output: Knapsack value is 60 value = 20 + 40 = 60 (weight = 1 + 8 = 9 &lt; W)After you solve this: how does this solution compare to the change-making problemTo find additional problems, you can search for terms like “dynamic programming sample problems”.  You will get some like:  Longest Increasing Subsequence  Matrix Chain Multiplication",
+        "url": "/in_class/day12.html"
+      }
+      ,
+    
+      "in-class-day13-html": {
+        "title": "Day 13: Reviewing Assignment 5 and Looking Toward Assignment 6",
+        "author": "",
+        "category": "",
+        "content": "Reviewing Assignment 5Get in a group with two people who did Needleman-Wunsch and two people who did Smith-Waterman.  Together go through the following questions:  With respect to the matrix multiplication questions, how did those go for you?  Share some development or testing strategies that worked particularly well (we’ll do a quick shareout of these among the class).  Take turns explaining the algorithm you implemented to the folks who implemented the other algorithm.  Make note of any similarities or differences between the two algorithms.Looking Towards Assignment 6The period from now until Spring Break will consist of a fairly short, self-directed project.  Use this link to find the details of assignment 6.  I’ll give you 30 minutes to start to formulate some initial ideas for this assignment.  We’ll take the last part of class to do some sharing of ideas in small groups.Packaging Kotlin FilesLast time Daeyoung asked about what it would take to package a Kotlin program for distribution.  I’m still looking into this, but here are a few things to keep in mind.  Kotlin is the preferred language for Android Mobile development.  If your target is developing for Android, you are in great shape!  Jetbrains has a product called Compose Multiplatform that can deploy Kotlin to many different platforms.  The current platforms that are production ready are Android and Desktop (Mac, Windows, Linux).  There are a bunch of other solutions (e.g., spring.io) that were designed around packaging Java applications, which can also work for Kotlin (since Kotlin also executes on the JVM).It would be really cool to investigate these more.  I’ll see if I can create a sample application before Spring break.",
+        "url": "/in_class/day13.html"
+      }
+      ,
+    
+      "in-class-day15-html": {
+        "title": "Day 15: Some Additional Kotlin Fun and Project Work Time",
+        "author": "",
+        "category": "",
+        "content": "Kotlin’s Multiplatform ComposeI put together an example app using Kotlin’s Multiplatform Compose architecture.For certain platforms, this is a nice way to create a GUI and package your app for distribution.  I’ll do a quick demo of the app and show some of the project structure.Kotlin Linear AlgebraThe Multik library gives some matrix and linear algebra functionality to Kotlin.I put together a sample project that shows matrix multiplication as well as the discrete fourier transform.",
+        "url": "/in_class/day15.html"
+      }
+      ,
+    
+      "in-class-day16-html": {
+        "title": "Day 16: Deep Dive Shareout and Fun with Algorithms",
+        "author": "",
+        "category": "",
+        "content": "Project ShareoutLet’s take some time and share the results from the individual deep dives.  If you want to throw some slides in this presentation, please feel free to do so.Fun With Algorithms  Learn about the mindreader game (originally proposed by Shannon).  Some related reading.  Learn about the K-Means algorithm.  Here is a great visualizer for the K-Means algorithm.  Read about Huffman Codes.  Do some examples on the board.  Check out this really cool visualization.  Implement Huffman Codes in Kotlin for an alphabet of your choice (e.g., based on the probability of various characters in the English language).More demos and visualizations  Sorting algorithm visualizations (again)  An Olin IS from a long time ago…",
+        "url": "/in_class/day16.html"
+      }
+      ,
+    
+      "in-class-day17-html": {
+        "title": "Day 17: Associative Arrays and Hashing",
+        "author": "",
+        "category": "",
+        "content": "Associative ArraysAn associative array is a data structure that stores key / value pairs.  In the basic (vanilla) associative array, we assume that each key can be associated with at most one value.  The types of the keys and values need not be the same, and they need not be integers or even primitive data types (e.g., doubles, floats, ints, shorts).The typical operations supported by an associative array are:      Insert or put: add a new (key, value) pair to the collection, mapping the key to its new value. Any existing mapping is overwritten. The arguments to this operation are the key and the value.    Remove or delete: remove a (key, value) pair from the collection, unmapping a given key from its value. The argument to this operation is the key.    Lookup, find, or get: find the value (if any) that is bound to a given key. The argument to this operation is the key, and the value is returned from the operation. If no value is found, some lookup functions raise an exception, while others return a default value (such as zero, null, or a specific value passed to the constructor).  If these operations look familiar, there’s a good reason.  You’ve actually already been using associative arrays for much of this course (as you’ve done, also, in prior courses like Software Design).  Data structures like Python’s dict and Kotlin’s Map and MutableMap are examples of associative arrays.Straw man Implementations of Associative ArraysLet’s look at two methods of implementing associative arrays.  For simplicity, let’s suppose that $k$ represents the total number of possible keys that can be stored in our associative arrays (e.g., if we were creating an associative array of red, green, blue triples to red, green, blue triples, then $k = 256^3$, assuming $256$ possible values for each color channel).  You can assume that given a particular key, it is easy (meaning it can be done in constant time) to map the key to an integer from $0$ to $k-1$ that represents the key’s identity among the $k$ possible keys.  Secondly let’s use the symbol $n$ to denote the number of elements stored in the associative array thus far.Association ListsAn association list stores key, value pairs in a linked list.Problem 1  (a) For an association list, what is the $\\Theta$ of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?  (b) What is the space complexity for storing $n$ elements in an association list?  You can use $\\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.Show / Hide Hint for (a) Can you map each of these operations to an operation on a linked list?  If so, try to borrow the time complexities from there.Array MapAnother simple method for implementing an associative array is to create an array, $a$, of size $k$ where the value $v$ will be stored at $a[i]$ if the key that maps to index $i$ is associated with the value $v$.  Initially, the array may contain a default value at each index to indicate that there are no values associated with any keys when the associative array is initially created.Problem 2  (a) For an array map, what is the $\\Theta$ of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?  (b) What is the space complexity for storing $n$ elements in an array map?  You can use $\\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.Show / Hide Hint for (b) Does the amount of space needed depend on $n$?Problem 3Are either of these two approaches practical?  If so, in what situations would each of them be a good choice for a data structure?Show / Hide HintConsider variables like the size of the key space $k$ and the number of elements stored $n$.Hash mapsThe hash map (or hash table) strikes a balance between the pros and cons of the association list and the array map.  The hash map makes use of an entity called a hash function, which is a function from the key space to an integer in the range $[0, m)$ (where the upper limit $m$ depends on the particular choice of hash function).  For now, we will consider these hash functions to be black boxes.  That is, they take in a key and spit out non-negative number less than $m$.  We’ll look at some specific hash functions in just a bit.Here is an example of how a hash function might be used to implement an associative array.  In this case, we will assume that our hash function maps elements from our key space (names) to integers $0, \\ldots, 15$ (i.e., $m = 16$).  In essence the hash function computes a “bucket” at which to store the value associated with a particular key.credit: Wikimedia (license)This design should bring to mind two questions:  What happens when we insert a key (a name) that happens to map to the same bucket that already contains a value (a phone number)?  Does it matter how we assign keys (the names) to buckets?  Will any scheme do?With respect to question 1, there are two commonly used schemes.  The first is called separate chaining.  In separate chaining, instead of storing the values directly in the buckets, each bucket points to an association list that stores the key-value pairs.  In the example of the phone book, separate chaining would look like this..  credit: Wikimedia (license)Notice how the John Smith and Sandra Dee both map to the same bucket (this is called a collision), which points to a two element association list.  Separate chaining works well when the load factor (defined as the ratio of the number of elements stored, $n$, to the number of buckets, $m$) is less than 3 (citation).  When the load factor exceeds some specified threshold, the table must be rehashed (meaning each element must be reinserted with a new hashing function where with a larger number of buckets).An alternative to separate chaining is direct addressing.  When using direct addressing, we still store the values directly in the buckets (as we did in the simple version of our hash map) and when a collision occurs we simply search for an alternate place to put the value.  There are a number of schemes we can use to find this alternative location, but the simplest of these is called linear probing.In linear probing, when you insert an item and a collision occurs, you simply search ahead in your array into you find an unused bucket and place the value there.  This scheme requires updating your algorithm for lookup and deletion of elements accordingly.  Here is what our running example would look like when using linear probing.  credit: Wikimedia (license)Notice how the colliding elements are now stored in two separate buckets located sequentially in the array.Complexity of OperationsUnder the assumption that we have a good hash function (meaning that the probability it maps a randomly chosen key to a specific bucket is roughly uniform and that there are no discernible patterns in how keys are mapped to buckets) and that the load factor on the table is relatively low, then insertion, deletion, and lookup will all have amortized time complexity of $\\Theta(1)$.  If you remember back to our discussion of array lists, amortized analysis is based on the average number of steps per operation.  For example, an amortized time complexity of $\\Theta(1)$ to insert elements into a hash map means that it takes $\\Theta(n)$ time to insert $n$ elements, and hence the time per insertion is $\\Theta(1)$.Tradeoffs Between Separate Chaining and Linear ProbingLinear probing (as an example of open addressing) has the advantage of using less memory given $m$ buckets and has better locality of reference (meaning you don’t have to follow a pointer to another chunk of memory to find the value for a specified key).  On the downside, the performance of linear probing tanks when the load factor of the table approaches 1 (separate chaining can support load factors above 1).  Linear probing is also very sensitive to the choice of hash function.  For example, if a series of keys inserted into the hash map keys cluster in the same range of buckets, the performance of the hash map will degrade even if the load factors is low.Hash functionsAs alluded to above, we would like our hash function, $h$, to satisfy two key properties.      Injection: for two keys $k_1 \\neq k_2$, the hash function should give different results $h(k_1) \\neq h(k_2)$, with probability $m-1/m$.    Diffusion (stronger than injection): if $k_1 \\neq k_2$, knowing $h(k_1)$ gives no information about $h(k_2)$. For example, if $k_2$ is exactly the same as $k_1$, except for one bit, then every bit in $h(k_2)$ should change with $1/2$ probability compared to $h(k_1)$. Knowing the bits of $h(k_1)$ does not give any information about the bits of $h(k_2)$.              CS 312 Lecture 21            Problem 3 It should be obvious why the first property is important for our hash maps to perform optimally, but why do we care about the second property?There are many specific choices of hash functions.  To understand some of the specific choices of hash function, it helps to think a little bit about how the keys we are storing are represented in a computer’s memory.Fundamentally, all data in a computer is stored in a binary format.  For example, positive integers are represented, as you would expect, by converting them into a base 2 representation (negative numbers can be represented in various ways, for example, using two’s complement).  Some data is fixed length (e.g., Kotlin’s Int, Long, and Short) and some is variable length (e.g., a string).  When designing a hash function, we’ll have to think about to apply it to fixed length and variable length data.A full discussion of hash functions is outside the scope of this course, but here are a few concrete choices to make the ideas concrete.For each of these hash functions, we say that the number of buckets for our hash function is $m$ and $m_b$ is the number of bits required to represent the numbers from $0$ to $m-1$.  If we assume $m$ is a power of two, then $m_b = \\log_2 m$.FoldingFolding algorithms divide the input into chunks of $m_b$ bits and then perform operations on these $m_b$-long bit strings to create the final hash index.  These operations could be additions or bit-wise exclusive or (XOR).For example, suppose we were hashing the integer key $4,234,234,421$ into $m = 256$ buckets.  We would take the integer’s binary representation (in this case $11111100011000010100101000110101_b$) and divide it into four 8-bit chunks (since $\\log_2 m = 8$).  These chunks would be: $00110101_b$, $01001010_b$, $01100001_b$, and $11111100_b$.  We could then use X-OR to combine these values chunk by chunk.  Note: xor is exclusive or, which we denote using the $\\oplus$ operator.$\\begin{align} 00110101_b \\oplus 01001010_b &amp;= 01111111_b &amp; \\mbox{xor chunk 1 and 2}\\ 01111111_b \\oplus 01100001_b &amp;= 00011110_b &amp; \\mbox{take result and xor with chunk 3} \\  00011110_b \\oplus 11111100_b &amp;= 11100010_b  &amp; \\mbox{take result and xor with chunk 4}\\end{align}$Given this result we would then store the value associated with the key $4,234,234,421$ in bin 226 (this is the decimal equivalent of the bit string computed above).Division HashingIn division hashing, we typically choose $m$ to be a prime number (we also require that $m$ not be too close to a power of $2$, see this reference for an explanation).  Our hash function now becomes $h(k) = mod(k, s)$, where $mod$ is the modulo operation.Problem 4Let’s examine why we might want to choose our table size to be a prime number.  Suppose we are hashing the first 50 non-negative even numbers (0 through 98).  Let $h_1(k) = mod(k, 13)$ and $h_2(k) = mod(k, 16)$.  Show that despite the $h_1$ using fewer bins, it will result in better utilization of its bins than $h_2$.Murmur Hash (this is supplementary,  we won’t get to it)Admittedly, I haven’t looked into Murmur Hash in any detail, but  I did find some useful resources to understand this algorithm.  I thought folks might be interested in reading about a hashing algorithm used in practice.  If you want to look into it and want to report back next class, please let me know.Cuckoo Hashing (this is supplementary,  we won’t get to it)Cuckoo hashing is another interesting seeming technique (again, I haven’t looked into it too much, but the basic idea is intriguing).  If you want to look into it and want to report back next class, please let me know.",
+        "url": "/in_class/day17.html"
+      }
+      ,
+    
+      "in-class-day18-html": {
+        "title": "Day 18: Lempel-Ziv",
+        "author": "",
+        "category": "",
+        "content": "Lempel-Ziv CompressionOne of the options for the current assignment is to implement Lempel-Ziv Compression.  Lempel-Ziv is a lossless compression algorithm, which means that the original data can be recovered exactly (without any loss of information) from the compressed data.There are a number of different variants of Lempel-Ziv, but the one we’re going to talk about in class today is the simplest to implement.EncodingWe start with a stream of symbols and a codebook.  I’m going to use this string from Peter Shor’s notes on the topic.  AABABBBABAABABBBABBABBIn Lempel-Ziv (LZ) compression, we will also maintain a codebook. The codebook is going to be a mapping from strings to integers.  The strings (the keys) will represent the symbols from our data source and the integers (the values) will be unique identifiers that will help us compress the key. In some variants we start by creating a codebook entry for every possible symbol (letter) in our string.  In this version, we’re going to start with a single mapping $\\epsilon \\rightarrow 0$.  As we scan through the string we’ll adaptively add new mappings to our codebook as we encounter particular patterns.Next, we’re going to start scanning through the symbols of our string one-by-one and occasionally building the compressed representation of the data.  Our strategy will be to look for the longest substring that has yet to be compressed and is represented in our codebook.  As we scan our symbols, as long as these strings are in our codebook, we just keep moving through the data.  Once we find that the string is not in the codebook, we do two things  We add a new codeword  We output the compressed representation of the data.Let’s work through our example on the board.  If you’re not in-class today, I’ll point you to this video of a worked example of the same string.  It’s a little different from what I’ll do in class, but you’ll get the same main idea.Now we’ll go through the example on the board.What questions arose for you from this demonstration?Problem 1 Choose your own string to encode and go through the steps of Lempel-Ziv.  Before you start, take a second to think about what characteristics of the string might make it a more interesting example.DecodingLet’s go through the process of decompressing the string that we compressed in our original example.  To do so, we’ll scan through the compressed data and build the codebook and output the uncompressed data.Practical Considerations for Implementing this in KotlinWhen I wrote my own implementation, I found that it took me a while to figure out how to actually encode the data to binary (even though getting the codebook was fairly straightforward).  I found a nice helper class from Princeton that made the process a lot easier.  For your convenience, I (more accurately IntelliJ with some help from me) translated it into Java.  I modified the original design a bit to arrive at this version.The important functions in here are the following:/** * Writes the specified bit to the output binary data. * @param x the `boolean` to write. */fun write(x: Boolean) {}/** * Writes the *r*-bit int to the output binary data. * @param x the `int` to write. * @param r the number of relevant bits in the char. * @throws IllegalArgumentException if `r` is not between 1 and 32. * @throws IllegalArgumentException if `x` is not between 0 and 2&lt;sup&gt;r&lt;/sup&gt; - 1. */fun write(x: Int, r: Int) {}/** * @return the output as a byte array */fun toByteArray(): ByteArray {    return out.toByteArray()}/** * @return the output as a sequence of bytes that represent a string of * 0's and 1's */fun toBinaryString():ByteArray? {}",
+        "url": "/in_class/day18.html"
+      }
+      ,
+    
+      "in-class-day19-html": {
+        "title": "Day 19: Binary Search Trees",
+        "author": "",
+        "category": "",
+        "content": "OverviewToday, we will learn about the binary search tree (BST).  We will find that BSTs are incredibly useful for searching for items within a collection.  Further, if we want to do things like find the closest element in our collection to a specific query, BSTs will give us great performance.Review of Our Data StructuresLet’s do a quick review of the data structures we’ve seen so far and recall their time complexities.We’ll fill them out together, and I’ll update the website after with the finished table.Problem 1 Fill out the $\\Theta$ runtime for each data structure at performing each operation.  Some data structures do not naturally support some operations, so you can either mark those as N/A or use $\\Theta(n)$.  The operation Lookup (closest) means to find the closest element to a query within the collection.            Data Structure      Insert      Delete      Lookup (exact)      Lookup (closest)                  Array      $\\Theta(1)$      $\\Theta(n)$      $\\Theta(n)$      $\\Theta(n)$              Linked List      $\\Theta(1)$      $\\Theta(n)$      $\\Theta(n)$      $\\Theta(n)$              Heap      $\\Theta(\\log n)$      $\\Theta(\\log n)$      N/A (typically not supported)      N/A (typically not supported)              Hash Table      $\\Theta(1)$      $\\Theta(1)$      $\\Theta(1)$      $\\Theta(n)$      Linear and Binary SearchWe’ve seen these concepts in some form already this semester, but we’ll state them more formally here.Suppose we have a collection integers stored in an array $x[1], x[2], \\ldots, x[n]$.  Further, let’s suppose the array is sorted in ascending order (i.e., $x[i] &lt; x[j]$ if and only if $i &lt; j$).  Now suppose given a query point $x_q$ we’d like to find the element in our array that satisfies the following equation.$\\begin{aligned} x^\\star &amp;= \\underset{i}{\\text{argmin}} | x[i] - x_q | \\end{aligned}$This equation is just a fancy way of saying that we look for the closet (in this case as defined by the absolute value) between the query and the elements in the collection.Here are two ways to find the closest element in the array.Linear SearchThis one is simple.  We loop through the collection constantly comparing each element to the query.  We remember the closest match we’ve seen so far, and we update it if we find a closer match.  As you can probably see, this operation would have a cost of $\\Theta(n)$.Binary SearchBinary search works by eliminating half of the elements as candidates for our search at reach step.  If we are looking for an exact match to our query, we can repeatedly divide our input list into three parts, consisting the left elements, the middle element, and the right elements.  By comparing the middle element to the query, we can determine which of the left or right elements to search for to find our query (see the Wikipedia page on Binary Search algorithm for pseudocode on how to implement this).  Using the tools we saw in the divide and conquer portion of this class (e.g., the master theorem), we can show that this procedure has a $O(\\log n)$ running time.Problem 2 You may have noticed that we are not addressing the problem of looking for the closest element in the array. How could we modify our search procedure to find the closest element to $x_q$?  You don’t have to write out full pseudocode.  Can you describe the technique at a high-level?Show / Hide Hint 1You may find the concept of predecessor and successor to be useful here.  The successor of $x_q$ is the closest element in the collection that is larger than $x_q$.  The predecessor is the closest element in the collection that is smaller than $x_q$.Show / Hide Hint 2Either the predecessor or the successor is guaranteed to be the closest to the query. Problem 3 Suppose we now want to support the ability to add new elements to our collection while still maintaining our sorted list (and getting the great $\\Theta(\\log n)$ runtime).  What is the time complexity of adding (or deleting) elements from our array while maintaining the sorted order?Meet the Binary Search TreeBSTs are data structures that allow us to maintain $\\Theta(n)$ search (either exact or approximate) while providing $\\Theta(\\log n)$ insertion and removal.  The basic idea is to change the storage of our sorted data from an array to a tree.Original sorted data: $1, 2, 5, 8, 20, 100, 202$.As a BST:graph TB  8 --&gt; 2  8 --&gt; 100  2 --&gt; 1  2 --&gt; 5  100 --&gt; 20  100 --&gt; 202This tree maintains the invariant that for a given node, each of the nodes in the left subtree is less than that node.  Similarly, the nodes in the right subtree are each greater than this node.  Note that if the array has duplicate values, you can arbitrarily place the duplicate in either the left or right subtree.The benefit of the binary search tree is that we can easily add elements to the tree while maintaining the BST invariant (that smaller nodes are always in the left subtree and that larger nodes are always in the right subtree).Problem 4 After inserting  6, 7, and 21 (in that order), what would our BST look like?  In constructing your answer, you do not need to move any of the existing nodes.  Rather, you can attach new nodes to the leaves of the trees.Maintaining BalanceThe issue we’ll run into with the scheme we used in problem 4, is that if we get unlucky, we’ll end up with a highly unbalanced tree.  A tree is unbalanced if there are significantly different numbers of nodes in the left and right subtrees of its nodes.  Formally, we say that for any node in the tree, its left and right subtrees have heights that differ by at most 1.  Notice how this definition rules out certain pathological trees like a long chain of sorted numbers where the left subtree is always empty.There are several commonly used schemes to maintain balance in BSTs.  The two most common methods are AVL trees and Red-Black Trees.Red-Black TreesRed-Black trees have the following properties.  Each node in the tree is colored either red or black.  The root is black and each of the (null) leaves are black.  If a node is red, then both its children are black.  The number of black nodes encountered on any path from the root to a leaf (null) is equal.In this unit we’ll be working with Red-Black trees.  I really like Michael Sambol’s video series explaining the Red-Black tree.  We’ll watch some of the videos together, but I’ll leave it to you to watch the whole set.Playlist of Michael Sambol’s Red-Black tree videosTogether, we’ll watch the first four videos.  Main Idea and Structure  Rotations  Insertions (strategy) (note: there is an error at 3:27 where node A needs to be recolored).  Insertions (example)If you decide to implement the Red-Black tree for your assignment, these videos should be a great source of information for you.Note: red-black trees have heights less than $2 \\lg(n+1)$.",
+        "url": "/in_class/day19.html"
+      }
+      ,
+    
+      "in-class-day20-html": {
+        "title": "Day 20: More RB-Trees and Nearest Neighbor Search",
+        "author": "",
+        "category": "",
+        "content": "Red-Black Tree InsertionsLast class we learned about the concept of binary search trees (BSTs) and how the notion of balance is crucial to obtaining good performance.We saw, in detail, one particular type of self-balancing binary search tree called a Red-Black tree.  Red-Black trees maintain balance by performing rotations to move subtrees with greater height up the tree and subtrees with lesser height down the tree (thereby equalizing the overall height of the tree).Source: Wikimedia CommonsWe saw that red-black trees work by enforcing four invariants with respect to the nodes in the tree.  Each node in the tree is colored either red or black.  The root is black and each of the (null) leaves are black.  If a node is red, then both its children are black.  The number of black nodes encountered on any path from the root to a leaf (null) is equal.When inserting nodes into an RB-tree we follow the following process:  Insert the node into the appropriate location in the tree (based on the BST property) and color it red. Question for the class: which of the four properties above could be violated after this step?  Match the current state of the tree to the one of three cases.  Perform a remedial action (recoloring and/or rotation) based on the specific case.  Check to see if there are additional violations higher up the tree.Source: CLRS textbookProblem 1  Above is the result of inserting the node 4 into the RB tree.  Note what transformations to the tree were performed at each step.Problem 2 At each step, argue that the modification to the tree moves the potential violation closer to root while removing the violation farther from the root.  Consider the application of case 2 and case 3 to be a single step for the purposes of this question.Nearest Neighbor Search  Nearest neighbor search (NNS), as a form of proximity search, is the optimization problem of finding the point in a given set that is closest (or most similar) to a given point. Closeness is typically expressed in terms of a dissimilarity function: the less similar the objects, the larger the function values. – Wikipedia page on Nearest Neighbor SearchThis algorithm is handy in a wide variety of data analysis, computer graphics, video game, computer vision, and machine learning tasks.  Specific examples include data classification, clustering, template matching, and photogrammetry.The nearest neighbor algorithm consists of a set of training points $x_1, \\ldots, x_n$ with each $x_i \\in \\mathbb{R}^d$ (i.e., each point has $d$-dimensions).Given a query point, $x_q$ (with $x_q \\in \\mathbb{R}^d$), the nearest neighbor is defined as the closest point in our set of training points, where closeness is given by some distance function.  The distance function could be Euclidean distance, Manhattan distance, or something more exotic.Problem 3 What is the time complexity of finding the nearest neighbor to the query point in terms of the number of training points $n$ and the dimensionality $d$ of the data?KD-TreesGiven the fact that we were able to dramatically speed up our search for the closest point in 1-dimensions with the Red-Black tree, it is natural to ask the of question of whether there is a way to use the same ideas to speed up the search for the nearest neighbor to some query point.  The answer to this question is “yes… maybe”.  Next, we’ll see a structured called KD-trees, which can, in some conditions, speed up nearest neighbor search.I’ll go through the ideas on the board.  A nice visualization of the algorithm is shown in this video.KD-Trees in PracticeWhile KD-Trees might seem like a golden-ticket, they do not perform well when the number of data points is too close to the number of dimensions.  In fact for KD-trees to work well, you want $n \\gg 2^d$.I have put together a Colab notebook that allows you to play around with various dataset sizes ($n$) and different data dimensionalities ($d$) to see how the performance of KD-trees compares to traditional nearest neighbor matching.Approximate Nearest Neighbor (ANN) SearchYou might ask whether there is a way to get a speedup to your nearest neighbor search even when the data dimensionality is large.  It turns out that there is a very active field of research into approximate nearest neighbor search (ANN).  If you are willing to live give up the guarantee that the value returned will always be the closest point, you can get a substantial speedup.The graph linked on this page shows the recall rate and the number of queries per second for a given algorithm.  In this experiment, recall means the probability that one of the actually 100 nearest neighbors to a point was included in the list of the 100 nearest neighbors returned by a particular ANN algorithm (1.0 is perfect).  Higher queries per second (y-axis indicates better efficiency).How do these techniques work?  It is an area that I don’t have a lot of familiarity with, so I can only tell you a bit (maybe this could be a topic for an individual deep dive?).  One technique that I did want to highlight since it touches on the course material, is locality-sensitive hashing.  There is a really nice writeup of doing locality-sensitive hashing on text data at Pinecone.io.  Disclaimer: I didn’t get through the entire thing yet.The one thing I wanted to highlight is the difference between locality-sensitive hashing (LSH) and the sort of hashing we do in the creation of a hash map.  In direct opposition to what you want in creating a hash map, In the case of LSH you want to maximize the chance of collision (when you have similar data).  By maximizing collisions between similar inputs, you have a chance can quickly narrow down your nearest neighbor search by applying your hash function and looking in the returned bin.",
+        "url": "/in_class/day20.html"
+      }
+      ,
+    
+      "in-class-day21-html": {
+        "title": "Day 21: Making Sense of DSA and Looking to the Final Project",
+        "author": "",
+        "category": "",
+        "content": "Concept Mapping DSA (30 minutes)Problem 1 With at least two other people (assuming you are in class), create a concept map for this semester thus far in DSA.We’ll do a quick share out.Charting Your Learning (20 minutes)Problem 2 Look back to your learning goals you had at the beginning of the semester (I can share the entrance survey data with you if that’s helpful).  How have you been progressing with respect to these learning goals?  Try to jot down a few notes with respect to each of your learning goals.  Take about 5-7 minutes to think individually, and then share with those around you.Charting the Course for the Rest of the Semester (50 minutes)Data Structures and Algorithms is obviously a vast topic.  As we enter the last bit of the course, which has much more flexibility, you’ll need to figure out how you want to extend / deepen your knowledge.  Perhaps you already know exactly what you want to do, but I suspect many folks would benefit from looking into some resources.  Here are some jumping off points I’d like to share.  (we didn’t cover the whole book, but you can choose what to fill in)CLRS Table of Contents  (A firehose of potential topics) Dictionary of Algorithms and Data Structures  (Some topics that get covered at the grad level) MIT Advanced Algorithms Class  (the research frontier in an incredibly prestigious conference) Proceedings of the 2023 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)  (specific jumping off points for machine learning fairness) Fairness and Machine Learning  (specific jumping off points for optimization) Boyd’s Book on Convex Optimization",
+        "url": "/in_class/day21.html"
+      }
+      ,
+    
+      "in-class-day22-html": {
+        "title": "Day 22: Final Project Ideation",
+        "author": "",
+        "category": "",
+        "content": "Sharing Individual Project Ideation and Learning Goal SettingIn a group of four, share what you wrote for the Individual Project Ideation and Learning Goal Setting assignment.  When listening to others, ask clarifying questions both to help your understanding and possibly to help the speaker sharpen their thinking.  Be on the lookout for potential opportunities (areas where learning goals and topics are well-aligned) and potential pitfalls (where these things are misaligned).Team FormationSince we have a relatively small class, I think we can improvise this.  I want to first get a sense of who wants to work on a team.  Second, I want to know who wants help finding teammates or who would be open to adding a third (if they already have a teammate).  We’ll do some group brainstorming to try to get folks aligned.Start on Project PlanNow you can start working on your project plan.",
+        "url": "/in_class/day22.html"
+      }
+      ,
+    
+      "in-class-day23-html": {
+        "title": "Day 23: Final Project Workday",
+        "author": "",
+        "category": "",
+        "content": "Workday!Let’s use today to keep momentum on final projects.",
+        "url": "/in_class/day23.html"
+      }
+      ,
+    
+      "in-class-day24-html": {
+        "title": "Day 24: Final Project Workday",
+        "author": "",
+        "category": "",
+        "content": "For Next TimeI’m going to try to get folks talking to each other to see if we can help with each other’s projects.Please fill out this form to indicate what help you might need regarding the final project.Workday!Let’s use today to keep momentum on final projects.",
+        "url": "/in_class/day24.html"
+      }
+      ,
+    
+      "in-class-day25-html": {
+        "title": "Day 25: Final Project Workday And Standup",
+        "author": "",
+        "category": "",
+        "content": "Project StandupMy plans for pairing folks up to talk about projects didn’t quite go as planned.  Instead, let’s do a quick 3 minute per team report out on what your project is and how it’s going.WorktimeLet’s spend some time working on projects!",
+        "url": "/in_class/day25.html"
+      }
+      ,
+    
+      "in-class-day26-html": {
+        "title": "Day 26: Last Regular Class!",
+        "author": "",
+        "category": "",
+        "content": "Getting Ready for the Final EventThe main part of the final event is presenting your final projects.  Make sure to consult the final project assignment page for information on the length of the presentation and intended format.  It is my hope that these presentations will summarize not only what you did, but give folks some insight into the algorithm you learned about.P versus NPI had talked about doing some brief discussions on algorithms during the project work period.  I wanted to take this last class to talk about probably the most famous problem in computer science P versus NP (this is also one of the Millenium Prize problems).  I’m guessing this is a problem that many folks have heard a bit about (possibly a lot about).  Let’s end the semester with establishing a little bit of common knowledge regarding P and NP.Before we start define P versus NP, we need to talk about what we mean by each of these classes.  First, what is P?  We can think of P as a set comprising various decision problems.  A decision problem is a special case of an algorithm where we are deciding something interest (i.e., the output is a 0 or 1).  We haven’t dealt with too many of these problems this semester, but many of the problems we’ve studies thus far can be cast as decision problems.P is the set of all decision problems such that there is an algorithm to solve them in $\\Theta(n^k)$ where $n$ is the size of the input and $k$ is some finite number.  That is to say, there is an algorithm that runs in polynomial time to solve the decision problem.NP is the set of all decision problems  such that there is an algorithm to verify a proposed solution in $\\Theta(n^k)$ where $n$ is the size of the input and $k$ is some finite number.  That is to say, there is an algorithm that runs in polynomial time to verify a candidate solution to the decision problem.To get a handle on NP problems, let’s consider the knapsack problem.  Given a bunch of weighted items, $w_1, w_2, \\ldots, w_n$ determine whether there is a partition of these items into two knapsacks such that the weight of the two knapsacks is identical.  If we were given a possible solution to this problem, we could easily verify if it was true or not (how?).The knapsack problem is part of a set of problems called the NP-Complete problems.  These are problems that are known to be at least as hard as any of the problems in NP.  We show that they are at least as hard using the idea of a reduction.Right now it is unknown whether the two sets P and NP are the same.  Here are two possibilities.Proving whether P is equal to NP has not been easy.  There have been many papers published that purport to address the question, but none are widely accepted in the field.  I’ve even heard that some journals have limits on how many papers per year someone can submit on the question of P versus NP.Final push on projectsLet’s do it.",
+        "url": "/in_class/day26.html"
+      }
+      ,
+    
+      "": {
+        "title": "Data Structures and Algorithms Spring 2024",
+        "author": "",
+        "category": "",
+        "content": "            How-tos  Get set with KotlinIn-class ActivitiesSample solutions for in-class assignments will be made available on Github.            Day #      Activity                  1      Course intro and welcome to DSA!              2      Greedy Algorithms Teaser, Order of Growth, and Some Kotlin              3      Arrays, Linked Lists, and Intro to Abstract Datatypes              4      Implementing a Stack in Kotlin              5      Revisiting Arrays and Intro to Graphs              6      Graph data structures, depth-first and breadth-first search              7      DAGs, Dijkstra’s Algorithm, and Heaps              8      A-Star and Intro to Sorting              9      More sorting and more divide and conquer              10      Divide and Conquer              11      Dynamic Programming              12      Work / Practice on Dynamic Programming              13      Review HW5, Looking to HW6              15      Some Kotlin Fun and Project Work time              16      Deep Dive Shareout and Fun With Algorithms              17      Associative Arrays and Hashing              18      Lempel-Ziv Compression              19      Binary Search Trees              20      KD-Trees and Nearest Neighbors              21      Making Sense of DSA and Looking to the Final Project              22      Project Ideation / Team Formation              23      Workday              24      Workday              25      Workday and Project Standup              26      Project Workday and P versus NP              Final      Project Share out / Course Reflection      Assignments            Due at beginning of class #      Assignment                  3      Hello Kotlin and course entrance survey              6      Stacks, Queues, and Linked Lists              8      Graphs and graph traversal              10      Sorting algorithms              13      Divide and Conquer and Dynamic Programming              16      Individual Deep Dive              19      Associative Arrays and Hashing              21      Binary Search Trees              Final Event      Final Project      ",
+        "url": "/"
+      }
+      ,
+    
+      "search-html": {
+        "title": "Search Results",
+        "author": "",
+        "category": "",
+        "content": "{% include search-box.html %}",
+        "url": "/search.html"
+      }
+      ,
+    
+      "how-to-setting-up-kotlin-html": {
+        "title": "Getting Set With Kotlin",
+        "author": "",
+        "category": "",
+        "content": "## Install IntelliJ IDEWe'll be working with the [Kotlin language](https://kotlinlang.org/) (more information and history of the language available [through Wikipedia](https://en.wikipedia.org/wiki/Kotlin_(programming_language)).  The best way to get Kotlin for your computer it install the IntelliJ IDE by JetBrains.  While you can use other IDEs with Kotlin (e.g., VS Code), we strongly recommend you stick IntellIJ (as that is the official IDE for Kotlin).  You can get a free license for Jetbrains since you are part of an academic institution.The [Getting Started page](https://kotlinlang.org/docs/getting-started.html) on the Kotlin website is the place to go to get started on your journey.  As you go through the instructions, make sure to click on the link that says ``IntelliJ IDE``. ",
+        "url": "/how_to/setting_up_kotlin.html"
+      }
+      ,
+    
+      "how-to-useful-resources-html": {
+        "title": "Useful Resources",
+        "author": "",
+        "category": "",
+        "content": "## Kotlin Resources* [Running code snippets in Kotlin](https://kotlinlang.org/docs/run-code-snippets.html)",
+        "url": "/how_to/useful_resources.html"
+      }
+      ,
+    
+      "assets-css-main-css": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "@charset \"utf-8\";@import \"minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}\"; // skin@import \"minimal-mistakes\"; // main partialsimg.mermaid {  max-width: 75%;    height: auto;  }",
+        "url": "/assets/css/main.css"
+      }
+      ,
+    
+      "assets-js-lunr-lunr-en-js": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "var idx = lunr(function () {  this.field('title')  this.field('excerpt')  this.field('categories')  this.field('tags')  this.ref('id')  this.pipeline.remove(lunr.trimmer)  for (var item in store) {    this.add({      title: store[item].title,      excerpt: store[item].excerpt,      categories: store[item].categories,      tags: store[item].tags,      id: item    })  }});$(document).ready(function() {  $('input#search').on('keyup', function () {    var resultdiv = $('#results');    var query = $(this).val().toLowerCase();    var result =      idx.query(function (q) {        query.split(lunr.tokenizer.separator).forEach(function (term) {          q.term(term, { boost: 100 })          if(query.lastIndexOf(\" \") != query.length-1){            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })          }          if (term != \"\"){            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })          }        })      });    resultdiv.empty();    resultdiv.prepend(''+result.length+' {{ site.data.ui-text[site.locale].results_found | default: \"Result(s) found\" }}');    for (var item in result) {      var ref = result[item].ref;      if(store[ref].teaser){        var searchitem =          ''+            ''+              ''+                ''+store[ref].title+''+              ''+              ''+                ''+              ''+              ''+store[ref].excerpt.split(\" \").splice(0,20).join(\" \")+'...'+            ''+          '';      }      else{    \t  var searchitem =          ''+            ''+              ''+                ''+store[ref].title+''+              ''+              ''+store[ref].excerpt.split(\" \").splice(0,20).join(\" \")+'...'+            ''+          '';      }      resultdiv.append(searchitem);    }  });});",
+        "url": "/assets/js/lunr/lunr-en.js"
+      }
+      ,
+    
+      "assets-js-lunr-lunr-gr-js": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "step1list = new Array();step1list[\"ΦΑΓΙΑ\"] = \"ΦΑ\";step1list[\"ΦΑΓΙΟΥ\"] = \"ΦΑ\";step1list[\"ΦΑΓΙΩΝ\"] = \"ΦΑ\";step1list[\"ΣΚΑΓΙΑ\"] = \"ΣΚΑ\";step1list[\"ΣΚΑΓΙΟΥ\"] = \"ΣΚΑ\";step1list[\"ΣΚΑΓΙΩΝ\"] = \"ΣΚΑ\";step1list[\"ΟΛΟΓΙΟΥ\"] = \"ΟΛΟ\";step1list[\"ΟΛΟΓΙΑ\"] = \"ΟΛΟ\";step1list[\"ΟΛΟΓΙΩΝ\"] = \"ΟΛΟ\";step1list[\"ΣΟΓΙΟΥ\"] = \"ΣΟ\";step1list[\"ΣΟΓΙΑ\"] = \"ΣΟ\";step1list[\"ΣΟΓΙΩΝ\"] = \"ΣΟ\";step1list[\"ΤΑΤΟΓΙΑ\"] = \"ΤΑΤΟ\";step1list[\"ΤΑΤΟΓΙΟΥ\"] = \"ΤΑΤΟ\";step1list[\"ΤΑΤΟΓΙΩΝ\"] = \"ΤΑΤΟ\";step1list[\"ΚΡΕΑΣ\"] = \"ΚΡΕ\";step1list[\"ΚΡΕΑΤΟΣ\"] = \"ΚΡΕ\";step1list[\"ΚΡΕΑΤΑ\"] = \"ΚΡΕ\";step1list[\"ΚΡΕΑΤΩΝ\"] = \"ΚΡΕ\";step1list[\"ΠΕΡΑΣ\"] = \"ΠΕΡ\";step1list[\"ΠΕΡΑΤΟΣ\"] = \"ΠΕΡ\";step1list[\"ΠΕΡΑΤΑ\"] = \"ΠΕΡ\";step1list[\"ΠΕΡΑΤΩΝ\"] = \"ΠΕΡ\";step1list[\"ΤΕΡΑΣ\"] = \"ΤΕΡ\";step1list[\"ΤΕΡΑΤΟΣ\"] = \"ΤΕΡ\";step1list[\"ΤΕΡΑΤΑ\"] = \"ΤΕΡ\";step1list[\"ΤΕΡΑΤΩΝ\"] = \"ΤΕΡ\";step1list[\"ΦΩΣ\"] = \"ΦΩ\";step1list[\"ΦΩΤΟΣ\"] = \"ΦΩ\";step1list[\"ΦΩΤΑ\"] = \"ΦΩ\";step1list[\"ΦΩΤΩΝ\"] = \"ΦΩ\";step1list[\"ΚΑΘΕΣΤΩΣ\"] = \"ΚΑΘΕΣΤ\";step1list[\"ΚΑΘΕΣΤΩΤΟΣ\"] = \"ΚΑΘΕΣΤ\";step1list[\"ΚΑΘΕΣΤΩΤΑ\"] = \"ΚΑΘΕΣΤ\";step1list[\"ΚΑΘΕΣΤΩΤΩΝ\"] = \"ΚΑΘΕΣΤ\";step1list[\"ΓΕΓΟΝΟΣ\"] = \"ΓΕΓΟΝ\";step1list[\"ΓΕΓΟΝΟΤΟΣ\"] = \"ΓΕΓΟΝ\";step1list[\"ΓΕΓΟΝΟΤΑ\"] = \"ΓΕΓΟΝ\";step1list[\"ΓΕΓΟΝΟΤΩΝ\"] = \"ΓΕΓΟΝ\";v = \"[ΑΕΗΙΟΥΩ]\";v2 = \"[ΑΕΗΙΟΩ]\"function stemWord(w) {  var stem;  var suffix;  var firstch;  var origword = w;  test1 = new Boolean(true);  if(w.length '+result.length+' {{ site.data.ui-text[site.locale].results_found | default: \"Result(s) found\" }}');    for (var item in result) {      var ref = result[item].ref;      if(store[ref].teaser){        var searchitem =          ''+            ''+              ''+                ''+store[ref].title+''+              ''+              ''+                ''+              ''+              ''+store[ref].excerpt.split(\" \").splice(0,20).join(\" \")+'...'+            ''+          '';      }      else{    \t  var searchitem =          ''+            ''+              ''+                ''+store[ref].title+''+              ''+              ''+store[ref].excerpt.split(\" \").splice(0,20).join(\" \")+'...'+            ''+          '';      }      resultdiv.append(searchitem);    }  });});",
+        "url": "/assets/js/lunr/lunr-gr.js"
+      }
+      ,
+    
+      "assets-js-lunr-lunr-store-js": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "var store = [  {%- for c in site.collections -%}    {%- if forloop.last -%}      {%- assign l = true -%}    {%- endif -%}    {%- assign docs = c.docs | where_exp:'doc','doc.search != false' -%}    {%- for doc in docs -%}      {%- if doc.header.teaser -%}        {%- capture teaser -%}{{ doc.header.teaser }}{%- endcapture -%}      {%- else -%}        {%- assign teaser = site.teaser -%}      {%- endif -%}      {        \"title\": {{ doc.title | jsonify }},        \"excerpt\":          {%- if site.search_full_content == true -%}            {{ doc.content | newline_to_br |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \"|            strip_html | strip_newlines | jsonify }},          {%- else -%}            {{ doc.content | newline_to_br |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \" |              replace:\"\", \" \"|            strip_html | strip_newlines | truncatewords: 50 | jsonify }},          {%- endif -%}        \"categories\": {{ doc.categories | jsonify }},        \"tags\": {{ doc.tags | jsonify }},        \"url\": {{ doc.url | absolute_url | jsonify }},        \"teaser\":          {%- if teaser contains \"://\" -%}            {{ teaser | jsonify }}          {%- else -%}            {{ teaser | absolute_url | jsonify }}          {%- endif -%}      }{%- unless forloop.last and l -%},{%- endunless -%}    {%- endfor -%}  {%- endfor -%}]",
+        "url": "/assets/js/lunr/lunr-store.js"
+      }
+      ,
+    
+      "feed-xml": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "{% if page.xsl %}{% endif %}Jekyll{{ site.time | date_to_xmlschema }}{{ page.url | absolute_url | xml_escape }}{% assign title = site.title | default: site.name %}{% if page.collection != \"posts\" %}{% assign collection = page.collection | capitalize %}{% assign title = title | append: \" | \" | append: collection %}{% endif %}{% if page.category %}{% assign category = page.category | capitalize %}{% assign title = title | append: \" | \" | append: category %}{% endif %}{% if title %}{{ title | smartify | xml_escape }}{% endif %}{% if site.description %}{{ site.description | xml_escape }}{% endif %}{% if site.author %}{{ site.author.name | default: site.author | xml_escape }}{% if site.author.email %}{{ site.author.email | xml_escape }}{% endif %}{% if site.author.uri %}{{ site.author.uri | xml_escape }}{% endif %}{% endif %}{% if page.tags %}{% assign posts = site.tags[page.tags] %}{% else %}{% assign posts = site[page.collection] %}{% endif %}{% if page.category %}{% assign posts = posts | where: \"categories\", page.category %}{% endif %}{% unless site.show_drafts %}{% assign posts = posts | where_exp: \"post\", \"post.draft != true\" %}{% endunless %}{% assign posts = posts | sort: \"date\" | reverse %}{% assign posts_limit = site.feed.posts_limit | default: 10 %}{% for post in posts limit: posts_limit %}{% assign post_title = post.title | smartify | strip_html | normalize_whitespace | xml_escape %}{{ post_title }}{{ post.date | date_to_xmlschema }}{{ post.last_modified_at | default: post.date | date_to_xmlschema }}{{ post.id | absolute_url | xml_escape }}{% assign excerpt_only = post.feed.excerpt_only | default: site.feed.excerpt_only %}{% unless excerpt_only %}{% endunless %}{% assign post_author = post.author | default: post.authors[0] | default: site.author %}{% assign post_author = site.data.authors[post_author] | default: post_author %}{% assign post_author_email = post_author.email | default: nil %}{% assign post_author_uri = post_author.uri | default: nil %}{% assign post_author_name = post_author.name | default: post_author %}{{ post_author_name | default: \"\" | xml_escape }}{% if post_author_email %}{{ post_author_email | xml_escape }}{% endif %}{% if post_author_uri %}{{ post_author_uri | xml_escape }}{% endif %}{% if post.category %}{% elsif post.categories %}{% for category in post.categories %}{% endfor %}{% endif %}{% for tag in post.tags %}{% endfor %}{% assign post_summary = post.description | default: post.excerpt %}{% if post_summary and post_summary != empty %}{% endif %}{% assign post_image = post.image.path | default: post.image %}{% if post_image %}{% unless post_image contains \"://\" %}{% assign post_image = post_image | absolute_url %}{% endunless %}{% endif %}{% endfor %}",
+        "url": "/feed.xml"
+      }
+      ,
+    
+      "sitemap-xml": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "{% if page.xsl %}{% endif %}{% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %}{{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }}{% if doc.last_modified_at or doc.date %}{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}{% endif %}{% endfor %}{% endfor %}{% assign pages = site.html_pages | where_exp:'doc','doc.sitemap != false' | where_exp:'doc','doc.url != \"/404.html\"' %}{% for page in pages %}{{ page.url | replace:'/index.html','/' | absolute_url | xml_escape }}{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% endif %}{% endfor %}{% assign static_files = page.static_files | where_exp:'page','page.sitemap != false' | where_exp:'page','page.name != \"404.html\"' %}{% for file in static_files %}{{ file.path | replace:'/index.html','/' | absolute_url | xml_escape }}{{ file.modified_time | date_to_xmlschema }}{% endfor %}",
+        "url": "/sitemap.xml"
+      }
+      ,
+    
+      "robots-txt": {
+        "title": "",
+        "author": "",
+        "category": "",
+        "content": "Sitemap: {{ \"sitemap.xml\" | absolute_url }}",
+        "url": "/robots.txt"
+      }
+      
+    
+  };
+</script>
+
+<!-- Import lunr.js from unpkg.com -->
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+
+<!-- Custom search script which we will create below -->
+<script src="/js/search.js"></script>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Data Structures Fall 2025 @ Olin College.</div>
+
+      </footer>
+    </div>
+
+    <script src="/assets/js/copyCode.js"></script>
+
+
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

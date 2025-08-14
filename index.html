@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
---><html lang="en" class="no-js">
+-->
+<html lang="en" class="no-js">
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
 <script>
@@ -157,7 +157,45 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
     <!-- start custom head snippets -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+<script>
+    // https://github.com/KaTeX/KaTeX/blob/main/docs/autorender.md
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+                delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: "\begin{equation}", right: "\end{equation}", display: true},
+                {left: "\begin{align}", right: "\end{align}", display: true},
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+function HideShowElement(divID) {
+    const x = document.getElementById(divID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
@@ -218,7 +256,9 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
 
-<div class="page__hero--overlay" style="background-color: #000; ">
+<div class="page__hero--overlay"
+  style="background-color: #000; "
+>
   
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
@@ -246,7 +286,14 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
     
 
     <section class="page__content" itemprop="text">
-      <h2 id="how-tos">How-tos</h2>
+      <div class="header-search">
+  <form class="header-search-form" action="/search/" method="get">
+    <input type="text" id="search-box" name="query" />
+    <input type="submit" value="search" />
+  </form>
+</div>
+
+<h2 id="how-tos">How-tos</h2>
 
 <ul>
   <li><a href="how_to/setting_up_kotlin">Get set with Kotlin</a></li>
@@ -442,7 +489,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2025 Data Structures Fall 2025 @ Olin College.</div>
+<div class="page__footer-copyright">&copy; 2025 Data Structures Fall 2025 @ Olin College.</div>
 
       </footer>
     </div>

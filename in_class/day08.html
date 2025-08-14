@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
---><html lang="en" class="no-js">
+-->
+<html lang="en" class="no-js">
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
 <script>
@@ -157,13 +157,50 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
     <!-- start custom head snippets -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+<script>
+    // https://github.com/KaTeX/KaTeX/blob/main/docs/autorender.md
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+                delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: "\begin{equation}", right: "\end{equation}", display: true},
+                {left: "\begin{align}", right: "\end{align}", display: true},
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+function HideShowElement(divID) {
+    const x = document.getElementById(divID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
 
-  <script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
-</head>
+  </head>
 
   <body class="layout--single">
     <nav class="skip-links">
@@ -232,8 +269,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title">
-<i class="fas fa-file-alt"></i> On this page</h4></header>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
   <li><a href="#a-star-search">A-Star Search</a></li>
@@ -259,16 +295,11 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <p>Before stating our pseudocode, let’s define what each variable in the program will represent.</p>
 
 <ul>
-  <li>
-<code class="language-plaintext highlighter-rouge">source</code> is our starting vertex in the graph for searching</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">goal</code> is the vertex we are trying to reach</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">prev</code> will be used to reconstruct the optimal path and will map from a vertex to the vertex immediately preceding it on the optimal path from <code class="language-plaintext highlighter-rouge">source</code> to <code class="language-plaintext highlighter-rouge">goal</code>.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">dist</code> maps from a vertex to the currently known minimum cost path from the start to that vertex</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">queue</code> is our priority queue that we will use to keep track of which vertex to expand next</li>
+  <li><code class="language-plaintext highlighter-rouge">source</code> is our starting vertex in the graph for searching</li>
+  <li><code class="language-plaintext highlighter-rouge">goal</code> is the vertex we are trying to reach</li>
+  <li><code class="language-plaintext highlighter-rouge">prev</code> will be used to reconstruct the optimal path and will map from a vertex to the vertex immediately preceding it on the optimal path from <code class="language-plaintext highlighter-rouge">source</code> to <code class="language-plaintext highlighter-rouge">goal</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">dist</code> maps from a vertex to the currently known minimum cost path from the start to that vertex</li>
+  <li><code class="language-plaintext highlighter-rouge">queue</code> is our priority queue that we will use to keep track of which vertex to expand next</li>
 </ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for each vertex, v that is not the source:
@@ -302,7 +333,19 @@ while queue is not empty:
 
 <p>Example to do on the board (this is from <a href="https://www.youtube.com/watch?v=DhtSZhakyOo">Pieter Abbeel’s course at Berkeley</a>):</p>
 
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoiZ3JhcGggTFJcblMgLS0xLS0-IEFcblMgLS00LS0-IEJcbkEgLS01LS0-IENcbkEgLS0yLS0-IEJcbkIgLS0yLS0-IENcbkMgLS0zLS0-IEdcbkEgLS0xMi0tPiBHIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0"></p>
+<div class="mermaid">
+graph LR
+  S --1--&gt; A
+  S --4--&gt; B
+  A --5--&gt; C
+  A --2--&gt; B
+  B --2--&gt; C
+  C --3--&gt; G
+  A --12--&gt; G
+</div>
+<blockquote>
+
+</blockquote>
 
 <p>This graph has the following heuristic.</p>
 
@@ -425,7 +468,7 @@ while queue is not empty:
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2025 Data Structures Fall 2025 @ Olin College.</div>
+<div class="page__footer-copyright">&copy; 2025 Data Structures Fall 2025 @ Olin College.</div>
 
       </footer>
     </div>
