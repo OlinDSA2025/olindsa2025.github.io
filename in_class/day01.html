@@ -284,7 +284,7 @@ function HideShowElement(divID) {
         
         <h2 id="course-structure-and-major-topics">Course Structure and Major Topics</h2>
 
-<p>The goal of this course is for you to learn how to frame problems formally and ultimately select appropriate data structures and algorithms to solve them.  We’ll get more into what we mean by framing problems later (there is an example later today), but for now I want to focus on the sorts of problems we will be tackling and the algorithmic strategies we will be using to solve them.</p>
+<p>The goal of this course is for you to learn how to frame problems using the language of computation and select appropriate data structures and algorithms to solve them.  We’ll get more into what we mean by framing problems later (there is an example later today), but for now I want to focus on the sorts of problems we will be tackling and the algorithmic strategies we will be using to solve them.</p>
 
 <h3 id="data-structures">Data Structures</h3>
 
@@ -303,7 +303,7 @@ function HideShowElement(divID) {
 
 <h3 id="specific-algorithms">Specific Algorithms</h3>
 
-<p>Of course we will learn about specific algorithms.  We’ll see algorithms from graph theory, string matching, sorting, matrix multiplication, and many more.</p>
+<p>Of course, we will learn about specific algorithms.  We’ll see algorithms from graph theory, string matching, sorting, matrix multiplication, and many more.</p>
 
 <h3 id="algorithmic-deep-dive">Algorithmic Deep Dive</h3>
 
@@ -346,8 +346,6 @@ function HideShowElement(divID) {
 
 <h2 id="peak-finding">Peak Finding</h2>
 
-<p>TODO: add some hints.</p>
-
 <blockquote>
   <p>Credit to MIT Open Courseware 6.006 for this problem</p>
 </blockquote>
@@ -357,10 +355,22 @@ function HideShowElement(divID) {
 <p>With some folks around, you answer the following questions:</p>
 
 <ol>
-  <li>Get a feel for the condition written above.  Draw a few test cases.  When does a peak exist?  When does it not?</li>
-  <li>Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?</li>
-  <li>See if you can create an algorithm to find a peak faster than your first algorithm.  What techniques might be able to speed things up.  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.</li>
-  <li>If we changed the condition of a peak to the definition below, would your algorithm in question 3 still work?</li>
+<li>Get a feel for the condition written above.  Draw a few test cases.  When does a peak exist?  When does it not?</li>
+<li>Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?</li>
+<li>See if you can create an algorithm to find a peak faster than your first algorithm.  What techniques might be able to speed things up.  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.
+
+<br />
+<button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint 1</button>
+<div id="HideShow1" style="display:none">
+You should think about breaking the problem down into simpler instances.
+</div>
+
+<br />
+<button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint 2</button>
+<div id="HideShow2" style="display:none">
+Think recursively.  What test can you perform that would allow you to recurse on a sequence half as large as the one you started with?
+</div></li>
+<li>If we changed the condition of a peak to the definition below, would your algorithm in question 3 still work?</li>
 </ol>
 
 <blockquote>
