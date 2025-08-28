@@ -41,3 +41,33 @@ You might be wondering what the red circle is for.  This is a breakpoint that wo
 ![The IntelliJ debugger stopped a breakpoint](/images/debugger.png)
 
 Note that the values of the local variables are shown along with the line of code we are executing.  You can continue execution of the program using the ``resume program`` button.  For a more indepth look at the debugger, consult [the IntelliJ documentation on debugging](https://www.jetbrains.com/help/idea/debugging-code.html).
+
+## Adding a Dependency on a Library
+
+The process for adding a dependency on a third party library (e.g., to add some functionality not present in the Kotlin standard library) will depend on the build system.  Here is an example of how to add a dependency for the `IntelliJ` build system (as selected in the previous section).  This should also work for `Maven` as well.
+
+You can approach this in two ways.  First, you can do an ordinary Google search to find your dependency.  For example, if I want to do linear algebra things in Kotlin, I could search `Linear algebra kotlin library'.  From this list, I can usually find some instructions on how to add the library as a dependency.  Alternatively, you can search for the dependency you want to add using the official [Maven Search engine](https://search.maven.org/?eh=) or, if you want a more user-friendly experience, a community-managed [Maven Search Engine Altarnative](https://mvnrepository.com/).  If I type in Linear Algebra to the site above, I get the following output.
+
+![The search output from mvnrepository.com](/images/maven_search.png)
+
+Next, I can pick the library I want by clicking on it and choosing a version.  Let's choose the EJML library and select teh latest version (`0.44`).  There will be a selector to choose the build system you are using.  In our example of using IntelliJ build system we can add the dependency through Maven.  We will do this by finding the Maven coordinates for the dependency.  This is most easily accessed by selecting `Gradle` from the tabbed selector and copying the coordinates (which are `org.ejml:ejml-core:0.44.0` in this case).
+
+To add the dependency, right-click on your project name in the navigator in IntelliJ (e.g., `HelloWorld`), select `Open Module Settings`, choose `Dependencies` and click the plus sign.  Choose `Library` then from `Maven`.  Now you can paste in the maven coordinates determined above (i.e., `org.ejml:ejml-core:0.44.0`).  Click `Ok`.  If all went well you will see a list of classes to import.  Click `Ok` again, and then the dependency should be downloaded.
+
+To test our dependency, let's modify our code.
+
+```kotlin
+import org.ejml.simple.SimpleMatrix as M
+
+fun main() {
+    val q = M(3, 3)
+    q[0,0] = 3.0
+    print(q)
+}
+```
+
+This code creates a 3x3 matrix (initially with all 0's), fills in 3.0 in the 1st row and 1st column, and then prints out the result.
+
+## A Note about Variation in Setup
+
+If you would like to configure your workflow differently to these steps, that is totally fine.  I leave it to you to make this decision, and I'll do my best to support you should you run into road blocks.
