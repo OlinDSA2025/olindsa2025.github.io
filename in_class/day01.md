@@ -36,9 +36,9 @@ In order to solidify your understanding of the material and improve your ability
 
 Choose a category of algorithms from the list below (or make up your own).   Try to choose ones that you are less familiar with (or maybe start with a familiar one and then choose one less so).  For each category:
 
-* Come up with a basic definition of what sorts of problems the algorithm is designed to solve.
-* List the sorts of metrics that an algorithm designer might care about when creating an algorithm of this type.
-* List at least two examples of how algorithms of this type are used in society (applications).
+* Come up with a basic definition of what types of problems that the algorithm can solve.
+* List the metrics that an algorithm designer might care about when creating an algorithm of this type.
+* List at least two examples of how algorithms of this type are used in the world (applications).
 
 The list of general algorithm classes is below.
 * Data Compression (lossless or lossy)
@@ -51,10 +51,15 @@ The list of general algorithm classes is below.
 * Fourier Analysis
 * (come up with your own.... there are so many!)
 
+> Bonus question: list all the algorithms that you and your team have interacted with since you got up this morning.
 
-> Bonus question: list all of the algorithms that you and your team have interacted with since you got up this morning.
+## Discussion of Workstyles and Learning Strategies
+
+Let's have a discussion about learning strategies.  With some folks around you, please discuss some learning strategies that have worked particularly well for you in the past.  Do you think they will work well in this course?  Please spend at least some time discussing AI and how it may help or hinder your learning in the course.  We'll do a report out and discuss as a full group.
 
 ## Peak Finding
+
+TODO: add some hints.
 
 > Credit to MIT Open Courseware 6.006 for this problem
 
@@ -72,4 +77,4 @@ With some folks around, you answer the following questions:
 
 ## Turning in your work
 
-Please fill out [the Canvas survey](https://olin.instructure.com/courses/761/quizzes/2094) to complete your assignment for today.  These surveys are not intended to be heavy weight.
+Please fill out [the Canvas survey](https://olin.instructure.com/courses/761/quizzes/2094) to complete your assignment for today.  These surveys are not intended to be heavy -weight.
