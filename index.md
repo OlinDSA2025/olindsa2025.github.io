@@ -45,6 +45,27 @@ header:
 
 | Due at beginning of class # | Assignment                                                              |
 |-----------------------------|-------------------------------------------------------------------------|
-| 3                           | [Hello Kotlin and course entrance survey](assignments/assignment_01)    |
+{% for d in (1..10) %}
+{%- assign dd = d -%}
+{%- if d < 10 -%}{% assign dd = '0' | append: d %}{% endif -%}
+
+{%- assign fname = 'assignments/assignment_' | append: dd | append: '.md' -%}
+{%- assign p = site.pages | where: "path", fname | first -%}
+
+{%- if p and p.published != false -%}
+{%- comment -%} Build prefixes to remove from the start of the title {%- endcomment -%}
+{%- capture pref1 %}Assignment {{ d }}:{% endcapture -%}
+{%- capture pref1s %}Assignment {{ d }}: {% endcapture -%}
+{%- capture pref2 %}Assignment {{ dd }}:{% endcapture -%}
+{%- capture pref2s %}Assignment {{ dd }}: {% endcapture -%}
+
+    {%- assign t = p.title | default: p.url -%}
+    {%- assign t = t | replace_first: pref1s, '' | replace_first: pref1, '' -%}
+    {%- assign t = t | replace_first: pref2s, '' | replace_first: pref2, '' -%}
+    {%- assign clean_title = t | strip -%}
+
+| {{ p.due_on_class }} | [{{ clean_title }}]({{ p.url | relative_url }}) |
+{%- endif -%}
+{% endfor %}
 
 

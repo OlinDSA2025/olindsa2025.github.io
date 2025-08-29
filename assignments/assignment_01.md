@@ -1,5 +1,6 @@
 ---
-title: Assignment 1
+title: "Assignment 1: Hello Kotlin and Getting to Know You"
+due_on_class: 3
 toc_sticky: true 
 ---
 
