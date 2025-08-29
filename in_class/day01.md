@@ -10,27 +10,27 @@ The goal of this course is for you to learn how to frame problems using the lang
 ### Data Structures
 
 * Data structures as supports for algorithms.  Ultimately, data structures are useful to solve certain problems.  There are a number of properties we might care about when we select a data structure.  Can we brainstorm some as a class?
-* We'll be learning about basic linked data structures (linked lists, stacks, queues), data structures to represent graphs, and tree-based data structures (e.g., binary search trees or heaps).
+* We'll be learning about basic linked data structures (linked lists, stacks, queues), data structures to represent graphs and trees (e.g., binary search trees or heaps), and data structures that use hashing to index and retrieve data.
 
 ### Algorithmic Design Patterns
 
-While each algorithm must be tuned to the particular problem being solved, there are general algorithm types that we will encounter (e.g., some algorithms work by breaking a larger problem into smaller, some use the greedy method, others are based on backtracking or graph search).
+While each algorithm must be tuned to the particular problem being solved, there are general algorithm types that we will encounter (e.g., some algorithms work by breaking a larger problem into smaller instances, some use a greedy approach, others are based on backtracking or graph search).
 
 ### Analyzing Algorithms
 
-We want to develop ways to talk about the computational and spatial complexity of algorithms.  We can look at these factors from both theoretical and empirical frameworks.  We'll mostly be focusing what's known was worst case, asymptotic analysis in this course (a lot of jargon I know).
+We want to develop ways to talk about the computational and spatial complexity of algorithms.  We can look at these factors with both theoretical (e.g., doing some analysis to understand how long the code might run for based on the problem size) and empirical tools (e.g., measuring the actual time it takes an algorithm to run on a computer).
 
 ### Specific Algorithms
 
-Of course, we will learn about specific algorithms.  We'll see algorithms from graph theory, string matching, sorting, matrix multiplication, and many more.
+Of course, we will learn about specific algorithms.  We'll see algorithms from graph theory, string matching, bioinformatics, sorting, matrix multiplication, and artificial intelligence.
 
 ### Algorithmic Deep Dive
 
-You'll be able to customize the course material by taking a deep dive into a new algorithm or algorithms topic that we didn't cover in the mainline class.
+You'll be able to customize the course by taking a deep dive into a new algorithm or algorithms topic that we did not cover in the class.
 
 ### Implementing and Testing
 
-In order to solidify your understanding of the material and improve your ability as a coder, we will be implementing many of our algorithms.  We'll focus on creating unit tests as a way to create more maintainable and correct code.
+In order to solidify your understanding of the material and improve your ability as a developer, we will be implementing many of our algorithms and data structures.  We'll focus on creating unit tests as a way to create more maintainable and correct code.
 
 ## Algorithms in the World
 
@@ -42,20 +42,35 @@ Choose a category of algorithms from the list below (or make up your own).   Try
 
 The list of general algorithm classes is below.
 * Data Compression (lossless or lossy)
-* Collaborative Filtering (e.g., as used in recommender systems)
+* Collaborative filtering (e.g., as used in recommender systems)
 * Encryption
 * Routing (e.g., of Internet traffic or for navigation instructions)
 * [Task Assignment](https://en.wikipedia.org/wiki/Assignment_problem)
 * Sorting
 * Matrix Multiplication
 * Fourier Analysis
+* Semantic search
 * (come up with your own.... there are so many!)
 
 > Bonus question: list all the algorithms that you and your team have interacted with since you got up this morning.
 
-## Discussion of Workstyles and Learning Strategies
+## Discussion of Learning Strategies and Oral Quizzes
 
-Let's have a discussion about learning strategies.  With some folks around you, please discuss some learning strategies that have worked particularly well for you in the past.  Do you think they will work well in this course?  Please spend at least some time discussing AI and how it may help or hinder your learning in the course.  We'll do a report out and discuss as a full group.
+Next, I want to discuss two interrelated issues.  The first is how you can work in a way that best supports your learning this semester.  The second is how I provide an assessment structure that provides you with useful feedback as to how well you are meeting these goals.
+
+While there are many aspects of assessment in this course, for now I want to focus on something new I'm trying this semester.  Twice this semester, I will meet with each of you for an oral quiz (each quiz is worth 10% of your grade).  My hope is that this structure will give you a better measurement of your progress over the semester.  Part of my decision is also based on mitigating what I feel are ways in which AI-based coding assistants might hinder learning (e.g., if they are used as answer generators rather than coaches).  I'm not ready to nail down the full design of these quizzes, but here are some preliminary thoughts.
+
+
+| *Activity* | *What's Being Assessed* |
+| You are given a problem to solve and then you show your thought process as you work, on a whiteboard, towards a solution. | Your ability to select appropriate data structures and algorithms to solve a novel problem. |
+| You are asked to explain a section of code from one of your submitted assignments. | Your ability to internalize and be able to verbalize to others the coding choices you made. |
+| You are asked to give a whiteboard talk explaining one of the class concepts. | Your fluency with the concepts in the course, your ability to distill down the important bits, and your ability to communicate clearly about course concepts. |
+| You are given an implementation of a particular algorithm and you must work through whether the code is correct. If it is not correct, you may suggest corrections. | Your ability to comprehend code that you didn't write and assess its correctness. |
+
+With some folks around you, please discuss the following.
+1. What are some learning strategies that have worked particularly well for you in the past?  Do you think they will work well in this course?
+2. Will you use AI-based coding assistants in this course?  How will you use them to ensure you are getting the knowledge you'd like from the course?
+3. In reaction to the table above, what other activities would be useful to include in an oral quiz and what skill would they be assessing?
 
 ## Peak Finding
 
@@ -89,4 +104,4 @@ Think recursively.  What test can you perform that would allow you to recurse on
 
 ## Turning in your work
 
-Please fill out [the Canvas survey](https://olin.instructure.com/courses/761/quizzes/2094) to complete your assignment for today.  These surveys are not intended to be heavy -weight.
+Please fill out [the Canvas survey](https://olin.instructure.com/courses/940/quizzes/2577) to complete your assignment for today.  These surveys are not intended to be heavy -weight.

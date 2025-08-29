@@ -9,16 +9,18 @@ title: Search Results
 <script>
   // Template to generate the JSON to search
   window.store = {
-    {% for post in site.pages %}
+    {%- assign searchable_pages = site.pages 
+    | where_exp: "p", "p.published != false" -%}
+
+    {%- for post in searchable_pages -%}
       "{{ post.url | slugify }}": {
         "title": "{{ post.title | xml_escape }}",
         "author": "{{ post.author | xml_escape }}",
         "category": "{{ post.category | xml_escape }}",
         "content": {{ post.content | strip_html | strip_newlines | jsonify }},
         "url": "{{ post.url | xml_escape }}"
-      }
-      {% unless forloop.last %},{% endunless %}
-    {% endfor %}
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
   };
 </script>
 

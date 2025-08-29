@@ -1,6 +1,7 @@
 ---
 title: "Day 12: Work / Practice on Dynamic Programming"
 toc_sticky: true
+published: false
 ---
 
 Today, you have the option of either working on the homework or doing some more practice problems with dynamic programming.  You do not have to submit anything for today (there will be no day 12 assignment).

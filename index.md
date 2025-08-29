@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: "Data Structures and Algorithms Spring 2024"
+title: "Data Structures and Algorithms Spring 2025"
 header:
   overlay_color: "#000"
   overlay_filter: "0.4"
@@ -18,8 +18,28 @@ header:
 
 | Day # | Activity                                                                      |
 |-------|-------------------------------------------------------------------------------|
-| 1     | [Course intro and welcome to DSA!](in_class/day01)                            |
+{% for d in (1..26) %}
+{%- assign dd = d -%}
+{%- if d < 10 -%}{% assign dd = '0' | append: d %}{% endif -%}
 
+{%- assign fname = 'in_class/day' | append: dd | append: '.md' -%}
+{%- assign p = site.pages | where: "path", fname | first -%}
+
+{%- if p and p.published != false -%}
+{%- comment -%} Build prefixes to remove from the start of the title {%- endcomment -%}
+{%- capture pref1 %}Day {{ d }}:{% endcapture -%}
+{%- capture pref1s %}Day {{ d }}: {% endcapture -%}
+{%- capture pref2 %}Day {{ dd }}:{% endcapture -%}
+{%- capture pref2s %}Day {{ dd }}: {% endcapture -%}
+
+    {%- assign t = p.title | default: p.url -%}
+    {%- assign t = t | replace_first: pref1s, '' | replace_first: pref1, '' -%}
+    {%- assign t = t | replace_first: pref2s, '' | replace_first: pref2, '' -%}
+    {%- assign clean_title = t | strip -%}
+
+| {{ d }} | [{{ clean_title }}]({{ p.url | relative_url }}) |
+{%- endif -%}
+{% endfor %}
 
 ##  Assignments
 

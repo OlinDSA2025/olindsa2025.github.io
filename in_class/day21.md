@@ -1,6 +1,7 @@
 ---
 title: "Day 21: Making Sense of DSA and Looking to the Final Project"
 toc_sticky: true
+published: false
 ---
 
 ## Concept Mapping DSA (30 minutes)

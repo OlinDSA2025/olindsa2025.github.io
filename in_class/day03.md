@@ -1,6 +1,7 @@
 ---
 title: "Day 3: Arrays, Linked Lists, and Intro to Abstract Datatypes"
 toc_sticky: true
+published: false
 ---
 
 ## Meeting Our First Data Structures

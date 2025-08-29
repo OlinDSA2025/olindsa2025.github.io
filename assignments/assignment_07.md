@@ -1,6 +1,7 @@
 ---
 title: Assignment 7
-toc_sticky: true 
+toc_sticky: true
+published: false
 ---
 
 ## Overview

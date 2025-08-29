@@ -1,6 +1,7 @@
 ---
 title: "Day 18: Lempel-Ziv"
 toc_sticky: true
+published: false
 ---
 
 ## Lempel-Ziv Compression

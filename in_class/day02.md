@@ -1,6 +1,7 @@
 ---
 title: "Day 2: Greedy Algorithms Teaser, Order of Growth, and Some Kotlin"
 toc_sticky: true
+published: false
 ---
 
 ## Announcements and Reminders

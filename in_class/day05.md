@@ -1,6 +1,7 @@
 ---
 title: "Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs"
 toc_sticky: true
+published: false
 ---
 
 

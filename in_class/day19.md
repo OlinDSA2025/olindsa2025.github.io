@@ -1,6 +1,7 @@
 ---
 title: "Day 19: Binary Search Trees"
 toc_sticky: true
+published: false
 ---
 
 ## Overview

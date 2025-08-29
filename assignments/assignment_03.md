@@ -1,6 +1,7 @@
 ---
 title: Assignment 3
-toc_sticky: true 
+toc_sticky: true
+published: false
 ---
 
 ## Getting Started

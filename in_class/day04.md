@@ -1,6 +1,7 @@
 ---
 title: "Day 4: Stack Implementation Walkthrough"
 toc_sticky: true
+published: false
 ---
 
 ## Overview

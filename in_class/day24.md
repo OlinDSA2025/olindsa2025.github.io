@@ -1,6 +1,7 @@
 ---
 title: "Day 24: Final Project Workday"
 toc_sticky: true
+published: false
 ---
 
 ## For Next Time

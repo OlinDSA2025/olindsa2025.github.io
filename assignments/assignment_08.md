@@ -1,6 +1,7 @@
 ---
 title: Assignment 8
-toc_sticky: true 
+toc_sticky: true
+published: false
 ---
 
 ## Binary Search Trees

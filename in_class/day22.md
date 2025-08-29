@@ -1,6 +1,7 @@
 ---
 title: "Day 22: Final Project Ideation"
 toc_sticky: true
+published: false
 ---
 
 ## Sharing Individual Project Ideation and Learning Goal Setting

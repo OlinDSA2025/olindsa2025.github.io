@@ -1,6 +1,7 @@
 ---
 title: "Day 10: Divide and Conquer"
 toc_sticky: true
+published: false
 ---
 
 ## Course Feedback Activity Coming Next Time

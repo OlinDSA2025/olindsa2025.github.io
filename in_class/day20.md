@@ -1,6 +1,7 @@
 ---
 title: "Day 20: More RB-Trees and Nearest Neighbor Search"
 toc_sticky: true
+published: false
 ---
 
 ## Red-Black Tree Insertions

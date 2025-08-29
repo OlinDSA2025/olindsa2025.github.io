@@ -1,6 +1,7 @@
 ---
 title: "Day 11: More Dynamic Programming"
 toc_sticky: true
+published: false
 ---
 
 ## Course Feedback Activity (total: 30 minutes)

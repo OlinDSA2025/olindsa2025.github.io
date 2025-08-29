@@ -1,6 +1,7 @@
 ---
 title: "Day 8: A-Star Search and Intro to Sorting"
 toc_sticky: true
+published: false
 ---
 
 ## A-Star Search

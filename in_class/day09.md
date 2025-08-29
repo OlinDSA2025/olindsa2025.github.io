@@ -1,6 +1,7 @@
 ---
 title: "Day 9: More Sorting and More Divide and Conquer"
 toc_sticky: true
+published: false
 ---
 Last class we saw heap sort, merge sort, and selection sort, but there are quite a few more to learn about.
 

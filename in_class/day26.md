@@ -1,6 +1,7 @@
 ---
 title: "Day 26: Last Regular Class!"
 toc_sticky: true
+published: false
 ---
 
 ## Getting Ready for the Final Event

@@ -1,6 +1,7 @@
 ---
 title: "Day 25: Final Project Workday And Standup"
 toc_sticky: true
+published: false
 ---
 
 ## Project Standup
