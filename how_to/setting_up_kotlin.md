@@ -15,9 +15,9 @@ You should also take advantage of the fact that students can get free access to 
 
 Let's work together to create our first Kotlin Program.  Open up IntellJ, select `File` then `New` then `Project`.
 
-Next, make sure you've selected  `Kotlin` as your language  and `Add sample code` should be checked.  Your JDK may look different from what is shown here, that's probably fine (but let me know if you run into issues).  For Build System, you can select any of them but IntelliJ seems to be the simplest in my experience.  See below for a screenshot of the new project dialog.
+Next, make sure you've selected  `Kotlin` as your language  and `Add sample code` should be checked.  Your JDK may look different from what is shown here, that's probably fine (but let me know if you run into issues).  For `Build System`, you can select any of them but Maven seems to work well in my experience).  See below for a screenshot of the new project dialog.
 
-![A screenshot of the IntelliJ IDE showing the selection of Kotlin as the programming language](/images/new_project.png).
+![A screenshot of the IntelliJ IDE showing the selection of Kotlin as the programming language](/images/new_project.png)
 
 After you click `Create`, a window will open up with your new project.  It should look something like this.
 
@@ -44,29 +44,46 @@ Note that the values of the local variables are shown along with the line of cod
 
 ## Adding a Dependency on a Library
 
-The process for adding a dependency on a third party library (e.g., to add some functionality not present in the Kotlin standard library) will depend on the build system.  Here is an example of how to add a dependency for the `IntelliJ` build system (as selected in the previous section).  This should also work for `Maven` as well.
+The process for adding a dependency on a third party library (e.g., to add some functionality not present in the Kotlin standard library) will depend on the build system.  Here is an example of how to add a dependency for the `Maven` build system (as selected in the previous section).  This should also work for `Gradle` as well.
 
-You can approach this in two ways.  First, you can do an ordinary Google search to find your dependency.  For example, if I want to do linear algebra things in Kotlin, I could search `Linear algebra kotlin library'.  From this list, I can usually find some instructions on how to add the library as a dependency.  Alternatively, you can search for the dependency you want to add using the official [Maven Search engine](https://search.maven.org/?eh=) or, if you want a more user-friendly experience, a community-managed [Maven Search Engine Altarnative](https://mvnrepository.com/).  If I type in Linear Algebra to the site above, I get the following output.
+> Before getting started, configure IntelliJ to automatically download documentation and source for any imported dependencies.  You can do this by going to `Settings` -> `Build, Execution, & Deployment` -> `Build Tools` -> `Maven` -> `Importing` and then checking Automatically download `Sources`, `Documentation`, and `Annotations`.
+
+You can approach this in two ways.  First, you can do an ordinary Google search to find your dependency.  For example, if I want to do linear algebra things in Kotlin, I could search `Linear algebra kotlin library'.  From this list, I can usually find some instructions on how to add the library as a dependency.  Alternatively, you can search for the dependency you want to add using the official [Maven Search engine](https://search.maven.org/?eh=) or, if you want a more user-friendly experience, a community-managed [Maven Search Engine Alternative](https://mvnrepository.com/).  If I type in Linear Algebra to the site above, I get the following output.
 
 ![The search output from mvnrepository.com](/images/maven_search.png)
 
-Next, I can pick the library I want by clicking on it and choosing a version.  Let's choose the EJML library and select teh latest version (`0.44`).  There will be a selector to choose the build system you are using.  In our example of using IntelliJ build system we can add the dependency through Maven.  We will do this by finding the Maven coordinates for the dependency.  This is most easily accessed by selecting `Gradle` from the tabbed selector and copying the coordinates (which are `org.ejml:ejml-core:0.44.0` in this case).
+Next, I can pick the library I want by clicking on it and choosing a version.  Let's choose the EJML Simple Library and select the latest version (`0.44`).  There will be a selector to choose the build system you are using.  In our example of using Maven build system we can add the dependency by selecting `Maven` from the tabbed selector, copying the XML fragment (which should look like the following), and pasting it into the `<dependencies></dependencies>` section of `pom.xml`.
 
-To add the dependency, right-click on your project name in the navigator in IntelliJ (e.g., `HelloWorld`), select `Open Module Settings`, choose `Dependencies` and click the plus sign.  Choose `Library` then from `Maven`.  Now you can paste in the maven coordinates determined above (i.e., `org.ejml:ejml-core:0.44.0`).  Click `Ok`.  If all went well you will see a list of classes to import.  Click `Ok` again, and then the dependency should be downloaded.
-
-To test our dependency, let's modify our code.
-
-```kotlin
-import org.ejml.simple.SimpleMatrix as M
-
-fun main() {
-    val q = M(3, 3)
-    q[0,0] = 3.0
-    print(q)
-}
+```xml
+<!-- https://mvnrepository.com/artifact/org.ejml/ejml-simple -->
+<dependency>
+    <groupId>org.ejml</groupId>
+    <artifactId>ejml-simple</artifactId>
+    <version>0.44.0</version>
+</dependency>
 ```
 
-This code creates a 3x3 matrix (initially with all 0's), fills in 3.0 in the 1st row and 1st column, and then prints out the result.
+You will need to click the `Reload` button to complete the process.
+
+To work with our dependency, let's modify our code.  If we know a type in the imported module we want to use, we can type it and the editor will automatically suggest the appropriate class to import.  Go ahead and add the following lines to the top of main 
+```kotlin
+val q = SimpleMatrix(3, 3)
+q[0,0] = 3.0
+print(q)
+```
+
+Initially, the word `SimpleMatrix` will be red since it is not imported.  You can right-click on it and select `Context Actions` and choose `Import SimpleMatrix`.  This will add the appropriate import at the top of your code.
+
+What does this code actually do?  Let's access the documentation.  If you click on SimpleMatrix, you should see a pop-up with documentation of what that command does (in this case it creates a matrix with all 0's).  You can further explore the documentation by interacting with the links in the documentation snippet.
+
+Some useful keyboard shortcuts for interacting with the documentation and discovering how external libraries work is as follows.
+
+* Search Everywhere: Shift Shift 
+* Quick Doc (automatically show documentation in a sidebar): macOS F1 (or Ctrl+J), Win/Linux Ctrl+Q 
+* Go to Declaration / Implementation: ⌘B / ⌥⌘B (Win/Linux Ctrl+B / Ctrl+Alt+B)
+* Show Usages: ⌥⌘F7 (Win/Linux Alt+F7)
+* Parameter Info: ⌘P (Win/Linux Ctrl+P)
+* Navigate Class / Symbol: ⌘O / ⌥⌘O (Win/Linux Ctrl+N / Ctrl+Alt+Shift+N)
 
 ## A Note about Variation in Setup
 
