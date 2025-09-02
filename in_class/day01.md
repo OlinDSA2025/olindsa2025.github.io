@@ -94,6 +94,7 @@ Suppose we have a list of numbers represented as a sequence $a_1, \ldots, a_n$ w
 With some folks around, you answer the following questions:
 
 <ol>
+<li>Unpack the notation.  Write out a simple test case and label the values with the appropriate notation (e.g., write a list of numbers and draw an arrow to the first that says $a_1$, to the second that says $a_2$, etc.</li>
 <li>Get a feel for the condition written above.  Draw a few test cases.  When does a peak exist?  When does it not?</li>
 <li>Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?</li>
 <li>See if you can create an algorithm to find a peak faster than your first algorithm.  What techniques might be able to speed things up.  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.
