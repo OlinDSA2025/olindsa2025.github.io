@@ -82,7 +82,12 @@ With some folks around you, please discuss the following.
 
 > 3:50pm - 4:20pm
 
-Choose one of the problems below to work through with a group of people sitting near you.  If you finish one problem, move onto the other.  The goal here is not for you to be able to jump right to the answer, but instead, I encourage you to break down the problem and discuss it with those around you.
+***Quantifying Runtime***
+In this class we're going to be reasoning about the efficiency of our algorithms with respect to the size of the problem they are solving.  For instance, if we feed $n$ numbers into an algorithm, how long does it take the algorithm to compute a solution?  Depending on how the algorithm works, this might take $n^2$ (e.g., if we had to check all pairs of numbers against each other) or $n$ (e.g., if we only had to scan the numbers once).  In the problems below, you'll want to come up with a procedure for solving the problem and also determine how many steps the algorithm would take to compute an answer as a function of $n$.  For the purposes of these exercises, the following operations take 1 step.
+* Accessing an element in a list (e.g., $a_2$)
+* Comparing two numbers to each other (e.g., $a_3 > a_8$)
+
+Start with the problems below and work through them with a group of people sitting near you.  If you finish the first problem, move onto the other problem.  The goal here is not for you to be able to jump right to the answer, but instead, I encourage you to break down the problem and discuss it with those around you.
 
 ### Peak Finding
 
@@ -96,8 +101,8 @@ With some folks around, you answer the following questions:
 <ol>
 <li>Unpack the notation.  Write out a simple test case and label the values with the appropriate notation (e.g., write a list of numbers and draw an arrow to the first that says $a_1$, to the second that says $a_2$, etc.</li>
 <li>Get a feel for the condition written above.  Draw a few test cases.  When does a peak exist?  When does it not?</li>
-<li>Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  How many elements do you have to check to determine if you have a peak?</li>
-<li>See if you can create an algorithm to find a peak faster than your first algorithm.  What techniques might be able to speed things up.  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.
+<li>Come up with a very simple algorithm to return the position, $i$, of a peak in a list of numbers (provided one exists).  As a function of $n$, how many elements do you have to check to determine if you have a peak?</li>
+<li>See if you can create an algorithm to find a peak faster than your first algorithm (faster in this case means it has a slower growing runtime as a function of $n$).  What techniques might be able to speed things up?  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.
 
 <br/>
 <button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint 1</button>
@@ -115,19 +120,10 @@ Think recursively.  What test can you perform that would allow you to recurse on
 
 > Definition 2: For any element that isn't either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i > a_{i-1}~\text{and}~a_i > a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 > a_2$ and $a_n$ is a peak if and only if $a_n < a_{n-1}$.
 
-### Optimal Roadtripping
 
-You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.
+### Searching for an Element in a Sorted List
 
-<button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button>
-<div id="HideShow3" style="display:none">
-Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?
-</div>
-
-<button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button>
-<div id="HideShow4" style="display:none">
-Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?
-</div>
+You are given a list of elements $x_1, x_2, \ldots, x_n$ sorted in ascending order.  Given a query $q$, design a procedure to determine whether the element $q$ is in the list or not.  As a function of $n$, how many steps would your algorithm in order to determine if the element of $q$ is present?
 
 ## Orientation to Assignment 1
 

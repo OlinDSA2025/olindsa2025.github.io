@@ -20,13 +20,26 @@ The question becomes, does the greedy strategy lead to a solution to the problem
 
 Here are some problems to get you thinking.
 
-> Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum pounds of flour you can purchase with your budget.  Is your algorithm a greedy algorithm?
-
-> Suppose you are planning a road trip of $N$ miles.  Your car can go $M$ miles on a full tank of gas.  There are gas stations located at mile $x_1, x_2, \ldots, x_k$ along the route.  Come up with a strategy for choosing which gas stations to fill your tank at such that you minimize the number of gas station stops.  Is your strategy guaranteed to find the minimum number?  Make an argument as to why or why not.
+> Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum amount of flour you can purchase with your budget.  Is your algorithm a greedy algorithm? (you can assume that buying a fraction of a pound is allowed).
 
 > Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?
  
 > If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?
+>
+
+### Optimal Roadtripping
+
+You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.
+
+<button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button>
+<div id="HideShow3" style="display:none">
+Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?
+</div>
+
+<button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button>
+<div id="HideShow4" style="display:none">
+Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?
+</div>
 
 ## O() and Friends
 
