@@ -43,6 +43,40 @@ Assuming that you recharge completely each time you choose to stop, does it ever
 
 ## O() and Friends
 
+Next, we are going to return to what we did in the first class where we calculated the runtime of an algorithm as a function of the input size $n$.  Let's say we compute the runtime of an algorithm 1 to be $2 n^2 + 5n + 200$ and the runtime of algorithm 2 to be $3 n^2 + 2 n$.  Is one necessarily faster than the other?  We can graph the two runtimes and see.
+
+<div id="plot"></div>
+<script>
+  Plotly.newPlot("plot", [{
+    x: [...Array(20).keys()],
+    y: [...Array(20).keys()].map(i => 2*i*i + 5*i + 200),
+    mode: 'lines',
+    name: "algorithm 1"
+  }, {
+    x: [...Array(20).keys()],
+    y: [...Array(20).keys()].map(i => 3*i*i + 2*i),
+    mode: 'lines',
+    name: "algorithm 2"
+  }], { xaxis: { title: "Input Size" },
+        yaxis: { title: "Runtime" } } );
+</script>
+
+Something interesting happens around $n=16$ (the lines cross).  However, if we let the input size get really large and plot the ratios of the two runtimes, we can see that algorithm 2 takes 50% longer to run than algorithm 1.
+
+<div id="plot2"></div>
+<script>
+  Plotly.newPlot("plot2", [{
+    x: [...Array(1000).keys()],
+    y: [...Array(1000).keys()].map(i => (3*i*i + 2*i)/(2*i*i + 5*i + 200)),
+    mode: 'lines',
+    name: "algorithm 2 runtime / algorithm 1 runtime"
+  }], { xaxis: { title: "Input Size", range: [10,1000] },
+        yaxis: { title: "Relative Runtime", range: [0, 2] } } );
+</script>
+
+The idea behind order of growth, is to find a way to draw meaningful distinctions between how fast functions increase.  Where meaningful in this case is based on how the functions behave when the input, $n$, gets very large and where we ignore constant factor differences in the functions (e.g., if a function is twice another, it is pretty much the same for our purposes).
+
+
 We say that $f(x) = O(g(x))$ if there exists a positive real number $M$ and a real number $x_0$ such that, $\|f(x)\| \leq M g(x)~\text{for all}~x\geq x_0$.
 
 
