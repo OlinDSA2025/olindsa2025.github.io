@@ -10,7 +10,9 @@ header:
 
 ## How-tos
 
+
 * [Get set with Kotlin](how_to/setting_up_kotlin)
+* [Useful Resources](how_to/useful_resources) (please let me know what I should add to this list).
 
 ## In-class Activities
 
