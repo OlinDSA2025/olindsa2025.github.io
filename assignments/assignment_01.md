@@ -4,6 +4,13 @@ due_on_class: 3
 toc_sticky: true 
 ---
 
+## A Note on Assignment Scope
+
+In general, you will be spending about 8 hours a week on homework for this class.  The first assignment, is on the lighter side, but you should still be spending at least 6 hours on it.  If you finish this assignment in less than 6 hours, please consider one of the following additional activities.
+* Do some problems from [Advent of Code](https://adventofcode.com/) in Kotlin (note: there is a link on the [useful resources](/how_to/useful_resources) page to a walkthrough of these problems).
+* Expand the scope of the "translating old code to Kotlin" part of the assignment.
+* In the "Hello Kotlin" part of the assignment, try importing a dependency and using it in your code (the [Setting up Kotlin](/how_to/setting_up_kotlin) section has some information on this).
+
 ## Course Entry Survey
 
 Please [fill this out](https://docs.google.com/forms/d/e/1FAIpQLScJegi7KGH3-TvK7R0ImdSJHRrENx9AuBfAB6pKXzm60bPncw/viewform).  I want to get a better sense for what you are hoping to get out of this course, what your background is, and how I can make this course work well for you.
@@ -25,7 +32,7 @@ Respond to the following prompts to get you thinking about your approach to lear
 
 Read the section on the website about [Getting Set with Kotlin](/how_to/setting_up_kotlin.md).
 
-Go through [the Kotlin tour](https://kotlinlang.org/docs/kotlin-tour-welcome.html).  Make sure to attempt all the exercises in the tour.
+Go through [the Kotlin tour](https://kotlinlang.org/docs/kotlin-tour-welcome.html) (you only need to do the beginner Kotlin tour).  Make sure to attempt all the exercises in the tour.
 
 1. What features do you like about Kotlin?
 2. Are there things you were expecting to find that you haven't?
@@ -40,4 +47,4 @@ Choose a piece of code that you've written in a programming language other than 
 
 The code you produce should be documented and contain at least some unit tests.
 
->  Turning in your work: Include a link to a Github repo containing your port of the code.  Include a writeup that describes the purpose of the code and how you found the process of translating the code to Kotlin (the good, the bad, and the ugly).
+>  Turning in your work: Include a link to a GitHub repo containing your port of the code.  Include a writeup that describes the purpose of the code and how you found the process of translating the code to Kotlin (the good, the bad, and the ugly).
