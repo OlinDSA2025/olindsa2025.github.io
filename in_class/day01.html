@@ -79,7 +79,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 </script>
 
 <!-- begin _includes/seo.html --><title>Day 1: Course Intro and Welcome to DSA - Data Structures Fall 2025 @ Olin College</title>
-<meta name="description" content="Website">
+<meta name="description" content="">
 
 
 
@@ -89,8 +89,6 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:title" content="Day 1: Course Intro and Welcome to DSA">
 <meta property="og:url" content="/in_class/day01.html">
 
-
-  <meta property="og:description" content="Website">
 
 
 
@@ -275,7 +273,8 @@ function HideShowElement(divID) {
   <li><a href="#course-structure-and-major-topics">Course Structure and Major Topics</a></li>
   <li><a href="#algorithms-in-the-world">Algorithms in the World</a></li>
   <li><a href="#discussion-of-learning-strategies-and-oral-quizzes">Discussion of Learning Strategies and Oral Quizzes</a></li>
-  <li><a href="#peak-finding">Peak Finding</a></li>
+  <li><a href="#having-some-fun-with-algorithms">Having Some Fun With Algorithms</a></li>
+  <li><a href="#orientation-to-assignment-1">Orientation to Assignment 1</a></li>
   <li><a href="#turning-in-your-work">Turning in your work</a></li>
 </ul>
 	      	
@@ -283,6 +282,10 @@ function HideShowElement(divID) {
           </aside>
         
         <h2 id="course-structure-and-major-topics">Course Structure and Major Topics</h2>
+
+<blockquote>
+  <p>Time: 2:50pm-3:05pm</p>
+</blockquote>
 
 <p>The goal of this course is for you to learn how to frame problems using the language of computation and select appropriate data structures and algorithms to solve them.  We’ll get more into what we mean by framing problems later (there is an example later today), but for now I want to focus on the sorts of problems we will be tackling and the algorithmic strategies we will be using to solve them.</p>
 
@@ -303,19 +306,23 @@ function HideShowElement(divID) {
 
 <h3 id="specific-algorithms">Specific Algorithms</h3>
 
-<p>Of course, we will learn about specific algorithms.  We’ll see algorithms from graph theory, string matching, bioinformatics, sorting, matrix multiplication, and artificial intelligence.</p>
+<p>Of course, we will learn about specific algorithms.  We’ll see algorithms from graph theory, string matching, bioinformatics, sorting, matrix multiplication, backtracking, and artificial intelligence.</p>
 
 <h3 id="algorithmic-deep-dive">Algorithmic Deep Dive</h3>
 
 <p>You’ll be able to customize the course by taking a deep dive into a new algorithm or algorithms topic that we did not cover in the class.</p>
 
-<h3 id="implementing-and-testing">Implementing and Testing</h3>
+<h3 id="implementation-and-testing">Implementation and Testing</h3>
 
 <p>In order to solidify your understanding of the material and improve your ability as a developer, we will be implementing many of our algorithms and data structures.  We’ll focus on creating unit tests as a way to create more maintainable and correct code.</p>
 
 <h2 id="algorithms-in-the-world">Algorithms in the World</h2>
 
-<p>Choose a category of algorithms from the list below (or make up your own).   Try to choose ones that you are less familiar with (or maybe start with a familiar one and then choose one less so).  For each category:</p>
+<blockquote>
+  <p>Time: 3:05pm-3:30pm</p>
+</blockquote>
+
+<p>Choose a category of algorithms from the list below (or make up your own). You are not supposed to know all (or any) of these already!  I encourage you to choose ones you don’t know about and do some research!  Alternatively, maybe warm up with one you are more familiar with and then choose one less so.  For each category you choose to look into:</p>
 
 <ul>
   <li>Come up with a basic definition of what types of problems that the algorithm can solve.</li>
@@ -323,7 +330,7 @@ function HideShowElement(divID) {
   <li>List at least two examples of how algorithms of this type are used in the world (applications).</li>
 </ul>
 
-<p>The list of general algorithm classes is below.</p>
+<p>Some examples of algorithms are listed below.</p>
 <ul>
   <li>Data Compression (lossless or lossy)</li>
   <li>Collaborative filtering (e.g., as used in recommender systems)</li>
@@ -343,6 +350,10 @@ function HideShowElement(divID) {
 
 <h2 id="discussion-of-learning-strategies-and-oral-quizzes">Discussion of Learning Strategies and Oral Quizzes</h2>
 
+<blockquote>
+  <p>Time: 3:30pm-3:50pm</p>
+</blockquote>
+
 <p>Next, I want to discuss two interrelated issues.  The first is how you can work in a way that best supports your learning this semester.  The second is how I provide an assessment structure that provides you with useful feedback as to how well you are meeting these goals.</p>
 
 <p>While there are many aspects of assessment in this course, for now I want to focus on something new I’m trying this semester.  Twice this semester, I will meet with each of you for an oral quiz (each quiz is worth 10% of your grade).  My hope is that this structure will give you a better measurement of your progress over the semester.  Part of my decision is also based on mitigating what I feel are ways in which AI-based coding assistants might hinder learning (e.g., if they are used as answer generators rather than coaches).  I’m not ready to nail down the full design of these quizzes, but here are some preliminary thoughts.</p>
@@ -354,7 +365,7 @@ function HideShowElement(divID) {
       <td><em>What’s Being Assessed</em></td>
     </tr>
     <tr>
-      <td>You are given a problem to solve and then you show your thought process as you work, on a whiteboard, towards a solution.</td>
+      <td>You are given a problem to solve. As you work towards a solution, you show / discuss your thought process.</td>
       <td>Your ability to select appropriate data structures and algorithms to solve a novel problem.</td>
     </tr>
     <tr>
@@ -379,7 +390,15 @@ function HideShowElement(divID) {
   <li>In reaction to the table above, what other activities would be useful to include in an oral quiz and what skill would they be assessing?</li>
 </ol>
 
-<h2 id="peak-finding">Peak Finding</h2>
+<h2 id="having-some-fun-with-algorithms">Having Some Fun With Algorithms</h2>
+
+<blockquote>
+  <p>3:50pm - 4:20pm</p>
+</blockquote>
+
+<p>Choose one of the problems below to work through with a group of people sitting near you.  If you finish one problem, move onto the other.  The goal here is not for you to be able to jump right to the answer, but instead, I encourage you to break down the problem and discuss it with those around you.</p>
+
+<h3 id="peak-finding">Peak Finding</h3>
 
 <blockquote>
   <p>Credit to MIT Open Courseware 6.006 for this problem</p>
@@ -412,7 +431,33 @@ Think recursively.  What test can you perform that would allow you to recurse on
   <p>Definition 2: For any element that isn’t either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i &gt; a_{i-1}~\text{and}~a_i &gt; a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 &gt; a_2$ and $a_n$ is a peak if and only if $a_n &lt; a_{n-1}$.</p>
 </blockquote>
 
+<h3 id="optimal-roadtripping">Optimal Roadtripping</h3>
+
+<p>You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.</p>
+
+<p><button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button></p>
+<div id="HideShow3" style="display:none">
+Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?
+</div>
+
+<p><button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button></p>
+<div id="HideShow4" style="display:none">
+Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?
+</div>
+
+<h2 id="orientation-to-assignment-1">Orientation to Assignment 1</h2>
+
+<blockquote>
+  <p>4:20pm - 4:25pm</p>
+</blockquote>
+
+<p>Let me show you <a href="/assignments/assignment_01">the first assignment</a> (due next Thursday).</p>
+
 <h2 id="turning-in-your-work">Turning in your work</h2>
+
+<blockquote>
+  <p>4:25pm - 4:30pm</p>
+</blockquote>
 
 <p>Please fill out <a href="https://olin.instructure.com/courses/940/quizzes/2577">the Canvas survey</a> to complete your assignment for today.  These surveys are not intended to be heavy -weight.</p>
 
