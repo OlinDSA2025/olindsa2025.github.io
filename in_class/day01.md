@@ -112,13 +112,13 @@ With some folks around, you answer the following questions:
 <br/>
 <button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint 1</button>
 <div id="HideShow1" style="display:none">
-You should think about breaking the problem down into simpler instances.  This approach is known as divide and conquer and is often implemented using the recursion in a computer program.  Here is a convenient link to [the material from SoftDes on the matter](https://softdes.olin.edu/docs/readings/3-dict-recursion-refactoring/#recursion) (or call me over and we can do a quick refresher)!
+You should think about breaking the problem down into simpler instances.
 </div>
 
 <br/>
 <button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint 2</button>
 <div id="HideShow2" style="display:none">
-Think recursively.  What test can you perform that would allow you to recurse on a sequence half as large as the one you started with?
+Think recursively.  Here is a convenient link to <a href="https://softdes.olin.edu/docs/readings/3-dict-recursion-refactoring/#recursion">the material from SoftDes on the matter</a> (or call me over and we can do a quick refresher)!  What test can you perform that would allow you to recurse on a sequence half as large as the one you started with?
 </div></li>
 <li>If we changed the condition of a peak to the definition below, would your algorithm in question 3 still work?</li>
 </ol>
