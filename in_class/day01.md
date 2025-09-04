@@ -3,9 +3,14 @@ title: "Day 1: Course Intro and Welcome to DSA"
 toc_sticky: true
 ---
 
+## Let's Settle In and Meet Each Other
+> Time 2:50-2:55pm
+
+Can we do a quick round of intros?  How about name, year, school, and where you're from?
+
 ## Course Structure and Major Topics
 
-> Time: 2:50pm-3:05pm
+> Time: 2:55-3:05pm
 
 The goal of this course is for you to learn how to frame problems using the language of computation and select appropriate data structures and algorithms to solve them.  We'll get more into what we mean by framing problems later (there is an example later today), but for now I want to focus on the sorts of problems we will be tackling and the algorithmic strategies we will be using to solve them.
 
@@ -87,7 +92,7 @@ In this class we're going to be reasoning about the efficiency of our algorithms
 * Accessing an element in a list (e.g., $a_2$)
 * Comparing two numbers to each other (e.g., $a_3 > a_8$)
 
-Start with the problems below and work through them with a group of people sitting near you.  If you finish the first problem, move onto the other problem.  The goal here is not for you to be able to jump right to the answer, but instead, I encourage you to break down the problem and discuss it with those around you.
+Work through the peak-finding problem with a group of people sitting near you.  If you finish the first problem, you can either look into 2D peak-finding, or check out [the first assignment](/assignments/assignment_01).  The goal here is not for you to be able to jump right to the answer, but instead, I encourage you to break down the problem and discuss it with those around you.
 
 ### Peak Finding
 
@@ -107,7 +112,7 @@ With some folks around, you answer the following questions:
 <br/>
 <button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint 1</button>
 <div id="HideShow1" style="display:none">
-You should think about breaking the problem down into simpler instances.
+You should think about breaking the problem down into simpler instances.  This approach is known as divide and conquer and is often implemented using the recursion in a computer program.  Here is a convenient link to [the material from SoftDes on the matter](https://softdes.olin.edu/docs/readings/3-dict-recursion-refactoring/#recursion) (or call me over and we can do a quick refresher)!
 </div>
 
 <br/>
@@ -120,10 +125,11 @@ Think recursively.  What test can you perform that would allow you to recurse on
 
 > Definition 2: For any element that isn't either the first or the last element of this sequence, we say that element $i$ is a peak if and only if $a_i > a_{i-1}~\text{and}~a_i > a_{i+1}$.  For the elements at the ends of the sequence, we say that $a_1$ is a peak if and only $a_1 > a_2$ and $a_n$ is a peak if and only if $a_n < a_{n-1}$.
 
+### 2D Peak Finding
 
-### Searching for an Element in a Sorted List
+> Note: this is mostly just here for reference for the folks who are curious.  I do not expect you to be able to get to this during class time.
 
-You are given a list of elements $x_1, x_2, \ldots, x_n$ sorted in ascending order.  Given a query $q$, design a procedure to determine whether the element $q$ is in the list or not.  As a function of $n$, how many steps would your algorithm in order to determine if the element of $q$ is present?
+Can we generalize the ideas from the peak-finding algorithm to 2 dimensions (i.e, a matrix)?  Yes!  Here are some slides that talk about [the 1-D and 2-D peak-finding algorithms](https://courses.csail.mit.edu/6.006/fall10/lectures/lec02.pdf) (my suggestion is to go up to slide 17)
 
 ## Orientation to Assignment 1
 
