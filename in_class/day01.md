@@ -115,13 +115,13 @@ With some folks around, you answer the following questions:
 <li>See if you can create an algorithm to find a peak faster than your first algorithm (faster in this case means it has a slower growing runtime as a function of $n$).  What techniques might be able to speed things up?  Make an argument that your algorithm is correct and see if you can start to understand how you might prove this more formally.
 
 <br/>
-<button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint 1</button>
+<button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button>
 <div id="HideShow1" style="display:none">
 You should think about breaking the problem down into simpler instances.
 </div>
 
 <br/>
-<button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint 2</button>
+<button onclick="HideShowElement('HideShow2')">Show / Hide Hint 2</button>
 <div id="HideShow2" style="display:none">
 Think recursively.  Here is a convenient link to <a href="https://softdes.olin.edu/docs/readings/3-dict-recursion-refactoring/#recursion">the material from SoftDes on the matter</a> (or call me over and we can do a quick refresher)!  What test can you perform that would allow you to recurse on a sequence half as large as the one you started with?
 </div></li>
