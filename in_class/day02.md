@@ -1,8 +1,11 @@
 ---
 title: "Day 2: Greedy Algorithms Teaser, Order of Growth, and Some Kotlin"
 toc_sticky: true
-published: false
+published: true
 ---
+
+> This page is still being finalized, so it is subject to change before Monday.
+{: .notice--danger}
 
 ## Announcements and Reminders
 
@@ -16,9 +19,40 @@ Wikipedia has a concise definition of a greedy algorithm.
 
 > A greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage.
 
-The question becomes, does the greedy strategy lead to a solution to the problem?  In some cases it may lead to a solution, and in other cases it may lead to a less optimal solution.
+The question becomes, does the greedy strategy lead to an optimal solution to the problem?  In some cases it may lead to such a solution, and in other cases it may not.
 
-Here are some problems to get you thinking.
+> **Sample Problem** Seeing where a greedy approach fails
+> 
+> To make sure we understand which problems can be solved with a greedy algorithm, it may be more intuitive to think about some cases that a greedy algorithm cannot solve. Let's work through an example of this to all get on the same page.
+> 
+> *Knapsack Problem*: Given $N$ items where the $i$th item weights $w_i$ pounds, determine an assignment of items to two knapsacks such that the combined weight of the items in each knapsack is the same.
+> 
+> **Example:** There are five items with weights $6, 5, 9, 1, 1$.
+> 
+> **Solution:** Knapsack 1: $\{5, 6\}$, Knapsack 2: $\{1, 1, 9}$.
+>
+> 
+> What's the greedy approach?  Let's start with the knapsacks empty and choose the combination of knapsack and item that causes the total weight in each knapsack to stay as close as possible.  Let's track how the knapsacks $K_1$, $K_2$, and the remaining items, $R$, would evolve over time if we applied this procedure.
+> 1. $K_1 = \[ 1 \], K_2 = \[ \], R = \[6, 5, 9, 1\]$
+> 2. $K_1 = \[ 1 \], K_2 = \[ 1 \], R = \[6, 5, 9 \]$
+> 3. $K_1 = \[ 1, 5 \], K_2 = \[ 1 \], R = \[ 6, 9 \]$
+> 4. $K_1 = \[ 1, 5 \], K_2 = \[ 1, 6 \], R = \[ 9 \]$
+> 5. $K_1 = \[ 1, 5, 9 \], K_2 = \[ 1, 6 \]$
+> 
+> This approach has clearly failed since the weights in $K_1$ total 15 and the weights in $K_2$ total 7.
+{: .notice--info}
+
+Now, let's work through the following exercise as a group.
+
+> **Exercise** Come up with one problem where a greedy approach would fail.
+> 1. Describe the problem.
+> 2. What is the greedy approach to attempting to solve the problem.
+> 3. Provide a test case that shows the greedy approach fails.
+{: .notice--success}
+
+
+
+
 
 > Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum amount of flour you can purchase with your budget.  Is your algorithm a greedy algorithm? (you can assume that buying a fraction of a pound is allowed).
 
