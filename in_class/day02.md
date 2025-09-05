@@ -44,7 +44,7 @@ The question becomes, does the greedy strategy lead to an optimal solution to th
 
 Now, let's work through the following exercise as a group.
 
-> **Exercise** Come up with one problem where a greedy approach would fail.
+> **Exercise 1** Come up with one problem where a greedy approach would fail.
 > 1. Describe the problem.
 > 2. What is the greedy approach to attempting to solve the problem.
 > 3. Provide a test case that shows the greedy approach fails.
@@ -53,27 +53,24 @@ Now, let's work through the following exercise as a group.
 
 
 
+> **Exercise 2**
+> 1. Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum amount of flour you can purchase with your budget.  Is your algorithm a greedy algorithm? (you can assume that buying a fraction of a pound is allowed). 
+> 2. Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)? 
+> 3. If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?
+{: .notice--success}
 
-> Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum amount of flour you can purchase with your budget.  Is your algorithm a greedy algorithm? (you can assume that buying a fraction of a pound is allowed).
-
-> Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?
- 
-> If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?
->
 
 ### Optimal Roadtripping
 
-You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.
+> **Exercise 3** You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.
+> 
+> <button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button>
+> <div id="HideShow3" style="display:none">Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?</div>
+> <button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button>
+> <div id="HideShow4" style="display:none">Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?</div>
+{: .notice--success}
 
-<button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button>
-<div id="HideShow3" style="display:none">
-Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?
-</div>
 
-<button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button>
-<div id="HideShow4" style="display:none">
-Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?
-</div>
 
 ## O() and Friends
 
@@ -124,21 +121,22 @@ Here is a handy figure from "Introduction to Algorithms" by Cormen, Leiserson, R
 
 With your group, explain how the formal definitions (given earlier) relate to these pictures.
 
-### Practice Problems
+> **Exercise 4**
+>  TODO: add hints.
+> 1. Show that $10000 n = O(n^2)$
+> 2. Show that $n^2 \neq O(n)$.
+> 3. Show that $\frac{3^n}{10000} = \Omega(2^n)$
+> 4. Show that any polynomial is $O(2^n)$
+{: .notice--success}
 
-1. Show that $10000 n = O(n^2)$
-2. Show that $n^2 \neq O(n)$.
-3. Show that $\frac{3^n}{10000} = \Omega(2^n)$
-4. Show that any polynomial is $O(2^n)$
-
-This problem is from former Olin Professor Allen Downey's Think Python second edition.   In this context, order of growth can be understood to mean $\Theta$.  I made one modification to part 3 of the exercise.
-
-* What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?
-* What is the order of growth of $(n^2 + n)(n + 1)$?
-* If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?
-* If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?
-* If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?
-* If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?
+> **Exercise 5** This problem is from former Olin Professor Allen Downey's Think Python second edition.   In this context, order of growth can be understood to mean $\Theta$.  I made one modification to part 3 of the exercise.  TODO: add hints.
+> * What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?
+> * What is the order of growth of $(n^2 + n)(n + 1)$?
+> * If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?
+> * If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?
+> * If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?
+> * If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?
+{: .notice--success}
 
 ## Kotlin versus Python
 
@@ -148,9 +146,5 @@ Key differences:
 * Execution Model: Interpreted (Python) versus Compiled (Kotlin)
 * Type System: Dynamic typing (Python) versus Static Typing (Kotlin)
 * Interoperability: call C/C++ code (Python) versus calling Java (Kotlin)
-* External dependencies: pip / Anaconda / ... (Python) versus Gradle (Kotlin)
+* External dependencies: pip / Anaconda / ... (Python) versus Gradle / Maven (Kotlin)
 * Syntax: indentation to show code nesting (Python) versus Curly braces (Kotlin)
-
-## Work on Kotlin Basics
-
-We'll take some time to work on the assignment.  This will give us a chance to discuss Kotlin, figure out bugs with your environment, etc.  We can do some knowledge sharing amongst the class (interesting resources or other things you found).
