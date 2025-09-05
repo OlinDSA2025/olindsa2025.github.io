@@ -278,7 +278,6 @@ function HideShowElement(divID) {
   <li><a href="#algorithm-design-patterns-whirlwind-tour">Algorithm Design Patterns Whirlwind Tour</a></li>
   <li><a href="#o-and-friends">O() and Friends</a></li>
   <li><a href="#kotlin-versus-python">Kotlin versus Python</a></li>
-  <li><a href="#work-on-kotlin-basics">Work on Kotlin Basics</a></li>
 </ul>
 	      	
             </nav>
@@ -332,7 +331,7 @@ function HideShowElement(divID) {
 <p>Now, let’s work through the following exercise as a group.</p>
 
 <blockquote class="notice--success">
-  <p><strong>Exercise</strong> Come up with one problem where a greedy approach would fail.</p>
+  <p><strong>Exercise 1</strong> Come up with one problem where a greedy approach would fail.</p>
   <ol>
     <li>Describe the problem.</li>
     <li>What is the greedy approach to attempting to solve the problem.</li>
@@ -340,32 +339,25 @@ function HideShowElement(divID) {
   </ol>
 </blockquote>
 
-<blockquote>
-  <p>Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum amount of flour you can purchase with your budget.  Is your algorithm a greedy algorithm? (you can assume that buying a fraction of a pound is allowed).</p>
-</blockquote>
-
-<blockquote>
-  <p>Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?</p>
-</blockquote>
-
-<blockquote>
-  <p>If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?</p>
-
+<blockquote class="notice--success">
+  <p><strong>Exercise 2</strong></p>
+  <ol>
+    <li>Suppose you have a budget of $N$ dollars to purchase flour and that flour can be purchased on day $i$ for $x_i$ dollars per pound.  Determine the maximum amount of flour you can purchase with your budget.  Is your algorithm a greedy algorithm? (you can assume that buying a fraction of a pound is allowed).</li>
+    <li>Determine a greedy algorithm for making change for $N$ cents using quarters, dimes, nickels, and pennies.  Does your greedy algorithm use the fewest coins possible (make an intuitive argument, no proof necessary)?</li>
+    <li>If the US began minting a 20-cent coin, would a greedy algorithm still solve the optimal change-making problem?</li>
+  </ol>
 </blockquote>
 
 <h3 id="optimal-roadtripping">Optimal Roadtripping</h3>
 
-<p>You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.</p>
+<blockquote class="notice--success">
+  <p><strong>Exercise 3</strong> You are planning a road trip of $N$ miles.  Your electric car has a range of $M$ miles.  There are charging stations located at mile $a_1, a_2, a_3, \ldots, a_k$ (as measured from the start of the route).  Determine a procedure to figure out the minimum number of recharges you have to make in order to complete the road trip.</p>
 
-<p><button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button></p>
-<div id="HideShow3" style="display:none">
-Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?
-</div>
-
-<p><button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button></p>
-<div id="HideShow4" style="display:none">
-Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?
-</div>
+  <p><button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint 1</button></p>
+  <div id="HideShow3" style="display:none">Start by thinking about the first decision you have to make (where to make your first recharging stop).  Is there a best place to stop?</div>
+  <p><button onclick="HideShowElement(&quot;HideShow4&quot;)">Show / Hide Hint 2</button></p>
+  <div id="HideShow4" style="display:none">Assuming that you recharge completely each time you choose to stop, does it ever make sense to stop at an earlier charging station than you could have reached?</div>
+</blockquote>
 
 <h2 id="o-and-friends">O() and Friends</h2>
 
@@ -414,25 +406,28 @@ Assuming that you recharge completely each time you choose to stop, does it ever
 
 <p>With your group, explain how the formal definitions (given earlier) relate to these pictures.</p>
 
-<h3 id="practice-problems">Practice Problems</h3>
+<blockquote class="notice--success">
+  <p><strong>Exercise 4</strong>
+ TODO: add hints.</p>
+  <ol>
+    <li>Show that $10000 n = O(n^2)$</li>
+    <li>Show that $n^2 \neq O(n)$.</li>
+    <li>Show that $\frac{3^n}{10000} = \Omega(2^n)$</li>
+    <li>Show that any polynomial is $O(2^n)$</li>
+  </ol>
+</blockquote>
 
-<ol>
-  <li>Show that $10000 n = O(n^2)$</li>
-  <li>Show that $n^2 \neq O(n)$.</li>
-  <li>Show that $\frac{3^n}{10000} = \Omega(2^n)$</li>
-  <li>Show that any polynomial is $O(2^n)$</li>
-</ol>
-
-<p>This problem is from former Olin Professor Allen Downey’s Think Python second edition.   In this context, order of growth can be understood to mean $\Theta$.  I made one modification to part 3 of the exercise.</p>
-
-<ul>
-  <li>What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?</li>
-  <li>What is the order of growth of $(n^2 + n)(n + 1)$?</li>
-  <li>If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?</li>
-  <li>If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?</li>
-  <li>If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?</li>
-  <li>If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?</li>
-</ul>
+<blockquote class="notice--success">
+  <p><strong>Exercise 5</strong> This problem is from former Olin Professor Allen Downey’s Think Python second edition.   In this context, order of growth can be understood to mean $\Theta$.  I made one modification to part 3 of the exercise.  TODO: add hints.</p>
+  <ul>
+    <li>What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?</li>
+    <li>What is the order of growth of $(n^2 + n)(n + 1)$?</li>
+    <li>If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?</li>
+    <li>If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?</li>
+    <li>If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?</li>
+    <li>If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?</li>
+  </ul>
+</blockquote>
 
 <h2 id="kotlin-versus-python">Kotlin versus Python</h2>
 
@@ -443,13 +438,9 @@ Assuming that you recharge completely each time you choose to stop, does it ever
   <li>Execution Model: Interpreted (Python) versus Compiled (Kotlin)</li>
   <li>Type System: Dynamic typing (Python) versus Static Typing (Kotlin)</li>
   <li>Interoperability: call C/C++ code (Python) versus calling Java (Kotlin)</li>
-  <li>External dependencies: pip / Anaconda / … (Python) versus Gradle (Kotlin)</li>
+  <li>External dependencies: pip / Anaconda / … (Python) versus Gradle / Maven (Kotlin)</li>
   <li>Syntax: indentation to show code nesting (Python) versus Curly braces (Kotlin)</li>
 </ul>
-
-<h2 id="work-on-kotlin-basics">Work on Kotlin Basics</h2>
-
-<p>We’ll take some time to work on the assignment.  This will give us a chance to discuss Kotlin, figure out bugs with your environment, etc.  We can do some knowledge sharing amongst the class (interesting resources or other things you found).</p>
 
         
       </section>
