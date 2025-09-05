@@ -464,7 +464,7 @@ tr, td, th { vertical-align: middle; }
 /* ========================================================================== NOTICE TEXT BLOCKS ========================================================================== */
 /** Default Kramdown usage (no indents!): <div class="notice" markdown="1"> #### Headline for the Notice Text for the notice </div> */
 /* Default notice */
-.notice { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; font-size: 0.75em !important; text-indent: initial; /* override*/ background-color: #f8f9f9; border-radius: 4px; box-shadow: 0 1px 1px rgba(189, 193, 196, 0.25); }
+.notice { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; text-indent: initial; /* override*/ background-color: #f8f9f9; border-radius: 4px; box-shadow: 0 1px 1px rgba(189, 193, 196, 0.25); }
 .notice h4 { margin-top: 0 !important; /* override*/ margin-bottom: 0.75em; }
 .page__content .notice h4 { /* using at-root to override .page-content h4 font size*/ margin-bottom: 0; font-size: 1em; }
 .notice p:last-child { margin-bottom: 0 !important; /* override*/ }
@@ -476,7 +476,7 @@ tr, td, th { vertical-align: middle; }
 .notice ul:last-child { margin-bottom: 0; /* override*/ }
 
 /* Primary notice */
-.notice--primary { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; font-size: 0.75em !important; text-indent: initial; /* override*/ background-color: #f1f1f2; border-radius: 4px; box-shadow: 0 1px 1px rgba(111, 119, 125, 0.25); }
+.notice--primary { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; text-indent: initial; /* override*/ background-color: #f1f1f2; border-radius: 4px; box-shadow: 0 1px 1px rgba(111, 119, 125, 0.25); }
 .notice--primary h4 { margin-top: 0 !important; /* override*/ margin-bottom: 0.75em; }
 .page__content .notice--primary h4 { /* using at-root to override .page-content h4 font size*/ margin-bottom: 0; font-size: 1em; }
 .notice--primary p:last-child { margin-bottom: 0 !important; /* override*/ }
@@ -488,7 +488,7 @@ tr, td, th { vertical-align: middle; }
 .notice--primary ul:last-child { margin-bottom: 0; /* override*/ }
 
 /* Info notice */
-.notice--info { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; font-size: 0.75em !important; text-indent: initial; /* override*/ background-color: #ebf5f8; border-radius: 4px; box-shadow: 0 1px 1px rgba(59, 156, 186, 0.25); }
+.notice--info { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; text-indent: initial; /* override*/ background-color: #ebf5f8; border-radius: 4px; box-shadow: 0 1px 1px rgba(59, 156, 186, 0.25); }
 .notice--info h4 { margin-top: 0 !important; /* override*/ margin-bottom: 0.75em; }
 .page__content .notice--info h4 { /* using at-root to override .page-content h4 font size*/ margin-bottom: 0; font-size: 1em; }
 .notice--info p:last-child { margin-bottom: 0 !important; /* override*/ }
@@ -500,7 +500,7 @@ tr, td, th { vertical-align: middle; }
 .notice--info ul:last-child { margin-bottom: 0; /* override*/ }
 
 /* Warning notice */
-.notice--warning { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; font-size: 0.75em !important; text-indent: initial; /* override*/ background-color: #fbf2e6; border-radius: 4px; box-shadow: 0 1px 1px rgba(214, 127, 5, 0.25); }
+.notice--warning { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; text-indent: initial; /* override*/ background-color: #fbf2e6; border-radius: 4px; box-shadow: 0 1px 1px rgba(214, 127, 5, 0.25); }
 .notice--warning h4 { margin-top: 0 !important; /* override*/ margin-bottom: 0.75em; }
 .page__content .notice--warning h4 { /* using at-root to override .page-content h4 font size*/ margin-bottom: 0; font-size: 1em; }
 .notice--warning p:last-child { margin-bottom: 0 !important; /* override*/ }
@@ -512,7 +512,7 @@ tr, td, th { vertical-align: middle; }
 .notice--warning ul:last-child { margin-bottom: 0; /* override*/ }
 
 /* Success notice */
-.notice--success { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; font-size: 0.75em !important; text-indent: initial; /* override*/ background-color: #ecf6ec; border-radius: 4px; box-shadow: 0 1px 1px rgba(63, 166, 63, 0.25); }
+.notice--success { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; text-indent: initial; /* override*/ background-color: #ecf6ec; border-radius: 4px; box-shadow: 0 1px 1px rgba(63, 166, 63, 0.25); }
 .notice--success h4 { margin-top: 0 !important; /* override*/ margin-bottom: 0.75em; }
 .page__content .notice--success h4 { /* using at-root to override .page-content h4 font size*/ margin-bottom: 0; font-size: 1em; }
 .notice--success p:last-child { margin-bottom: 0 !important; /* override*/ }
@@ -524,7 +524,7 @@ tr, td, th { vertical-align: middle; }
 .notice--success ul:last-child { margin-bottom: 0; /* override*/ }
 
 /* Danger notice */
-.notice--danger { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; font-size: 0.75em !important; text-indent: initial; /* override*/ background-color: #fdefef; border-radius: 4px; box-shadow: 0 1px 1px rgba(238, 95, 91, 0.25); }
+.notice--danger { margin: 2em 0 !important; /* override*/ padding: 1em; color: #494e52; font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; text-indent: initial; /* override*/ background-color: #fdefef; border-radius: 4px; box-shadow: 0 1px 1px rgba(238, 95, 91, 0.25); }
 .notice--danger h4 { margin-top: 0 !important; /* override*/ margin-bottom: 0.75em; }
 .page__content .notice--danger h4 { /* using at-root to override .page-content h4 font size*/ margin-bottom: 0; font-size: 1em; }
 .notice--danger p:last-child { margin-bottom: 0 !important; /* override*/ }
