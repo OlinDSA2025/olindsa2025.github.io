@@ -122,12 +122,16 @@ With your group, explain how the formal definitions (given earlier) relate to th
 {: .notice--success}
 
 > **Exercise 4** This problem is from former Olin Professor Allen Downey's Think Python second edition.   In this context, order of growth can be understood to mean $\Theta$.  I made one modification to part 3 of the exercise.
-> * What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?
-> * What is the order of growth of $(n^2 + n)(n + 1)$?
-> * If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?
-> * If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?
-> * If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?
-> * If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?
+> 1. What is the order of growth of $n^3 + n^2$? What about $1000000 n^3 + n^2$? What about $n^3 + 1000000 n^2$?
+> 2. What is the order of growth of $(n^2 + n)(n + 1)$?
+> 3. If $f$ is in $O(g)$ and $g$ is a continuously increasing functions that grows infinitely large as $n \rightarrow \infty$, what can we say about $af+b$, where $a$ and $b$ are constants?
+> 4. If $f_1$ and $f_2$ are in $O(g)$, what can we say about $f_1 + f_2$?
+>    <button onclick="HideShowElement('HideShow5')">Show / Hide Hint</button>
+>    <div id="HideShow5" style="display:none">What do we know about based on the fact that $f_1$ and $f_2$ are in $O(g)$, can we write down a useful condition?</div>
+> 5. If $f_1$ is in $O(g)$ and $f_2$ is in $O(h)$, what can we say about $f_1 + f_2$?
+>    <button onclick="HideShowElement('HideShow6')">Show / Hide Hint</button>
+>    <div id="HideShow6" style="display:none">You can use max(g, h) to refer to the bigger of the functions.</div>
+> 6. If $f_1$ is in $O(g)$ and $f_2$ is $O(h)$, what can we say about $f_1 \times f_2$?
 {: .notice--success}
 
 ## Peak finding in Kotlin
