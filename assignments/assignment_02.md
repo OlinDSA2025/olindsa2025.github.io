@@ -1,8 +1,12 @@
 ---
-title: Assignment 2
+title: "Assignment 2: Linked Data Structures"
 toc_sticky: true
-published: false
+published: true
 ---
+
+> Subject to change
+{: .notice--danger}
+
 
 ## Overview
 
@@ -10,7 +14,7 @@ In this assignment you will be implementing a doubly linked list in Kotlin.  You
 
 ## Part 1: Doubly Linked List
 
-Implement a doubly linked list in Kotlin.  Your class should work with any data type (use [Kotlin's generics](https://kotlinlang.org/docs/generics.html)) and support the following operations (we use ``T`` to refer to the data type stored in the underlying linked list..
+Implement a doubly linked list in Kotlin.  Your class should work with any data type (use [Kotlin's generics](https://kotlinlang.org/docs/generics.html)) and support the following operations (we use ``T`` to refer to the data type stored in the underlying linked list).
 
 ```kotlin
 /**
@@ -111,7 +115,7 @@ interface Queue<T> {
 
 These next problems are similar to the types of problems you might encounter in a technical interview.  You should work out a strategy for implementing all fo them, but you only need to implement one in Kotlin.
 
-> P3: How would you reverse the elements in a stack (i.e., put the elements at the top of the stack on the bottom and vice-versa)?  You can use as many additional stacks and queues as temporary storage in your approach.
+> P3: How would you reverse the elements in a stack (i.e., put the elements at the top of the stack on the bottom and vice versa)?  You can use as many additional stacks and queues as temporary storage in your approach.
 
 > P4: Come up with a strategy to solve the [valid parentheses problem](https://leetcode.com/problems/valid-parentheses/description/).
 
