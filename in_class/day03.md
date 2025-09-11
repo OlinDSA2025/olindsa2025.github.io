@@ -7,6 +7,9 @@ published: true
 > Note: this is subject to change
 {: .notice--danger}
 
+## Homework Debrief
+
+How did the assignment go?  Do a quick check-in with those around you and see if you can surface 1-2 questions that are still unresolved for you.
 
 ## Meeting Our First Data Structures
 
@@ -34,6 +37,9 @@ As stated above, for these operations we can assume that requesting new memory, 
 {: .notice--success}
 
 > **Exercise 4:** Similar to the previous problem, suppose you want to add $N$ elements to the end of an array in a one-by-one fashion.  Let's see if we can do better than we did in problem 3.  Instead of adding 1 unit of capacity every time we run out of space in our array, we're going to multiply our capacity by a factor of 2 (e.g., starting we start with capacity 1, then go to capacity 2, then capacity 4, and so on).  How many operations would it take to add $N$ elements to the end of this array if you added them one-by-one and follow the strategy of doubling the capacity of the array each time you run out of space (for simplicity you can assume that $N$ is a power of 2)?  Determine $\Theta$ of the time complexity of adding these $N$ elements in this fashion.
+> 
+>   <button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button>
+>   <div id="HideShow1" style="display:none">If you add up the time it takes to create each of these expanded arrays, what sort of series do you get?  How do you calculate the sum of this type of series?</div>
 {: .notice--success}
 
 ## Linked Lists
@@ -70,3 +76,61 @@ The actual implementation of this abstract data type (called a concrete data typ
 
 > **Exercise 7:** For example, the Python tutorial on lists states that while accessing elements in the list, appending an element ot the end of the list, or removing an element from the end fo the list is fast, adding or deleting an element at the beginning of the list is slow.  Based on what you worked out earlier in class, what underlying concrete data structure do you think Python uses for its list class?  Do some research to see if you are right.
 {: .notice--success}
+
+## Kotlin Interfaces
+
+Let's learn about Kotlin interfaces and why they are a useful way to define abstract datatypes.
+
+Let's say we want to design a simple 2D geometry library.  We may want to define the abstract datatype shape as one that supports a set of operations.  Perhaps each shape can compute its area and perimeter.  We can formalize this idea using a Kotlin interface.
+
+```kotlin
+interface Shape {
+    fun area(): Double
+    fun perimeter(): Double
+}
+```
+
+This interface is like a contract that any class that implement the ``Shape`` interface must fulfill.  For example, we could create a class called circle in the following way.
+
+```kotlin
+class Circle(private val radius: Double) : Shape {
+    override fun area(): Double {
+        return Math.PI * radius * radius
+    }
+    override fun perimeter(): Double {
+        return 2.0 * Math.PI * radius
+    }
+}
+```
+
+We might define a rectangle in the following way.
+
+```kotlin
+class Rectangle(private val width: Double,
+                private val height: Double) : Shape {
+    override fun area(): Double {
+        return width*height
+    }
+    override fun perimeter(): Double {
+        return 2.0 * (width + height)
+    }
+}
+```
+
+The nice thing is that we can write functions that operate on any class that implements this particular interface.
+
+```kotlin
+fun totalArea(shapes: List<Shape>): Double {
+    return shapes.sumOf { it.area() }
+}
+```
+
+This lets us do things like:
+```kotlin
+fun main() {
+    println(
+        totalArea(listOf(Circle(5.0),
+                         Rectangle(2.0, 4.0)))
+    )
+}
+```

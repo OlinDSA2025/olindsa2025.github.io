@@ -86,7 +86,7 @@ Specifications:
 * To represent your vertices, you could choose a particular type (e.g., ``String`), or you could use [generics](https://kotlinlang.org/docs/generics.html) to make it work for any class.
 * At a minimum, your class should support the ability to add new vertices, add new edges, and get the list of vertices that are connected to a given vertex.
 
-> Note: I expect there will be lots of questions on this, so please don't hestitate to call me over.
+> Note: I expect there will be lots of questions on this, so please don't hesitate to call me over.
 
 
 ## Sample Solutions
