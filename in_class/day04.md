@@ -6,8 +6,7 @@ published: false
 
 ## Overview
 
-We're going to take some time to dive into an implementation of a data structure: the Stack.  We'll get started together and then I'll let you all split off to work at your own pace.
-
+We're going to take some time to dive into an implementation of a data structure: the Stack.  We'll get started together, and then I'll let you all split off to work at your own pace.
 
 ## Arrays in Kotlin (follow up from last time)
 

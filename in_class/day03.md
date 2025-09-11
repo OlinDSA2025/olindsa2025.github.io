@@ -4,9 +4,6 @@ toc_sticky: true
 published: true
 ---
 
-> Note: this is subject to change
-{: .notice--danger}
-
 ## Homework Debrief
 
 How did the assignment go?  Do a quick check-in with those around you and see if you can surface 1-2 questions that are still unresolved for you.
@@ -17,7 +14,7 @@ Today we're going to meet our first data structures of the semester: the array a
 
 ## Arrays
 
-As we mentioned on day one, data structures represent different approaches to organizing data in some digital storage system.  In this course, we're going to learn about a bunch of different data structures (e.g., linked lists, arrays, binary trees, graphs, etc.).  To help us wrap our minds around the big ideas of data structures, let's consider a very basic data structure: an array.
+As we mentioned on day one, data structures represent different approaches to organizing data in some digital storage system.  In this course, we're going to learn about a bunch of different data structures (e.g., linked lists, arrays, binary trees, graphs, etc.).  To help us wrap our minds around the big ideas of data structures, let's consider a very useful data structure: an array.
 
 Depending on your programming background, perhaps you haven't encountered an array yet.  An array is an ordered collection of values (usually of a particular type).  Arrays are typically implemented in a computer using a contiguous block of memory (e.g., stored in the computer's RAM).
 
@@ -27,19 +24,22 @@ When we create an array, we have to specify the capacity that we'd like our arra
 
 As stated above, for these operations we can assume that requesting new memory, reading a single value, and writing a single value for our array takes a constant number of operations.
 
-> **Exercise 1:** Suppose you have an array with $M$ elements and there is space for $C$ elements in the block of memory allocated to your array (with $M < C$).  Assume that the $M$ elements are stored such that they occupy the first $M$ slots of memory allocated to the array.  How much time would it take to add a new element to the end of your array?
+> **Exercise 1:** Suppose you have an array with $M$ elements and there is space for $C$ elements in the block of memory allocated to your array (with $M < C$).  Assume that the $M$ elements are stored such that they occupy the first $M$ slots of memory allocated to the array.  How many steps would it take to add a new element to the end of your array? Going back to our discussion of order-of-growth, what is the running time of this operation in terms of $\Theta$?
 {: .notice--success}
 
-> **Exercise 2:** Now, suppose you'd like to add an element to the beginning of your array.  If there are currently $M$ elements in your array, how many operations would it take to add an element to the beginning of the array?  Going back to our discussion of order-of-growth, what is the running time of this operations in terms of $\Theta$?
+> **Exercise 2:** Now, suppose you'd like to add an element to the beginning of your array.  If there are currently $M$ elements in your array, how many operations would it take to add an element to the beginning of the array?  What is $\Theta$ for this operation?
 {: .notice--success}
 
 > **Exercise 3:** Now, suppose you want to add an element ot the end of your array but the number of elements stored in the array is equal to the current capacity $M = C$.  How many operations would it take to perform the following steps: request a size $M+1$ block of memory, copy the first $M$ elements to the new memory block, and then add the new element to the array?  Suppose you start $M = C = 1$ (an empty array with no capacity).  How many operations would it take to add $N$ elements to the end of this array if you added them one-by-one?  Determine $\Theta$ of the time complexity of adding these $N$ elements.
+>
+>   <button onclick="HideShowElement('HideShow1')">Show / Hide Hint</button>
+>   <div id="HideShow1" style="display:none">If you add up the time it takes to add each element, what sort of series do you get?  How do you calculate the sum of this type of series?</div>
 {: .notice--success}
 
 > **Exercise 4:** Similar to the previous problem, suppose you want to add $N$ elements to the end of an array in a one-by-one fashion.  Let's see if we can do better than we did in problem 3.  Instead of adding 1 unit of capacity every time we run out of space in our array, we're going to multiply our capacity by a factor of 2 (e.g., starting we start with capacity 1, then go to capacity 2, then capacity 4, and so on).  How many operations would it take to add $N$ elements to the end of this array if you added them one-by-one and follow the strategy of doubling the capacity of the array each time you run out of space (for simplicity you can assume that $N$ is a power of 2)?  Determine $\Theta$ of the time complexity of adding these $N$ elements in this fashion.
 > 
->   <button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button>
->   <div id="HideShow1" style="display:none">If you add up the time it takes to create each of these expanded arrays, what sort of series do you get?  How do you calculate the sum of this type of series?</div>
+>   <button onclick="HideShowElement('HideShow2')">Show / Hide Hint</button>
+>   <div id="HideShow2" style="display:none">If you add up the time it takes to create each of these expanded arrays, what sort of series do you get?  How do you calculate the sum of this type of series?</div>
 {: .notice--success}
 
 ## Linked Lists
@@ -48,9 +48,11 @@ Next, we're going to learn about a data structure that excels at many of the ope
 
 A linked list is another way to represent an ordered collection of values.  Instead of storing our collection in a contiguous block of memory, instead we store data in nodes that each contain a value and a reference to both the next node and the previous node in our list (this sort of linked list is called a doubly linked list).  In addition to these nodes, we also maintain a reference to the first element (or the head of the linked list) and a reference to the last element (or tail of the linked list).  Let's draw a picture of what this looks like on the board together.
 
+![A doubly linked list](/images/DLL1.png) *figure from geeksforgeeks*
+
 Now let's do some problems to understand the time complexity of various operations on our linked list.  For the purposes of these exercises, let's assume that we can request memory to store a new linked list node in constant time ($\Theta(1)$).
 
-> **Exercise 5:** With folks around you, determine the time complexity ($\Theta$) of each of these operations on a linked list:
+> **Exercise 5:** With folks around you, determine the time complexity ($\Theta$) of each of these operations on a linked list.  For each of these, make a list of the steps you'd have to do in order to accomplish each of these operations.  Count up the number of operations.  What is $\Theta$ for this count?
 > 1. Add an element to the beginning of the list
 > 2. Delete an element from the beginning of the list
 > 3. Add an element to the back of the list
@@ -58,7 +60,7 @@ Now let's do some problems to understand the time complexity of various operatio
 > 5. Print out the middle element of the list
 {: .notice--success}
 
-> **Exercise 6:** A singly linked list is a linked list where each node only has a reference to the next element in the list.  In such a list, would the $\Theta$ of any of these operations in problem 5 be different?  If so, which would be different and what are their new $\Theta$ running times.
+> **Exercise 6:** A singly linked list is a linked list where each node only has a reference to the next element in the list.  In such a list, would the $\Theta$ of any of these operations in problem 5 be different?  If so, which would be different and what are their new $\Theta$ running times?s
 {: .notice--success}
 
 ## Abstract Data Types
@@ -76,6 +78,11 @@ The actual implementation of this abstract data type (called a concrete data typ
 
 > **Exercise 7:** For example, the Python tutorial on lists states that while accessing elements in the list, appending an element ot the end of the list, or removing an element from the end fo the list is fast, adding or deleting an element at the beginning of the list is slow.  Based on what you worked out earlier in class, what underlying concrete data structure do you think Python uses for its list class?  Do some research to see if you are right.
 {: .notice--success}
+
+## Stacks vs. Queues
+
+In the next assignment, you will be implementing both a stack and a queue.  Each of these data structures will be built on top of a linked list, but stacks and queues will differ with respect to some of their behaviors.  Specifically, stacks use what is called a LIFO (last in first out) ordering whereas queues utilize a FIFO ordering (first in first out).  You'll get a bunch of practice using your stacks and queues to solve problems in the assignment, but you might also want to check out this [short article comparing the two data structures](https://www.geeksforgeeks.org/dsa/difference-between-stack-and-queue-data-structures/).
+
 
 ## Kotlin Interfaces
 
