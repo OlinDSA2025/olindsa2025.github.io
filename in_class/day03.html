@@ -274,10 +274,12 @@ function HideShowElement(divID) {
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
+  <li><a href="#homework-debrief">Homework Debrief</a></li>
   <li><a href="#meeting-our-first-data-structures">Meeting Our First Data Structures</a></li>
   <li><a href="#arrays">Arrays</a></li>
   <li><a href="#linked-lists">Linked Lists</a></li>
   <li><a href="#abstract-data-types">Abstract Data Types</a></li>
+  <li><a href="#kotlin-interfaces">Kotlin Interfaces</a></li>
 </ul>
 	      	
             </nav>
@@ -286,6 +288,10 @@ function HideShowElement(divID) {
         <blockquote class="notice--danger">
   <p>Note: this is subject to change</p>
 </blockquote>
+
+<h2 id="homework-debrief">Homework Debrief</h2>
+
+<p>How did the assignment go?  Do a quick check-in with those around you and see if you can surface 1-2 questions that are still unresolved for you.</p>
 
 <h2 id="meeting-our-first-data-structures">Meeting Our First Data Structures</h2>
 
@@ -317,6 +323,9 @@ function HideShowElement(divID) {
 
 <blockquote class="notice--success">
   <p><strong>Exercise 4:</strong> Similar to the previous problem, suppose you want to add $N$ elements to the end of an array in a one-by-one fashion.  Let’s see if we can do better than we did in problem 3.  Instead of adding 1 unit of capacity every time we run out of space in our array, we’re going to multiply our capacity by a factor of 2 (e.g., starting we start with capacity 1, then go to capacity 2, then capacity 4, and so on).  How many operations would it take to add $N$ elements to the end of this array if you added them one-by-one and follow the strategy of doubling the capacity of the array each time you run out of space (for simplicity you can assume that $N$ is a power of 2)?  Determine $\Theta$ of the time complexity of adding these $N$ elements in this fashion.</p>
+
+  <p><button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button></p>
+  <div id="HideShow1" style="display:none">If you add up the time it takes to create each of these expanded arrays, what sort of series do you get?  How do you calculate the sum of this type of series?</div>
 </blockquote>
 
 <h2 id="linked-lists">Linked Lists</h2>
@@ -360,6 +369,59 @@ function HideShowElement(divID) {
 <blockquote class="notice--success">
   <p><strong>Exercise 7:</strong> For example, the Python tutorial on lists states that while accessing elements in the list, appending an element ot the end of the list, or removing an element from the end fo the list is fast, adding or deleting an element at the beginning of the list is slow.  Based on what you worked out earlier in class, what underlying concrete data structure do you think Python uses for its list class?  Do some research to see if you are right.</p>
 </blockquote>
+
+<h2 id="kotlin-interfaces">Kotlin Interfaces</h2>
+
+<p>Let’s learn about Kotlin interfaces and why they are a useful way to define abstract datatypes.</p>
+
+<p>Let’s say we want to design a simple 2D geometry library.  We may want to define the abstract datatype shape as one that supports a set of operations.  Perhaps each shape can compute its area and perimeter.  We can formalize this idea using a Kotlin interface.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Shape</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">area</span><span class="p">():</span> <span class="nc">Double</span>
+    <span class="k">fun</span> <span class="nf">perimeter</span><span class="p">():</span> <span class="nc">Double</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This interface is like a contract that any class that implement the <code class="language-plaintext highlighter-rouge">Shape</code> interface must fulfill.  For example, we could create a class called circle in the following way.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">radius</span><span class="p">:</span> <span class="nc">Double</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Shape</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">area</span><span class="p">():</span> <span class="nc">Double</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="p">.</span><span class="nc">PI</span> <span class="p">*</span> <span class="n">radius</span> <span class="p">*</span> <span class="n">radius</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">perimeter</span><span class="p">():</span> <span class="nc">Double</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mf">2.0</span> <span class="p">*</span> <span class="nc">Math</span><span class="p">.</span><span class="nc">PI</span> <span class="p">*</span> <span class="n">radius</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We might define a rectangle in the following way.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">width</span><span class="p">:</span> <span class="nc">Double</span><span class="p">,</span>
+                <span class="k">private</span> <span class="kd">val</span> <span class="py">height</span><span class="p">:</span> <span class="nc">Double</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Shape</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">area</span><span class="p">():</span> <span class="nc">Double</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">width</span><span class="p">*</span><span class="n">height</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">perimeter</span><span class="p">():</span> <span class="nc">Double</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mf">2.0</span> <span class="p">*</span> <span class="p">(</span><span class="n">width</span> <span class="p">+</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The nice thing is that we can write functions that operate on any class that implements this particular interface.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">totalArea</span><span class="p">(</span><span class="n">shapes</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Shape</span><span class="p">&gt;):</span> <span class="nc">Double</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">shapes</span><span class="p">.</span><span class="nf">sumOf</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">area</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This lets us do things like:</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span>
+        <span class="nf">totalArea</span><span class="p">(</span><span class="nf">listOf</span><span class="p">(</span><span class="nc">Circle</span><span class="p">(</span><span class="mf">5.0</span><span class="p">),</span>
+                         <span class="nc">Rectangle</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)))</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
