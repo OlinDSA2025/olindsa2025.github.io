@@ -60,6 +60,6 @@ header:
 {%- assign t = t | replace_first: pref1s, '' | replace_first: pref1, '' -%}
 {%- assign t = t | replace_first: pref2s, '' | replace_first: pref2, '' -%}
 {%- assign clean_title = t | strip -%}
-| {{ d }} | [{{ clean_title }}]({{ p.url | relative_url }}) |
+| {{ p.due_on_class }} | [{{ clean_title }}]({{ p.url | relative_url }}) |
 {%- endif %}
 {% endfor %}
