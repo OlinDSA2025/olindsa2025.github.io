@@ -8,11 +8,9 @@ published: true
 
 We're going to take some time to dive into an implementation of a data structure: the Stack.  We'll get started together, and then I'll let you all split off to work at your own pace.
 
-## Arrays in Kotlin (follow up from last time)
+## Closing the Loop on Abstract Datatypes and Interfaces
 
-Kotlin has a built-in ``Array`` class ([documentation](https://kotlinlang.org/docs/arrays.html)) that can be used in much the same way as ``List`` (and mutable list).  The restrictions on ``Array`` mean that we can't add elements to it.
-
-If we have time, we could see how we could implement some of the functions of ``MutableList`` using an ``Array``.
+Let's talk through the last bit of the previous day together.
 
 ## Implementing a Stack Together
 
