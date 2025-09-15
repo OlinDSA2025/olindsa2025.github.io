@@ -78,7 +78,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 </script>
 
-<!-- begin _includes/seo.html --><title>Data Structures and Algorithms Spring 2025 - Data Structures Fall 2025 @ Olin College</title>
+<!-- begin _includes/seo.html --><title>Setting up Git for this Course - Data Structures Fall 2025 @ Olin College</title>
 <meta name="description" content="Website">
 
 
@@ -86,8 +86,8 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
-<meta property="og:title" content="Data Structures and Algorithms Spring 2025">
-<meta property="og:url" content="/">
+<meta property="og:title" content="Setting up Git for this Course">
+<meta property="og:url" content="/how_to/git_setup.html">
 
 
   <meta property="og:description" content="Website">
@@ -103,7 +103,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
 
-<link rel="canonical" href="/">
+<link rel="canonical" href="/how_to/git_setup.html">
 
 
 
@@ -204,7 +204,7 @@ function HideShowElement(divID) {
 
   </head>
 
-  <body class="layout--splash">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -246,118 +246,126 @@ function HideShowElement(divID) {
 
     <div class="initial-content">
       
-  
-
-
-
-
-
-
-
-
-
-
-
-<div class="page__hero--overlay"
-  style="background-color: #000; "
->
-  
-    <div class="wrapper">
-      <h1 id="page-title" class="page__title" itemprop="headline">
-        
-          Data Structures and Algorithms Spring 2025
-
-        
-      </h1>
-      
-      
-      
-      
-    </div>
-  
-  
-</div>
 
 
 
 <div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Data Structures and Algorithms Spring 2025">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Setting up Git for this Course">
     
     
     
 
-    <section class="page__content" itemprop="text">
-      <div class="header-search">
-  <form class="header-search-form" action="/search" method="get">
-    <input type="text" id="search-box" name="query" />
-    <input type="submit" value="search" />
-  </form>
-</div>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Setting up Git for this Course
+</h1>
+          
+        </header>
+      
 
-<h2 id="how-tos">How-tos</h2>
-
-<ul>
-  <li><a href="how_to/setting_up_kotlin">Get set with Kotlin</a></li>
-  <li><a href="how_to/useful_resources">Useful Resources</a> (please let me know what I should add to this list).</li>
-  <li><a href="how_to/git_setup">Git Setup</a></li>
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                <ul class="toc__menu">
+  <li><a href="#steps-to-achieve-the-setup-above">Steps to Achieve the Setup Above</a></li>
 </ul>
+	      	
+            </nav>
+          </aside>
+        
+        <p>I give you freedom in this course to set up your GitHub repository how you see fit.  I do, however, recommend that you use GitHub (or at least Git as a way to version control your code).</p>
 
-<h2 id="in-class-activities">In-class Activities</h2>
+<p>One way to organize your work in this class is to make a single top-level repository and then put individual assignment and project repositories below it.  Here is an example of how the sample solutions repository looks (after posting the day 4 solution).</p>
 
-<p><a href="https://github.com/OlinDSA2025/SampleSolutions">Sample solutions for in-class assignments</a> will be made available on GitHub.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── Class01 (note: this is a project)
+│   ├── .idea
+│   │   ├── .gitignore
+│   │   ├── encodings.xml
+│   │   ├── kotlinc.xml
+│   │   ├── misc.xml
+│   │   └── vcs.xml
+│   ├── src
+│   │   ├── main
+│   │   │   └── kotlin
+│   │   │       └── Main.kt
+│   │   └── test
+│   │       └── kotlin
+│   │           └── FindPeakTest.kt
+│   ├── .gitignore
+│   └── pom.xml
+├── Class04 (note: this is a project, separate from Class01)
+│   ├── .idea
+│   │   ├── .gitignore
+│   │   ├── encodings.xml
+│   │   ├── kotlinc.xml
+│   │   ├── misc.xml
+│   │   └── vcs.xml
+│   ├── src
+│   │   ├── main
+│   │   │   └── kotlin
+│   │   │       ├── Main.kt
+│   │   │       └── Stack.kt
+│   │   └── test
+│   │       └── kotlin
+│   │           └── MyStackTest.kt
+│   ├── .gitignore
+│   └── pom.xml
+├── Class04Optional (note: this is a project, separate from Class04)
+│   ├── .idea
+│   │   ├── .gitignore
+│   │   ├── encodings.xml
+│   │   ├── kotlinc.xml
+│   │   ├── misc.xml
+│   │   └── vcs.xml
+│   ├── src
+│   │   └── main
+│   │       └── kotlin
+│   │           ├── Main.kt
+│   │           └── MutableStringList.kt
+│   ├── .gitignore
+│   └── pom.xml
+</code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Day #</th>
-      <th>Activity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="/in_class/day01.html">Course Intro and Welcome to DSA</a></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="/in_class/day02.html">Greedy Algorithms Teaser, Order of Growth, and Some Kotlin</a></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="/in_class/day03.html">Arrays, Linked Lists, and Intro to Abstract Datatypes</a></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="/in_class/day04.html">Stack Implementation Walkthrough and Challenge Problems</a></td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="steps-to-achieve-the-setup-above">Steps to Achieve the Setup Above</h2>
 
-<h2 id="assignments">Assignments</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Due at beginning of class #</th>
-      <th>Assignment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>3</td>
-      <td><a href="/assignments/assignment_01.html">Hello Kotlin and Getting to Know You</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/assignments/assignment_02.html">Linked Data Structures</a></td>
-    </tr>
-  </tbody>
-</table>
+<ol>
+  <li>Make sure you have git set up properly on your computer (meaning you can run git at a terminal, and it responds with some output)</li>
+  <li>Make sure you can clone your repos from GitHub with write permissions (e.g., by adding an ssh key to your account and to your machine)</li>
+  <li>Create a repo on GitHub for your class work.  You can initialize it with a README file.</li>
+  <li>Clone your repo on your machine with write access (e.g., using ssh).</li>
+  <li>When you create a new project, select the directory for your cloned repo as the root and give the project a name (this will become a subdirectory inside your repository). Make sure you uncheck the <code class="language-plaintext highlighter-rouge">Create Git Repository</code> checkbox (since the git repository is already associated with teh top-level directory)</li>
+  <li>Use git add, git commit, and git push as normal (these can also be done through the IntelliJ user interface).</li>
+</ol>
 
 
-    </section>
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
   </article>
+
+  
+  
 </div>
 
     </div>
