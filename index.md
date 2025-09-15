@@ -13,6 +13,7 @@ header:
 
 * [Get set with Kotlin](how_to/setting_up_kotlin)
 * [Useful Resources](how_to/useful_resources) (please let me know what I should add to this list).
+* [Git Setup](how_to/git_setup)
 
 ## In-class Activities
 
