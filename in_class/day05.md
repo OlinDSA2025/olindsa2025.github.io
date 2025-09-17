@@ -1,49 +1,50 @@
 ---
 title: "Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs"
 toc_sticky: true
-published: false
+published: true
 ---
-
-
 
 ## Kotlin Arrays and Creating Our Own Mutable List
 
 Kotlin has a built-in ``Array`` class ([documentation](https://kotlinlang.org/docs/arrays.html)) that can be used in much the same way as ``List`` (and mutable list).  The restrictions on ``Array`` mean that we can't add elements to it.
 
-**Problem 1**: Using an Array as the underlying data structure, create a class called ``MyMutableIntList`` that can hold values of type ``Int`` (there a few hoops to jump through to make it hold any type, so let me know if you want to learn about that process).  Your class should support the following functions.
-
-> Note 1: the operator functions let you implement the same behavior that ``MutableList`` has in getting and setting elements (e.g., ``a[2] = 3``).
-
-> Note 2: when you create your class, you will need to think about how to grow your array when you run out of space.  In class we did some analysis that seemed to show that multiplying the array size by $2$ when it is full is faster than growing it by 1 each time.
+> **Exercise 1**: Using an Array as the underlying data structure, create a class called ``MyMutableIntList`` that can hold values of type ``Int`` (there a few hoops to jump through to make it hold any type, so let me know if you want to learn about that process).  Your class should support the following functions.
+> 
+> *Note 1:* the operator functions let you implement the same behavior that ``MutableList`` has in getting and setting elements (e.g., ``a[2] = 3``).
+> 
+> *Note 2:* when you create your class, you will need to think about how to grow your array when you run out of space.  In class we did some analysis that seemed to show that multiplying the array size by $2$ when it is full is faster than growing it by 1 each time.
+{: .notice--success}
 
 ```kotlin
-/**
- * Add [element] to the end of the list
- */
-fun add(element: Int)
+interface MutableIntList {
+    /**
+     * Add [element] to the end of the list
+     */
+    fun add(element: Int)
 
-/**
- * Remove all elements from the list
- */
-fun clear()
+    /**
+     * Remove all elements from the list
+     */
+    fun clear()
 
-/*
- * @return the size of the list
- */
-fun size(): Int
+    /*
+     * @return the size of the list
+     */
+    fun size(): Int
 
-/**
- * @param index the index to return
- * @return the element at [index]
- */
-operator fun get(index: Int):Int
+    /**
+     * @param index the index to return
+     * @return the element at [index]
+     */
+    operator fun get(index: Int): Int
 
-/**
- * Store [value] at position [index]
- * @param index the index to set
- * @param value to store at [index]
- */
-operator fun set(index: Int, value: int)
+    /**
+     * Store [value] at position [index]
+     * @param index the index to set
+     * @param value to store at [index]
+     */
+    operator fun set(index: Int, value: int)
+}
 ```
 
 ### Timing your code
@@ -80,10 +81,11 @@ For now, we're going to consider the case of directed edges where an edge encode
 
 Before we get into the theory of graphs and the sorts of algorithms we might run on them, let's introduce the concept of an [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list), which is a particular way to represent graphs in a computer program.  Note that this is not the only way to represent a graph in a computer program, but it is a very popular one.
 
-**Problem 2**: read about adjacency lists.  On a whiteboard (if you are so inclined) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.
+> **Exercise 2**: read about adjacency lists.  On a whiteboard (if you are so inclined) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.
+{: .notice--success}
 
 Specifications:
-* To represent your vertices, you could choose a particular type (e.g., ``String`), or you could use [generics](https://kotlinlang.org/docs/generics.html) to make it work for any class.
+* To represent your vertices, you could choose a particular type (e.g., ``String``), or you could use [generics](https://kotlinlang.org/docs/generics.html) to make it work for any class.
 * At a minimum, your class should support the ability to add new vertices, add new edges, and get the list of vertices that are connected to a given vertex.
 
 > Note: I expect there will be lots of questions on this, so please don't hesitate to call me over.

@@ -1,12 +1,16 @@
 ---
-title: Assignment 3
+title: "Assignment 3: Graph Searching and Shortest Paths"
 toc_sticky: true
-published: false
+published: true
+due_on_class: 8
 ---
+
+> Warning: this is subject to change
+{: .notice--danger}
 
 ## Getting Started
 
-You should fork this base [Assignment03 repo](https://github.com/OlinDSA2024/Assignment03).  If you want your repo to be private, please make sure to add me, ``paulruvolo``, as a collaborator for when you turn in your work.
+I am providing some starter code for this assignment.  The starter code (shown below) can be copy / pasted into your project.
 
 ## Representing Graphs
 
@@ -40,12 +44,12 @@ interface Graph<VertexType> {
 }
 ```
 
-* You should be able to retrieve a collection of vertices in the graph (e.g., you might maintain a ``MutableList`` or a ``Mutable`` set that contains all of your vertices.)
+* You should be able to retrieve a collection of vertices in the graph (e.g., you might maintain a ``MutableList`` or a ``MutableSet`` that contains all of your vertices.)
 * Given a vertex, $v$, you should be able to retrieve a collection of vertices that are neighbors of $v$ (that is any vertex $m$ such that there exists an edge $v \rightarrow m$).
 
 ## Creating a Priority Queue
 
-Create a data structure called [``PriorityQueue``](https://en.wikipedia.org/wiki/Priority_queue) that supports the following operations (this interface is already in the base repo).
+Create a data structure called [``PriorityQueue``](https://en.wikipedia.org/wiki/Priority_queue) that supports the following operations.
 
 ```kotlin
 /**
@@ -82,7 +86,7 @@ interface MinPriorityQueue<T> {
 }
 ```
 
-In order to implement your priority queue, you'll want to create a ``MinHeap``.  For your ``MinHeap`` you can either build it from scratch (e.g., using [this Wikipedia page](https://en.wikipedia.org/wiki/Heap_(data_structure)) as a guide) or you can build off (or probably just use) the reference implementation [here](https://github.com/OlinDSA2024/Assignment03/blob/main/src/main/kotlin/MinHeap.kt).  The priority queue will be a pretty thin wrapper on top op the heap.
+In order to implement your priority queue, you'll want to create a ``MinHeap``.  For your ``MinHeap`` you can either build it from scratch (e.g., using [this Wikipedia page](https://en.wikipedia.org/wiki/Heap_(data_structure)) as a guide) or you can build off (or probably just use) the reference implementation [here](https://github.com/OlinDSA2024/Assignment03/blob/main/src/main/kotlin/MinHeap.kt).  The priority queue will be a pretty thin wrapper on top of this heap.
 
 ## Searching
 
@@ -98,7 +102,7 @@ Dijkstra can be used to solve a bunch of problems.  Here are some you might want
 
 ## Turning in your Code
 
-Submit the fork of the base ``Assignment03`` repo.
+Either submit your code as a GitHub link or upload the code directly to Canvas.
 
 ## Assessment
 
