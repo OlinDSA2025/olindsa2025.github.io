@@ -5,21 +5,18 @@ published: true
 due_on_class: 8
 ---
 
-> Warning: this is subject to change
-{: .notice--danger}
-
 ## Getting Started
 
 I am providing some starter code for this assignment.  The starter code (shown below) can be copy / pasted into your project.
 
 ## Representing Graphs
 
-Create a Kotlin class to represent graphs a directed, weighted graph.  Your graph should implement the ``Graph<VertexType>`` interface (in the base repo).
+Create a Kotlin class to represent a directed, weighted graph.  Your graph should implement the ``Graph<VertexType>`` interface shown below.
 
 ```kotlin
 /**
- * This is a simple ``Graph`` that represents a directed graph
- * @param VertexType the representation of a vertex in the graph
+ * ``Graph`` represents a directed graph
+ * @param VertexType the type that represents a vertex in the graph
  */
 interface Graph<VertexType> {
     /**
@@ -28,12 +25,13 @@ interface Graph<VertexType> {
     fun getVertices(): Set<VertexType>
 
     /**
-     * Add an
+     * Add an edge between [from] and [to] with edge weight [cost]
      */
     fun addEdge(from: VertexType, to: VertexType, cost: Double)
 
     /**
-     *
+     * Get all the edges that begin at [from]
+     * @return a map where each key represents a vertex connected to [from] and the value represents the edge weight.
      */
     fun getEdges(from: VertexType): Map<VertexType, Double>
 
@@ -44,12 +42,12 @@ interface Graph<VertexType> {
 }
 ```
 
-* You should be able to retrieve a collection of vertices in the graph (e.g., you might maintain a ``MutableList`` or a ``MutableSet`` that contains all of your vertices.)
-* Given a vertex, $v$, you should be able to retrieve a collection of vertices that are neighbors of $v$ (that is any vertex $m$ such that there exists an edge $v \rightarrow m$).
+* You should be able to retrieve a collection of vertices in the graph (e.g., you might maintain a ``MutableList`` or a ``MutableSet`` that contains all of your vertices.). In the interface above this is the function ``getVertices``.
+* Given a vertex, $v$, you should be able to retrieve a collection of vertices that are neighbors of $v$ (that is any vertex $m$ such that there exists an edge $v \rightarrow m$). In the interface above this is the function ``getEdges``.
 
 ## Creating a Priority Queue
 
-Create a data structure called [``PriorityQueue``](https://en.wikipedia.org/wiki/Priority_queue) that supports the following operations.
+Create a data structure called [``PriorityQueue``](https://en.wikipedia.org/wiki/Priority_queue) that implements the following interface.
 
 ```kotlin
 /**
@@ -88,13 +86,16 @@ interface MinPriorityQueue<T> {
 
 In order to implement your priority queue, you'll want to create a ``MinHeap``.  For your ``MinHeap`` you can either build it from scratch (e.g., using [this Wikipedia page](https://en.wikipedia.org/wiki/Heap_(data_structure)) as a guide) or you can build off (or probably just use) the reference implementation [here](https://github.com/OlinDSA2024/Assignment03/blob/main/src/main/kotlin/MinHeap.kt).  The priority queue will be a pretty thin wrapper on top of this heap.
 
+> If you implement the ``MinHeap`` yourself, you can earn 2 points of extra credit on the assignment (equivalent to a 20% boost in your grade).
+{: .notice--success}
+
 ## Searching
 
 Implement Dijkstra's algorithm to search through a graph for the shortest path.  Your algorithm should return the shortest path (not just the cost) between a given start node and a given destination node.  If no path exists between the two nodes, return ``null``.
 
 ## Solving Problems with Dijkstra
 
-Dijkstra can be used to solve a bunch of problems.  Here are some you might want to try for practice.  Choose at least one of these options.
+Dijkstra can be used to solve a bunch of problems.  Here are some you might want to try for practice.  Choose at least one of these options and implement it in Kotlin using the code you wrote earlier in the assignment.
 
 * [Project Euler Problem 81](https://projecteuler.net/problem=81) (also look at 82 and 83 for harder variants)
 * [Implement a Maze Solver](https://inginious.org/course/competitive-programming/graphs-maze)
