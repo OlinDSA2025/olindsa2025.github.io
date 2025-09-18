@@ -163,7 +163,10 @@ If you'd prefer to get more practice solving problems with stacks and queues, he
 
 In the next assignment we're going to dive into the world of graphs and graph searching.  Before we do so, let's take some time to understand what a graph is.
 
-Graphs are ways to represent relationships between entities of some sort.  For example, you could have a social network graph where the entities are people and the relationships represent who is friends with whom.  You could have a graph where the entities are websites and the relationships are links between sites.
+Graphs are ways to represent relationships between entities of some sort.
+
+> **Exercise 4**: before we define some important vocabularly to talk about graphs, with those around you, come up with a couple examples of systems that fit this pattern. The systems you consider could be social, geographical, computer-based, informational, etc.
+> {: .notice--success}
 
 To formalize this a bit more, we use the terminology of *vertices* or *nodes* to refer to the entities in our graph (e.g., the people or websites in our examples above).  We use the term *edges* to represent the relationships (e.g., the existence of a friendship or a link in our two examples above).  In graph theory and algorithms, there are many different types of edges (e.g., directed, undirected, weighted, multi-edges) to represent different sorts of relationships.
 
@@ -171,7 +174,7 @@ For now, we're going to consider the case of directed edges where an edge encode
 
 Before we get into the theory of graphs and the sorts of algorithms we might run on them, let's introduce the concept of an [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list), which is a particular way to represent graphs in a computer program.  Note that this is not the only way to represent a graph in a computer program, but it is a very popular one.
 
-> **Exercise 2**: read about adjacency lists.  On a chalkboard (or piece of paper at your table) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.
+> **Exercise 5**: read about adjacency lists.  On a chalkboard (or piece of paper at your table) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.
 {: .notice--success}
 
 Specifications:
