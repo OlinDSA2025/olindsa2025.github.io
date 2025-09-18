@@ -78,7 +78,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 </script>
 
-<!-- begin _includes/seo.html --><title>Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs - Data Structures Fall 2025 @ Olin College</title>
+<!-- begin _includes/seo.html --><title>Day 5: Choose Your Own Adventure and Intro to Graphs - Data Structures Fall 2025 @ Olin College</title>
 <meta name="description" content="Website">
 
 
@@ -86,7 +86,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
-<meta property="og:title" content="Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs">
+<meta property="og:title" content="Day 5: Choose Your Own Adventure and Intro to Graphs">
 <meta property="og:url" content="/in_class/day05.html">
 
 
@@ -253,7 +253,7 @@ function HideShowElement(divID) {
   
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs">
+    <meta itemprop="headline" content="Day 5: Choose Your Own Adventure and Intro to Graphs">
     
     
     
@@ -261,7 +261,7 @@ function HideShowElement(divID) {
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs
+          <h1 id="page-title" class="page__title" itemprop="headline">Day 5: Choose Your Own Adventure and Intro to Graphs
 </h1>
           
         </header>
@@ -274,15 +274,87 @@ function HideShowElement(divID) {
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
-  <li><a href="#kotlin-arrays-and-creating-our-own-mutable-list">Kotlin Arrays and Creating Our Own Mutable List</a></li>
+  <li><a href="#assignment-debrief">Assignment Debrief</a></li>
+  <li><a href="#a-few-words-about-null-safety">A Few Words About Null Safety</a></li>
+  <li><a href="#adventure-1-kotlin-arrays-and-creating-our-own-mutable-list">(Adventure 1) Kotlin Arrays and Creating Our Own Mutable List</a></li>
+  <li><a href="#adventure-2-solving-problems-with-stacks-and-queues">(Adventure 2) Solving Problems with Stacks and Queues</a></li>
   <li><a href="#intro-to-graphs">Intro to Graphs</a></li>
-  <li><a href="#sample-solutions">Sample Solutions</a></li>
 </ul>
 	      	
             </nav>
           </aside>
         
-        <h2 id="kotlin-arrays-and-creating-our-own-mutable-list">Kotlin Arrays and Creating Our Own Mutable List</h2>
+        <h2 id="assignment-debrief">Assignment Debrief</h2>
+
+<p>How did things go?  With those around you, make a list of questions that you still have regarding the assignment content.  We’ll raise them to the group, and then I’ll work to resolve them.  If you have any aspects of the assignment that you enjoyed or aspects that could be better, please raise that as well.</p>
+
+<h2 id="a-few-words-about-null-safety">A Few Words About Null Safety</h2>
+
+<p>One of the areas of Kotlin that provides a steep learning curve is dealing with optional values.  I sent out <a href="https://kotlinlang.org/docs/null-safety.html">some resources</a> that should give you a few strategies to deal with nullable types (types that end with a <code class="language-plaintext highlighter-rouge">?</code>).  Some useful patterns are shown below (source: https://kotlinlang.org/docs/null-safety.html)</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// use smart casts so the compiler assumes a non-null type within the if statement</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">x</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another pattern is to use the <code class="language-plaintext highlighter-rouge">let</code> function.</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// use the let pattern to perform an additional operation if the value is non-null</span>
+<span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="n">y</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>There are some tricky situations where these patterns will not work.  In particular, when you are dealing with variables that are class attributes.  Let’s take our peek function in our stack, which we wrote last time.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">top</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">top</span><span class="p">.</span><span class="n">data</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">null</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>This code provides a cryptic warning from the compiler.</p>
+
+<blockquote class="notice--danger">
+  <p>Smart cast to ‘MyStack.StackNode&lt;T (of class MyStack<T>)&gt;' is impossible, because 'top' is a mutable property that could be mutated concurrently.</T></p>
+</blockquote>
+
+<p>The reason for this error is that it’s possible your code could have multiple threads.  If you haven’t heard of multithreaded programming, no worries.  We aren’t going to be doing anything with it in this class, but conceptually you can imagine multiple tasks happening concurrently within your programming.  At the same time you are peeking onto the stack, another task could be modifying the stack in some way.  Due to this possibility, the compiler can’t be sure that top will be non-null by the time you enter the <code class="language-plaintext highlighter-rouge">let</code>.  A solution is to create a local variable first and use let on that.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">currentTop</span> <span class="p">=</span> <span class="n">top</span>
+        <span class="n">currentTop</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">currentTop</span><span class="p">.</span><span class="n">data</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">null</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>This fixes the error since there is no way the local variable <code class="language-plaintext highlighter-rouge">currentTop</code> can be modified between the null check and the execution of the let body.</p>
+
+<p>If you want to assign the local variable and the code to execute if the variable is non-null all in one operation, you can use <code class="language-plaintext highlighter-rouge">also</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">top</span><span class="o">?.</span><span class="nf">also</span> <span class="p">{</span> <span class="n">currentTop</span> <span class="p">-&gt;</span>
+            <span class="k">return</span> <span class="n">currentTop</span><span class="p">.</span><span class="n">data</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">null</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>You’ll continue to get more practice with nullable types as we go, but I wanted to provide you with some guidance around what is a fairly difficult to understand error.</p>
+
+<h2 id="adventure-1-kotlin-arrays-and-creating-our-own-mutable-list">(Adventure 1) Kotlin Arrays and Creating Our Own Mutable List</h2>
+
+<blockquote class="notice--success">
+  <p>This is a small extension of the challenge problem from last time.  I give this as an option to work on if you want more practice implementing data structures in Kotlin.</p>
+
+  <p>If you’d rather do more problem-solving with stacks and queues, you can skip to the next section.</p>
+</blockquote>
 
 <p>Kotlin has a built-in <code class="language-plaintext highlighter-rouge">Array</code> class (<a href="https://kotlinlang.org/docs/arrays.html">documentation</a>) that can be used in much the same way as <code class="language-plaintext highlighter-rouge">List</code> (and mutable list).  The restrictions on <code class="language-plaintext highlighter-rouge">Array</code> mean that we can’t add elements to it.</p>
 
@@ -346,6 +418,26 @@ function HideShowElement(divID) {
 
 <p>If you find it useful, you can use this link to access <a href="https://github.com/OlinDSA2024/Day05Finished">my solutions for this exercise</a>.</p>
 
+<h2 id="adventure-2-solving-problems-with-stacks-and-queues">(Adventure 2) Solving Problems with Stacks and Queues</h2>
+
+<p>If you’d prefer to get more practice solving problems with stacks and queues, here are some suggestions.</p>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 2</strong></p>
+
+  <p><a href="https://leetcode.com/problems/implement-stack-using-queues/description/?envType=problem-list-v2&amp;envId=stack">Implement Stacks Using Queues</a>
+   <button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button></p>
+  <div id="HideShow1" style="display:none">
+         You do not need to maintain $\Theta(1)$ runtime for all stack operations.
+   </div>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 3</strong></p>
+
+  <p><a href="https://neetcode.io/problems/evaluate-reverse-polish-notation?list=neetcode150">Evaluate Reverse Polish Notation</a>.  There are some embedded hints on this page.</p>
+</blockquote>
+
 <h2 id="intro-to-graphs">Intro to Graphs</h2>
 
 <p>In the next assignment we’re going to dive into the world of graphs and graph searching.  Before we do so, let’s take some time to understand what a graph is.</p>
@@ -359,7 +451,7 @@ function HideShowElement(divID) {
 <p>Before we get into the theory of graphs and the sorts of algorithms we might run on them, let’s introduce the concept of an <a href="https://en.wikipedia.org/wiki/Adjacency_list">adjacency list</a>, which is a particular way to represent graphs in a computer program.  Note that this is not the only way to represent a graph in a computer program, but it is a very popular one.</p>
 
 <blockquote class="notice--success">
-  <p><strong>Exercise 2</strong>: read about adjacency lists.  On a whiteboard (if you are so inclined) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.</p>
+  <p><strong>Exercise 2</strong>: read about adjacency lists.  On a chalkboard (or piece of paper at your table) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.</p>
 </blockquote>
 
 <p>Specifications:</p>
@@ -369,12 +461,8 @@ function HideShowElement(divID) {
 </ul>
 
 <blockquote>
-  <p>Note: I expect there will be lots of questions on this, so please don’t hesitate to call me over.</p>
+  <p>Note: I expect there will be questions on this, so please don’t hesitate to call me over.</p>
 </blockquote>
-
-<h2 id="sample-solutions">Sample Solutions</h2>
-
-<p>Sample solutions for today are in <a href="https://github.com/OlinDSA2024/DSA2024InClass">the Github repo</a> as a module.</p>
 
         
       </section>
