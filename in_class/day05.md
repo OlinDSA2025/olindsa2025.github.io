@@ -1,10 +1,15 @@
 ---
-title: "Day 5: Making Our Own Mutable List Using Arrays and Intro to Graphs"
+title: "Day 5: Choose Your Own Adventure and Intro to Graphs"
 toc_sticky: true
 published: true
 ---
 
 ## Kotlin Arrays and Creating Our Own Mutable List
+
+> This is a small extension of the challenge problem from last time.  I give this as an option to work on if you want more practice implementing data structures in Kotlin.
+> 
+> If you'd rather do more problem-solving with stacks and queues, you can skip to the next section.
+{: .notice--success}
 
 Kotlin has a built-in ``Array`` class ([documentation](https://kotlinlang.org/docs/arrays.html)) that can be used in much the same way as ``List`` (and mutable list).  The restrictions on ``Array`` mean that we can't add elements to it.
 
@@ -69,6 +74,24 @@ fun main() {
 
 If you find it useful, you can use this link to access [my solutions for this exercise](https://github.com/OlinDSA2024/Day05Finished).
 
+## Solving Problems with Stacks and Queues
+
+If you'd prefer to get more practice solving problems with stacks and queues, here are some suggestions.
+
+> **Exercise 2**
+> 
+> [Implement Stacks Using Queues](https://leetcode.com/problems/implement-stack-using-queues/description/?envType=problem-list-v2&envId=stack)
+>    <button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button>
+>    <div id="HideShow1" style="display:none">
+         You do not need to maintain $\Theta(1)$ runtime for all stack operations.
+>    </div>
+{: .notice--success}
+
+> **Exercise 3**
+>
+> [Evaluate Reverse Polish Notation](https://neetcode.io/problems/evaluate-reverse-polish-notation?list=neetcode150).  There are some embedded hints on this page.
+{: .notice--success}
+
 ## Intro to Graphs
 
 In the next assignment we're going to dive into the world of graphs and graph searching.  Before we do so, let's take some time to understand what a graph is.
@@ -89,8 +112,3 @@ Specifications:
 * At a minimum, your class should support the ability to add new vertices, add new edges, and get the list of vertices that are connected to a given vertex.
 
 > Note: I expect there will be lots of questions on this, so please don't hesitate to call me over.
-
-
-## Sample Solutions
-
-Sample solutions for today are in [the Github repo](https://github.com/OlinDSA2024/DSA2024InClass) as a module.
