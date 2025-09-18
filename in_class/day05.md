@@ -19,28 +19,18 @@ if (x != null) {
     println(2*x)
 }
 ```
+There are some tricky situations where this pattern will not work.  In particular, when you are dealing with variables that are class attributes.  Let's take a look at a version of our ``peek`` function from our stack.
 
-Another pattern is to use the ``let`` function.
-```kotlin
-// use the let pattern to perform an additional operation if the value is non-null
-val y: Int? = 2
-y?.let {
-    println(2*y)
-}
-```
-
-There are some tricky situations where these patterns will not work.  In particular, when you are dealing with variables that are class attributes.  Let's take our peek function in our stack, which we wrote last time.
+This code provides a cryptic warning from the compiler.
 
 ```kotlin
     override fun peek(): T? {
-        top?.let {
+        if (top != null) {
             return top.data
         }
         return null
     }
 ```
-
-This code provides a cryptic warning from the compiler.
 
 > Smart cast to 'MyStack.StackNode<T (of class MyStack<T>)>' is impossible, because 'top' is a mutable property that could be mutated concurrently.
 {: .notice--danger}
@@ -57,13 +47,22 @@ The reason for this error is that it's possible your code could have multiple th
     }
 ```
 
-This fixes the error since there is no way the local variable ``currentTop`` can be modified between the null check and the execution of the let body.
+If you want to make your code a little cleaner, you can define the local variable and the block of code to run if the expression is non-null in one go.  One way to do this is to use the ``let`` function.
+```kotlin
+// use the let pattern to perform an additional operation if the value is non-null
+val y: Int? = 2
+y?.let { yValue ->
+    println(2*yValue)
+}
+```
 
-If you want to assign the local variable and the code to execute if the variable is non-null all in one operation, you can use ``also``.
+(note: that if you don't specify ``yValue`` you can use the variable ``it`` to refer to the non-null version of the expression)
+
+This is how you could apply it to the stack example.
 
 ```kotlin
     override fun peek(): T? {
-        top?.also { currentTop ->
+        top?.let { currentTop ->
             return currentTop.data
         }
         return null
