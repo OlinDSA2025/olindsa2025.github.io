@@ -4,7 +4,75 @@ toc_sticky: true
 published: true
 ---
 
-## Kotlin Arrays and Creating Our Own Mutable List
+## Assignment Debrief
+
+How did things go?  With those around you, make a list of questions that you still have regarding the assignment content.  We'll raise them to the group, and then I'll work to resolve them.  If you have any aspects of the assignment that you enjoyed or aspects that could be better, please raise that as well.
+
+## A Few Words About Null Safety
+
+One of the areas of Kotlin that provides a steep learning curve is dealing with optional values.  I sent out [some resources](https://kotlinlang.org/docs/null-safety.html) that should give you a few strategies to deal with nullable types (types that end with a ``?``).  Some useful patterns are shown below (source: https://kotlinlang.org/docs/null-safety.html)
+
+```kotlin
+// use smart casts so the compiler assumes a non-null type within the if statement
+val x: Int? = 2
+if (x != null) {
+    println(2*x)
+}
+```
+
+Another pattern is to use the ``let`` function.
+```kotlin
+// use the let pattern to perform an additional operation if the value is non-null
+val y: Int? = 2
+y?.let {
+    println(2*y)
+}
+```
+
+There are some tricky situations where these patterns will not work.  In particular, when you are dealing with variables that are class attributes.  Let's take our peek function in our stack, which we wrote last time.
+
+```kotlin
+    override fun peek(): T? {
+        top?.let {
+            return top.data
+        }
+        return null
+    }
+```
+
+This code provides a cryptic warning from the compiler.
+
+> Smart cast to 'MyStack.StackNode<T (of class MyStack<T>)>' is impossible, because 'top' is a mutable property that could be mutated concurrently.
+{: .notice--danger}
+
+The reason for this error is that it's possible your code could have multiple threads.  If you haven't heard of multithreaded programming, no worries.  We aren't going to be doing anything with it in this class, but conceptually you can imagine multiple tasks happening concurrently within your programming.  At the same time you are peeking onto the stack, another task could be modifying the stack in some way.  Due to this possibility, the compiler can't be sure that top will be non-null by the time you enter the ``let``.  A solution is to create a local variable first and use let on that.
+
+```kotlin
+    override fun peek(): T? {
+        val currentTop = top
+        currentTop?.let {
+            return currentTop.data
+        }
+        return null
+    }
+```
+
+This fixes the error since there is no way the local variable ``currentTop`` can be modified between the null check and the execution of the let body.
+
+If you want to assign the local variable and the code to execute if the variable is non-null all in one operation, you can use ``also``.
+
+```kotlin
+    override fun peek(): T? {
+        top?.also { currentTop ->
+            return currentTop.data
+        }
+        return null
+    }
+```
+
+You'll continue to get more practice with nullable types as we go, but I wanted to provide you with some guidance around what is a fairly difficult to understand error.
+
+## (Adventure 1) Kotlin Arrays and Creating Our Own Mutable List
 
 > This is a small extension of the challenge problem from last time.  I give this as an option to work on if you want more practice implementing data structures in Kotlin.
 > 
@@ -74,7 +142,7 @@ fun main() {
 
 If you find it useful, you can use this link to access [my solutions for this exercise](https://github.com/OlinDSA2024/Day05Finished).
 
-## Solving Problems with Stacks and Queues
+## (Adventure 2) Solving Problems with Stacks and Queues
 
 If you'd prefer to get more practice solving problems with stacks and queues, here are some suggestions.
 
@@ -104,11 +172,11 @@ For now, we're going to consider the case of directed edges where an edge encode
 
 Before we get into the theory of graphs and the sorts of algorithms we might run on them, let's introduce the concept of an [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list), which is a particular way to represent graphs in a computer program.  Note that this is not the only way to represent a graph in a computer program, but it is a very popular one.
 
-> **Exercise 2**: read about adjacency lists.  On a whiteboard (if you are so inclined) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.
+> **Exercise 2**: read about adjacency lists.  On a chalkboard (or piece of paper at your table) write out a plan for how you would implement an adjacency list in Kotlin.  Your plan might be fairly abstract (e.g., listing out particular classes and functions without worrying about syntax).  If you have time to translate this into Kotlin code, please do so.
 {: .notice--success}
 
 Specifications:
 * To represent your vertices, you could choose a particular type (e.g., ``String``), or you could use [generics](https://kotlinlang.org/docs/generics.html) to make it work for any class.
 * At a minimum, your class should support the ability to add new vertices, add new edges, and get the list of vertices that are connected to a given vertex.
 
-> Note: I expect there will be lots of questions on this, so please don't hesitate to call me over.
+> Note: I expect there will be questions on this, so please don't hesitate to call me over.
