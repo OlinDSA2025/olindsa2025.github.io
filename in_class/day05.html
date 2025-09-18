@@ -298,26 +298,17 @@ function HideShowElement(divID) {
     <span class="nf">println</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">x</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
+<p>There are some tricky situations where this pattern will not work.  In particular, when you are dealing with variables that are class attributes.  Let’s take a look at a version of our <code class="language-plaintext highlighter-rouge">peek</code> function from our stack.</p>
 
-<p>Another pattern is to use the <code class="language-plaintext highlighter-rouge">let</code> function.</p>
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// use the let pattern to perform an additional operation if the value is non-null</span>
-<span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="n">y</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
-    <span class="nf">println</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>There are some tricky situations where these patterns will not work.  In particular, when you are dealing with variables that are class attributes.  Let’s take our peek function in our stack, which we wrote last time.</p>
+<p>This code provides a cryptic warning from the compiler.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
-        <span class="n">top</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">top</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="n">top</span><span class="p">.</span><span class="n">data</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="k">null</span>
     <span class="p">}</span>
 </code></pre></div></div>
-
-<p>This code provides a cryptic warning from the compiler.</p>
 
 <blockquote class="notice--danger">
   <p>Smart cast to ‘MyStack.StackNode&lt;T (of class MyStack<T>)&gt;' is impossible, because 'top' is a mutable property that could be mutated concurrently.</T></p>
@@ -334,12 +325,20 @@ function HideShowElement(divID) {
     <span class="p">}</span>
 </code></pre></div></div>
 
-<p>This fixes the error since there is no way the local variable <code class="language-plaintext highlighter-rouge">currentTop</code> can be modified between the null check and the execution of the let body.</p>
+<p>If you want to make your code a little cleaner, you can define the local variable and the block of code to run if the expression is non-null in one go.  One way to do this is to use the <code class="language-plaintext highlighter-rouge">let</code> function.</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// use the let pattern to perform an additional operation if the value is non-null</span>
+<span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="n">y</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">yValue</span> <span class="p">-&gt;</span>
+    <span class="nf">println</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">yValue</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<p>If you want to assign the local variable and the code to execute if the variable is non-null all in one operation, you can use <code class="language-plaintext highlighter-rouge">also</code>.</p>
+<p>(note: that if you don’t specify <code class="language-plaintext highlighter-rouge">yValue</code> you can use the variable <code class="language-plaintext highlighter-rouge">it</code> to refer to the non-null version of the expression)</p>
+
+<p>This is how you could apply it to the stack example.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
-        <span class="n">top</span><span class="o">?.</span><span class="nf">also</span> <span class="p">{</span> <span class="n">currentTop</span> <span class="p">-&gt;</span>
+        <span class="n">top</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">currentTop</span> <span class="p">-&gt;</span>
             <span class="k">return</span> <span class="n">currentTop</span><span class="p">.</span><span class="n">data</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="k">null</span>
