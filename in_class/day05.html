@@ -318,7 +318,7 @@ function HideShowElement(divID) {
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
         <span class="kd">val</span> <span class="py">currentTop</span> <span class="p">=</span> <span class="n">top</span>
-        <span class="n">currentTop</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">currentTop</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="n">currentTop</span><span class="p">.</span><span class="n">data</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="k">null</span>
@@ -326,16 +326,6 @@ function HideShowElement(divID) {
 </code></pre></div></div>
 
 <p>If you want to make your code a little cleaner, you can define the local variable and the block of code to run if the expression is non-null in one go.  One way to do this is to use the <code class="language-plaintext highlighter-rouge">let</code> function.</p>
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// use the let pattern to perform an additional operation if the value is non-null</span>
-<span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="n">y</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">yValue</span> <span class="p">-&gt;</span>
-    <span class="nf">println</span><span class="p">(</span><span class="mi">2</span><span class="p">*</span><span class="n">yValue</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>(note: that if you don’t specify <code class="language-plaintext highlighter-rouge">yValue</code> you can use the variable <code class="language-plaintext highlighter-rouge">it</code> to refer to the non-null version of the expression)</p>
-
-<p>This is how you could apply it to the stack example.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
         <span class="n">top</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">currentTop</span> <span class="p">-&gt;</span>
