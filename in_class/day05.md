@@ -40,7 +40,7 @@ The reason for this error is that it's possible your code could have multiple th
 ```kotlin
     override fun peek(): T? {
         val currentTop = top
-        currentTop?.let {
+        if (currentTop != null) {
             return currentTop.data
         }
         return null
@@ -48,17 +48,6 @@ The reason for this error is that it's possible your code could have multiple th
 ```
 
 If you want to make your code a little cleaner, you can define the local variable and the block of code to run if the expression is non-null in one go.  One way to do this is to use the ``let`` function.
-```kotlin
-// use the let pattern to perform an additional operation if the value is non-null
-val y: Int? = 2
-y?.let { yValue ->
-    println(2*yValue)
-}
-```
-
-(note: that if you don't specify ``yValue`` you can use the variable ``it`` to refer to the non-null version of the expression)
-
-This is how you could apply it to the stack example.
 
 ```kotlin
     override fun peek(): T? {
