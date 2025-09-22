@@ -113,18 +113,20 @@ return false // no path
 ```
 
 > **Exercise 1:**
+>
+> Looking at the pseudocode above, what is the role of the variable ``toVisit``?  What might happen if we removed it?
+{: .notice--success}
+
+
+> **Exercise 2:**
 > Sometimes it's also useful to be able to return the actual path that would be needed to go from the starting ``root`` to ``target``.
-> How could we modify the pseudocode to be able to return the path from ``root`` to ``target``.
+> How could we modify the pseudocode to be able to return the path from ``root`` to ``target``?
 >    <button onclick="HideShowElement('HideShow0')">Show / Hide Hint</button>
 >    <div id="HideShow0" style="display:none">
          You may find MutableMap to be useful here.
 >    </div>
 {: .notice--success}
 
-> **Exercise 2:**
->
-> Looking at the pseudocode above, what is the role of the variable ``toVisit``?  What might happen if we removed it?
-{: .notice--success}
 
 > **Exercise 3:**
 >
@@ -135,7 +137,7 @@ return false // no path
 >  * @param start the node to start the search
 >  * @param target the node to search for
 >  * @return true if and only if path exists between [start] and [target]
-     > */
+>  */
 > fun bfs(start: VertexType, target: VertexType): Bool
 >    ```
 > For added challenge, you can return the path from ``start`` to ``target`` (rather than just indicating if it is possible).
