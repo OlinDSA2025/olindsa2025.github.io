@@ -391,19 +391,19 @@ return false // no path
 </code></pre></div></div>
 
 <blockquote class="notice--success">
-  <p><strong>Exercise 1:</strong>
+  <p><strong>Exercise 1:</strong></p>
+
+  <p>Looking at the pseudocode above, what is the role of the variable <code class="language-plaintext highlighter-rouge">toVisit</code>?  What might happen if we removed it?</p>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 2:</strong>
 Sometimes it’s also useful to be able to return the actual path that would be needed to go from the starting <code class="language-plaintext highlighter-rouge">root</code> to <code class="language-plaintext highlighter-rouge">target</code>.
-How could we modify the pseudocode to be able to return the path from <code class="language-plaintext highlighter-rouge">root</code> to <code class="language-plaintext highlighter-rouge">target</code>.
+How could we modify the pseudocode to be able to return the path from <code class="language-plaintext highlighter-rouge">root</code> to <code class="language-plaintext highlighter-rouge">target</code>?
    <button onclick="HideShowElement('HideShow0')">Show / Hide Hint</button></p>
   <div id="HideShow0" style="display:none">
          You may find MutableMap to be useful here.
    </div>
-</blockquote>
-
-<blockquote class="notice--success">
-  <p><strong>Exercise 2:</strong></p>
-
-  <p>Looking at the pseudocode above, what is the role of the variable <code class="language-plaintext highlighter-rouge">toVisit</code>?  What might happen if we removed it?</p>
 </blockquote>
 
 <blockquote class="notice--success">
@@ -415,7 +415,7 @@ How could we modify the pseudocode to be able to return the path from <code clas
  * @param start the node to start the search
  * @param target the node to search for
  * @return true if and only if path exists between [start] and [target]
-     &gt; */</span>
+ */</span>
 <span class="k">fun</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nc">VertexType</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nc">VertexType</span><span class="p">):</span> <span class="nc">Bool</span>
 </code></pre></div>  </div>
   <p>For added challenge, you can return the path from <code class="language-plaintext highlighter-rouge">start</code> to <code class="language-plaintext highlighter-rouge">target</code> (rather than just indicating if it is possible).</p>
