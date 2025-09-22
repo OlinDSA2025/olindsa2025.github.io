@@ -1,7 +1,7 @@
 ---
 title: "Day 6: Graph data structures, depth-first and breadth-first search"
 toc_sticky: true
-published: false
+published: true
 ---
 
 
@@ -112,21 +112,76 @@ while priorityList is not empty:
 return false // no path
 ```
 
-### Problem 1
+> **Exercise 1:**
+> Sometimes it's also useful to be able to return the actual path that would be needed to go from the starting ``root`` to ``target``.
+> How could we modify the pseudocode to be able to return the path from ``root`` to ``target``.
+>    <button onclick="HideShowElement('HideShow0')">Show / Hide Hint</button>
+>    <div id="HideShow0" style="display:none">
+         You may find MutableMap to be useful here.
+>    </div>
+{: .notice--success}
 
-Looking at the pseudocode above, what is the role of the variable ``toVisit``?  What might happen if we removed it?
+> **Exercise 2:**
+>
+> Looking at the pseudocode above, what is the role of the variable ``toVisit``?  What might happen if we removed it?
+{: .notice--success}
 
-### Problem 2
+> **Exercise 3:**
+>
+> Given the pseudocode above and the ``Graph`` class, implement breadth-first search (BFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.  I recommend you start with some pseudocode before firing up IntelliJ.  Here is a potential function signature for ``bfs``
+>    ```kotlin
+> /**
+>  * Search through a graph using a breadth-first search
+>  * @param start the node to start the search
+>  * @param target the node to search for
+>  * @return true if and only if path exists between [start] and [target]
+     > */
+> fun bfs(start: VertexType, target: VertexType): Bool
+>    ```
+> For added challenge, you can return the path from ``start`` to ``target`` (rather than just indicating if it is possible).
+>    ```kotlin
+> /**
+>  * Search through a graph using a breadth-first search
+>  * @param start the node to start the search
+>  * @param target the node to search for
+>  * @return the path from start to target (if one exists) and null otherwise
+> */
+> fun bfs(start: VertexType, target: VertexType): List<VertexType>?
+>    ```
+>    <button onclick="HideShowElement('HideShow1')">Show / Hide Hint</button>
+>    <div id="HideShow1" style="display:none">
+         Think about which data structures you've learned about would achieve the desired prioritization of nodes.
+>    </div>
+{: .notice--success}
 
-Given the pseudocode above and the ``Graph`` class, implement breadth-first search (BFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.  I recommend you start with some pseudocode before firing up IntelliJ.
 
-> Hint: think long and hard about what data structures you've learned about would achieve the desired prioritization of nodes.
-
-### Problem 3
-
-Given the pseudocode above and the ``Graph`` class, implement depth-first search (DFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.  I recommend you start with some pseudocode before firing up IntelliJ.
-
-> Hint: think long and hard about what data structures you've learned about would achieve the desired prioritization of nodes.
+> **Exercise 4:**
+>
+> Given the pseudocode above and the ``Graph`` class, implement depth-first search (DFS).  You can choose how you define your function, but perhaps add it as a new function of ``Graph``.  I recommend you start with some pseudocode before firing up IntelliJ.  Here is a potential function signature for ``dfs``
+>    ```kotlin
+> /**
+>  * Search through a graph using a depth-first search
+>  * @param start the node to start the search
+>  * @param target the node to search for
+>  * @return true if and only if path exists between [start] and [target]
+> */
+> fun dfs(start: VertexType, target: VertexType): Bool
+>    ```
+> For added challenge, you can return the path from ``start`` to ``target`` (rather than just indicating if it is possible).
+>    ```kotlin
+> /**
+>  * Search through a graph using a depth-first search
+>  * @param start the node to start the search
+>  * @param target the node to search for
+>  * @return the path from start to target (if one exists) and null otherwise
+> */
+> fun dfs(start: VertexType, target: VertexType): List<VertexType>?
+>    ```
+>    <button onclick="HideShowElement('HideShow2')">Show / Hide Hint</button>
+>    <div id="HideShow2" style="display:none">
+         Think about which data structures you've learned about would achieve the desired prioritization of nodes.
+>    </div>
+{: .notice--success}
 
 ### Visualizations of Graph Traversal
 
