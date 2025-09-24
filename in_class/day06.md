@@ -138,7 +138,7 @@ return false // no path
 >  * @param target the node to search for
 >  * @return true if and only if path exists between [start] and [target]
 >  */
-> fun bfs(start: VertexType, target: VertexType): Bool
+> fun bfs(start: VertexType, target: VertexType): Boolean
 >    ```
 > For added challenge, you can return the path from ``start`` to ``target`` (rather than just indicating if it is possible).
 >    ```kotlin

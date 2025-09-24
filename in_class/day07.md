@@ -1,12 +1,12 @@
 ---
 title: "Day 7: DAGs, Dijkstra's Algorithm, and Heaps"
 toc_sticky: true
-published: false
+published: true
 ---
 
 ## Directed-Acyclic Graphs
 
-Starting off, let's revisit a problem that most of you didn't get to from last class.  This is the problem of determining if a given directed graph is acyclic. To motivate this, let's consider the following graph.
+A directed graph is acyclic if it contains no cycles.  A cycle is a path that starts at a given node and returns to that same node.  We use the acronym DAG (directed, acyclic graph) to refer ot this type of graph.  Here is an example of such a graph.
 
 <div class="mermaid">
 graph LR
@@ -16,14 +16,22 @@ graph LR
   C --> D
   B --> D
   A --> E
-  D --> E
 </div>
 
-Perhaps unsurprisingly, a graph is a directed acyclic graph ([DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)) if it is both directed and contains no cycles.  Cycles are paths through the graph that repeat vertices.
+As was included in the day materials last time (although there was not enough time to get to it), there are several algorithms to determine if a graph is a DAG.  One of the easier ones to understand is Kahn's algorithm, which has the following description from [the Wikipedia page on Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting). It turns out that a graph is a DAG if and only if there is a valid topological sorting of the nodes in the DAG.
 
-In one of the supplementary problems from the last class, we presented Kahn's algorithm for determining if a graph is a DAG.  More specifically, it computes a topological sorting of the vertices of the graph, and if a sorting exists, the graph has no cycles.  A topological sorting of a graph is an ordering of the graph's vertices $v_1, v_2, \ldots, v_n$ such that the edge $v_i \rightarrow v_j$ can only exist if $i < j$.
+> A topological sorting of a directed graph consisting of vertices $V$ and edges $E$ consists of an ordering of the vertices $v_1, v_2, \ldots, v_n$ such that the edge $v_i \rightarrow v_j$ exists in $E$ if and only if $i < j$.
+{: .notice--warning}
 
-Here is pseudocode for Kahn's algorithm.
+Let's work as a class to determine a valid topological sorting of the graph above.  Is the sorting unique?
+
+<button onclick="HideShowElement('HideShow1')">Show Solution</button>
+<div id="HideShow1" style="display:none">
+     A valid solution would consist of the order $A, E, B, C, D$.  For this graph, another valid topological sorting woudl be $A, B, C, D, E$.  (other sortings exist as well)
+</div>
+
+
+Kahn's algorithm can be used to determine if a directed graph has cycles or not.  The pseudocode for Kahn's algorithm is below.
 
 ```
 L ← Empty list that will contain the sorted elements
@@ -47,6 +55,7 @@ Let's go through this example together to see how Kahn's algorithm works.
 
 Let's try Kahn's algorithm on a graph that does contain a cycle to see what happens.
 
+Input graph:
 <div class="mermaid">
 graph LR
   A --> B
@@ -54,6 +63,17 @@ graph LR
   C --> D
   C --> B
   A --> D
+</div>
+$L = []$, $S = [A]$
+
+After step 1:
+$L = [A], S = []$
+<div class="mermaid">
+graph LR
+  A
+  B --> C
+  C --> D
+  C --> B
 </div>
 
 Question for us to work through together: How would we prove that Kahn's algorithm is correct?
