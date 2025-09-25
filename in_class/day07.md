@@ -95,9 +95,9 @@ graph LR
   D --7--> E
 </div>
 
-As an aside, edge weights could encode a bunch of different things in our graph.  In computer vision, edge weights can encode the dissimilarity between neighboring parts of an image and this graph can then be processed to segment parts of an image.  Another classical example is graph traversal where we might want to find the shortest path through a graph connecting $v_{start}$ to $v_{goal}$. In this setting, the cost of a path is defined by the sum of edge weights along the path.  This is what we will learn about next.
+As an aside, edge weights could encode a bunch of different things in our graph.  In computer vision, edge weights can encode the dissimilarity between neighboring parts of an image and this graph can then be processed to segment the image into regions.  Another classical example is graph traversal where we might want to find the shortest path through a graph connecting $v_{start}$ to $v_{goal}$. In this setting, the cost of a path is defined by the sum of edge weights along the path.  This is what we will learn about next.
 
-Dijkstra's algorithm gives us a way to compute the shortest path (defined in terms of the lowest sum of edges) to move between a given source node and any destination node.  In order for Dijkstra's algorithm to work, none of the edges in the network can have negative weight.
+Dijkstra's algorithm gives us a way to compute the shortest path (defined in terms of the lowest sum of edges) to move between a given source node and any destination node.  In order for Dijkstra's algorithm to work, none of the edges in the network can have a negative weight (or cost).
 
 Looking at our sample graph, let's calculate a few shortest paths.
 
@@ -125,7 +125,13 @@ while queue is not empty:
 ```
 Now that we've seen this pseudocode, let's go through [our slides](graphsearch_slides.pdf) to see an example of it in action.
 
-**Problem 1** Suppose the pseudocode above has finished running, how would you reconstruct the shortest path from the vertex ``source`` to a vertex ``target`` using ``prev``?
+> **Exercise 1**
+> 
+> (a) How does this pseudocode differ from the approach we used last class (for DFS and BFS)?
+> 
+> (b) Suppose the pseudocode above has finished running, how would you reconstruct the shortest path from the vertex ``source`` to a vertex ``target`` using ``prev``?
+{: .notice--success}
+
 
 ## Min-Heaps
 
@@ -133,7 +139,7 @@ A [binary heap](https://en.wikipedia.org/wiki/Binary_heap) is a data structure t
 
 A heap is a special type of graph called a binary tree.
 
-**Definition** A tree is a graph where there is a root node (one that has no incoming edges) and each vertex apart from the root has exactly one incoming edge.  For a given node, $v$, if there exists an edge $p \rightarrow v$ we call $p$ the parent of $v$.  Nodes with no outgoing edges are called **leaves**.  The maximum length path (defined in terms of number of edges) from the root to any leaf is called the **height** of the tree.
+**Definition** A tree is a graph where there is a root node (one that has no incoming edges) and each vertex, besides the root, has exactly one incoming edge.  For a given node, $v$, if there exists an edge $p \rightarrow v$ we call $p$ the parent of $v$.  Nodes with no outgoing edges are called **leaves**.  The maximum length path (defined in terms of number of edges) from the root to any leaf is called the **height** of the tree.
 
 **Definition** A binary tree is a tree where each node has at most two outgoing edges.  For a vertex, $v$, if $v \rightarrow u$ and $v \rightarrow q$ then we say that $u$ and $q$ are children of $v$. Sometimes we think of these children as ordered, and we'll refer to them as the left or right child of $v$.
 
@@ -149,7 +155,7 @@ graph TB
   C --> G
 </div>
 
-A heap extends the concept of a binary tree by adding a number that accompanies each node.  Let's suppose in our example that each the letters A through F in our sample graph above were assigned the following values (A: 5, B: 3, C: 4, D: 9, E: 1, F: 6).  The following would be a valid heap.
+A heap extends the concept of a binary tree by adding a number that accompanies each node.  Let's suppose in our example that each of the letters A through F in our sample graph above were assigned the following values (A: 5, B: 3, C: 4, D: 9, E: 1, F: 6).  The following would be a valid heap.
 
 <div class="mermaid">
 graph TB
@@ -160,15 +166,16 @@ B --> F[F, 6]
 C --> D[D, 9]
 </div>
 
-The binary tree above is a heap because it meets two conditions.
-
-**Condition 1** the binary tree maintains the "heap-invariant", which is that for any two nodes, $u, v$ in the tree such that the edge $u \rightarrow v$ the number stored with $u$ is less than the number stored with $v$.  In plain-speak, for any node in the graph the number written next to it will be less than the numbers written next to any nodes below it.
-
-**Condition 2** the binary tree is nearly complete meaning that it has the minimum height for a tree with the specific number of nodes.
+> The binary tree above is a heap because it meets two conditions.
+>
+> **Condition 1** the binary tree maintains the "heap-invariant", which is that for any two nodes, $u, v$ in the tree such that the edge $u \rightarrow v$ the number stored with $u$ is less than the number stored with $v$.  In plain-speak, for any node in the graph the number written next to it will be less than the numbers written next to any nodes below it.
+>
+> **Condition 2** the binary tree is nearly complete meaning that it has the minimum height for a tree with the specific number of nodes.
+{: .notice--warning}
 
 ### Implementation: Inserting an element into the heap
 
-When inserting an element into the heap, we put it in the tree at the lowest level in the first available spot (starting from the left).  Once we place it in the heap, we check to see if this placement has violated the heap invariant.  If so, we swap the node with its parent.  We the nodes new parent to make sure the heap invariant is satisfied (swapping if it's not) and so on.  This procedure is called "bubbling up".
+When inserting an element into the heap, we put it in the tree at the lowest level in the first available spot (starting from the left).  Once we place it in the heap, we check to see if this placement has violated the heap invariant (condition 1).  If so, we swap the node with its parent.  We the nodes new parent to make sure the heap invariant is satisfied (swapping if it's not) and so on.  This procedure is called "bubbling up".
 
 We'll do a quick example of bubbling up on the board.
 
@@ -179,7 +186,7 @@ This is super easy!  We just look at the root node.  It's guaranteed to be the m
 
 ### Implementation: Removing the minimum
 
-To remove the minimum value we first replace the root node with the right most element of the lowest level of our tree.  We then perform a procedure called "bubbling down" where we check to see if the new root violates the heap invariant (i.e., does it have a larger number than either of its children).  If it is larger, than we swap it with its child with the smaller number.  After the swap we continue bubbling the element down until it no longer violates the heap invariant.
+To remove the minimum value we first replace the root node with the right most element of the lowest level of our tree.  We then perform a procedure called "bubbling down" where we check to see if the new root violates the heap invariant (condition 1).  If it is larger, then we swap it with the child with the smaller number.  After the swap we continue bubbling the element down until it no longer violates the heap invariant (condition 1).
 
 We'll do a quick example of bubbling down on the board.
 
@@ -194,12 +201,15 @@ Now that we know what a heap is, let's talk about the running time of various op
 |Delete min|$\Theta(\log n)$|
 |Find min|$\Theta(1)$|
 
-**Problem 2** Why are these runtimes attractive from the perspective of implementing Dijkstra's algorithm?
+> **Exercise 2** Why are these runtimes attractive from the perspective of implementing Dijkstra's algorithm?
+{: .notice--success}
 
-**Problem 3** What operation needed for Dijkstra's algorithm is not present in the list above?  How would you implement it?
+> **Exercise 3** What operation needed for Dijkstra's algorithm is not present in the list above?  How would you implement it?
+{: .notice--success}
 
-**Problem 4** Show why delete min, insert, and change heap number are all $\Theta(\log n)$.
+> **Exercise 4** Show why delete min, insert, and change heap number are all $\Theta(\log n)$.
+{: .notice--success}
 
 ### Implementation considerations
 
-Since this is part of the extra credit, I'll leave it to you to look into the details of this (there's a lot of explanations on the web / videos to watch).  Binary heaps are often implemented by storing the vertices of the heap in a list.  This might seem counterintuitive, but it presents a really elegant solution to some challenging aspects of implementing the heap: finding parents and children of a node, quickly swapping nodes in the tree, and inserting new values into the next free spot.
+Since this is part of the extra credit, I'll leave it to you to look into the details of this (there's a lot of explanations on the web / videos to watch).  Binary heaps are often implemented by storing the vertices of the heap in a list.  This might seem counterintuitive, but it presents a really elegant solution to some challenging aspects of implementing the heap: finding parents and children of a node, quickly swapping nodes in the tree, and inserting new values in such a way that condition 2 is maintained.
