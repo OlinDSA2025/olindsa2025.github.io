@@ -352,7 +352,7 @@ function HideShowElement(divID) {
     <span class="k">fun</span> <span class="nf">addWithPriority</span><span class="p">(</span><span class="n">elem</span><span class="p">:</span> <span class="nc">T</span><span class="p">,</span> <span class="n">priority</span><span class="p">:</span> <span class="nc">Double</span><span class="p">)</span>
 
     <span class="cm">/**
-     * Get the next (lowest priority) element.
+     * Get the next (highest priority) element and remove this element from the queue.
      * @return the next element in terms of priority.  If empty, return null.
      */</span>
     <span class="k">fun</span> <span class="nf">next</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span>
