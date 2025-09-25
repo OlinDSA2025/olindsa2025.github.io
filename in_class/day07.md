@@ -27,7 +27,7 @@ Let's work as a class to determine a valid topological sorting of the graph abov
 
 <button onclick="HideShowElement('HideShow1')">Show Solution</button>
 <div id="HideShow1" style="display:none">
-     A valid solution would consist of the order $A, E, B, C, D$.  For this graph, another valid topological sorting woudl be $A, B, C, D, E$.  (other sortings exist as well)
+     A valid solution would consist of the order $A, E, B, C, D$.  For this graph, another valid topological sorting would be $A, B, C, D, E$.  (other sortings exist as well)
 </div>
 
 
@@ -80,7 +80,7 @@ Question for us to work through together: How would we prove that Kahn's algorit
 
 ## Dijkstra's Algorithm
 
-I have some companion slides to go along with the presentation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).  I'll have these up on the projector, but you can [access the slides](graphsearch_slides.pdf) using this link.  Don't pull them up just yet.
+I have some companion slides to go along with the presentation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).  I'll have these up on the projector, but you can [access the slides in PPTX](day07_slides.pptx) or [PDF form](day07_slides.pdf).  Don't pull them up just yet.
 
 Before we introduce Dijkstra's algorithm, we need to briefly introduce the idea of weighted graphs.  Imagine that in addition to storing the neighbors of each vertex in our graph, we also store an edge weight.  Here is what a graph might look like with edge weights added.
 
