@@ -70,7 +70,7 @@ interface MinPriorityQueue<T> {
     fun addWithPriority(elem: T, priority: Double)
 
     /**
-     * Get the next (lowest priority) element.
+     * Get the next (highest priority) element and remove this element from the queue.
      * @return the next element in terms of priority.  If empty, return null.
      */
     fun next(): T?
