@@ -4,6 +4,11 @@ toc_sticky: true
 published: true
 ---
 
+## A Few Things Regarding the Current Assignment
+
+1. I added a tips and tricks section (currently just one there). Let me know if you want me to add anything to it.
+2. I added an assignment submission checklist to the Canvas page
+
 ## Directed-Acyclic Graphs
 
 A directed graph is acyclic if it contains no cycles.  A cycle is a path that starts at a given node and returns to that same node.  We use the acronym DAG (directed, acyclic graph) to refer ot this type of graph.  Here is an example of such a graph.

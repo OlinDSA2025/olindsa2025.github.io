@@ -9,6 +9,8 @@ due_on_class: 8
 
 I am providing some starter code for this assignment.  The starter code (shown below) can be copy / pasted into your project.
 
+You may also want to check out the tips and tricks section.
+
 ## Representing Graphs
 
 Create a Kotlin class to represent a directed, weighted graph.  Your graph should implement the ``Graph<VertexType>`` interface shown below.
@@ -108,3 +110,14 @@ Either submit your code as a GitHub link or upload the code directly to Canvas.
 ## Assessment
 
 See the rubric on Canvas.
+
+## Tips and Tricks
+
+Suppose you have computed a path to the vertex ``target`` and along the way populated a map called ``prev: MutableMap<VertexType, VertexType>`` where ``prev[v]`` indicates the previous element along the path.  In order to reconstruct the full path from the start to ``target``, you may find the ``generateSequence`` function useful. In the code below, I've used the one that lets you [specify a seed](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/generate-sequence.html) to start the sequence.
+
+```kotlin
+generateSequence(seed=target) {
+    curr -> prev[curr]
+}.toList().asReversed()
+```
+
