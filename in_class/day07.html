@@ -274,6 +274,7 @@ function HideShowElement(divID) {
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
+  <li><a href="#a-few-things-regarding-the-current-assignment">A Few Things Regarding the Current Assignment</a></li>
   <li><a href="#directed-acyclic-graphs">Directed-Acyclic Graphs</a></li>
   <li><a href="#dijkstras-algorithm">Dijkstra’s Algorithm</a></li>
   <li><a href="#min-heaps">Min-Heaps</a></li>
@@ -282,7 +283,14 @@ function HideShowElement(divID) {
             </nav>
           </aside>
         
-        <h2 id="directed-acyclic-graphs">Directed-Acyclic Graphs</h2>
+        <h2 id="a-few-things-regarding-the-current-assignment">A Few Things Regarding the Current Assignment</h2>
+
+<ol>
+  <li>I added a tips and tricks section (currently just one there). Let me know if you want me to add anything to it.</li>
+  <li>I added an assignment submission checklist to the Canvas page</li>
+</ol>
+
+<h2 id="directed-acyclic-graphs">Directed-Acyclic Graphs</h2>
 
 <p>A directed graph is acyclic if it contains no cycles.  A cycle is a path that starts at a given node and returns to that same node.  We use the acronym DAG (directed, acyclic graph) to refer ot this type of graph.  Here is an example of such a graph.</p>
 
@@ -306,7 +314,7 @@ graph LR
 
 <p><button onclick="HideShowElement('HideShow1')">Show Solution</button></p>
 <div id="HideShow1" style="display:none">
-     A valid solution would consist of the order $A, E, B, C, D$.  For this graph, another valid topological sorting woudl be $A, B, C, D, E$.  (other sortings exist as well)
+     A valid solution would consist of the order $A, E, B, C, D$.  For this graph, another valid topological sorting would be $A, B, C, D, E$.  (other sortings exist as well)
 </div>
 
 <p>Kahn’s algorithm can be used to determine if a directed graph has cycles or not.  The pseudocode for Kahn’s algorithm is below.</p>
@@ -357,7 +365,7 @@ graph LR
 
 <h2 id="dijkstras-algorithm">Dijkstra’s Algorithm</h2>
 
-<p>I have some companion slides to go along with the presentation of <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a>.  I’ll have these up on the projector, but you can <a href="/in_class/graphsearch_slides.pdf">access the slides</a> using this link.  Don’t pull them up just yet.</p>
+<p>I have some companion slides to go along with the presentation of <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a>.  I’ll have these up on the projector, but you can <a href="/in_class/day07_slides.pptx">access the slides in PPTX</a> or <a href="/in_class/day07_slides.pdf">PDF form</a>.  Don’t pull them up just yet.</p>
 
 <p>Before we introduce Dijkstra’s algorithm, we need to briefly introduce the idea of weighted graphs.  Imagine that in addition to storing the neighbors of each vertex in our graph, we also store an edge weight.  Here is what a graph might look like with edge weights added.</p>
 

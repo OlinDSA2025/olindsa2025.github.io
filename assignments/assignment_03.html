@@ -281,6 +281,7 @@ function HideShowElement(divID) {
   <li><a href="#solving-problems-with-dijkstra">Solving Problems with Dijkstra</a></li>
   <li><a href="#turning-in-your-code">Turning in your Code</a></li>
   <li><a href="#assessment">Assessment</a></li>
+  <li><a href="#tips-and-tricks">Tips and Tricks</a></li>
 </ul>
 	      	
             </nav>
@@ -289,6 +290,8 @@ function HideShowElement(divID) {
         <h2 id="getting-started">Getting Started</h2>
 
 <p>I am providing some starter code for this assignment.  The starter code (shown below) can be copy / pasted into your project.</p>
+
+<p>You may also want to check out the tips and tricks section.</p>
 
 <h2 id="representing-graphs">Representing Graphs</h2>
 
@@ -392,6 +395,16 @@ function HideShowElement(divID) {
 <h2 id="assessment">Assessment</h2>
 
 <p>See the rubric on Canvas.</p>
+
+<h2 id="tips-and-tricks">Tips and Tricks</h2>
+
+<p>Suppose you have computed a path to the vertex <code class="language-plaintext highlighter-rouge">target</code> and along the way populated a map called <code class="language-plaintext highlighter-rouge">prev: MutableMap&lt;VertexType, VertexType&gt;</code> where <code class="language-plaintext highlighter-rouge">prev[v]</code> indicates the previous element along the path.  In order to reconstruct the full path from the start to <code class="language-plaintext highlighter-rouge">target</code>, you may find the <code class="language-plaintext highlighter-rouge">generateSequence</code> function useful. In the code below, I’ve used the one that lets you <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/generate-sequence.html">specify a seed</a> to start the sequence.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">generateSequence</span><span class="p">(</span><span class="n">seed</span><span class="p">=</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">curr</span> <span class="p">-&gt;</span> <span class="n">prev</span><span class="p">[</span><span class="n">curr</span><span class="p">]</span>
+<span class="p">}.</span><span class="nf">toList</span><span class="p">().</span><span class="nf">asReversed</span><span class="p">()</span>
+</code></pre></div></div>
+
 
         
       </section>
