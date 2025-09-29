@@ -4,6 +4,10 @@ toc_sticky: true
 published: true
 ---
 
+## A quick reminder about GenAI policy
+
+> If you feel it is consistent with what helps you learn, you may use generative AI tools (e.g., ChatGPT) to help you complete the work in this course.  When using these tools, please disclose how you used generative AI in preparing your work.  Please do not use generative AI in a way that makes your contribution to the work negligible.  The design of the oral quizzes is designed around idea that you should be able to explain how the code that was created by generative AI works and what each line is doing.  You might also strive to be able to rewrite the code without generative AI.
+
 ## How fast is Dijkstra?
 
 Let's start with an easy to state, but not so easy to answer problem.
