@@ -124,7 +124,7 @@ This one is pretty awesome.  You just insert all of your values into a binary mi
 
 ### Analyzing Merge Sort
 
-> **Exercise 4:** Determine the $\Theta$ of merge sort by defining a recurrence relation that relates the cost of solving a problem of size $n$ to a smaller problem).  For example, if we were writing a recurrence relationship for selection sort, we might write $T(n) = T(n-1) + n$.
+> **Exercise 4:** Determine the $\Theta$ of merge sort by drawing a tree diagram that shows how the problem of size $n$ is divided into subproblems (this will form a tree).  Keep track of how much work you would do at each level of this tree.
 {: .notice--success}
 
 ### Master Theorem
