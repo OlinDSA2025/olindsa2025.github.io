@@ -1,7 +1,8 @@
 ---
-title: Assignment 4
+title: "Assignment 4: Sorting Algorithms"
 toc_sticky: true
-published: false
+published: true
+due_on_class: 10
 ---
 
 ## Overview
@@ -23,7 +24,7 @@ Here are some possible algorithms to implement.
 
 ## Sorting Algorithm Benchmarking
 
-Test the performance of your sorting algorithms on sorting different sized lists of numbers.  Create some representation (e.g., a  table r a graph) of the runtimes of the algorithms as a function of list size.  In a writeup (I would suggest a markdown file), discuss how you tested your algorithms (e.g., how you generated the lists to be sorted, how many times you performed each experiment).  Draw some conclusions based on your experiment (e.g., which algorithm seems faster and in which cases).
+Test the performance of your sorting algorithms on sorting different sized lists of numbers.  Create some representation (e.g., a table or a plot) of the runtimes of the algorithms as a function of list size.  In a writeup (I would suggest a markdown file), discuss how you tested your algorithms (e.g., how you generated the lists to be sorted, how many times you performed each experiment).  Draw some conclusions based on your experiment (e.g., which algorithm seems faster and in which cases).
 
 ## New Frontiers in Sorting?
 

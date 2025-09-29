@@ -1,8 +1,18 @@
 ---
 title: "Day 8: A-Star Search and Intro to Sorting"
 toc_sticky: true
-published: false
+published: true
 ---
+
+## How fast is Dijkstra?
+
+Let's start with an easy to state, but not so easy to answer problem.
+
+> **Exercise 1**
+>
+> What is the runtime complexity ($\Theta$) of Dijkstra's algorithm?  Your answer should be in terms of the number of nodes $n$ and the number of edges $m$.
+{: .notice--success}
+
 
 ## A-Star Search
 
@@ -98,23 +108,28 @@ This one is pretty awesome.  You just insert all of your values into a binary mi
 
 ## Complexity of Sorting Algorithms
 
-### Analyzing Selection Sort
-
-Let's start as a group by analyzing the worst case running time of selection sort.  Compute the number of operations necessary to run selection sort in the worst case.  Determine $\Theta$.
+> **Exercise 2:** Analyzing Selection Sort
+>
+> Let's start as a group by analyzing the worst case running time of selection sort.  Compute the number of operations necessary to run selection sort in the worst case.  Determine $\Theta$.
+{: .notice--success}
 
 ### Analyzing Heap Sort
 
-**Problem 1:** Determine the $\Theta$ of heap sort.
+> **Exercise 3:** Determine the $\Theta$ of heap sort.
+{: .notice--success}
 
 ### Analyzing Merge Sort
 
-**Problem 2:** Determine the $\Theta$ of merge sort.
+> **Exercise 4:** Determine the $\Theta$ of merge sort by defining a recurrence relation that relates the cost of solving a problem of size $n$ to a smaller problem).  For example, if we were writing a recurrence relationship for selection sort, we might write $T(n) = T(n-1) + n$.
+{: .notice--success}
 
 ### Master Theorem
 
 A generalizable recipe for analyzing recursive algorithms like this is the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  
 
-**Problem 3:** Reanalyze merge sort using the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  
+> **Exercise 5:** Reanalyze merge sort using the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  
+{: .notice--success}
+
 
 You may find the following special cases of the master theorem useful (we'll discuss the more general form next class).
 
