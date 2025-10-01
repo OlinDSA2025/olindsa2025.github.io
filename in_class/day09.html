@@ -1,0 +1,439 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<script>
+class AnchorNoProxy extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this._$a = null;
+  }
+  connectedCallback() {
+    const href = this.getAttribute("href") || "#";
+    if (this.dataset.hasOwnProperty('canvas')) {
+        const canvasURL = this.dataset.canvas;
+        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na { color: #5197ad; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}" data-canvas="${canvasURL}"><slot></slot></a>`;
+    } else {
+        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na { color: #5197ad; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}"><slot></slot></a>`;
+    }
+    this._$a = this.shadowRoot.querySelector("a");
+    this._$a.addEventListener("click", e => {
+      var url = this.getAttribute('href');
+      e.preventDefault();
+      if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
+        // get rid of proxy if it was added
+        var n = this.dataset.canvas.search('https://olin.instructure.com');
+        window.open(this.dataset.canvas.substring(n), '_blank');
+      } else {
+        window.open(url, '_blank');
+      }
+    });
+  }
+  static get observedAttributes() { return ["href"]; }
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      if (this._$a === null) return;
+      this._$a.setAttribute("href", newValue);
+    }
+  }
+}
+
+customElements.define("a-no-proxy", AnchorNoProxy);
+
+class NoProxy extends HTMLAnchorElement {
+  connectedCallback() {
+    this.addEventListener("click", e => {
+      e.preventDefault();
+      if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
+        // get rid of proxy if it was added
+        var n = this.dataset.canvas.search('https://olin.instructure.com');
+      	window.open(this.dataset.canvas.substring(n), '_blank');
+      } else {
+      	window.open(this.href, '_blank');
+      }
+    });
+  }
+}
+
+customElements.define("no-proxy", NoProxy, { extends: "a" });
+
+class ConfirmLink extends HTMLAnchorElement {
+  connectedCallback() {
+    this.addEventListener("click", e => {
+      const result = confirm(`Are you sure you want to go to '${this.href}'?`);
+      if (!result) e.preventDefault();
+    });
+  }
+}
+
+customElements.define("confirm-link", ConfirmLink, { extends: "a" });
+
+</script>
+
+<!-- begin _includes/seo.html --><title>Day 9: More Sorting and More Divide and Conquer - Data Structures Fall 2025 @ Olin College</title>
+<meta name="description" content="Website">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
+<meta property="og:title" content="Day 9: More Sorting and More Divide and Conquer">
+<meta property="og:url" content="/in_class/day09.html">
+
+
+  <meta property="og:description" content="Website">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="/in_class/day09.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Structures Fall 2025 @ Olin College Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+<script>
+    // https://github.com/KaTeX/KaTeX/blob/main/docs/autorender.md
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+                delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: "\begin{equation}", right: "\end{equation}", display: true},
+                {left: "\begin{align}", right: "\end{align}", display: true},
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+function HideShowElement(divID) {
+    const x = document.getElementById(divID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="https://qeacourse.github.io/RoboNinjaWarrior/website_graphics/olinlogo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Data Structures Fall 2025 @ Olin College
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Day 9: More Sorting and More Divide and Conquer">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Day 9: More Sorting and More Divide and Conquer
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                <ul class="toc__menu">
+  <li><a href="#master-theorem">Master Theorem</a></li>
+  <li><a href="#quick-sort">Quick Sort</a></li>
+  <li><a href="#radix-sort">Radix Sort</a></li>
+  <li><a href="#the-speed-limit-for-comparison-based-sorting">The Speed Limit for Comparison-Based Sorting</a></li>
+</ul>
+	      	
+            </nav>
+          </aside>
+        
+        <p>Last class we saw heap sort, merge sort, and selection sort, but there are quite a few more to learn about. Today we’ll learn a few more sorting algorithms, but we’ll also formally introduce the master theorem as a generalizable way to find $\Theta$ for divide and conquer algorithms.</p>
+
+<h2 id="master-theorem">Master Theorem</h2>
+
+<p>A generalizable recipe for analyzing recursive algorithms like this is the <a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">master theorem</a>.</p>
+
+<p>Let’s see if we can apply this to determining the complexity of merge sort from last class.  Before applying the master theorem, we need to make sure we are comfortable with the idea of a recurrence relation.  A recurrence relation relates the runtime of an algorithm on input of size $n$ (denoted as $T(n)$) to the runtime of the algorithm on smaller problem sizes (less than $n$).  For example, in the case of merge sort we can write the following recurrence relation.</p>
+
+<blockquote class="notice--warning">
+  <p>$T(n) = 2 T(\frac{n}{2}) + n$</p>
+</blockquote>
+
+<p>Let’s make sure we understand this exactly.  The term on the left is the runtime of sorting $n$ items with merge sort.  The runtime is based on two parts.  The first part is the recursive piece, which consists of merge sorting two lists of size $\frac{n}{2}$.  The second part is the work needed to reassemble the sorted lists back into an overall sorted list (the merge step), which takes time $n$.</p>
+
+<p>The master theorem provides a recipe for us to solve this recurrence relation (meaning determine a function $T(n)$ that satisfies the equation).  The master theorem solves recurrence relations of the following form.</p>
+
+<blockquote class="notice--warning">
+  <p>$T(n) = a T(\frac{n}{b}) + f(n)$</p>
+</blockquote>
+
+<p>You should see that in our case (of merge sort), $a=2$, $b=2$, and $f(n) = n$.
+In order to apply the master theorem, we compute a value called $c_{crit} = \log_{b}{a}$.  Plugging in $a=2$ and $b=2$, we get $c_{crit} = \log_2{2} = 1$.</p>
+
+<p>Now, we have to determine which of the three cases of the master theorem apply.  Let’s make sure we remember what our old friend $O$, $\Omega$, and $O$ mean.  I’ll state these definitions somewhat loosely, trusting you to go back to the original definitions for the exact meanings.</p>
+<ul>
+  <li>$f(n) = O(g(n))$ means that $g(n)$ bounds $f(n)$ from above for large $n$.</li>
+  <li>$f(n) = \Omega(g(n))$ means that $g(n)$ bounds $f(n)$ from below for large $n$.</li>
+  <li>$f(n) = \Theta(g(n))$ means that $g(n)$ bounds $f(n)$ from both above and below (meaning $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$).</li>
+</ul>
+
+<p>Okay, so here are the three cases of the master theorem.  I’ll list the condition, state if merge sort meets it, and if it does, show the runtime.</p>
+
+<p>Case 1: $n = O(n^c)$ for some $c &lt; 1$.  <strong>Nope can’t be true.  If $c$ is less than 1 it grows more slowly than $n$ and cannot be bound it from above.</strong></p>
+
+<p>Case 2: $n = \Theta(n (\log n)^k)$ for some $k \geq 0$.  <strong>Yes!  If we set $k=0$ then the $\log$ drops out and we are left with $n = \Theta(n)$, which is true.</strong></p>
+
+<p>Case 3: $n = \Omega(n^c)$ for some $c &gt; 1$.  <strong>Nope.  If we set $c$ bigger than 1 it will grow faster than $n$ and won’t bound $n$ from below.</strong></p>
+
+<p>Okay, so case 2 is the winner.  The runtime as dictated by case 2 is $T(n) = \Theta(n^{c_{crit}} (\log n)^{k+1}) = \Theta(n \log n)$ (since $c_{crit} = 1$ and $k = 0$).</p>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 1:</strong> Reanalyze binary search using the master theorem.  Hint: first find a recurrence relation, and then try to find the case that matches.</p>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 2:</strong> Choose a few problems from the homework and do them together.</p>
+</blockquote>
+
+<h2 id="quick-sort">Quick Sort</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a> is one of the most commonly used sorting algorithms.</p>
+
+<p>There are quite a few ways to implement Quick Sort, but the general idea is the following:</p>
+<ul>
+  <li>For an unsorted list, choose an element of the list as your pivot value, $p$.</li>
+  <li>Iterate through the elements of your list ($x_1, x_2, \ldots, x_n$), swapping as needed, until the pivot element is located at index $i$ and $x_j &lt; x_i$ if $j &lt; i$ and $a_j \geq a_i$ if $j \geq i$.</li>
+  <li>Sort range of elements that are before the pivot in the list and those after the pivot recursively.</li>
+</ul>
+
+<p>Let’s look at the <a href="https://visualgo.net/en/sorting">algorithm visualization</a> (you can choose quick or <code class="language-plaintext highlighter-rouge">quick sort</code> or <code class="language-plaintext highlighter-rouge">random quick sort</code>).</p>
+
+<p>Analyzing the runtime of this algorithm is a bit tricky.  Let’s consider a specific case of always choosing the first element as the pivot.  Let’s see what happens with quick sort with this pivot selection rule.</p>
+
+<h2 id="radix-sort">Radix Sort</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Radix_sort">Radix sort</a> (also called bucket sort) is an interesting algorithm where we don’t perform an explicit comparisons between elements in our list.  We instead sort, e.g. if we are sorting integers, based on comparing the ones digits, then the tens digit, etc.  Let’s check out <a href="https://visualgo.net/en/sorting">the visualization of Radix sort</a> at our favorite website!</p>
+
+<h2 id="the-speed-limit-for-comparison-based-sorting">The Speed Limit for Comparison-Based Sorting</h2>
+
+<p>(my apologies, this might be hard to understand without having taken discrete math, but we’ll try).</p>
+
+<p>There’s a theorem that states that any algorithm for sorting that works by comparing elements of the list to each other has running time of $\Omega(n \log n)$ (that is the running time can be bounded below by $n \log n$).</p>
+
+<p>To understand this we can think of the problem of sorting as determining which of the $n!$ possible permutations of a list is the right one to obtain the list in sorted order.</p>
+
+<p>We can then think of creating a tree where at each level of the tree we perform a comparison to try to eliminate some of the $n!$ possible permutations.</p>
+
+<p>Let’s say each of our comparison perfectly divides the number of possible permutations that go each direction in our tree in half.  This is what the picture would look like.</p>
+
+<div class="mermaid">
+graph TD
+  r[n!] --&gt; b[n!/2]
+  r --&gt; c[n!/2]
+  b --&gt; e[n!/4]
+  b --&gt; f[n!/4]
+  c --&gt; g[n!/4]
+  c --&gt; h[n!/4]
+</div>
+
+<p>We’ll go over the details as a class, but we will have to use one equation that we won’t prove: $\log n! = \Omega(n \log n)$.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Data Structures Fall 2025 @ Olin College.</div>
+
+      </footer>
+    </div>
+
+    <script src="/assets/js/copyCode.js"></script>
+
+
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
