@@ -34,6 +34,10 @@ Do some research to determine what new problems exist in terms of sorting.  In y
 
 Do [this worksheet](https://courses.csail.mit.edu/6.046/spring02/handouts/master.pdf) from MIT 6.046 by applying the master theorem.  There [are solutions available](https://courses.csail.mit.edu/6.046/spring02/handouts/mastersol.pdf) here.
 
+> Please ignore the part on the worksheet where it says you can go through the whole worksheet in 10 minutes!! Not the case!
+{: .notice--danger}
+
+
 ## Turning in your work
 
 Submit a link to a repository that has your code and writeup.  Make sure to add me ``paulruvolo`` as a collaborator if the repo is private.
