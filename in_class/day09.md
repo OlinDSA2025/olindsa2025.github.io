@@ -116,10 +116,12 @@ The basic idea is to think about the problem of sorting a list of $n$ items a bi
 
 Suppose we have a list $x = [3, 9, 2, 10]$.  We can think of a function that sorts the list as specifying a mapping from the original indices ($0, 1, 2, 3$) to their positions in the sorted list.  A function $f$ that achieves this could be defined as follows.
 
-> * $f(0) = 1$ (since 3 would appear at index 1 in the sorted list)
-> * $f(1) = 2$ (since 9 would appear at index 2 in the sorted list)
-> * $f(2) = 0$ (since 2 would appear at index 0 in the sorted list)
-> * $f(3) = 3$ (since 10 would appear at inex 3 in the sorted list)
+$$\begin{align*}
+f(0) &= 1,~\text{since 3 would appear at index 1 in the sorted list} \\
+f(1) &= 2,~\text{since 9 would appear at index 2 in the sorted list} \\
+f(2) &= 0,~\text{since 2 would appear at index 0 in the sorted list} \\
+f(3) &= 3,~\text{since 10 would appear at index 3 in the sorted list}
+\end{align*}$$
 
 With this new definition of sorting in mind, let's think about how many possible function $f$ there are as a function of $n$.  To determine this, we can imagine that for $f(0)$ there are $n$ possible choices, for $f(1)$ there are $n-1$ possible choices (since we can't repeat what we chose for $f(0)$), for $f(2)$ there are $n-2$ possible etc.  Overall, we have that the number of choices is $n (n-1)(n-2)\ldots 1 = n!$.  If you took Discrete, you might recognize this as the number of ways to permute $n$ items (which should line up intuitively with what we are doing here).
 
