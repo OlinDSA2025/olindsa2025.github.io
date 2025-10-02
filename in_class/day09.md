@@ -3,11 +3,18 @@ title: "Day 9: More Sorting and More Divide and Conquer"
 toc_sticky: true
 published: true
 ---
-Last class we saw heap sort, merge sort, and selection sort, but there are quite a few more to learn about. Today we'll learn a few more sorting algorithms, but we'll also formally introduce the master theorem as a generalizable way to find $\Theta$ for divide and conquer algorithms.
+
+## Oral Quizzes
+
+Our first oral quiz will be assigned next Thursday (the 9th) and due the Thursday after that.  This is not at all required, but I will open up some practice spots for people if they want to get a flavor for what the oral quizzes will be like.  Look for those to be posted tomorrow and be scheduled for early next week.
+
+## Class Overview
+
+Last class we saw heap sort, merge sort, and selection sort, but there are many more to learn about. Today we'll learn a few more sorting algorithms, but we'll also formally introduce the master theorem as a generalizable way to find $\Theta$ for divide and conquer algorithms.  There's an optional section at the end on the speed limit of sorting (if you are interested).  That content is not part of the assignments or oral quizzes.
 
 ## Master Theorem
 
-A generalizable recipe for analyzing recursive algorithms like this is the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).
+A generalizable recipe for analyzing divide and conquer algorithms is the [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)).  Remember, by divide and conquer all we mean is that we divide the problem into smaller subproblems, solve the subproblems recursively, and use the solutions to the subproblems to determine the solution to the original problem.
 
 Let's see if we can apply this to determining the complexity of merge sort from last class.  Before applying the master theorem, we need to make sure we are comfortable with the idea of a recurrence relation.  A recurrence relation relates the runtime of an algorithm on input of size $n$ (denoted as $T(n)$) to the runtime of the algorithm on smaller problem sizes (less than $n$).  For example, in the case of merge sort we can write the following recurrence relation.
 
@@ -21,29 +28,62 @@ The master theorem provides a recipe for us to solve this recurrence relation (m
 > $T(n) = a T(\frac{n}{b}) + f(n)$
 {: .notice--warning}
 
-You should see that in our case (of merge sort), $a=2$, $b=2$, and $f(n) = n$.
+You should see that for merge sort, $a=2$, $b=2$, and $f(n) = n$.
 In order to apply the master theorem, we compute a value called $c_{crit} = \log_{b}{a}$.  Plugging in $a=2$ and $b=2$, we get $c_{crit} = \log_2{2} = 1$.
 
-Now, we have to determine which of the three cases of the master theorem apply.  Let's make sure we remember what our old friend $O$, $\Omega$, and $O$ mean.  I'll state these definitions somewhat loosely, trusting you to go back to the original definitions for the exact meanings.
-* $f(n) = O(g(n))$ means that $g(n)$ bounds $f(n)$ from above for large $n$.
-* $f(n) = \Omega(g(n))$ means that $g(n)$ bounds $f(n)$ from below for large $n$.
-* $f(n) = \Theta(g(n))$ means that $g(n)$ bounds $f(n)$ from both above and below (meaning $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$).
+Now, we have to determine which of the three cases of the master theorem applies. Before doing so, let's remember our order of growth.
 
-Okay, so here are the three cases of the master theorem.  I'll list the condition, state if merge sort meets it, and if it does, show the runtime.
+> **Refresher: $O, \Omega, \Theta$**
+> 
+> Let's make sure we remember what our old friend $O$, $\Omega$, and $O$ mean.  I'll state these definitions somewhat loosely, trusting you to go back to the original definitions for the exact meanings.
+> * $f(n) = O(g(n))$ means that $g(n)$ bounds $f(n)$ from above for large $n$.
+> * $f(n) = \Omega(g(n))$ means that $g(n)$ bounds $f(n)$ from below for large $n$.
+> * $f(n) = \Theta(g(n))$ means that $g(n)$ bounds $f(n)$ from both above and below (meaning $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$).
+{: .notice--warning}
 
-Case 1: $n = O(n^c)$ for some $c < 1$.  **Nope can't be true.  If $c$ is less than 1 it grows more slowly than $n$ and cannot be bound it from above.**
+Okay, so here are the three cases of the master theorem.  I'll list the condition, state if merge sort meets it, and if it does, show the runtime.  To apply this to other problems, you will need to look back at the more general versions of these cases.
 
-Case 2: $n = \Theta(n (\log n)^k)$ for some $k \geq 0$.  **Yes!  If we set $k=0$ then the $\log$ drops out and we are left with $n = \Theta(n)$, which is true.**
+Case 1: $n = O(n^c)$ for some $c < 1$.  **Nope can't be true.  If $c$ is less than 1, it grows more slowly than $n$ and cannot be bound it from above.**
 
-Case 3: $n = \Omega(n^c)$ for some $c > 1$.  **Nope.  If we set $c$ bigger than 1 it will grow faster than $n$ and won't bound $n$ from below.**
+Case 2: $n = \Theta(n (\log n)^k)$ for some $k \geq 0$.  **Yes!  If we set $k=0$, then the $\log$ drops out, and we are left with $n = \Theta(n)$, which is true.**
+
+Case 3: $n = \Omega(n^c)$ for some $c > 1$.  **Nope.  If we set $c$ bigger than 1, it will grow faster than $n$ and won't bound $n$ from below.**
 
 Okay, so case 2 is the winner.  The runtime as dictated by case 2 is $T(n) = \Theta(n^{c_{crit}} (\log n)^{k+1}) = \Theta(n \log n)$ (since $c_{crit} = 1$ and $k = 0$).
 
 > **Exercise 1:** Reanalyze binary search using the master theorem.  Hint: first find a recurrence relation, and then try to find the case that matches.
 {: .notice--success}
 
+At first the formulas for the master theorem might seem a bit strange, but one quantity that comes up $n^{c_{crit}}$ is related to the number of nodes in the recursive tree when you apply a divide and conquer strategy.  For example, if we had $a = 4$ and $b=2$, the following tree would have approximately $n^2$ nodes.
 
-> **Exercise 2:** Choose a few problems from the homework and do them together.
+<div class="mermaid">
+graph TD
+  r[n] --> b[n/2]
+  r --> c[n/2]
+  r --> d[n/2]
+  r --> f[n/2]
+  b --> g[n/4]
+  b --> h[n/4]
+  b --> i[n/4]
+  b --> j[n/4]
+  c --> k[n/4]
+  c --> l[n/4]
+  c --> m[n/4]
+  c --> n[n/4]
+  d --> o[n/4]
+  d --> p[n/4]
+  d --> q[n/4]
+  d --> s[n/4]
+  f --> t[n/4]
+  f --> u[n/4]
+  f --> v[n/4]
+  f --> w[n/4]
+</div>
+
+> **Exercise 2:** Choose a few problems from the homework and do them together.  If you want to hit each case at least once, try these three.
+> * Problem 1-5
+> * Problem 1-21
+> * Problem 1-23
 {: .notice--success}
 
 ## Quick Sort
@@ -61,7 +101,9 @@ Analyzing the runtime of this algorithm is a bit tricky.  Let's consider a speci
 
 ## Radix Sort
 
-[Radix sort](https://en.wikipedia.org/wiki/Radix_sort) (also called bucket sort) is an interesting algorithm where we don't perform an explicit comparisons between elements in our list.  We instead sort, e.g. if we are sorting integers, based on comparing the ones digits, then the tens digit, etc.  Let's check out [the visualization of Radix sort](https://visualgo.net/en/sorting) at our favorite website!
+[Radix sort](https://en.wikipedia.org/wiki/Radix_sort) (also called bucket sort) is an interesting algorithm where we don't perform an explicit comparisons between elements in our list.  We instead sort, e.g. if we are sorting integers, based on comparing the ones digits, then the tens digit, etc.  Let's check out [the visualization of Radix sort](https://visualgo.net/en/sorting) at our favorite website!  Choose Rad, and then click the sort button.
+
+The complexity of radix sort is $\Theta(nk)$ where $k$ is the number of digits (or chunks) that each element can be broken into (e.g., if our list had numbers with 4 or fewer digits, $k$ would be $4$).
 
 ## The Speed Limit for Comparison-Based Sorting
 

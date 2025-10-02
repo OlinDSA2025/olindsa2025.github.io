@@ -32,7 +32,7 @@ Do some research to determine what new problems exist in terms of sorting.  In y
 
 ## Practice with the master theorem
 
-Do [this worksheet](https://courses.csail.mit.edu/6.046/spring02/handouts/master.pdf) from MIT 6.046 by applying the master theorem.  There [are solutions available](https://courses.csail.mit.edu/6.046/spring02/handouts/mastersol.pdf) here.
+Do [this worksheet](https://courses.csail.mit.edu/6.046/spring02/handouts/master.pdf) from MIT 6.046 by applying the master theorem.  There [are solutions available](https://courses.csail.mit.edu/6.046/spring02/handouts/mastersol.pdf) here.  Note that the master theorem doesn't apply to all of these problems, so if it doesn't fit the patterns, you can just say it doesn't apply (no need to try to work out the solution).
 
 > Please ignore the part on the worksheet where it says you can go through the whole worksheet in 10 minutes!! Not the case!
 {: .notice--danger}
