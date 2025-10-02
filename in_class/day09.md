@@ -139,11 +139,11 @@ graph TD
   c --> h[n!/4]
 </div>
 
-If we were to extend this tree, eventually we would reach leaf nodes where there are exactly $1$ permutation remaining (this would allow us to sort our list).  What, then, is the runtime of this sorting algorithm?  Well, it has to be the number of comparison, which is given by the height of the tree.  The number height of the tree would be $\log_2(n!)$ (since each level reduces the number of consistent permutations by a factor of $2$).  This shows that the fastest sorting algorithm based on comparisons has to perform at least $\log_2(n!)$ operations in the worst case.  We could stop here, but we'd like to derive our original result that states that all algorithms is $\Omega(n \log n)$.
+If we were to extend this tree, eventually we would reach leaf nodes where there are exactly $1$ permutation remaining (this would allow us to sort our list).  What is the runtime of this sorting algorithm?  Well, it has to be the number of comparisons, which is given by the height of the tree.  The height of the tree would be $\log_2(n!)$ (since each level reduces the number of consistent permutations by a factor of $2$).  This shows that the fastest sorting algorithm based on comparisons has to perform at least $\log_2(n!)$ operations in the worst case.  We could stop here, but we'd like to derive our desired result that states that all sorting algorithms are $\Omega(n \log n)$.
 
-We'd like to show that $\log_2(n!) = \Omega (n \log n)$.  To do this we need to find a value $n_0$ and a constant $c$ such that $\log_2(n!) > c n \log_2 n$ for $n \geq n_0$.  Note: I'm using $\log_2$ here to make it clearer in the proof coming up, but the base of the log doesn't matter since it's just a constant factor (that doesn't affect $\Omega$).
+To accomplish our goal, we now show that $\log_2(n!) = \Omega (n \log n)$.  To do this we need to find a value $n_0$ and a constant $c$ such that $\log_2(n!) > c n \log_2 n$ for $n \geq n_0$.  Note: I'm using $\log_2$ here to make it clearer in the proof coming up, but the base of the log doesn't matter since it's just a constant factor (that doesn't affect $\Omega$).
 
-The first fact we use is that $n! > \left(\frac{n}{2}\right)^\frac{n}{2}$.  This is because the first $n$ terms of $n!$ are all bigger than $\frac{n}{2}$.
+The first fact we use is that $n! > \left(\frac{n}{2}\right)^\frac{n}{2}$.  This is because the first $\frac{n}{2}$ terms of $n!$ are all bigger than $\frac{n}{2}$.
 
 $$\begin{align*}
 \log_2(n!) &> \log_2\left (\frac{n}{2} \right)^\frac{n}{2}\\
