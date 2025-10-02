@@ -352,15 +352,30 @@ In order to apply the master theorem, we compute a value called $c_{crit} = \log
 
 <h2 id="the-speed-limit-for-comparison-based-sorting">The Speed Limit for Comparison-Based Sorting</h2>
 
-<p>(my apologies, this might be hard to understand without having taken discrete math, but we’ll try).</p>
+<blockquote class="notice--warning">
+  <p>This is an optional writeup for those that are interested in going through the details.  To understand this, you need to know some basic facts from discrete math.  I’ll highlight those in the writeup.  I will not be going over the details in class.</p>
+</blockquote>
 
-<p>There’s a theorem that states that any algorithm for sorting that works by comparing elements of the list to each other has running time of $\Omega(n \log n)$ (that is the running time can be bounded below by $n \log n$).</p>
+<p>There’s a theorem that states that any algorithm for sorting that works by comparing elements of the list to each other has running time of $\Omega(n \log n)$ (that is the running time can be bounded below by $n \log n$).  We can think of this as a speed limit for any sorting algorithm that relies on comparisons.</p>
 
-<p>To understand this we can think of the problem of sorting as determining which of the $n!$ possible permutations of a list is the right one to obtain the list in sorted order.</p>
+<p>The basic idea is to think about the problem of sorting a list of $n$ items a bit differently.  Instead of thinking of reordering the items such that the list is sorted, let’s think about sorting as the problem as determining a function that maps indices from the unsorted list to where they should go in the sorted list.  Here’s an example.</p>
 
-<p>We can then think of creating a tree where at each level of the tree we perform a comparison to try to eliminate some of the $n!$ possible permutations.</p>
+<p>Suppose we have a list $x = [3, 9, 2, 10]$.  We can think of a function that sorts the list as specifying a mapping from the original indices ($0, 1, 2, 3$) to their positions in the sorted list.  A function $f$ that achieves this could be defined as follows.</p>
 
-<p>Let’s say each of our comparison perfectly divides the number of possible permutations that go each direction in our tree in half.  This is what the picture would look like.</p>
+<blockquote>
+  <ul>
+    <li>$f(0) = 1$ (since 3 would appear at index 1 in the sorted list)</li>
+    <li>$f(1) = 2$ (since 9 would appear at index 2 in the sorted list)</li>
+    <li>$f(2) = 0$ (since 2 would appear at index 0 in the sorted list)</li>
+    <li>$f(3) = 3$ (since 10 would appear at inex 3 in the sorted list)</li>
+  </ul>
+</blockquote>
+
+<p>With this new definition of sorting in mind, let’s think about how many possible function $f$ there are as a function of $n$.  To determine this, we can imagine that for $f(0)$ there are $n$ possible choices, for $f(1)$ there are $n-1$ possible choices (since we can’t repeat what we chose for $f(0)$), for $f(2)$ there are $n-2$ possible etc.  Overall, we have that the number of choices is $n (n-1)(n-2)\ldots 1 = n!$.  If you took Discrete, you might recognize this as the number of ways to permute $n$ items (which should line up intuitively with what we are doing here).</p>
+
+<p>Now let’s think about what happens when we perform some comparison $x_i &lt; x_j$ for the purposes of determining which of the $n!$ permutations will sort our list.  Some proportion will return true to this comparison the others will return false.  By this logic, if you think of the worst case scenario (which is what we consider when thinking about runtime complexity), at best we are left with half as many possible permutations that we are still considering (as compared to before the comparison).</p>
+
+<p>Let’s say each of our sorting algorithm  perfectly divides the number of possible permutations that are consistent with each comparison it performs. We can represent this scenario as a tree where at each level of the tree we perform a comparison to try to eliminate some of the $n!$ possible permutations.  The number written on the node in the tree represents the number of permutations that are still under consideration after performing a particular comparison.</p>
 
 <div class="mermaid">
 graph TD
@@ -372,8 +387,19 @@ graph TD
   c --&gt; h[n!/4]
 </div>
 
-<p>We’ll go over the details as a class, but we will have to use one equation that we won’t prove: $\log n! = \Omega(n \log n)$.</p>
+<p>If we were to extend this tree, eventually we would reach leaf nodes where there are exactly $1$ permutation remaining (this would allow us to sort our list).  What, then, is the runtime of this sorting algorithm?  Well, it has to be the number of comparison, which is given by the height of the tree.  The number height of the tree would be $\log_2(n!)$ (since each level reduces the number of consistent permutations by a factor of $2$).  This shows that the fastest sorting algorithm based on comparisons has to perform at least $\log_2(n!)$ operations in the worst case.  We could stop here, but we’d like to derive our original result that states that all algorithms is $\Omega(n \log n)$.</p>
 
+<p>We’d like to show that $\log_2(n!) = \Omega (n \log n)$.  To do this we need to find a value $n_0$ and a constant $c$ such that $\log_2(n!) &gt; c n \log_2 n$ for $n \geq n_0$.  Note: I’m using $\log_2$ here to make it clearer in the proof coming up, but the base of the log doesn’t matter since it’s just a constant factor (that doesn’t affect $\Omega$).</p>
+
+<p>The first fact we use is that $n! &gt; \left(\frac{n}{2}\right)^\frac{n}{2}$.  This is because the first $n$ terms of $n!$ are all bigger than $\frac{n}{2}$.</p>
+
+\[\begin{align*}
+\log_2(n!) &amp;&gt; \log_2\left (\frac{n}{2} \right)^\frac{n}{2}\\
+&amp;= \frac{n}{2} (\log_2(n) - 1) \\
+&amp;\geq c n \log_2(n), \text{for }n\geq 4
+\end{align*}\]
+
+<p>That’s it!  We’ve shown that $\log_2(n!) = \Omega(n \log_2 n)$, and we have proven our speed limit.</p>
 
         
       </section>
