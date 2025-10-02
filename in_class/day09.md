@@ -104,7 +104,7 @@ The first fact we use is that $n! > \left(\frac{n}{2}\right)^\frac{n}{2}$.  This
 $$\begin{align*}
 \log_2(n!) &> \log_2\left (\frac{n}{2} \right)^\frac{n}{2}\\
 &= \frac{n}{2} (\log_2(n) - 1) \\
-&\geq c n \log_2(n), \text{for }n\geq 4
+&\geq c n \log_2(n), \text{for }n\geq 4, \text{and }c=\frac{1}{4}
 \end{align*}$$
 
 That's it!  We've shown that $\log_2(n!) = \Omega(n \log_2 n)$, and we have proven our speed limit.
