@@ -1,8 +1,12 @@
 ---
-title: Assignment 5
+title: "Assignment 5: Divide and Conquer and Dynamic Programming"
 toc_sticky: true
-published: false
+published: true
+due_on_class: 12
 ---
+
+> Warning: Subject to change
+{: .notice--danger}
 
 ## Overview
 
@@ -11,6 +15,11 @@ This assignment is about solving problems using recursion.  The assignment will 
 ## Part 1: Creating a matrix class
 
 Create a class called Kotlin class capable of storing square matrices.  I won't be overly prescriptive about how you write your class, but you should support basic operations like creating a matrix of size $n$, setting / getting values at specified row and column indices.  Don't worry about matrix multiplication yet, that's coming!
+
+> **Pro tip:**
+> 
+> You can make your matrix class especially nice by overloading operators (e.g., `+`, `*`). This will let you do things like ``A * B`` (assuming you have two ``Matrix`` objects ``A`` and ``B``).  If you don't use overloading, you might write ``A.multiply(B)``.  For more information, check out [the Kotlin documentation on operator overloading](https://kotlinlang.org/docs/operator-overloading.html).
+{: .notice--success}
 
 ## Part 2: Strassen's Algorithm for Matrix Multiplication
 
@@ -43,7 +52,13 @@ class Matrix {
 }
 ```
 
-Write some unit tests to show your code is correct.  At what size matrix does Strassen's algorithm become faster than the traditional method?
+> Warning: there are some writeups Strassen online that have errors in them.  We found at least two different sets of class notes that had errors.  If you go from the Wikipedia definition, then you should be good. 
+{: .notice--danger}
+
+Write some unit tests to show your code is correct.
+
+* Time Strassen and regular matrix multiplication on various size problems.
+* Try routing to conventional matrix multiply when the size drops below some threshold.  What appears to be the optimal threshold?
 
 ## Part 3: Dynamic Programming for Aligning Protein Sequences
 
@@ -57,14 +72,13 @@ Your code should find both the best alignment and use backtracing to display the
 
 > Note: I'm going to be looking for some sample data (real protein sequences) to use with this.  Stay tuned (or if you find some, please let me know).
 
-
 Here is an alignment between part of a Salmonella genome and another part of the same genome (see course announcement for details)
 
 ![A sequence alignment](../images/alignmentsample.jpg)
 
 ## Turning in your work
 
-Submit a link to a repository that has your code and writeup.  Make sure to add ``berwinlan``, ``aditivinod``, and ``paulruvolo`` as collaborators if the repo is private.
+Submit a link to a repository that has your code and writeup.  Make sure to add ``paulruvolo`` as a collaborator if the repo is private.
 
 ## Assessment
 

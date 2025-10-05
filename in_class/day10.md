@@ -4,10 +4,6 @@ toc_sticky: true
 published: false
 ---
 
-## Course Feedback Activity Coming Next Time
-
-It's about that time when it would be really useful for us to do a feedback activity.  I'm not quite ready to run it today, and I want to prioritize helping you get going on the homework.  We'll do the feedback activity next class.  If you have some spare brain cycles, think a bit about the positives, negatives, and ideas for improvement with respect to the class.
-
 ## Divide and Conquer and Intro to Dynamic Programming
 
 Today is going to primarily be about getting practice with divide and conquer algorithms.  We'll also throw in a recursive algorithm that doesn't quite fit the mold of divide and conquer.
