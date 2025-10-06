@@ -92,6 +92,11 @@ Here is an alignment between part of a Salmonella genome and another part of the
 
 I got this alignment by using a tool call [Nucleotide blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) on ``genomeSnippet`` and selecting optimize for somewhat similar sequences.  The two parts of the alignment correspond to proteins that help the Salmonella cell infect the cells of the body.  One protein helps with the initial entry into the cell whereas the other protein helps with manipulating the functions of the cell the bacteria has entered the cell.
 
+> What to turn in for this part:
+> * Your implementation of one of the two algorithms for sequence alignment.  Functions should be unit tested and commented.
+> * The result of running your code on the provided DNA sequences.  This should consist of the best matching sequence to the query.
+{: .notice--warning}
+
 ## Turning in your work
 
 Submit a link to a repository that has your code and writeup.  Make sure to add ``paulruvolo`` as a collaborator if the repo is private.  See the **what to turn in for this part** sections above for guidance on completing each part.
