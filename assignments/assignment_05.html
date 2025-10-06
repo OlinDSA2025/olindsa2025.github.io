@@ -285,22 +285,23 @@ function HideShowElement(divID) {
             </nav>
           </aside>
         
-        <blockquote class="notice--danger">
-  <p>Warning: Subject to change</p>
-</blockquote>
+        <h2 id="overview">Overview</h2>
 
-<h2 id="overview">Overview</h2>
-
-<p>This assignment is about solving problems using recursion.  The assignment will be a mixture of divide and conquer and dynamic programming.</p>
+<p>This assignment is about solving problems using by breaking the problem down into smaller problems and then reassembling the solutions to the smaller problems into the solution to the original problem.  We will use a combination of divide and conquer algorithms and dynamic programming to solve these problems.</p>
 
 <h2 id="part-1-creating-a-matrix-class">Part 1: Creating a matrix class</h2>
 
-<p>Create a class called Kotlin class capable of storing square matrices.  I won’t be overly prescriptive about how you write your class, but you should support basic operations like creating a matrix of size $n$, setting / getting values at specified row and column indices.  Don’t worry about matrix multiplication yet, that’s coming!</p>
+<p>For the first part of the assignment, we will be learning about a divide-and-conquer algorithm for matrix multiplication called <a href="https://en.wikipedia.org/wiki/Strassen_algorithm">Strassen’s Algorithm</a>.</p>
+
+<p>To get started, create Kotlin class capable of storing square matrices.  I won’t be overly prescriptive about how you write your class, but you should support basic operations like creating a matrix of size $n$, setting / getting values at specified row and column indices, dividing the matrix into four $n/2 \times n/2$ matrices (this is needed for Strassen).  Don’t worry about matrix multiplication yet, that’s coming!</p>
 
 <blockquote class="notice--success">
-  <p><strong>Pro tip:</strong></p>
+  <p><strong>Pro tips:</strong></p>
 
-  <p>You can make your matrix class especially nice by overloading operators (e.g., <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">*</code>). This will let you do things like <code class="language-plaintext highlighter-rouge">A * B</code> (assuming you have two <code class="language-plaintext highlighter-rouge">Matrix</code> objects <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code>).  If you don’t use overloading, you might write <code class="language-plaintext highlighter-rouge">A.multiply(B)</code>.  For more information, check out <a href="https://kotlinlang.org/docs/operator-overloading.html">the Kotlin documentation on operator overloading</a>.</p>
+  <ul>
+    <li>You can make your matrix class especially nice by overloading operators (e.g., <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">*</code>). This will let you do things like <code class="language-plaintext highlighter-rouge">A * B</code> (assuming you have two <code class="language-plaintext highlighter-rouge">Matrix</code> objects <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code>).  If you don’t use overloading, you might write <code class="language-plaintext highlighter-rouge">A.multiply(B)</code>.  For more information, check out <a href="https://kotlinlang.org/docs/operator-overloading.html">the Kotlin documentation on operator overloading</a>.</li>
+    <li>To store the underlying data for your matrix, I have two recommendations.  First, you could store your data using an array of arrays structure (e.g., <code class="language-plaintext highlighter-rouge">val data: Array&lt;DoubleArray&gt; = Array(n) { DoubleArray(n) }</code>).  Second, you could store your data as a linear array (e.g., <code class="language-plaintext highlighter-rouge">DoubleArray(n*n)</code>) where the first row is laid out as the first <code class="language-plaintext highlighter-rouge">n</code> elements of the array, the next row is the following <code class="language-plaintext highlighter-rouge">n</code> elements of the array, etc.  This type of storage is called <em>row major</em> ordering.</li>
+  </ul>
 </blockquote>
 
 <h2 id="part-2-strassens-algorithm-for-matrix-multiplication">Part 2: Strassen’s Algorithm for Matrix Multiplication</h2>
@@ -341,30 +342,49 @@ function HideShowElement(divID) {
 
 <ul>
   <li>Time Strassen and regular matrix multiplication on various size problems.</li>
-  <li>Try routing to conventional matrix multiply when the size drops below some threshold.  What appears to be the optimal threshold?</li>
+  <li>You may find the Strassen does not reliably outperform conventional matrix multiplication.  A hybrid approach may work better where you use conventional matrix multiplication for smaller matrices and Strassen for larger matrices.  What appears to be the optimal size matrix where you should switch between Strassen and conventional multiplication?</li>
 </ul>
+
+<blockquote class="notice--warning">
+  <p>What to turn in for this part:</p>
+  <ul>
+    <li>Your Matrix class with all operations implemented, unit tested, and documented.</li>
+    <li>Benchmarks (meaning the runtime) of the two algorithms (as described above).</li>
+    <li>Your analysis of the performance of a hybrid algorithm that uses Strassen for large matrices and switches to conventional matrix multiplication for smaller matrices.</li>
+  </ul>
+</blockquote>
 
 <h2 id="part-3-dynamic-programming-for-aligning-protein-sequences">Part 3: Dynamic Programming for Aligning Protein Sequences</h2>
 
 <p>Watch the following video <a href="https://www.youtube.com/watch?v=dYuktSSPfYQ">on the sequence alignment problem</a>.  Hopefully, it will give some good motivation behind what the problem is and why it’s important.</p>
 
-<p>Implement either the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch Algorithm</a> or the <a href="https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm">Smith-Waterman Algorithm</a> for sequence alignment.</p>
+<p>Implement either the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch Algorithm</a> or the <a href="https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm">Smith-Waterman Algorithm</a> for sequence alignment.  Needleman-Wunsch is used for aligning two DNA sequences globally (an alignment between the entirety of each sequence is returned).  Smith-Waterman finds a local sequence alignment (it finds a part from each of the sequences that align well to each other).</p>
 
-<p>You may find <a href="https://rna.informatik.uni-freiburg.de/Teaching/index.jsp?toolName=Needleman-Wunsch">this resource</a> useful for testing your code and understanding the algorithms.</p>
+<p>You may find <a href="https://rna.informatik.uni-freiburg.de/Teaching/index.jsp?toolName=Needleman-Wunsch">this resource</a> useful for testing your code and understanding the algorithms.  The Wikipedia pages are also a nice source for unit tests.</p>
 
-<p>Your code should find both the best alignment and use backtracing to display the alignment itself.</p>
+<p>Your code should find both the best alignment and use backtracing to display the alignment itself.  You should use dynamic programming when implementing your algorithm.</p>
 
-<blockquote>
-  <p>Note: I’m going to be looking for some sample data (real protein sequences) to use with this.  Stay tuned (or if you find some, please let me know).</p>
-</blockquote>
+<p>Run your code on <a href="https://github.com/OlinDSA2024/DivideAndConquerSample/blob/main/src/main/kotlin/Genome.kt">the DNA sequence in this Kotlin file</a>.  This file has three variables.</p>
 
-<p>Here is an alignment between part of a Salmonella genome and another part of the same genome (see course announcement for details)</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">targetGenome</code> is a snippet of a Salmonella genome.</li>
+  <li><code class="language-plaintext highlighter-rouge">genomeSnippet</code> is a long section of the Salmonella DNA (<code class="language-plaintext highlighter-rouge">targetGenome</code> is contained completely within this string).</li>
+  <li><code class="language-plaintext highlighter-rouge">testAgainst</code> is a different segment from the Salmonella genome (not exactly the same as <code class="language-plaintext highlighter-rouge">targetGenome</code>) that you can use for matching.</li>
+</ul>
+
+<p>If you are doing Smith-waterman you would match <code class="language-plaintext highlighter-rouge">genomeSnippet</code> and <code class="language-plaintext highlighter-rouge">testAgainst</code>.  If all goes well, you should find that <code class="language-plaintext highlighter-rouge">testAgainst</code> matches well to the portion of <code class="language-plaintext highlighter-rouge">genomeSnippet</code> that contains <code class="language-plaintext highlighter-rouge">targetGenome</code>.</p>
+
+<p>If you are doing Needleman-Wunch, you can match <code class="language-plaintext highlighter-rouge">targetGenome</code> against <code class="language-plaintext highlighter-rouge">testAgainst</code>.  You should find that your algorithm is able to closely align the two sequences.</p>
+
+<p>Here is an alignment between part of a Salmonella genome and another part of the same genome.</p>
 
 <p><img src="/images/alignmentsample.jpg" alt="A sequence alignment" /></p>
 
+<p>I got this alignment by using a tool call <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">Nucleotide blast</a> on <code class="language-plaintext highlighter-rouge">genomeSnippet</code> and selecting optimize for somewhat similar sequences.  The two parts of the alignment correspond to proteins that help the Salmonella cell infect the cells of the body.  One protein helps with the initial entry into the cell whereas the other protein helps with manipulating the functions of the cell the bacteria has entered the cell.</p>
+
 <h2 id="turning-in-your-work">Turning in your work</h2>
 
-<p>Submit a link to a repository that has your code and writeup.  Make sure to add <code class="language-plaintext highlighter-rouge">paulruvolo</code> as a collaborator if the repo is private.</p>
+<p>Submit a link to a repository that has your code and writeup.  Make sure to add <code class="language-plaintext highlighter-rouge">paulruvolo</code> as a collaborator if the repo is private.  See the <strong>what to turn in for this part</strong> sections above for guidance on completing each part.</p>
 
 <h2 id="assessment">Assessment</h2>
 
