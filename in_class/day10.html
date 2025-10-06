@@ -78,7 +78,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 </script>
 
-<!-- begin _includes/seo.html --><title>Data Structures and Algorithms Spring 2025 - Data Structures Fall 2025 @ Olin College</title>
+<!-- begin _includes/seo.html --><title>Day 10: Divide and Conquer and Intro to Dynamic Programming - Data Structures Fall 2025 @ Olin College</title>
 <meta name="description" content="Website">
 
 
@@ -86,8 +86,8 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
-<meta property="og:title" content="Data Structures and Algorithms Spring 2025">
-<meta property="og:url" content="/">
+<meta property="og:title" content="Day 10: Divide and Conquer and Intro to Dynamic Programming">
+<meta property="og:url" content="/in_class/day10.html">
 
 
   <meta property="og:description" content="Website">
@@ -103,7 +103,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
 
-<link rel="canonical" href="/">
+<link rel="canonical" href="/in_class/day10.html">
 
 
 
@@ -204,7 +204,7 @@ function HideShowElement(divID) {
 
   </head>
 
-  <body class="layout--splash">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -246,154 +246,143 @@ function HideShowElement(divID) {
 
     <div class="initial-content">
       
-  
-
-
-
-
-
-
-
-
-
-
-
-<div class="page__hero--overlay"
-  style="background-color: #000; "
->
-  
-    <div class="wrapper">
-      <h1 id="page-title" class="page__title" itemprop="headline">
-        
-          Data Structures and Algorithms Spring 2025
-
-        
-      </h1>
-      
-      
-      
-      
-    </div>
-  
-  
-</div>
 
 
 
 <div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Data Structures and Algorithms Spring 2025">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Day 10: Divide and Conquer and Intro to Dynamic Programming">
     
     
     
 
-    <section class="page__content" itemprop="text">
-      <div class="header-search">
-  <form class="header-search-form" action="/search" method="get">
-    <input type="text" id="search-box" name="query" />
-    <input type="submit" value="search" />
-  </form>
-</div>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Day 10: Divide and Conquer and Intro to Dynamic Programming
+</h1>
+          
+        </header>
+      
 
-<h2 id="how-tos">How-tos</h2>
-
-<ul>
-  <li><a href="how_to/setting_up_kotlin">Get set with Kotlin</a></li>
-  <li><a href="how_to/useful_resources">Useful Resources</a> (please let me know what I should add to this list).</li>
-  <li><a href="how_to/git_setup">Git Setup</a></li>
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                <ul class="toc__menu">
+  <li><a href="#draft-of-oral-quiz-1">Draft of Oral Quiz 1</a></li>
+  <li><a href="#divide-and-conquer-and-intro-to-dynamic-programming">Divide and Conquer and Intro to Dynamic Programming</a></li>
+  <li><a href="#dynamic-programming">Dynamic Programming</a></li>
 </ul>
+	      	
+            </nav>
+          </aside>
+        
+        <h2 id="draft-of-oral-quiz-1">Draft of Oral Quiz 1</h2>
 
-<h2 id="in-class-activities">In-class Activities</h2>
+<p>I have posted <a href="https://olin.instructure.com/courses/940/assignments/16951">the tentative structure for the oral quiz</a> on Canvas.  Please review it and discuss with those around you.  I’ll take some comments, and then finalize it in the next day or so.  The assignment will start on Thursday, October 9th and be due on Thursday, October 16th.</p>
 
-<p><a href="https://github.com/OlinDSA2025/SampleSolutions">Sample solutions for in-class assignments</a> will be made available on GitHub.</p>
+<h2 id="divide-and-conquer-and-intro-to-dynamic-programming">Divide and Conquer and Intro to Dynamic Programming</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Day #</th>
-      <th>Activity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="/in_class/day01.html">Course Intro and Welcome to DSA</a></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="/in_class/day02.html">Greedy Algorithms Teaser, Order of Growth, and Some Kotlin</a></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="/in_class/day03.html">Arrays, Linked Lists, and Intro to Abstract Datatypes</a></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="/in_class/day04.html">Stack Implementation Walkthrough and Challenge Problems</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/in_class/day05.html">Choose Your Own Adventure and Intro to Graphs</a></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><a href="/in_class/day06.html">Graph data structures, depth-first and breadth-first search</a></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><a href="/in_class/day07.html">DAGs, Dijkstra’s Algorithm, and Heaps</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/in_class/day08.html">A-Star Search and Intro to Sorting</a></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td><a href="/in_class/day09.html">More Sorting and More Divide and Conquer</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/in_class/day10.html">Divide and Conquer and Intro to Dynamic Programming</a></td>
-    </tr>
-  </tbody>
-</table>
+<p>Today is going to primarily be about getting practice with divide and conquer algorithms.  We’ll also throw in a recursive algorithm that doesn’t quite fit the mold of divide and conquer.</p>
 
-<h2 id="assignments">Assignments</h2>
+<blockquote class="notice--success">
+  <p><strong>Exercise 1</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Due at beginning of class #</th>
-      <th>Assignment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>3</td>
-      <td><a href="/assignments/assignment_01.html">Hello Kotlin and Getting to Know You</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/assignments/assignment_02.html">Linked Data Structures</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/assignments/assignment_03.html">Graph Searching and Shortest Paths</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/assignments/assignment_04.html">Sorting Algorithms</a></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><a href="/assignments/assignment_05.html">Divide and Conquer and Dynamic Programming</a></td>
-    </tr>
-  </tbody>
-</table>
+  <p>Multiplying square matrices.  Given two square matrices, $A$ and $B$, each of size $n \times n$.  Determine a divide and conquer method for determining the product of the two matrices $C = AB$.  To solve the problem, you can make use of the technique of <a href="https://en.wikipedia.org/wiki/Block_matrix#Block_matrix_multiplication">block matrix multiplication</a>.  Show that the running time you get from using block matrix multiplication is the same as you get from the traditional method of matrix multiplication (the one you learned about in math class).</p>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 2</strong></p>
+
+  <p>Create a divide and conquer algorithm to compute $x^n$ where $n$ is a positive integer.  Consider each multiplication operation as taking $\Theta(1)$.  What is the runtime of your divide and conquer algorithm?  Hint: you should be able to do better thant $\Theta(n)$.  How does it compare to the approach of just multiplying $x$ $n$ times.</p>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 3</strong></p>
+
+  <p>Solve the maximum contiguous subsequence problem by determining a divide and conquer algorithm to solve it.  Once you have the algorithm, use the master theorem to determine its runtime.  Note that there are other algorithm you can use to solve this problem (that are actually faster, but here we want to focus on divide and conquer).</p>
+
+  <p>The maximum contiguous sub-sequence problem involves taking an input list of numbers $x_1, \ldots, x_n$ and determining two index values $i$ and $j$ such that $\sum_{k=i}^j x_k$ is as large as possible.  Note that the numbers can be negative.  For simplicity, you can just return the maximum sum (rather than the indices).</p>
+
+  <p><button onclick="HideShowElement('HideShow1')">Show / Hide Hint 1</button></p>
+  <div id="HideShow1" style="display:none">
+         Divide the array into two halves.  Find the maximum subsequence for each half.  What case have you not considered?
+   </div>
+  <p><button onclick="HideShowElement('HideShow2')">Show / Hide Hint 2</button></p>
+  <div id="HideShow2" style="display:none">
+         Create a special purpose algorithm for determining the maximum crossing sequence.
+   </div>
+</blockquote>
+
+<h2 id="dynamic-programming">Dynamic Programming</h2>
+
+<blockquote>
+  <p>Let’s start with a very simple recursive function and see if we can use dynamic programming to solve it.  Let’s implement a function to compute the $n$th Fibonacci number.</p>
+</blockquote>
+
+<p>We’ll see if we can understand how this applies to the Leetcode problem of <a href="https://leetcode.com/problems/min-cost-climbing-stairs/description/">Minimum Cost Climbing Stairs</a>.</p>
+
+<p>The book “Introduction Algorithms” by Cormen, Leiserson, Rivest, and Stein has the following description of the dynamic programming approach.</p>
+
+<ol>
+  <li>Characterize the structure of an optimal solution.</li>
+  <li>Recursively define the value of an optimal solution.</li>
+  <li>Compute the value of an optimal solution, typically in a bottom-up fashion.</li>
+  <li>Construct an optimal solution from computed information.</li>
+</ol>
+
+<p>This can be a helpful way to think about dynamic programming.  Try it on the next problem.</p>
+
+<blockquote>
+  <p>You are given an integer array cost where <code class="language-plaintext highlighter-rouge">cost[i]</code> is the cost of $i$th step on a staircase. Once you pay the cost, you can either climb one or two steps.
+You can either start from the step with index 0, or the step with index 1.
+Return the minimum cost to reach the top of the floor.</p>
+
+  <p>Example 1:</p>
+  <ul>
+    <li>Input: cost = [10,15,20]</li>
+    <li>Output: 15</li>
+  </ul>
+
+  <p>Example 2:</p>
+  <ul>
+    <li>Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]</li>
+    <li>Output: 6</li>
+  </ul>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 3:</strong></p>
+
+  <p>Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination of coin as you’d like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small or easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
-    </section>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
   </article>
+
+  
+  
 </div>
 
     </div>
