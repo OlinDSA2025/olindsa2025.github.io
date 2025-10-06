@@ -52,7 +52,7 @@ class Matrix {
 }
 ```
 
-> Warning: there are some writeups Strassen online that have errors in them.  We found at least two different sets of class notes that had errors.  If you go from the Wikipedia definition, then you should be good. 
+> Warning: there are some writeups of Strassen's algorithm that have errors in them.  Last time I ran this course, we found at least two different sets of class notes that had errors.  If you go from description on the Wikipedia page, then you should be good. 
 {: .notice--danger}
 
 Write some unit tests to show your code is correct.
