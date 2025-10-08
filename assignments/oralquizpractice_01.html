@@ -78,7 +78,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 </script>
 
-<!-- begin _includes/seo.html --><title>Data Structures and Algorithms Spring 2025 - Data Structures Fall 2025 @ Olin College</title>
+<!-- begin _includes/seo.html --><title>Oral Quiz Practice - Data Structures Fall 2025 @ Olin College</title>
 <meta name="description" content="Website">
 
 
@@ -86,8 +86,8 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
-<meta property="og:title" content="Data Structures and Algorithms Spring 2025">
-<meta property="og:url" content="/">
+<meta property="og:title" content="Oral Quiz Practice">
+<meta property="og:url" content="/assignments/oralquizpractice_01.html">
 
 
   <meta property="og:description" content="Website">
@@ -103,7 +103,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
 
-<link rel="canonical" href="/">
+<link rel="canonical" href="/assignments/oralquizpractice_01.html">
 
 
 
@@ -204,7 +204,7 @@ function HideShowElement(divID) {
 
   </head>
 
-  <body class="layout--splash">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -246,159 +246,125 @@ function HideShowElement(divID) {
 
     <div class="initial-content">
       
-  
-
-
-
-
-
-
-
-
-
-
-
-<div class="page__hero--overlay"
-  style="background-color: #000; "
->
-  
-    <div class="wrapper">
-      <h1 id="page-title" class="page__title" itemprop="headline">
-        
-          Data Structures and Algorithms Spring 2025
-
-        
-      </h1>
-      
-      
-      
-      
-    </div>
-  
-  
-</div>
 
 
 
 <div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Data Structures and Algorithms Spring 2025">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Oral Quiz Practice">
     
     
     
 
-    <section class="page__content" itemprop="text">
-      <div class="header-search">
-  <form class="header-search-form" action="/search" method="get">
-    <input type="text" id="search-box" name="query" />
-    <input type="submit" value="search" />
-  </form>
-</div>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Oral Quiz Practice
+</h1>
+          
+        </header>
+      
 
-<h2 id="how-tos">How-tos</h2>
-
-<ul>
-  <li><a href="how_to/setting_up_kotlin">Get set with Kotlin</a></li>
-  <li><a href="how_to/useful_resources">Useful Resources</a> (please let me know what I should add to this list).</li>
-  <li><a href="how_to/git_setup">Git Setup</a></li>
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                <ul class="toc__menu">
+  <li><a href="#problem-1-stack-code">Problem 1: Stack Code</a></li>
+  <li><a href="#problem-2-order-of-growth">Problem 2: Order of Growth</a></li>
+  <li><a href="#problem-3-binary-heaps">Problem 3: Binary Heaps</a></li>
+  <li><a href="#problem-4-broken-dijkstra">Problem 4: Broken Dijkstra</a></li>
 </ul>
+	      	
+            </nav>
+          </aside>
+        
+        <h2 id="problem-1-stack-code">Problem 1: Stack Code</h2>
 
-<h2 id="in-class-activities">In-class Activities</h2>
+<p>Here is an implementation of a stack in Kotlin.  Explain how the code works.  Your response should touch on the role of <code class="language-plaintext highlighter-rouge">T</code>, the definition of <code class="language-plaintext highlighter-rouge">top</code> (and why it has a nullable type), and how each of the functions works.</p>
 
-<p><a href="https://github.com/OlinDSA2025/SampleSolutions">Sample solutions for in-class assignments</a> will be made available on GitHub.</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyStack</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;:</span> <span class="nc">Stack</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kd">class</span> <span class="nc">StackNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">data</span><span class="p">:</span> <span class="nc">T</span><span class="p">,</span>
+                               <span class="kd">var</span> <span class="py">next</span><span class="p">:</span> <span class="nc">StackNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?)</span>
 
-<table>
-  <thead>
-    <tr>
-      <th>Day #</th>
-      <th>Activity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="/in_class/day01.html">Course Intro and Welcome to DSA</a></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="/in_class/day02.html">Greedy Algorithms Teaser, Order of Growth, and Some Kotlin</a></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="/in_class/day03.html">Arrays, Linked Lists, and Intro to Abstract Datatypes</a></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="/in_class/day04.html">Stack Implementation Walkthrough and Challenge Problems</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/in_class/day05.html">Choose Your Own Adventure and Intro to Graphs</a></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><a href="/in_class/day06.html">Graph data structures, depth-first and breadth-first search</a></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><a href="/in_class/day07.html">DAGs, Dijkstra’s Algorithm, and Heaps</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/in_class/day08.html">A-Star Search and Intro to Sorting</a></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td><a href="/in_class/day09.html">More Sorting and More Divide and Conquer</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/in_class/day10.html">Divide and Conquer and Intro to Dynamic Programming</a></td>
-    </tr>
-  </tbody>
-</table>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">top</span><span class="p">:</span> <span class="nc">StackNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
 
-<h2 id="assignments">Assignments</h2>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">push</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">top</span> <span class="p">=</span> <span class="nc">StackNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="n">data</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span>
+    <span class="p">}</span>
 
-<table>
-  <thead>
-    <tr>
-      <th>Due at beginning of class #</th>
-      <th>Assignment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>3</td>
-      <td><a href="/assignments/assignment_01.html">Hello Kotlin and Getting to Know You</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/assignments/assignment_02.html">Linked Data Structures</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/assignments/assignment_03.html">Graph Searching and Shortest Paths</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/assignments/assignment_04.html">Sorting Algorithms</a></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><a href="/assignments/assignment_05.html">Divide and Conquer and Dynamic Programming</a></td>
-    </tr>
-  </tbody>
-</table>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">pop</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">returnValue</span> <span class="p">=</span> <span class="n">top</span><span class="o">?.</span><span class="n">data</span>
+        <span class="n">top</span> <span class="p">=</span> <span class="n">top</span><span class="o">?.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="n">returnValue</span>
+    <span class="p">}</span>
 
-<h2 id="oral-quiz-practice-problems">Oral Quiz Practice Problems</h2>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">top</span><span class="o">?.</span><span class="n">data</span>
+    <span class="p">}</span>
 
-<ul>
-  <li><a href="assignments/oralquizpractice_01">Quiz 1 Practice</a></li>
-</ul>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">isEmpty</span><span class="p">():</span> <span class="nc">Boolean</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">top</span> <span class="p">==</span> <span class="k">null</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-    </section>
+<h2 id="problem-2-order-of-growth">Problem 2: Order of Growth</h2>
+
+<p>Explain why selection sort (finding the min and putting it at the beginning of the list, finding the second-smallest element and putting it in the second position in the list, etc.) is $\Theta(n^2)$.</p>
+
+<p>Explain the merge sort algorithm and why it has a running time of $\Theta(n \log n)$.</p>
+
+<h2 id="problem-3-binary-heaps">Problem 3: Binary Heaps</h2>
+
+<p>On the whiteboard, explain the concept of a binary heap.  Explain what the heap invariant property is.  Demonstrate how to insert a new element into a binary heap.  Explain why binary heaps are well-suited to implementing priority queues.</p>
+
+<h2 id="problem-4-broken-dijkstra">Problem 4: Broken Dijkstra</h2>
+
+<p>The pseudocode for Dijkstra’s algorithm is incorrect.  Explain what is wrong with it and how you would fix it.  The code finds the length of the shortest path from <code class="language-plaintext highlighter-rouge">source</code> to <code class="language-plaintext highlighter-rouge">target</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for each vertex, v that is not the source:
+    dist[v] ← INFINITY
+    queue.addWithPriority(v, INFINITY)
+
+dist[source] ← 0
+queue.addWithPriority(source, 0)
+
+while queue is not empty:
+    u ← pop min priority element from queue
+    for each neighbor v of u still in queue:
+        alt ← dist[u] + edgecost(u, v)
+        if alt &lt; dist[v]:
+            dist[v] ← alt
+
+return dist[target]
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
   </article>
+
+  
+  
 </div>
 
     </div>
