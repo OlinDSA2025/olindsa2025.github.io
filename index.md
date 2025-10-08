@@ -64,3 +64,7 @@ header:
 | {{ p.due_on_class }} | [{{ clean_title }}]({{ p.url | relative_url }}) |
 {%- endif %}
 {% endfor %}
+
+## Oral Quiz Practice Problems
+
+* [Quiz 1 Practice](assignments/oralquizpractice_01)
