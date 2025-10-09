@@ -78,7 +78,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 </script>
 
-<!-- begin _includes/seo.html --><title>Data Structures and Algorithms Spring 2025 - Data Structures Fall 2025 @ Olin College</title>
+<!-- begin _includes/seo.html --><title>Day 11: More Dynamic Programming - Data Structures Fall 2025 @ Olin College</title>
 <meta name="description" content="Website">
 
 
@@ -86,8 +86,8 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
-<meta property="og:title" content="Data Structures and Algorithms Spring 2025">
-<meta property="og:url" content="/">
+<meta property="og:title" content="Day 11: More Dynamic Programming">
+<meta property="og:url" content="/in_class/day11.html">
 
 
   <meta property="og:description" content="Website">
@@ -103,7 +103,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
 
-<link rel="canonical" href="/">
+<link rel="canonical" href="/in_class/day11.html">
 
 
 
@@ -204,7 +204,7 @@ function HideShowElement(divID) {
 
   </head>
 
-  <body class="layout--splash">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -246,163 +246,112 @@ function HideShowElement(divID) {
 
     <div class="initial-content">
       
-  
-
-
-
-
-
-
-
-
-
-
-
-<div class="page__hero--overlay"
-  style="background-color: #000; "
->
-  
-    <div class="wrapper">
-      <h1 id="page-title" class="page__title" itemprop="headline">
-        
-          Data Structures and Algorithms Spring 2025
-
-        
-      </h1>
-      
-      
-      
-      
-    </div>
-  
-  
-</div>
 
 
 
 <div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Data Structures and Algorithms Spring 2025">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Day 11: More Dynamic Programming">
     
     
     
 
-    <section class="page__content" itemprop="text">
-      <div class="header-search">
-  <form class="header-search-form" action="/search" method="get">
-    <input type="text" id="search-box" name="query" />
-    <input type="submit" value="search" />
-  </form>
-</div>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Day 11: More Dynamic Programming
+</h1>
+          
+        </header>
+      
 
-<h2 id="how-tos">How-tos</h2>
-
-<ul>
-  <li><a href="how_to/setting_up_kotlin">Get set with Kotlin</a></li>
-  <li><a href="how_to/useful_resources">Useful Resources</a> (please let me know what I should add to this list).</li>
-  <li><a href="how_to/git_setup">Git Setup</a></li>
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                <ul class="toc__menu">
+  <li><a href="#dynamic-programming-general-structure">Dynamic Programming General Structure</a></li>
+  <li><a href="#practice-problems">Practice Problems</a></li>
 </ul>
+	      	
+            </nav>
+          </aside>
+        
+        <h2 id="dynamic-programming-general-structure">Dynamic Programming General Structure</h2>
 
-<h2 id="in-class-activities">In-class Activities</h2>
+<p>The book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the following description of the dynamic programming approach.</p>
 
-<p><a href="https://github.com/OlinDSA2025/SampleSolutions">Sample solutions for in-class assignments</a> will be made available on GitHub.</p>
+<ol>
+  <li>Characterize the structure of an optimal solution.</li>
+  <li>Recursively define the value of an optimal solution.</li>
+  <li>Compute the value of an optimal solution, typically in a bottom-up fashion.</li>
+  <li>Construct an optimal solution from computed information.</li>
+</ol>
 
-<table>
-  <thead>
-    <tr>
-      <th>Day #</th>
-      <th>Activity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="/in_class/day01.html">Course Intro and Welcome to DSA</a></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="/in_class/day02.html">Greedy Algorithms Teaser, Order of Growth, and Some Kotlin</a></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="/in_class/day03.html">Arrays, Linked Lists, and Intro to Abstract Datatypes</a></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="/in_class/day04.html">Stack Implementation Walkthrough and Challenge Problems</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/in_class/day05.html">Choose Your Own Adventure and Intro to Graphs</a></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><a href="/in_class/day06.html">Graph data structures, depth-first and breadth-first search</a></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><a href="/in_class/day07.html">DAGs, Dijkstra’s Algorithm, and Heaps</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/in_class/day08.html">A-Star Search and Intro to Sorting</a></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td><a href="/in_class/day09.html">More Sorting and More Divide and Conquer</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/in_class/day10.html">Divide and Conquer and Intro to Dynamic Programming</a></td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td><a href="/in_class/day11.html">More Dynamic Programming</a></td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="practice-problems">Practice Problems</h2>
 
-<h2 id="assignments">Assignments</h2>
+<p>(You won’t be able to do all of these.  This is just for reference.  Turn in what you’d like.)</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Due at beginning of class #</th>
-      <th>Assignment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>3</td>
-      <td><a href="/assignments/assignment_01.html">Hello Kotlin and Getting to Know You</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/assignments/assignment_02.html">Linked Data Structures</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/assignments/assignment_03.html">Graph Searching and Shortest Paths</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/assignments/assignment_04.html">Sorting Algorithms</a></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><a href="/assignments/assignment_05.html">Divide and Conquer and Dynamic Programming</a></td>
-    </tr>
-  </tbody>
-</table>
+<blockquote class="notice--success">
+  <p><strong>Exercise 1</strong></p>
 
-<h2 id="oral-quiz-practice-problems">Oral Quiz Practice Problems</h2>
+  <p>Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination of coin as you’d like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small or easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.</p>
+</blockquote>
 
-<ul>
-  <li><a href="assignments/oralquizpractice_01">Quiz 1 Practice</a></li>
-</ul>
+<blockquote class="notice--success">
+  <p><strong>Exercise 2</strong></p>
 
-    </section>
+  <p>The Longest Common Subsequence (LCS) problem asks: given two sequences, what is the longest sequence that appears in both of them in the same order? In other words, it’s the longest sequence that you can form by deleting some elements (without changing the order) from each of the two original sequences.</p>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 3</strong></p>
+
+  <p>Revisit the maximum contiguous subsequence problem from last class.  Instead of using divide and conquer, use dynamic programming.</p>
+</blockquote>
+
+<blockquote class="notice--success">
+  <p><strong>Exercise 4</strong></p>
+
+  <p>In the 0–1 Knapsack problem, we are given a set of items, each with a weight and a value, and we need to determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.</p>
+
+  <p>Please note that the items are indivisible; we can either take an item or not (0-1 property). For example,</p>
+
+  <p>Input:</p>
+  <ul>
+    <li>value = [ 20, 5, 10, 40, 15, 25 ]</li>
+    <li>weight = [ 1, 2, 3, 8, 7, 4 ]</li>
+    <li>W = 10</li>
+  </ul>
+
+  <p>Output: Knapsack value is 60 value = 20 + 40 = 60 (weight = 1 + 8 = 9 &lt; W)</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
   </article>
+
+  
+  
 </div>
 
     </div>
