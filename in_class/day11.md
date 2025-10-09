@@ -4,6 +4,16 @@ toc_sticky: true
 published: true
 ---
 
+## Oral Quiz 1
+
+First, sign up for a time to meet with me (see link on Canvas).  You need to make it to this time unless something catastrophic happens.
+
+Here are some things I noticed in the practice quizzes.
+* When determining runtimes (non divide and conquer), figure out what are the main steps you have to perform, determine how many operations each step takes, and then add up the total number of operations.  Conclude by converting to $\Theta$.
+* For divide and conquer algorithms, be ready to draw a tree diagram or use the master theorem.
+* When reading code, I found that people who talked through what the code as doing in greater detail had an easier time giving the relevant details.
+* For graph search (e.g., Dijkstra), make sure you understand what the variables represent (e.g., ``dist[v]`` returns the shortest known path from the source to vertex ``v``).
+
 ## Dynamic Programming General Structure
 
 The book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the following description of the dynamic programming approach.
@@ -19,7 +29,9 @@ The book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the
 
 > **Exercise 1**
 >
-> Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination of coin as you'd like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small or easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.
+> Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine the minimum number of coins you can use to add up exactly $D$ cents.  You can use as many of each denomination of coin as you'd like.  Solve the problem using dynamic programming where you create a table to store the solutions to various subproblems, fill out rows and/or columns of the table that correspond to small or easy to solve subproblem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.
+> 
+> Bonus question (if you have time): can you modify your approach to count the number of ways you can make change for $D$ cents.
 {: .notice--success}
 
 > **Exercise 2**
