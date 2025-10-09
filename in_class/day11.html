@@ -274,6 +274,7 @@ function HideShowElement(divID) {
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
+  <li><a href="#oral-quiz-1">Oral Quiz 1</a></li>
   <li><a href="#dynamic-programming-general-structure">Dynamic Programming General Structure</a></li>
   <li><a href="#practice-problems">Practice Problems</a></li>
 </ul>
@@ -281,7 +282,19 @@ function HideShowElement(divID) {
             </nav>
           </aside>
         
-        <h2 id="dynamic-programming-general-structure">Dynamic Programming General Structure</h2>
+        <h2 id="oral-quiz-1">Oral Quiz 1</h2>
+
+<p>First, sign up for a time to meet with me (see link on Canvas).  You need to make it to this time unless something catastrophic happens.</p>
+
+<p>Here are some things I noticed in the practice quizzes.</p>
+<ul>
+  <li>When determining runtimes (non divide and conquer), figure out what are the main steps you have to perform, determine how many operations each step takes, and then add up the total number of operations.  Conclude by converting to $\Theta$.</li>
+  <li>For divide and conquer algorithms, be ready to draw a tree diagram or use the master theorem.</li>
+  <li>When reading code, I found that people who talked through what the code as doing in greater detail had an easier time giving the relevant details.</li>
+  <li>For graph search (e.g., Dijkstra), make sure you understand what the variables represent (e.g., <code class="language-plaintext highlighter-rouge">dist[v]</code> returns the shortest known path from the source to vertex <code class="language-plaintext highlighter-rouge">v</code>).</li>
+</ul>
+
+<h2 id="dynamic-programming-general-structure">Dynamic Programming General Structure</h2>
 
 <p>The book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the following description of the dynamic programming approach.</p>
 
@@ -299,7 +312,9 @@ function HideShowElement(divID) {
 <blockquote class="notice--success">
   <p><strong>Exercise 1</strong></p>
 
-  <p>Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine how many different ways you can combine the different coins to add up exactly $D$ cents.  You can use as many of each denomination of coin as you’d like.  Solve the problem using dynamic programming where you create a table to store the solutions to the problem, fill out rows and/or columns of the table that correspond to small or easy to solve instances of the problem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.</p>
+  <p>Change making.  Given $n$ different coin denominations worth $x_1, x_2, \ldots, x_n$ cents and a target value of $D$ cents, determine the minimum number of coins you can use to add up exactly $D$ cents.  You can use as many of each denomination of coin as you’d like.  Solve the problem using dynamic programming where you create a table to store the solutions to various subproblems, fill out rows and/or columns of the table that correspond to small or easy to solve subproblem, and then determine a rule for filling out the rest of the table.  Finally, determine how you would compute the solution to your original problem by referencing a particular cell in your table.</p>
+
+  <p>Bonus question (if you have time): can you modify your approach to count the number of ways you can make change for $D$ cents.</p>
 </blockquote>
 
 <blockquote class="notice--success">
