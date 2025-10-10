@@ -44,6 +44,10 @@ The book Introduction Algorithms by Cormen, Leiserson, Rivest, and Stein has the
 > Revisit the maximum contiguous subsequence problem from last class.  Instead of using divide and conquer, use dynamic programming.
 {: .notice--success}
 
+> **Solution 3:**
+> 
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/sPtrhdlCxaE?si=M7jgNiKG3CSVhhPr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{: .notice--warning}
 
 > **Exercise 4**
 >
