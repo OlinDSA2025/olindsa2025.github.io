@@ -79,7 +79,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 </script>
 
 <!-- begin _includes/seo.html --><title>Assignment 5: Divide and Conquer and Dynamic Programming - Data Structures Fall 2025 @ Olin College</title>
-<meta name="description" content="Website">
+<meta name="description" content="">
 
 
 
@@ -89,8 +89,6 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:title" content="Assignment 5: Divide and Conquer and Dynamic Programming">
 <meta property="og:url" content="/assignments/assignment_05.html">
 
-
-  <meta property="og:description" content="Website">
 
 
 
@@ -367,14 +365,14 @@ function HideShowElement(divID) {
 <p>Run your code on <a href="https://github.com/OlinDSA2024/DivideAndConquerSample/blob/main/src/main/kotlin/Genome.kt">the DNA sequence in this Kotlin file</a>.  This file has three variables.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">targetGenome</code> is a snippet of a Salmonella genome.</li>
-  <li><code class="language-plaintext highlighter-rouge">genomeSnippet</code> is a long section of the Salmonella DNA (<code class="language-plaintext highlighter-rouge">targetGenome</code> is contained completely within this string).</li>
-  <li><code class="language-plaintext highlighter-rouge">testAgainst</code> is a different segment from the Salmonella genome (not exactly the same as <code class="language-plaintext highlighter-rouge">targetGenome</code>) that you can use for matching.</li>
+  <li><code class="language-plaintext highlighter-rouge">genomeSnippet</code> is a snippet of a Salmonella genome.</li>
+  <li><code class="language-plaintext highlighter-rouge">targetGenome</code> is a long section of the Salmonella DNA (<code class="language-plaintext highlighter-rouge">genomeSnippet</code> is contained completely within this string)</li>
+  <li><code class="language-plaintext highlighter-rouge">testAgainst</code> is a different segment from the Salmonella genome (not exactly the same as <code class="language-plaintext highlighter-rouge">genomeSnippet</code>) that you can use for matching.</li>
 </ul>
 
-<p>If you are doing Smith-waterman you would match <code class="language-plaintext highlighter-rouge">genomeSnippet</code> and <code class="language-plaintext highlighter-rouge">testAgainst</code>.  If all goes well, you should find that <code class="language-plaintext highlighter-rouge">testAgainst</code> matches well to the portion of <code class="language-plaintext highlighter-rouge">genomeSnippet</code> that contains <code class="language-plaintext highlighter-rouge">targetGenome</code>.</p>
+<p>If you are doing Smith-waterman you would match <code class="language-plaintext highlighter-rouge">testAgainst</code> and <code class="language-plaintext highlighter-rouge">targetGenome</code>.  If all goes well, you should find that <code class="language-plaintext highlighter-rouge">testAgainst</code> matches well to the portion of <code class="language-plaintext highlighter-rouge">targetGenome</code> that contains <code class="language-plaintext highlighter-rouge">genomeSnippet</code>.</p>
 
-<p>If you are doing Needleman-Wunch, you can match <code class="language-plaintext highlighter-rouge">targetGenome</code> against <code class="language-plaintext highlighter-rouge">testAgainst</code>.  You should find that your algorithm is able to closely align the two sequences.</p>
+<p>If you are doing Needleman-Wunch, you can match <code class="language-plaintext highlighter-rouge">genomeSnippet</code> against <code class="language-plaintext highlighter-rouge">testAgainst</code>.  You should find that your algorithm is able to closely align the two sequences.</p>
 
 <p>Here is an alignment between part of a Salmonella genome and another part of the same genome.</p>
 
