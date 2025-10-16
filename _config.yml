@@ -1,4 +1,4 @@
-remote_theme: olindsa2025/minimal-mistakes@copybutton
+theme: minimal-mistakes-jekyll
 logo: "https://qeacourse.github.io/RoboNinjaWarrior/website_graphics/olinlogo.png"
 title: "Data Structures Fall 2025 @ Olin College"
 repository: olindsa2025/olindsa2025.github.io
