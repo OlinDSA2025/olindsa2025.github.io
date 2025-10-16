@@ -78,13 +78,13 @@ Your code should find both the best alignment and use backtracing to display the
 
 Run your code on [the DNA sequence in this Kotlin file](https://github.com/OlinDSA2024/DivideAndConquerSample/blob/main/src/main/kotlin/Genome.kt).  This file has three variables.
 
-* ``targetGenome`` is a snippet of a Salmonella genome. 
-* ``genomeSnippet`` is a long section of the Salmonella DNA (``targetGenome`` is contained completely within this string).
-* ``testAgainst`` is a different segment from the Salmonella genome (not exactly the same as ``targetGenome``) that you can use for matching.
+* ``genomeSnippet`` is a snippet of a Salmonella genome.
+* ``targetGenome`` is a long section of the Salmonella DNA (``genomeSnippet`` is contained completely within this string) 
+* ``testAgainst`` is a different segment from the Salmonella genome (not exactly the same as ``genomeSnippet``) that you can use for matching.
 
-If you are doing Smith-waterman you would match ``genomeSnippet`` and ``testAgainst``.  If all goes well, you should find that ``testAgainst`` matches well to the portion of ``genomeSnippet`` that contains ``targetGenome``.
+If you are doing Smith-waterman you would match ``testAgainst`` and ``targetGenome``.  If all goes well, you should find that ``testAgainst`` matches well to the portion of ``targetGenome`` that contains ``genomeSnippet``.
 
-If you are doing Needleman-Wunch, you can match ``targetGenome`` against ``testAgainst``.  You should find that your algorithm is able to closely align the two sequences.
+If you are doing Needleman-Wunch, you can match ``genomeSnippet`` against ``testAgainst``.  You should find that your algorithm is able to closely align the two sequences.
 
 Here is an alignment between part of a Salmonella genome and another part of the same genome.
 
