@@ -67,4 +67,4 @@ header:
 
 ## Oral Quiz Practice Problems
 
-* [Quiz 1 Practice](assignments/oralquizpractice_01)
+* [Quiz 1 Practice](assignments/oralquizpractice_01) ([Quiz 1](assignments/oralquiz_01))
