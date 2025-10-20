@@ -79,7 +79,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 </script>
 
 <!-- begin _includes/seo.html --><title>Search Results - Data Structures Fall 2025 @ Olin College</title>
-<meta name="description" content="">
+<meta name="description" content="Website">
 
 
 
@@ -89,6 +89,8 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:title" content="Search Results">
 <meta property="og:url" content="/search.html">
 
+
+  <meta property="og:description" content="Website">
 
 
 
@@ -412,8 +414,14 @@ function HideShowElement(divID) {
         "title": "Data Structures and Algorithms Spring 2025",
         "author": "",
         "category": "",
-        "content": "            How-tos  Get set with Kotlin  Useful Resources (please let me know what I should add to this list).  Git SetupIn-class ActivitiesSample solutions for in-class assignments will be made available on GitHub.            Day #      Activity                  1      Course Intro and Welcome to DSA              2      Greedy Algorithms Teaser, Order of Growth, and Some Kotlin              3      Arrays, Linked Lists, and Intro to Abstract Datatypes              4      Stack Implementation Walkthrough and Challenge Problems              5      Choose Your Own Adventure and Intro to Graphs              6      Graph data structures, depth-first and breadth-first search              7      DAGs, Dijkstra’s Algorithm, and Heaps              8      A-Star Search and Intro to Sorting              9      More Sorting and More Divide and Conquer              10      Divide and Conquer and Intro to Dynamic Programming              11      More Dynamic Programming              12      Dynamic Programming Wrapup and Starting Our Deep Dive      Assignments            Due at beginning of class #      Assignment                  3      Hello Kotlin and Getting to Know You              5      Linked Data Structures              8      Graph Searching and Shortest Paths              10      Sorting Algorithms              12      Divide and Conquer and Dynamic Programming              14      Individual Deep Dive      Oral Quiz Practice Problems  Quiz 1 Practice",
+        "content": "            How-tos  Get set with Kotlin  Useful Resources (please let me know what I should add to this list).  Git SetupIn-class ActivitiesSample solutions for in-class assignments will be made available on GitHub.            Day #      Activity                  1      Course Intro and Welcome to DSA              2      Greedy Algorithms Teaser, Order of Growth, and Some Kotlin              3      Arrays, Linked Lists, and Intro to Abstract Datatypes              4      Stack Implementation Walkthrough and Challenge Problems              5      Choose Your Own Adventure and Intro to Graphs              6      Graph data structures, depth-first and breadth-first search              7      DAGs, Dijkstra’s Algorithm, and Heaps              8      A-Star Search and Intro to Sorting              9      More Sorting and More Divide and Conquer              10      Divide and Conquer and Intro to Dynamic Programming              11      More Dynamic Programming              12      Dynamic Programming Wrapup and Starting Our Deep Dive      Assignments            Due at beginning of class #      Assignment                  3      Hello Kotlin and Getting to Know You              5      Linked Data Structures              8      Graph Searching and Shortest Paths              10      Sorting Algorithms              12      Divide and Conquer and Dynamic Programming              14      Individual Deep Dive      Oral Quiz Practice Problems  Quiz 1 Practice (Quiz 1)",
         "url": "/"
+      },"assignments-oralquiz-01-html": {
+        "title": "Oral Quiz 1",
+        "author": "",
+        "category": "",
+        "content": "Problem 1: Breadth-first and Depth-first SearchThe following code can be used to implement both depth-first and breadth-first search by choosing a particular data structure for priorityList.  Which data structure would you choose for priorityList to implement breadth-first search?  How about for depth-first search?  Choose one of these algorithms and show an example of how it would play out on the whiteboard.toVisit ← {}priorityList ← []priorityList.add(root)toVisit.add(root)while priorityList is not empty:    n ← priorityList.popHighestPriorityElement()    if n == target:        return true // path exists    for all neighbors m of node n:        if m is not in toVisit:            priorityList.add(m)            toVisit.add(m)return false // no pathProblem 2: Heap SortHeap sort is a sorting algorithm where given a list of $n$ items $x_1, x_2, \\ldots, x_n$, each item is first inserted into a binary min heap.  Next, we call pop min repeatedly to extract the elements in sorted order.What is the $\\Theta$ running time of heap sort?  Justify your answer.Problem 3: Doubly Linked Lists  Draw a picture of a doubly linked list.  Explain how it differs from a singly linked list  What are the $\\Theta$ running times of the following operations (justify your answers).          pushFront      pushBack      popFront      popBack      Search the list to determine whether a particular element is present in the list.      Problem 4: Explain Your Sorting CodeLet’s pull up an implementation of one of your sorting algorithms.  Please explain how your code implements the particular algorithm you chose.  What is the $\\Theta$ runtime of this particular sorting algorithm.",
+        "url": "/assignments/oralquiz_01.html"
       },"assignments-oralquizpractice-01-html": {
         "title": "Oral Quiz Practice",
         "author": "",
