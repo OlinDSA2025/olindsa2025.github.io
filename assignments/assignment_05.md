@@ -68,7 +68,7 @@ Write some unit tests to show your code is correct.
 
 ## Part 3: Dynamic Programming for Aligning Protein Sequences
 
-Watch the following video [on the sequence alignment problem](https://www.youtube.com/watch?v=dYuktSSPfYQ).  Hopefully, it will give some good motivation behind what the problem is and why it's important.
+Watch the following video [on the sequence alignment problem](https://www.youtube.com/watch?v=dYuktSSPfYQ).  Hopefully, it will give some good motivation behind what the problem is and why it's important.  There is also [a walkthrough of Needleman-Wunsch](https://www.youtube.com/watch?v=Lsa-VfSQgt4) that is pretty good.
 
 Implement either the [Needleman-Wunsch Algorithm](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) or the [Smith-Waterman Algorithm](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm) for sequence alignment.  Needleman-Wunsch is used for aligning two DNA sequences globally (an alignment between the entirety of each sequence is returned).  Smith-Waterman finds a local sequence alignment (it finds a part from each of the sequences that align well to each other).
 
