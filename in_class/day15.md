@@ -24,25 +24,26 @@ If these operations look familiar, there's a good reason.  You've actually alrea
 
 Let's look at two methods of implementing associative arrays.  For simplicity, let's suppose that $k$ represents the total number of possible keys that can be stored in our associative arrays (e.g., if we were creating an associative array of red, green, blue triples to red, green, blue triples, then $k = 256^3$, assuming $256$ possible values for each color channel).  You can assume that given a particular key, it is easy (meaning it can be done in constant time) to map the key to an integer from $0$ to $k-1$ that represents the key's identity among the $k$ possible keys.  Secondly let's use the symbol $n$ to denote the number of elements stored in the associative array thus far.
 
-### Association Lists
+### Method 1: Association Lists
 
-An [association list](https://en.wikipedia.org/wiki/Association_list) stores key, value pairs in a linked list.
+An [association list](https://en.wikipedia.org/wiki/Association_list) stores key / value pairs in a linked list.  Whenever you add a new key / value pair, you just add it to your linked list.
 
 **Problem 1**
-* (a) For an association list, what is the $\Theta$ of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
+* (a) For an association list, what is the runtime ($\Theta$) of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
 * (b) What is the space complexity for storing $n$ elements in an association list?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.
+>  Note: space complexity is similar to runtime but the focus is on how much memory do you use to run the algorithm as a function of problem size.  You can express space complexities in the same way as runtimes (using $\Theta$).
 
 <button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint for (a) </button>
 <div id="HideShow1" style="display:none">
 Can you map each of these operations to an operation on a linked list?  If so, try to borrow the time complexities from there.
 </div>
 
-### Array Map
+### Method 2: Array Map
 
 Another simple method for implementing an associative array is to create an array, $a$, of size $k$ where the value $v$ will be stored at $a[i]$ if the key that maps to index $i$ is associated with the value $v$.  Initially, the array may contain a default value at each index to indicate that there are no values associated with any keys when the associative array is initially created.
 
 **Problem 2**
-* (a) For an array map, what is the $\Theta$ of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
+* (a) For an array map, what is the runtime ($\Theta$) of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
 * (b) What is the space complexity for storing $n$ elements in an array map?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.
 
 <button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint for (b) </button>
