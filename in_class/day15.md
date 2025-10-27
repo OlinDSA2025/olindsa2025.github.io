@@ -28,36 +28,40 @@ Let's look at two methods of implementing associative arrays.  For simplicity, l
 
 An [association list](https://en.wikipedia.org/wiki/Association_list) stores key / value pairs in a linked list.  Whenever you add a new key / value pair, you just add it to your linked list.
 
-**Problem 1**
-* (a) For an association list, what is the runtime ($\Theta$) of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
-* (b) What is the space complexity for storing $n$ elements in an association list?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.
+> **Exercise 1**
+> * (a) For an association list, what is the runtime ($\Theta$) of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
+> * (b) What is the space complexity for storing $n$ elements in an association list?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.
+>
 >  Note: space complexity is similar to runtime but the focus is on how much memory do you use to run the algorithm as a function of problem size.  You can express space complexities in the same way as runtimes (using $\Theta$).
-
-<button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint for (a) </button>
-<div id="HideShow1" style="display:none">
+> 
+> <button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Hint for (a) </button>
+> <div id="HideShow1" style="display:none">
 Can you map each of these operations to an operation on a linked list?  If so, try to borrow the time complexities from there.
-</div>
+> </div>
+{: .notice--success}
 
 ### Method 2: Array Map
 
 Another simple method for implementing an associative array is to create an array, $a$, of size $k$ where the value $v$ will be stored at $a[i]$ if the key that maps to index $i$ is associated with the value $v$.  Initially, the array may contain a default value at each index to indicate that there are no values associated with any keys when the associative array is initially created.
 
-**Problem 2**
-* (a) For an array map, what is the runtime ($\Theta$) of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
-* (b) What is the space complexity for storing $n$ elements in an array map?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.
+> **Exercise 2**
+> * (a) For an array map, what is the runtime ($\Theta$) of the operations insert, remove, and lookup (you may find it useful to reference the symbols $k$ and $n$ when constructing your answer)?
+> * (b) What is the space complexity for storing $n$ elements in an array map?  You can use $\Theta$ to describe the amount of space needed to store the data.  Assume that the values stored in the associative array are of a constant size.
+>
+> <button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint for (b) </button>
+> <div id="HideShow2" style="display:none">
+> Does the amount of space needed depend on $n$?
+> </div>
+{: .notice--success}
 
-<button onclick="HideShowElement(&quot;HideShow2&quot;)">Show / Hide Hint for (b) </button>
-<div id="HideShow2" style="display:none">
-Does the amount of space needed depend on $n$?
-</div>
-
-**Problem 3**
+> **Exercise 3**
 Are either of these two approaches practical?  If so, in what situations would each of them be a good choice for a data structure?
-
-<button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint</button>
-<div id="HideShow3" style="display:none">
-Consider variables like the size of the key space $k$ and the number of elements stored $n$.
-</div>
+>
+> <button onclick="HideShowElement(&quot;HideShow3&quot;)">Show / Hide Hint</button>
+> <div id="HideShow3" style="display:none">
+> Consider variables like the size of the key space $k$ and the number of elements stored $n$.
+> </div>
+{: .notice--success}
 
 ## Hash maps
 
@@ -126,19 +130,25 @@ $$\begin{align*}
 01111111_b \oplus 01100001_b &= 00011110_b & \text{take result and xor with chunk 3} \\  00011110_b \oplus 11111100_b &= 11100010_b  & \text{take result and xor with chunk 4}
 \end{align*}$$
 
-Given this result we would then store the value associated with the key $4,234,234,421$ in bin 226 (this is the decimal equivalent of the bit string computed above).
+Given this result, we would then store the value associated with the key $4,234,234,421$ in bin 226 (this is the decimal equivalent of the bit string computed above).
 
 ### Division Hashing
 
-In division hashing, we typically choose $m$ to be a prime number (we also require that $m$ not be too close to a power of $2$, see [this reference](https://www.geeksforgeeks.org/what-are-hash-functions-and-how-to-choose-a-good-hash-function/) for an explanation).  Our hash function now becomes $h(k) = mod(k, s)$, where $mod$ is [the modulo operation](https://en.wikipedia.org/wiki/Modulo).
+In division hashing, we typically choose $m$ to be a prime number (we also require that $m$ not be too close to a power of $2$, see [this reference](https://www.geeksforgeeks.org/what-are-hash-functions-and-how-to-choose-a-good-hash-function/) for an explanation).  Our hash function now becomes $h(k) = mod(k, m)$, where $mod$ is [the modulo operation](https://en.wikipedia.org/wiki/Modulo).
 
-**Problem 4**
-Let's examine why we might want to choose our table size to be a prime number.  Suppose we are hashing the first 50 non-negative even numbers (0 through 98).  Let $h_1(k) = mod(k, 13)$ and $h_2(k) = mod(k, 16)$.  Show that despite the $h_1$ using fewer bins, it will result in better utilization of its bins than $h_2$.
+> **Exercise 4**
+> Let's examine why we might want to choose our table size to be a prime number.  Suppose we are hashing the first 50 non-negative even numbers (0 through 98).  Let $h_1(k) = mod(k, 13)$ and $h_2(k) = mod(k, 16)$.  Show that despite the $h_1$ using fewer bins, it will result in better utilization of its bins than $h_2$.
+{: .notice--success}
 
-### Murmur Hash (this is supplementary,  we won't get to it)
+
+### More Hashing Algorithms
+
+We won't over these, but they are here for reference.
+
+#### Murmur Hash (this is supplementary,  we won't get to it)
 
 Admittedly, I haven't looked into [Murmur Hash](https://en.wikipedia.org/wiki/MurmurHash) in any detail, but  I did find some [useful resources](https://www.keiruaprod.fr/blog/2023/04/02/the-murmur-hashing-algorithm.html) to understand this algorithm.  I thought folks might be interested in reading about a hashing algorithm used in practice.  If you want to look into it and want to report back next class, please let me know.
 
-### Cuckoo Hashing (this is supplementary,  we won't get to it)
+#### Cuckoo Hashing (this is supplementary,  we won't get to it)
 
 [Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing) is another interesting seeming technique (again, I haven't looked into it too much, but the basic idea is intriguing).  If you want to look into it and want to report back next class, please let me know.
