@@ -107,7 +107,8 @@ As alluded to above, we would like our hash function, $h$, to satisfy two key pr
 > 2. Diffusion (stronger than injection): if $k_1 \neq k_2$, knowing $h(k_1)$ gives no information about $h(k_2)$. For example, if $k_2$ is exactly the same as $k_1$, except for one bit, then every bit in $h(k_2)$ should change with $1/2$ probability compared to $h(k_1)$. Knowing the bits of $h(k_1)$ does not give any information about the bits of $h(k_2)$.
  - [CS 312 Lecture 21](https://www.cs.cornell.edu/courses/cs312/2008sp/lectures/lec21.html)
 
-**Problem 3** It should be obvious why the first property is important for our hash maps to perform optimally, but why do we care about the second property?
+> It should be obvious why the first property is important for our hash maps to perform optimally, but why do we care about the second property?
+{: .notice--warning}
 
 There are many specific choices of hash functions.  To understand some of the specific choices of hash function, it helps to think a little bit about how the keys we are storing are represented in a computer's memory.
 
