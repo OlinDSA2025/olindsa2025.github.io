@@ -1,8 +1,13 @@
 ---
-title: "Day 18: Lempel-Ziv"
+title: "Day 16: Lempel-Ziv"
 toc_sticky: true
-published: false
+published: true
 ---
+
+## A Note on Prime Numbers and Utilizing Bins
+
+I didn't have the right result to describe why using a prime number can handle the case where the numbers you are hashing are all multiples of a single number $k$ (e.g., for even numbers $k=2).  The result can be formalized using the notion of generators of groups (and that is not something you need to know in this class, but you could learn about it in Sarah's class next semester).  In [this Wikipedia article](https://en.wikipedia.org/wiki/Cyclic_group), see the section on "Integer and modular addition."  The article states that if $k$ is relatively prime to the modulus number $n$, then repeatedly adding $k$ to itself will cover all the slots in our hash table.  (Note: a $n$ is relatively prime to $k$ if the greatest common divisor of $n$ and $k$ is 1).
+
 
 ## Lempel-Ziv Compression
 
@@ -10,9 +15,11 @@ One of the options for the current assignment is to implement Lempel-Ziv Compres
 
 There are a number of different variants of Lempel-Ziv, but the one we're going to talk about in class today is the simplest to implement.
 
+It's also worth noting that Lempel-Ziv is an optimal algorithm for lossless compression in a certain information-theoretic sense.  We likely won't have time to go over the details of this in class, but if you are interested you may consider looking at [this Wikipedia article](https://en.wikipedia.org/wiki/LZ77_and_LZ78#Theoretical_efficiency) that presents the sense in which the algorithm is optimal and links to some external sources that explore this topic in more depth.  The main article is Peter Shor's notes that are also linked below.  If there is time, and people are interested, I'll go over a quick explanation of the claim at the end of class.
+
 ## Encoding
 
-We start with a stream of symbols and a codebook.  I'm going to use this string [from Peter Shor's notes](https://math.mit.edu/~djk/18.310/Lecture-Notes/LZ-worst-case.pdf) on the topic.
+We start with a stream of symbols and a codebook.  I'm going to use this string [from Peter Shor's notes](https://web.archive.org/web/20210528171521/http://www-math.mit.edu/~shor/PAM/lempel_ziv_notes.pdf) on the topic.
 
 > AABABBBABAABABBBABBABB
 
@@ -29,7 +36,10 @@ Let's work through our example on the board.  If you're not in-class today, I'll
 
 What questions arose for you from this demonstration?
 
-**Problem 1** Choose your own string to encode and go through the steps of Lempel-Ziv.  Before you start, take a second to think about what characteristics of the string might make it a more interesting example.
+> **Exercise 1**
+> 
+> Choose your own string to encode and go through the steps of Lempel-Ziv.  Before you start, take a second to think about what characteristics of the string might make it a more interesting example.
+{: .notice--success}
 
 ## Decoding
 
