@@ -4,10 +4,28 @@ toc_sticky: true
 published: true
 ---
 
-## A Note on Prime Numbers and Utilizing Bins
+## Some Additional Notes From Last Time
+
+### Why a prime number-sized hash table could be a good thing
 
 I didn't have the right result to describe why using a prime number can handle the case where the numbers you are hashing are all multiples of a single number $k$ (e.g., for even numbers $k=2).  The result can be formalized using the notion of generators of groups (and that is not something you need to know in this class, but you could learn about it in Sarah's class next semester).  In [this Wikipedia article](https://en.wikipedia.org/wiki/Cyclic_group), see the section on "Integer and modular addition."  The article states that if $k$ is relatively prime to the modulus number $n$, then repeatedly adding $k$ to itself will cover all the slots in our hash table.  (Note: a $n$ is relatively prime to $k$ if the greatest common divisor of $n$ and $k$ is 1).
 
+Let's try a simple example.  Let's set $n=7$ and $k=4$.
+
+$$\begin{align*}
+4 &\equiv 4\text{ (mod 7)} \\
+4 + 4 &\equiv 1\text{ (mod 7)} \\
+4 + 4 + 4 &\equiv 5\text{ (mod 7)} \\
+4 + 4 + 4 + 4 &\equiv 2\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 &\equiv 6\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 + 4 &\equiv 3\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 + 4 + 4 &\equiv 0\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 &\equiv 4\text{ (mod 7)}
+\end{align*}$$
+
+### How do I hash non-integer data?
+
+Kotlin defines a function called ``.hashCode()`` that turns any data into a number that can be used for hashing.
 
 ## Lempel-Ziv Compression
 
