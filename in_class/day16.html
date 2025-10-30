@@ -274,7 +274,7 @@ function HideShowElement(divID) {
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
 	      
                 <ul class="toc__menu">
-  <li><a href="#a-note-on-prime-numbers-and-utilizing-bins">A Note on Prime Numbers and Utilizing Bins</a></li>
+  <li><a href="#some-additional-notes-from-last-time">Some Additional Notes From Last Time</a></li>
   <li><a href="#lempel-ziv-compression">Lempel-Ziv Compression</a></li>
   <li><a href="#encoding">Encoding</a></li>
   <li><a href="#decoding">Decoding</a></li>
@@ -284,9 +284,28 @@ function HideShowElement(divID) {
             </nav>
           </aside>
         
-        <h2 id="a-note-on-prime-numbers-and-utilizing-bins">A Note on Prime Numbers and Utilizing Bins</h2>
+        <h2 id="some-additional-notes-from-last-time">Some Additional Notes From Last Time</h2>
+
+<h3 id="why-a-prime-number-sized-hash-table-could-be-a-good-thing">Why a prime number-sized hash table could be a good thing</h3>
 
 <p>I didn’t have the right result to describe why using a prime number can handle the case where the numbers you are hashing are all multiples of a single number $k$ (e.g., for even numbers $k=2).  The result can be formalized using the notion of generators of groups (and that is not something you need to know in this class, but you could learn about it in Sarah’s class next semester).  In <a href="https://en.wikipedia.org/wiki/Cyclic_group">this Wikipedia article</a>, see the section on “Integer and modular addition.”  The article states that if $k$ is relatively prime to the modulus number $n$, then repeatedly adding $k$ to itself will cover all the slots in our hash table.  (Note: a $n$ is relatively prime to $k$ if the greatest common divisor of $n$ and $k$ is 1).</p>
+
+<p>Let’s try a simple example.  Let’s set $n=7$ and $k=4$.</p>
+
+\[\begin{align*}
+4 &amp;\equiv 4\text{ (mod 7)} \\
+4 + 4 &amp;\equiv 1\text{ (mod 7)} \\
+4 + 4 + 4 &amp;\equiv 5\text{ (mod 7)} \\
+4 + 4 + 4 + 4 &amp;\equiv 2\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 &amp;\equiv 6\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 + 4 &amp;\equiv 3\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 + 4 + 4 &amp;\equiv 0\text{ (mod 7)} \\
+4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 &amp;\equiv 4\text{ (mod 7)}
+\end{align*}\]
+
+<h3 id="how-do-i-hash-non-integer-data">How do I hash non-integer data?</h3>
+
+<p>Kotlin defines a function called <code class="language-plaintext highlighter-rouge">.hashCode()</code> that turns any data into a number that can be used for hashing.</p>
 
 <h2 id="lempel-ziv-compression">Lempel-Ziv Compression</h2>
 
