@@ -199,6 +199,7 @@ Source: CLRS Textbook
 > **Exercise 6**
 > 
 > Given the RB tree below, insert the value 4.  Use the pseudocode above to fix the RB-tree properties.  As you go, keep track of which properties are violated.
+> 
 > ![RB tree insertion example](../images/rbtrees_setup.png)
 Source: CLRS textbook
 > <button onclick="HideShowElement(&quot;HideShow10&quot;)">Show / Hide Solution</button>
