@@ -19,52 +19,52 @@ We'll fill them out together, and I'll update the website after with the finishe
 > Create a table with the $\Theta$ runtime for each data structure (Array, Linked List, Hash Table, Heap) at performing the operations insert, delete a specific element, lookup (exact), and lookup (closest).  Some data structures do not naturally support some operations, so you can either mark those as N/A or use $\Theta(n)$.  The operation Lookup (closest) means to find the closest element to a query within the collection.
 > 
 > **Note:** some of my answers (below) are open to interpretation (e.g., depending on how you implement a particular data structure, some answers may differ).
+> <button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Solution to Exercise 1</button>
+> <div id="HideShow1" style="display:none">
+>  <table>
+>    <thead>
+>      <tr>
+>        <th>Data Structure</th>
+>        <th>Insert</th>
+>        <th>Delete</th>
+>        <th>Lookup (exact)</th>
+>        <th>Lookup (closest)</th>
+>      </tr>
+>    </thead>
+>    <tbody>
+>      <tr>
+>        <td><strong>Array</strong></td>
+>        <td>$\Theta(1)$</td>
+>        <td>$\Theta(n)$</td>
+>        <td>$\Theta(n)$</td>
+>        <td>$\Theta(n)$</td>
+>      </tr>
+>      <tr>
+>        <td><strong>Linked List</strong></td>
+>        <td>$\Theta(1)$</td>
+>        <td>$\Theta(n)$</td>
+>        <td>$\Theta(n)$</td>
+>        <td>$\Theta(n)$</td>
+>      </tr>
+>      <tr>
+>        <td><strong>Heap</strong></td>
+>        <td>$\Theta(\log n)$</td>
+>        <td>$\Theta(\log n)$</td>
+>        <td>N/A (typically not supported)</td>
+>        <td>N/A (typically not supported)</td>
+>      </tr>
+>      <tr>
+>        <td><strong>Hash Table</strong></td>
+>        <td>$\Theta(1)$</td>
+>        <td>$\Theta(1)$</td>
+>        <td>$\Theta(1)$</td>
+>        <td>$\Theta(n)$</td>
+>      </tr>
+>    </tbody>
+>  </table>
+> </div>
 {: .notice--success}
 
-<button onclick="HideShowElement(&quot;HideShow1&quot;)">Show / Hide Solution to Exercise 1</button>
-<div id="HideShow1" style="display:none">
-  <table>
-    <thead>
-      <tr>
-        <th>Data Structure</th>
-        <th>Insert</th>
-        <th>Delete</th>
-        <th>Lookup (exact)</th>
-        <th>Lookup (closest)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Array</strong></td>
-        <td>$\Theta(1)$</td>
-        <td>$\Theta(n)$</td>
-        <td>$\Theta(n)$</td>
-        <td>$\Theta(n)$</td>
-      </tr>
-      <tr>
-        <td><strong>Linked List</strong></td>
-        <td>$\Theta(1)$</td>
-        <td>$\Theta(n)$</td>
-        <td>$\Theta(n)$</td>
-        <td>$\Theta(n)$</td>
-      </tr>
-      <tr>
-        <td><strong>Heap</strong></td>
-        <td>$\Theta(\log n)$</td>
-        <td>$\Theta(\log n)$</td>
-        <td>N/A (typically not supported)</td>
-        <td>N/A (typically not supported)</td>
-      </tr>
-      <tr>
-        <td><strong>Hash Table</strong></td>
-        <td>$\Theta(1)$</td>
-        <td>$\Theta(1)$</td>
-        <td>$\Theta(1)$</td>
-        <td>$\Theta(n)$</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
 ## Linear and Binary Search
 
