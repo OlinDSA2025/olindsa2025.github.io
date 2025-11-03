@@ -191,15 +191,24 @@ Here are the cases when inserting the node $z$:
 * Case 2: $z$ has a black uncle (triangle)
 * Case 3: $z$ has a black uncle (line)
 
+Here is the pseudocode for fixing up the red-black tree following an insertion.
+
+![RBTree fixup from the CLRS textbook](../images/rbtreefixup.png)
+Source: CLRS Textbook
+
 > **Exercise 6**
 > 
-> See below for the result of inserting the node 4 into an RB tree.  Note which transformations to the tree were performed at each step.  After each step, which RB tree properties are still violated?
-> 
-> ![Three possible cases for red-black tree remediation](../images/clrs_rbtrees.png)
+> Given the RB tree below, insert the value 4.  Use the pseudocode above to fix the RB-tree properties.  As you go, keep track of which properties are violated.
+> ![RB tree insertion example](../images/rbtrees_setup.png)
 Source: CLRS textbook
+> <button onclick="HideShowElement(&quot;HideShow10&quot;)">Show / Hide Solution</button>
+> <div id="HideShow10" style="display:none">
+> <img alt="Three possible cases for red-black tree remediation" src="../images/clrs_rbtrees.png"/>
+Source: CLRS textbook
+> </div>
 {: .notice--success}
 
 > **Exercise 7**
 >
-> At each step, argue that the modification to the tree moves the potential violation closer to root while removing the violation farther from the root.  **Consider the application of case 2 and case 3 to be a single step for the purposes of this question**.
+> Using exercise 6 as an example, argue that the modifications to the tree move the potential violation closer to root while removing the violation farther from the root.  **Consider the application of case 2 and case 3 to be a single step for the purposes of this question**.
 {: .notice--success}
