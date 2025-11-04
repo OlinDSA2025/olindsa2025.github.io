@@ -204,6 +204,7 @@ Source: CLRS Textbook
 Source: CLRS textbook
 > <button onclick="HideShowElement(&quot;HideShow10&quot;)">Show / Hide Solution</button>
 > <div id="HideShow10" style="display:none">
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/9krlKOSbwv4?si=qbKfEpNyVw41n2ZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 > <img alt="Three possible cases for red-black tree remediation" src="../images/clrs_rbtrees.png"/>
 Source: CLRS textbook
 > </div>
