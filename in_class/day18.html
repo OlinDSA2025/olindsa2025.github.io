@@ -345,7 +345,7 @@ $x_1 = (1, 5), x_2 = (-1, 2), x_3 = (4, 4), x_4 = (2, 0), x_5 = (-3, -3), x_6 = 
   const trace = {
     x: xs,
     y: ys,
-   text: labels.map(l => l.replace('x', 'x\u2081')), // optional: subscript style
+   text: labels, // optional: subscript style
    mode: 'markers+text',
    textposition: 'top center',
    marker: { size: 10, color: 'blue' },
