@@ -62,7 +62,7 @@ Given the fact that we were able to dramatically speed up our search for the clo
   const trace = {
     x: xs,
     y: ys,
-   text: labels.map(l => l.replace('x', 'x\u2081')), // optional: subscript style
+   text: labels, // optional: subscript style
    mode: 'markers+text',
    textposition: 'top center',
    marker: { size: 10, color: 'blue' },
