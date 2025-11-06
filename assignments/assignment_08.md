@@ -1,35 +1,63 @@
 ---
-title: Assignment 8
+title: "Assignment 8: K-D Trees and Nearest Neighbor Search"
 toc_sticky: true
-published: false
+published: true
+due_on_class: 20
 ---
 
-## Binary Search Trees
+## K-D Trees and Nearest Neighbor Search
 
-For this assignment you have two options.
+For this assignment you will be implementing a [K-D tree](https://en.wikipedia.org/wiki/K-d_tree) and comparing its performance to a brute force method for nearest neighbor searching.
 
-### Option 1: Implement Part of Red-Black Trees
+The assignment will have three parts.
 
-Create an implementation of Red-Black trees that supports at least the following operations:
-* Insert
-* Lookup (exact)
-* Check invariants (makes sure that the Red-Black tree properties are maintained)
+### Part 1: K-D Tree and Brute Force Nearest Neighbor Implementation
 
-**Note: feel free to make your implementation work for just one type of data (I used Ints).  You could make it generic, but it's not necessary.**
+Create an implementation of a K-D tree.  Your tree should be able to work with points of any dimension ($k$).  You can assume a Euclidean distance as the measure of similarity.
 
-If you want to go all out with this, you could implement remove also.
+**You should support the following capabilities.**
+* Starting from an empty tree and given a list of k-dimensional points, build a K-D tree.
+* Given a single, k-dimensional query point, return the nearest neighbor in the K-D tree (you must use the structure of your tree and not default to brute force search).
 
-Advice / references:
-* I was able to port [Michael Sambol's implementation from Python to Kotlin](https://github.com/msambol/dsa/blob/master/trees/red_black_tree.py)
-* There is a really, [really awesome implementation from Jerry Chalupski](https://gist.github.com/chalup/bf39da54a14005c569ef514c3ce5ceb5), that uses some really cool functional programming concepts.  I'm not sure how to build n this code without just copying it, but I'll put it here anyway.
-* I have [excerpted the chapter from CLRS on red-black trees](rb-trees-clrs.pdf).
+**You DO NOT need to support any of the following capabilities**
+* Incrementally add new points to your K-D tree
+* Delete points from your K-D tree
+* Look for nearest neighbors of multiple points simultaneously
 
-### Option 2: Solve Problems with Binary Search Trees
+**For extra credit you can implement the following**
+* 1 point of extra credit: implement the [Quickselect method](https://en.wikipedia.org/wiki/Quickselect) ($\Theta(n)$ runtime versus the typical $\Theta(n \log n)$) for median finding.
 
-I've chosen some tech inteview-style problems from Leetcode (or my own) that you could do.  You could implement these in Kotlin or write down the process by which you would solve them (it's up to you).
+**For your brute force search, you must support the following capability**
+* Given a list of k-dimensional points and a query, return the closest point to the query.  The brute force approach involves searching through every point and calculating its distance to the query.
 
-* [Convert Sorted Array to a Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/)
-* Given a binary search tree, write pseudocode to find the closest element to a query.  You can assume you have a distance function to compute the distance between the query and any element in the BST.
-* [Delete node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/description/)
-* [Range sum of BST](https://leetcode.com/problems/range-sum-of-bst/description/)
-* Solve a problem of your choice from [this list of BST problems](https://leetcode.com/tag/binary-search-tree/).
+### Part 2: Benchmarking Infrastructure
+
+Create a function called ``runExperiment`` with the following capabilities.
+
+```kotlin
+/**
+ * Benchmark [KDTree] against brute force nearest neighbor.
+ * 1000 test points will be generated to test against the training
+ * points.
+ *
+ * @param k: the dimensionality of the dataset to create
+ * @param numPoints: the number of points to use to match against
+ *   (1000 test points will be used)
+ * @return the triple of [Duration] objects where the first specifies
+ * the time to build the tree, the second specifies the time it takes
+ * to query the tree with 1,000 points, and the third is the time it
+ * takes to find the nearest neighbor to these points using the brute
+ * force approach.
+ */
+fun runExperiment(k: Int, numPoints: Int): Triple<Duration, Duration, Duration> {
+    // your implementation here
+}
+```
+
+You can create the data points using a random number generator.
+
+In your ``fun main()``, use nested loops to test various values of ``k`` and ``numPoints``.  Make sure you allow ``numPoints`` to range over different orders of magnitude (e.g., 10, 100, 1000, 10000) rather than over a linear range (e.g., 10, 20, 30, 40).
+
+### Part 3: Running Some Experiments
+
+In a markdown file or other document format, use your code from parts 1 and 2, run some experiments to compare the performance of brute force search to your k-d tree.  Write up your data in a clear manner (either a table or a plot).  In a brief report, summarize the situations where k-d trees are superior to a brute force search.
