@@ -1,12 +1,12 @@
 ---
-title: "Day 15: Some Additional Kotlin Fun and Project Work Time"
+title: "Day 19: Some Additional Kotlin Fun and Time to Work on K-D Trees"
 toc_sticky: true
-published: false
+published: true
 ---
 
 ## Kotlin's Multiplatform Compose
 
-I put together [an example app](https://github.com/OlinDSA2024/ComposeDemo) using [Kotlin's Multiplatform Compose](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) architecture.
+I put together [an example app](https://github.com/OlinDSA2025/MultiPlatformDemo) using [Kotlin's Multiplatform Compose](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) architecture.
 
 For certain platforms, this is a nice way to create a GUI and package your app for distribution.  I'll do a quick demo of the app and show some of the project structure.
 
