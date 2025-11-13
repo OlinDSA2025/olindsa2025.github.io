@@ -1,18 +1,26 @@
 ---
-title: "Day 21: Making Sense of DSA and Looking to the Final Project"
+title: "Day 20: Making Sense of DSA and Looking to the Final Project"
 toc_sticky: true
-published: false
+published: true
 ---
 
 ## Concept Mapping DSA (30 minutes)
 
-**Problem 1** With at least two other people (assuming you are in class), create [a concept map](https://en.wikipedia.org/wiki/Concept_map) for this semester thus far in DSA.
+> **Exercise 1**
+> 
+> With at least two other people (assuming you are in class), create [a concept map](https://en.wikipedia.org/wiki/Concept_map) for this semester thus far in DSA.
+> 
+> We'll do a quick share out.
+{: .notice--warning}
 
-We'll do a quick share out.
 
 ## Charting Your Learning (20 minutes)
 
-**Problem 2** Look back to your learning goals you had at the beginning of the semester (I can share the entrance survey data with you if that's helpful).  How have you been progressing with respect to these learning goals?  Try to jot down a few notes with respect to each of your learning goals.  Take about 5-7 minutes to think individually, and then share with those around you.
+> **Exercise 2**
+>
+> Look back to your learning goals you had at the beginning of the semester (I emailed each person what they wrote on the survey).  How have you been progressing with respect to these learning goals?  Try to jot down a few notes with respect to each of your learning goals.  Look back on your effective learning strategies (assignment 1).  How have these been going?  Take about 5-7 minutes to think individually, and then share with those around you.
+{: .notice--warning}
+
 
 ## Charting the Course for the Rest of the Semester (50 minutes)
 
