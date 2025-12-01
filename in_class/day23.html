@@ -78,7 +78,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 </script>
 
-<!-- begin _includes/seo.html --><title>Data Structures and Algorithms Spring 2025 - Data Structures Fall 2025 @ Olin College</title>
+<!-- begin _includes/seo.html --><title>Day 23: Final Project Workday - Data Structures Fall 2025 @ Olin College</title>
 <meta name="description" content="Website">
 
 
@@ -86,8 +86,8 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Data Structures Fall 2025 @ Olin College">
-<meta property="og:title" content="Data Structures and Algorithms Spring 2025">
-<meta property="og:url" content="/">
+<meta property="og:title" content="Day 23: Final Project Workday">
+<meta property="og:url" content="/in_class/day23.html">
 
 
   <meta property="og:description" content="Website">
@@ -103,7 +103,7 @@ customElements.define("confirm-link", ConfirmLink, { extends: "a" });
 
 
 
-<link rel="canonical" href="/">
+<link rel="canonical" href="/in_class/day23.html">
 
 
 
@@ -204,7 +204,7 @@ function HideShowElement(divID) {
 
   </head>
 
-  <body class="layout--splash">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -246,224 +246,101 @@ function HideShowElement(divID) {
 
     <div class="initial-content">
       
-  
-
-
-
-
-
-
-
-
-
-
-
-<div class="page__hero--overlay"
-  style="background-color: #000; "
->
-  
-    <div class="wrapper">
-      <h1 id="page-title" class="page__title" itemprop="headline">
-        
-          Data Structures and Algorithms Spring 2025
-
-        
-      </h1>
-      
-      
-      
-      
-    </div>
-  
-  
-</div>
 
 
 
 <div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Data Structures and Algorithms Spring 2025">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Day 23: Final Project Workday">
     
     
     
 
-    <section class="page__content" itemprop="text">
-      <div class="header-search">
-  <form class="header-search-form" action="/search" method="get">
-    <input type="text" id="search-box" name="query" />
-    <input type="submit" value="search" />
-  </form>
-</div>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Day 23: Final Project Workday
+</h1>
+          
+        </header>
+      
 
-<h2 id="how-tos">How-tos</h2>
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+	      
+                <ul class="toc__menu">
+  <li><a href="#announcements">Announcements</a></li>
+  <li><a href="#oral-quiz-2-topic-list-and-some-time-for-review">Oral Quiz 2 Topic List (and some time for review)</a></li>
+  <li><a href="#worktime">Worktime</a></li>
+</ul>
+	      	
+            </nav>
+          </aside>
+        
+        <h2 id="announcements">Announcements</h2>
+
+<h3 id="oral-quiz-2">Oral Quiz 2</h3>
+
+<p>Please remember to sign up for a slot for your oral quiz (link is in the <a href="https://olin.instructure.com/courses/940/assignments/17172">Canvas assignment page</a>).  This assignment may not be done late unless you are seriously ill or have a specific accommodation.</p>
+
+<h3 id="reminder-final-project-deliverables">Reminder: final project deliverables</h3>
+
+<p>If you haven’t already, please turn in your final project check-in 1 assignment.  If we spoke in class, but you didn’t turn in the written part, please indicate that as a comment on the Canvas assignment (I will waive the late penalty if this was the case).</p>
+
+<h2 id="oral-quiz-2-topic-list-and-some-time-for-review">Oral Quiz 2 Topic List (and some time for review)</h2>
+
+<p>As a reminder, this is the scope of the quiz.</p>
+
+<blockquote>
+  <p>This quiz covers the material in the class post assignment 4 (Divide and Conquer, Associative Arrays and Hashing, and KD-Trees / Binary Search Trees).  If something was marked as optional, it will not be part of the quiz.</p>
+</blockquote>
+
+<p>To help you in your studying, here are a list of things we covered in this part of the class.</p>
 
 <ul>
-  <li><a href="how_to/setting_up_kotlin">Get set with Kotlin</a></li>
-  <li><a href="how_to/useful_resources">Useful Resources</a> (please let me know what I should add to this list).</li>
-  <li><a href="how_to/git_setup">Git Setup</a></li>
+  <li>We continued to explore the idea of divide and conquer algorithms.  We saw some problems on <a href="day10">day 10</a> that used this idea.</li>
+  <li>You implemented Strassen’s algorithm and compared its performance to the typical, $\Theta(n^3)$ approach.  We also can understand its runtime by using the master theorem.</li>
+  <li>We learned about dynamic programming as a systematic way to solve problems (see <a href="day10">day 10</a>).  We did some practice problems involving changemaking as well as stairclimbing.  On <a href="day11">day 11</a> we did some more practice problems.  There are also some problems on <a href="day12">day 12</a>.</li>
+  <li>You learned about the problem of DNA sequence alignment and implemented either Needleman-Wunsch or Smith-Waterman.</li>
+  <li>We learned about the notion of <a href="day15">an associative array</a> and saw two strawman methods of implementing one (association lists and array maps).  We learned about the concept of a hashing function and showed how it could be used to create an associative array (either with separate chaining or direct addressing).</li>
+  <li>We learned about the computational complexity of various operations on a hash map.</li>
+  <li><a href="day16">We learned about the Lempel-Ziv algorithm</a> and how it can be used as a lossless compression algorithm.</li>
+  <li>You <a href="../assignments/assignment_07">implemented an associative array</a> using a hash table.  You also either implemented Markov text analysis or Lempel-Ziv encoding.</li>
+  <li><a href="day17">You learned about the concept of a binary search tree</a>, the notion of balance in a binary search tree, and how balance relates to runtime of looking for an element in the tree.</li>
+  <li><a href="day18">You learned about red-black trees</a>, tree rotations, and how the properties of a red-black tree can be maintained by performing recoloring and rotation.</li>
+  <li>You learned about the nearest neighbor search and k-d trees.  <a href="../assignments/assignment_08">You implemented your own k-d tree</a> and explored how the runtime of k-d trees compared to brute-force search as the number of points and the dimensionality of the data change.</li>
 </ul>
 
-<h2 id="in-class-activities">In-class Activities</h2>
+<h2 id="worktime">Worktime</h2>
 
-<p><a href="https://github.com/OlinDSA2025/SampleSolutions">Sample solutions for in-class assignments</a> will be made available on GitHub.</p>
+<p>Let’s use today to keep momentum on final projects.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Day #</th>
-      <th>Activity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="/in_class/day01.html">Course Intro and Welcome to DSA</a></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="/in_class/day02.html">Greedy Algorithms Teaser, Order of Growth, and Some Kotlin</a></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="/in_class/day03.html">Arrays, Linked Lists, and Intro to Abstract Datatypes</a></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="/in_class/day04.html">Stack Implementation Walkthrough and Challenge Problems</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/in_class/day05.html">Choose Your Own Adventure and Intro to Graphs</a></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><a href="/in_class/day06.html">Graph data structures, depth-first and breadth-first search</a></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><a href="/in_class/day07.html">DAGs, Dijkstra’s Algorithm, and Heaps</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/in_class/day08.html">A-Star Search and Intro to Sorting</a></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td><a href="/in_class/day09.html">More Sorting and More Divide and Conquer</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/in_class/day10.html">Divide and Conquer and Intro to Dynamic Programming</a></td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td><a href="/in_class/day11.html">More Dynamic Programming</a></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><a href="/in_class/day12.html">Dynamic Programming Wrapup and Starting Our Deep Dive</a></td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td><a href="/in_class/day13.html">Reviewing Assignment 5 and Starting Assignment 6</a></td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td><a href="/in_class/day14.html">Project Work Time</a></td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td><a href="/in_class/day15.html">Associative Arrays and Hashing</a></td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td><a href="/in_class/day16.html">Lempel-Ziv</a></td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td><a href="/in_class/day17.html">Binary Search Trees</a></td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td><a href="/in_class/day18.html">Nearest Neighbor Search and K-d Trees</a></td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td><a href="/in_class/day19.html">Some Additional Kotlin Fun and Time to Work on K-D Trees</a></td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td><a href="/in_class/day20.html">Making Sense of DSA and Looking to the Final Project</a></td>
-    </tr>
-  </tbody>
-</table>
+        
+      </section>
 
-<table>
-  <tbody>
-    <tr>
-      <td>23</td>
-      <td><a href="/in_class/day23.html">Final Project Workday</a></td>
-    </tr>
-  </tbody>
-</table>
+      <footer class="page__meta">
+        
+        
 
-<h2 id="assignments">Assignments</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Due at beginning of class #</th>
-      <th>Assignment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>3</td>
-      <td><a href="/assignments/assignment_01.html">Hello Kotlin and Getting to Know You</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="/assignments/assignment_02.html">Linked Data Structures</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><a href="/assignments/assignment_03.html">Graph Searching and Shortest Paths</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><a href="/assignments/assignment_04.html">Sorting Algorithms</a></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><a href="/assignments/assignment_05.html">Divide and Conquer and Dynamic Programming</a></td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td><a href="/assignments/assignment_06.html">Individual Deep Dive</a></td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td><a href="/assignments/assignment_07.html">Associative Arrays and Applications</a></td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td><a href="/assignments/assignment_08.html">K-D Trees and Nearest Neighbor Search</a></td>
-    </tr>
-    <tr>
-      <td>final event (12/16 at 1pm)</td>
-      <td><a href="/assignments/assignment_09.html">Final Project</a></td>
-    </tr>
-  </tbody>
-</table>
+        
+      </footer>
 
-<h2 id="oral-quiz-practice-problems">Oral Quiz Practice Problems</h2>
+      
 
-<ul>
-  <li><a href="assignments/oralquizpractice_01">Quiz 1 Practice</a> (<a href="assignments/oralquiz_01">Quiz 1</a>)</li>
-</ul>
+      
+    </div>
 
-    </section>
+    
   </article>
+
+  
+  
 </div>
 
     </div>
